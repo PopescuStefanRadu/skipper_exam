@@ -9,28 +9,31 @@ Work **e2e-first**. Update the feature document and its e2e scenario before impl
 
 ## Project status
 
-Early-stage Go project (module `github.com/PopescuStefanRadu/skipper_exam`, Go 1.23) for an exam/quiz backend. Most code is still stubs:
-- `cli/server/main.go` has an empty `main`.
-- `pkg/skipperexam/game/service.go` has `NewGame` with no body, so `go build ./...` currently fails until it returns a value.
-- There are no tests, linter config, or migrations yet.
+Milestone 0 (foundations) is in place: the backend, the web app shell, the full stack on free ports, parallel e2e tests, the worktree tooling and CI. No product features exist yet.
 
 ## Commands
 
 Use the `Makefile`. Run `make` on its own to list the targets.
 
 ```sh
-make build                 # build everything
-make run                   # run the server entrypoint
-make test                  # run all tests
-make test RUN=TestName PKG=./pkg/skipperexam/game   # run a single test
-make check                 # fmt + vet + test
-make db-up / make db-down  # start/stop Postgres 17.2 (user/password: skipper_exam)
+make setup                 # install web/e2e dependencies and the Playwright browser (once per worktree)
+make up / make down        # start/stop this worktree's stack; `up` writes the actual ports to .stack.env
+make e2e                   # start the stack if needed, then run the e2e suite in parallel
+make e2e ARGS="-g 'deep link'"                        # run matching e2e tests only
+make test                  # Go tests
+make test RUN=TestName PKG=./pkg/skipperexam/server   # a single Go test
+make check                 # fmt + vet + Go tests + web type check
+make test-all              # check + e2e: what integration and CI run
+make dev                   # web app with hot reload, using this worktree's backend
+make task-new NAME=x       # new worktree .worktrees/x on branch task/x, from main
+make integrate             # inside a task worktree: rebase on main, test-all, fast-forward main (PUSH=1 pushes)
+make task-done NAME=x      # stop the stack, remove the worktree and the merged branch
 ```
-
-`docker-compose.yaml` doesn't publish a host port. To connect from the host, add `ports: ["5432:5432"]` or run the server in a container on the same network. No `POSTGRES_DB` is set, so the default database name is `skipper_exam`, the same as the user.
 
 ## Architecture
 
-- `cli/<binary>/main.go` holds the executable entrypoints. `pkg/skipperexam/<domain>` holds the domain packages.
-- `pkg/skipperexam/game` models a quiz session. A `Game` has an ID, an optional `UserId` (a `*string`, so anonymous games are allowed) and a list of `Question`s. Each `Question` has text, an optional image (`[]byte`), multiple-choice `Answer`s and `CorrectAnswer`, which holds the `Answer.Identifier` of the right choice.
-- `game.Service` is the persistence and business layer and depends on a `*sql.DB`. The planned database is Postgres via `github.com/jackc/pgx/v5`, which is in `go.mod` but not imported yet (likely through the `pgx/v5/stdlib` `database/sql` driver). Run `go mod tidy` once it's imported so it moves out of the `// indirect` block.
+- **Backend** (Go): `cli/server` is the entrypoint. It reads `DATABASE_URL`, `LISTEN_ADDR` (default `:8080`) and optionally `WEB_DIR` from the environment. `pkg/skipperexam/server` holds the HTTP handlers: `/api/*` is the JSON API, and every other path serves the built web app, falling back to `index.html` for client-side routes. Postgres is accessed through `pgx/v5` (`pgxpool`).
+- **Web app** (`web/`, React + TypeScript + Vite, pnpm): it calls the backend on the same origin under `/api`. All interface text is in `web/src/strings.ts`.
+- **E2E tests** (`e2e/`, Playwright): they read the stack's `APP_URL` from `.stack.env` and run fully parallel. Each test must create its own data (see "Parallel tests within a branch" in `docs/DEVELOPMENT.md`).
+- **Stack**: `compose.yaml` and `Dockerfile` build one app image (Go binary + built web app on distroless) and run it next to Postgres 17.2. `scripts/stack.sh` names the Compose project after the worktree and lets Docker assign host ports, so stacks in different worktrees run side by side. `scripts/lock.sh` provides named locks shared by all worktrees; integration runs under the `integrate` lock.
+- CI (`.github/workflows/ci.yml`) runs `make setup` and `make test-all`.

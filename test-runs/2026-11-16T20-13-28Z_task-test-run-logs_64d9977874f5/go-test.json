@@ -1,0 +1,71 @@
+{"Time":"2026-11-16T22:13:29.44784868+02:00","Action":"start","Package":"github.com/PopescuStefanRadu/skipper_exam/cli/server"}
+{"Time":"2026-11-16T22:13:29.447897945+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/cli/server","Output":"?   \tgithub.com/PopescuStefanRadu/skipper_exam/cli/server\t[no test files]\n"}
+{"Time":"2026-11-16T22:13:29.447911995+02:00","Action":"skip","Package":"github.com/PopescuStefanRadu/skipper_exam/cli/server","Elapsed":0}
+{"Time":"2026-11-16T22:13:29.450840713+02:00","Action":"start","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server"}
+{"Time":"2026-11-16T22:13:29.450858971+02:00","Action":"run","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth"}
+{"Time":"2026-11-16T22:13:29.450863833+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth","Output":"=== RUN   TestHealth\n"}
+{"Time":"2026-11-16T22:13:29.450869777+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth","Output":"=== PAUSE TestHealth\n"}
+{"Time":"2026-11-16T22:13:29.450873384+02:00","Action":"pause","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth"}
+{"Time":"2026-11-16T22:13:29.450877375+02:00","Action":"run","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA"}
+{"Time":"2026-11-16T22:13:29.45088072+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA","Output":"=== RUN   TestSPA\n"}
+{"Time":"2026-11-16T22:13:29.450885818+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA","Output":"=== PAUSE TestSPA\n"}
+{"Time":"2026-11-16T22:13:29.450889795+02:00","Action":"pause","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA"}
+{"Time":"2026-11-16T22:13:29.450893171+02:00","Action":"cont","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth"}
+{"Time":"2026-11-16T22:13:29.450896266+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth","Output":"=== CONT  TestHealth\n"}
+{"Time":"2026-11-16T22:13:29.450899413+02:00","Action":"run","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_up"}
+{"Time":"2026-11-16T22:13:29.450902796+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_up","Output":"=== RUN   TestHealth/database_up\n"}
+{"Time":"2026-11-16T22:13:29.450907689+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_up","Output":"=== PAUSE TestHealth/database_up\n"}
+{"Time":"2026-11-16T22:13:29.450911135+02:00","Action":"pause","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_up"}
+{"Time":"2026-11-16T22:13:29.450915021+02:00","Action":"run","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_down"}
+{"Time":"2026-11-16T22:13:29.450918266+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_down","Output":"=== RUN   TestHealth/database_down\n"}
+{"Time":"2026-11-16T22:13:29.450922022+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_down","Output":"=== PAUSE TestHealth/database_down\n"}
+{"Time":"2026-11-16T22:13:29.450925497+02:00","Action":"pause","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_down"}
+{"Time":"2026-11-16T22:13:29.450928808+02:00","Action":"cont","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_up"}
+{"Time":"2026-11-16T22:13:29.450938408+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_up","Output":"=== CONT  TestHealth/database_up\n"}
+{"Time":"2026-11-16T22:13:29.450943505+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_up","Output":"--- PASS: TestHealth/database_up (0.00s)\n"}
+{"Time":"2026-11-16T22:13:29.450947613+02:00","Action":"pass","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_up","Elapsed":0}
+{"Time":"2026-11-16T22:13:29.450951506+02:00","Action":"cont","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_down"}
+{"Time":"2026-11-16T22:13:29.450955663+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_down","Output":"=== CONT  TestHealth/database_down\n"}
+{"Time":"2026-11-16T22:13:29.450959791+02:00","Action":"cont","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA"}
+{"Time":"2026-11-16T22:13:29.45096388+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA","Output":"=== CONT  TestSPA\n"}
+{"Time":"2026-11-16T22:13:29.450968071+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_down","Output":"--- PASS: TestHealth/database_down (0.00s)\n"}
+{"Time":"2026-11-16T22:13:29.45097174+02:00","Action":"pass","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth/database_down","Elapsed":0}
+{"Time":"2026-11-16T22:13:29.450975386+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth","Output":"--- PASS: TestHealth (0.00s)\n"}
+{"Time":"2026-11-16T22:13:29.450978648+02:00","Action":"pass","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestHealth","Elapsed":0}
+{"Time":"2026-11-16T22:13:29.450981605+02:00","Action":"run","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//"}
+{"Time":"2026-11-16T22:13:29.450984635+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//","Output":"=== RUN   TestSPA//\n"}
+{"Time":"2026-11-16T22:13:29.450988114+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//","Output":"=== PAUSE TestSPA//\n"}
+{"Time":"2026-11-16T22:13:29.450992357+02:00","Action":"pause","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//"}
+{"Time":"2026-11-16T22:13:29.450996584+02:00","Action":"run","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//assets/app.js"}
+{"Time":"2026-11-16T22:13:29.450999439+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//assets/app.js","Output":"=== RUN   TestSPA//assets/app.js\n"}
+{"Time":"2026-11-16T22:13:29.451008179+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//assets/app.js","Output":"=== PAUSE TestSPA//assets/app.js\n"}
+{"Time":"2026-11-16T22:13:29.451011332+02:00","Action":"pause","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//assets/app.js"}
+{"Time":"2026-11-16T22:13:29.451014587+02:00","Action":"run","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//exam/123"}
+{"Time":"2026-11-16T22:13:29.451017746+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//exam/123","Output":"=== RUN   TestSPA//exam/123\n"}
+{"Time":"2026-11-16T22:13:29.451022423+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//exam/123","Output":"=== PAUSE TestSPA//exam/123\n"}
+{"Time":"2026-11-16T22:13:29.451027175+02:00","Action":"pause","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//exam/123"}
+{"Time":"2026-11-16T22:13:29.451031729+02:00","Action":"run","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//api/unknown"}
+{"Time":"2026-11-16T22:13:29.451035879+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//api/unknown","Output":"=== RUN   TestSPA//api/unknown\n"}
+{"Time":"2026-11-16T22:13:29.451040518+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//api/unknown","Output":"=== PAUSE TestSPA//api/unknown\n"}
+{"Time":"2026-11-16T22:13:29.451044572+02:00","Action":"pause","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//api/unknown"}
+{"Time":"2026-11-16T22:13:29.451047966+02:00","Action":"cont","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//"}
+{"Time":"2026-11-16T22:13:29.451051129+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//","Output":"=== CONT  TestSPA//\n"}
+{"Time":"2026-11-16T22:13:29.451054269+02:00","Action":"cont","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//exam/123"}
+{"Time":"2026-11-16T22:13:29.451057381+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//exam/123","Output":"=== CONT  TestSPA//exam/123\n"}
+{"Time":"2026-11-16T22:13:29.451061722+02:00","Action":"cont","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//api/unknown"}
+{"Time":"2026-11-16T22:13:29.451065797+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//api/unknown","Output":"=== CONT  TestSPA//api/unknown\n"}
+{"Time":"2026-11-16T22:13:29.451070487+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//api/unknown","Output":"--- PASS: TestSPA//api/unknown (0.00s)\n"}
+{"Time":"2026-11-16T22:13:29.451074123+02:00","Action":"pass","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//api/unknown","Elapsed":0}
+{"Time":"2026-11-16T22:13:29.451078273+02:00","Action":"cont","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//assets/app.js"}
+{"Time":"2026-11-16T22:13:29.451081352+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//assets/app.js","Output":"=== CONT  TestSPA//assets/app.js\n"}
+{"Time":"2026-11-16T22:13:29.451085277+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//","Output":"--- PASS: TestSPA// (0.00s)\n"}
+{"Time":"2026-11-16T22:13:29.4510891+02:00","Action":"pass","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//","Elapsed":0}
+{"Time":"2026-11-16T22:13:29.451099108+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//assets/app.js","Output":"--- PASS: TestSPA//assets/app.js (0.00s)\n"}
+{"Time":"2026-11-16T22:13:29.451104088+02:00","Action":"pass","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//assets/app.js","Elapsed":0}
+{"Time":"2026-11-16T22:13:29.451107057+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//exam/123","Output":"--- PASS: TestSPA//exam/123 (0.00s)\n"}
+{"Time":"2026-11-16T22:13:29.451110815+02:00","Action":"pass","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA//exam/123","Elapsed":0}
+{"Time":"2026-11-16T22:13:29.451115492+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA","Output":"--- PASS: TestSPA (0.00s)\n"}
+{"Time":"2026-11-16T22:13:29.4511199+02:00","Action":"pass","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Test":"TestSPA","Elapsed":0}
+{"Time":"2026-11-16T22:13:29.451123603+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Output":"PASS\n"}
+{"Time":"2026-11-16T22:13:29.451128158+02:00","Action":"output","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Output":"ok  \tgithub.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server\t(cached)\n"}
+{"Time":"2026-11-16T22:13:29.451132706+02:00","Action":"pass","Package":"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server","Elapsed":0}

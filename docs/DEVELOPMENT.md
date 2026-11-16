@@ -30,11 +30,12 @@ Several tasks can be developed at the same time, by people or by parallel agents
 1. **Start:** create a worktree and a branch from the latest `main` on GitHub, one per task.
 2. **Work:** use the normal e2e-first loop inside the worktree, against that worktree's own environment (see below).
 3. **Integrate through a pull request:**
-   1. Rebase onto the latest `main` and run **all** tests locally, including e2e.
-   2. Push the branch and open (or update) its pull request.
-   3. Wait for CI to pass on that exact commit.
-   4. Merge, but only if `main` hasn't moved and the pull request still points at the tested commit.
-   5. If `main` moved at any point, start again from step 1: rebase, test, fix, push.
+   1. Squash all of the branch's commits, including its test records, into one commit. Its message lists every original commit (sha and subject), so test records named after those commits can still be traced.
+   2. Rebase onto the latest `main` and run **all** tests locally, including e2e. The record of this run is committed separately, in a commit that may only add test records.
+   3. Push the branch and open (or update) its pull request.
+   4. Wait for CI to pass on that exact commit.
+   5. Merge, but only if `main` hasn't moved and the pull request still points at the tested commit.
+   6. If `main` moved at any point, start again from step 1: squash, rebase, test, fix, push.
 4. **Clean up:** after the merge, stop the worktree's environment, remove its data, then remove the worktree and the branch.
 
 Integration runs under a lock shared by all worktrees on the machine, so local branches don't race each other.
@@ -67,6 +68,16 @@ The suite is built to run with many workers at once:
 - **Isolated helpers:** each test reads only its own messages from the fake inbox (filtered by its unique email address) and uses its own fake Google identity.
 - **Lower-level tests** run in parallel too. Database tests each get their own fresh database, cloned quickly from a prepared template.
 - A test that can't follow these rules is fixed, not serialised. Slow or flaky tests are treated as bugs.
+
+## Test run records
+
+Every test run is recorded, to keep track of test performance and behaviour over time.
+
+- **Every run is recorded:** each run writes its logs, machine-readable results and timings to `test-runs/<UTC date>_<branch>_<commit sha>/`. These records are committed to the repository. CI uploads its records as a build artifact instead.
+- **Tests only run on committed code:** a run refuses to start if there are uncommitted changes, so every record belongs to a real commit. Work-in-progress commits are fine, because the branch is squashed before it's merged.
+- **Records stay traceable after squashing:** the squashed commit's message lists the original commits, so a record still points to the change it came from.
+
+See `test-runs/README.md` for what each record contains.
 
 ## Keeping docs current
 

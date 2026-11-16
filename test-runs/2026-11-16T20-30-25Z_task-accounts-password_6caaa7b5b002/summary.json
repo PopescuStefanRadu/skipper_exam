@@ -1,0 +1,29 @@
+{
+  "started": "2026-11-16T20-30-25Z",
+  "branch": "task/accounts-password",
+  "commit": "6caaa7b5b002bdfc0b6b5a65aa7eb130673d0349",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1182
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 107
+    },
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 7096
+    }
+  ],
+  "result": "passed"
+}

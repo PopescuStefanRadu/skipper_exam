@@ -1,0 +1,29 @@
+{
+  "started": "2026-11-16T21-17-50Z",
+  "branch": "task/browser-platforms",
+  "commit": "d08c642c37266bba99129b90b6c1ee33807ca131",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1639
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 964
+    },
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 17257
+    }
+  ],
+  "result": "passed"
+}

@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-16T22-09-05Z",
+  "branch": "task/bibliography",
+  "commit": "4e902ceb59b698fde2031eccd1b7cfff695392d5",
+  "ci": false,
+  "suites_requested": [
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 15051
+    }
+  ],
+  "result": "passed"
+}

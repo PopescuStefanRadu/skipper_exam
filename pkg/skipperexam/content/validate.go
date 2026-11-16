@@ -33,6 +33,9 @@ func Validate(c *Content, dir string) []Problem {
 	}
 
 	for _, s := range c.Sources {
+		if s.Kind != KindQuestions && s.Kind != KindBibliography {
+			errorf("source %s: unknown kind %q", s.ID, s.Kind)
+		}
 		data, err := os.ReadFile(filepath.Join(dir, s.File))
 		if err != nil {
 			errorf("source %s: %v", s.ID, err)
@@ -93,6 +96,7 @@ func Validate(c *Content, dir string) []Problem {
 
 	ps = append(ps, validateSubjectRanges(c, subjects)...)
 	ps = append(ps, validateExamTypes(c, subjects)...)
+	ps = append(ps, validateExplanations(c, dir)...)
 
 	for _, b := range c.Banks {
 		if c.Source(b.Source) == nil {

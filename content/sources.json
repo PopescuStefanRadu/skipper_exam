@@ -5,7 +5,8 @@
     "url": "https://portal.rna.ro/wp-content/uploads/2026/07/Lista-intrebari-clasa-C-CAA.pdf",
     "sha256": "95e9ffc1b87d5a4861ec16f54d69e099a9a27d1442e849b632b44e91773dfaf9",
     "lastModified": "2026-07-07",
-    "retrievedAt": "2026-11-16"
+    "retrievedAt": "2026-11-16",
+    "kind": "questions"
   },
   {
     "id": "rna-questions-D",
@@ -13,6 +14,94 @@
     "url": "https://portal.rna.ro/wp-content/uploads/2026/07/Lista-intrebari-clasa-D-CAA.pdf",
     "sha256": "9ccd6a5a84a7954dfd5a08069fe9b7c6ad7221f5f1bedb3987497ef4f934c599",
     "lastModified": "2026-07-07",
-    "retrievedAt": "2026-11-16"
+    "retrievedAt": "2026-11-16",
+    "kind": "questions"
+  },
+  {
+    "id": "colreg-a",
+    "file": "sources/bibliography/COLREG-Partea-A.pdf",
+    "url": "https://portal.rna.ro/wp-content/uploads/2026/07/COLREG-Partea-A.pdf",
+    "sha256": "f062743800be866d27876749fc690ca8c5f9f72ae057f026ef6d32838ba5483f",
+    "lastModified": "2026-07-07",
+    "retrievedAt": "2026-11-16",
+    "kind": "bibliography",
+    "title": "COLREG-72, Partea A: Generalități",
+    "column": "left"
+  },
+  {
+    "id": "colreg-b1",
+    "file": "sources/bibliography/re-COLREG-Partea-B-Sectiunea-I.pdf",
+    "url": "https://portal.rna.ro/wp-content/uploads/2026/07/re-COLREG-Partea-B-Sectiunea-I.pdf",
+    "sha256": "b577e09c4fcd24aa13f760eee2e55df33920490483f6c0ce88cd160fc0cf4403",
+    "lastModified": "2026-07-07",
+    "retrievedAt": "2026-11-16",
+    "kind": "bibliography",
+    "title": "COLREG-72, Partea B, Secțiunea I: Conduita navelor în orice condiții de vizibilitate",
+    "column": "left"
+  },
+  {
+    "id": "colreg-b2",
+    "file": "sources/bibliography/COLREG-Partea-B-Sectiunea-II.pdf",
+    "url": "https://portal.rna.ro/wp-content/uploads/2026/07/COLREG-Partea-B-Sectiunea-II.pdf",
+    "sha256": "86f65f35dda5e9500846af8e42a5bb651584624f5128e2eff27dc5387fe15be9",
+    "lastModified": "2026-07-07",
+    "retrievedAt": "2026-11-16",
+    "kind": "bibliography",
+    "title": "COLREG-72, Partea B, Secțiunea II: Conduita navelor în vedere vizuală",
+    "column": "left"
+  },
+  {
+    "id": "colreg-c",
+    "file": "sources/bibliography/COLREG-Partea-C.pdf",
+    "url": "https://portal.rna.ro/wp-content/uploads/2026/07/COLREG-Partea-C.pdf",
+    "sha256": "e9c4e7138b1b34119028bc6c56f0b53223c9e05b3849345ce5598e4252fe40f1",
+    "lastModified": "2026-07-07",
+    "retrievedAt": "2026-11-16",
+    "kind": "bibliography",
+    "title": "COLREG-72, Partea C: Lumini și semne",
+    "column": "left"
+  },
+  {
+    "id": "colreg-d",
+    "file": "sources/bibliography/COLREG-Partea-D.pdf",
+    "url": "https://portal.rna.ro/wp-content/uploads/2026/07/COLREG-Partea-D.pdf",
+    "sha256": "7962a89f31adf014c0ead328ebd3d277284375b8459d99ea02a78dc5f4879140",
+    "lastModified": "2026-07-07",
+    "retrievedAt": "2026-11-16",
+    "kind": "bibliography",
+    "title": "COLREG-72, Partea D: Semnale sonore și luminoase",
+    "column": "left"
+  },
+  {
+    "id": "colreg-annexes",
+    "file": "sources/bibliography/re-COLREG-Anexe.pdf",
+    "url": "https://portal.rna.ro/wp-content/uploads/2026/07/re-COLREG-Anexe.pdf",
+    "sha256": "906ed19ea0a01ceee6b4d9015519805907affa516bfeb38d8558f8b367f7d07e",
+    "lastModified": "2026-07-07",
+    "retrievedAt": "2026-11-16",
+    "kind": "bibliography",
+    "title": "COLREG-72, Anexele",
+    "column": "left"
+  },
+  {
+    "id": "rnd",
+    "file": "sources/bibliography/Regulament-navigatie-Dunare.pdf",
+    "url": "https://portal.rna.ro/wp-content/uploads/2026/07/Regulament-navigatie-Dunare.pdf",
+    "sha256": "3fc52f6d2db5d2c323f076d0b7696061243b4bc93992847897bfa1b6af16fb8c",
+    "lastModified": "2026-07-07",
+    "retrievedAt": "2026-11-16",
+    "kind": "bibliography",
+    "title": "Regulamentul de navigație pe Dunăre (R.N.D.)"
+  },
+  {
+    "id": "manual-caa",
+    "file": "sources/bibliography/Manualul_conducatorului_de_ambarcatiuni_cu_motor_pentru_agrement.pdf",
+    "url": "https://portal.rna.ro/wp-content/uploads/2026/07/Manualul_conducatorului_de_ambarcatiuni_cu_motor_pentru_agrement.pdf",
+    "sha256": "3b77bcabaf6b13175500aa548aa60e92760aca20d1e56fbd11dedaf18abec3e8",
+    "lastModified": "2026-07-07",
+    "retrievedAt": "2026-11-16",
+    "kind": "bibliography",
+    "title": "Manualul conducătorului de ambarcațiuni cu motor pentru agrement",
+    "ocr": true
   }
 ]

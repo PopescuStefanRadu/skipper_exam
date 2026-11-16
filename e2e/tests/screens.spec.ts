@@ -13,6 +13,7 @@ import {
   uniqueEmail,
 } from "./helpers";
 import { recoveryCode } from "./mail";
+import { createReviewer, explanations } from "./review";
 
 async function screenshot(page: Page, name: string) {
   const info = test.info();
@@ -126,4 +127,32 @@ test("time ran out", async ({ page }) => {
   await page.getByRole("link", { name: "Vezi rezultatul" }).click();
   await expect(page.getByText("Timpul a expirat.")).toBeVisible();
   await screenshot(page, "18-result-timed-out");
+});
+
+test("explanations", async ({ page }) => {
+  const pkg = await contentPackage(page);
+  await signIn(page, await createAccount());
+  await expect(page).toHaveURL("/tip-examen");
+  const all = await explanations(page);
+  const e = all.find((e) => e.status === "suggested" && e.source.startsWith("colreg"))!;
+  await page.goto(`/intrebare/${e.questionId}`);
+  await expect(page.getByTestId("quote")).toBeVisible();
+  await screenshot(page, "19-explanation");
+
+  const explained = new Set(all.map((e) => e.questionId));
+  await page.goto(`/intrebare/${pkg.questions.find((q) => !explained.has(q.id))!.id}`);
+  await expect(page.getByText("Nu există încă o explicație pentru această întrebare.")).toBeVisible();
+  await screenshot(page, "20-no-explanation");
+});
+
+test("reviewer view", async ({ page }) => {
+  await signIn(page, await createReviewer());
+  await expect(page).toHaveURL("/tip-examen");
+  const e = (await explanations(page)).find((e) => e.status === "suggested" && e.source.startsWith("colreg"))!;
+  await page.goto(`/intrebare/${e.questionId}`);
+  await expect(page.getByRole("button", { name: "Confirmă" })).toBeVisible();
+  await screenshot(page, "21-explanation-reviewer");
+  await page.getByRole("button", { name: "Corectează" }).click();
+  await expect(page.getByLabel("Citatul")).toBeVisible();
+  await screenshot(page, "22-correction-form");
 });

@@ -5,6 +5,8 @@ import { ContentProvider, useContent } from "./content";
 import { activeExam, examEvents, newExam } from "./exam";
 import { ExamPage } from "./ExamPage";
 import { EventsProvider, useEvents } from "./events";
+import { ExplanationsProvider } from "./explanations";
+import { QuestionPage } from "./QuestionPage";
 import { ExamTypePage } from "./ExamTypePage";
 import { signOut } from "./kratos";
 import { NewPassword, Recovery } from "./Recovery";
@@ -29,6 +31,7 @@ export function App() {
           <Route path="/tip-examen" element={<RequireSession><ExamTypePage /></RequireSession>} />
           <Route path="/examen" element={<RequireSession><RequireExamType><ExamPage /></RequireExamType></RequireSession>} />
           <Route path="/examen/:examId/rezultat" element={<RequireSession><ResultPage /></RequireSession>} />
+          <Route path="/intrebare/:questionId" element={<RequireSession><QuestionPage /></RequireSession>} />
           <Route path="*" element={<RequireSession><RequireExamType><Home /></RequireExamType></RequireSession>} />
         </Routes>
         <ServerStatus />
@@ -45,8 +48,10 @@ function RequireSession({ children }: { children: ReactNode }) {
   if (me === null) return <Navigate to="/autentificare" replace />;
   return (
     <EventsProvider key={me.id} userId={me.id}>
-      <AccountBar />
-      {children}
+      <ExplanationsProvider>
+        <AccountBar />
+        {children}
+      </ExplanationsProvider>
     </EventsProvider>
   );
 }

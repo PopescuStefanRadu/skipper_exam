@@ -7,7 +7,7 @@
 - Signing in with Google using an email that already has a password account never creates a second account. Instead the app asks for that account's password once, then links Google to it. From then on, Google alone opens the account. Asking for the password stops anyone from taking over an account by presenting a Google profile with the same email. If the password is mistyped at that step, the link isn't made; signing in with Google again offers it again.
 - Sign out, and reset a forgotten password (for email and password accounts). The reset sends a 6-digit code by email. Entering it lets you set a new password and signs you in. The confirmation after asking for a code is the same whether or not the email has an account, so the page reveals nothing about which accounts exist.
 - There is no guest mode: you need an account to use the app.
-- Some accounts have the **reviewer** role, which unlocks reviewing explanations (see [Explanations](explanations.md)). Roles are assigned by an administrator, not chosen by the user.
+- Some accounts have the **reviewer** role, which unlocks reviewing explanations (see [Explanations](explanations.md)). Roles are assigned by an administrator, not chosen by the user: `make grant-reviewer EMAIL=...` in a stack, or the server's `grant-role` command in production.
 - At sign-up you choose your [exam type](exam-types.md).
 - Users are in the EU, so you can export your data and delete your account along with all your progress.
 - For signing in on Android and working offline, see [Offline and sync](offline-and-sync.md).

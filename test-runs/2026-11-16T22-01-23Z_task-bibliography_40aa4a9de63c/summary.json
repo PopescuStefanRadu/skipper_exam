@@ -1,0 +1,29 @@
+{
+  "started": "2026-11-16T22-01-23Z",
+  "branch": "task/bibliography",
+  "commit": "40aa4a9de63c4868b7dff4b3e5318ae9289bde90",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1856
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 1132
+    },
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 22509
+    }
+  ],
+  "result": "passed"
+}

@@ -2,10 +2,13 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
+	"flag"
 	"fmt"
 	"log/slog"
 	"net/http"
+	"net/url"
 	"os"
 	"os/signal"
 	"syscall"
@@ -17,6 +20,7 @@ import (
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/db"
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/events"
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/profile"
+	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/review"
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server"
 )
 
@@ -24,6 +28,13 @@ func main() {
 	// The container image has no shell or curl, so the container healthcheck calls the binary itself.
 	if len(os.Args) > 1 && os.Args[1] == "healthcheck" {
 		if err := healthcheck(); err != nil {
+			os.Exit(1)
+		}
+		return
+	}
+	if len(os.Args) > 1 && os.Args[1] == "grant-role" {
+		if err := grantRole(os.Args[2:]); err != nil {
+			fmt.Fprintln(os.Stderr, err)
 			os.Exit(1)
 		}
 		return
@@ -66,6 +77,16 @@ func run() error {
 		return fmt.Errorf("content package: %w", err)
 	}
 
+	lib := &server.Library{Content: c, Dir: contentDir, Texts: map[string]*content.SourceText{}}
+	for _, s := range c.Sources {
+		if s.Kind == content.KindBibliography {
+			if lib.Texts[s.ID], err = content.LoadText(contentDir, s.ID); err != nil {
+				return fmt.Errorf("load text of %s: %w", s.ID, err)
+			}
+		}
+	}
+	reviews := &review.Store{Pool: pool}
+
 	kratos, err := server.NewKratos(os.Getenv("KRATOS_PUBLIC_URL"))
 	if err != nil || os.Getenv("KRATOS_PUBLIC_URL") == "" {
 		return errors.New("KRATOS_PUBLIC_URL is required")
@@ -78,6 +99,8 @@ func run() error {
 		Events:        &events.Store{Pool: pool},
 		ExamTypes:     c.ExamTypes,
 		Content:       pkg,
+		Library:       lib,
+		Reviews:       reviews,
 	}
 	if dir := os.Getenv("WEB_DIR"); dir != "" {
 		cfg.Web = os.DirFS(dir)
@@ -113,5 +136,46 @@ func healthcheck() error {
 	if res.StatusCode != http.StatusOK {
 		return fmt.Errorf("health status %d", res.StatusCode)
 	}
+	return nil
+}
+
+// grantRole gives the account with the given email a role, e.g. reviewer. It reads
+// DATABASE_URL and KRATOS_ADMIN_URL (Kratos's admin API) from the environment.
+func grantRole(args []string) error {
+	fs := flag.NewFlagSet("grant-role", flag.ExitOnError)
+	email := fs.String("email", "", "the account's email")
+	role := fs.String("role", "", "the role, e.g. reviewer")
+	_ = fs.Parse(args)
+	if *email == "" || *role != server.RoleReviewer {
+		return fmt.Errorf("usage: server grant-role -email EMAIL -role %s", server.RoleReviewer)
+	}
+	admin := os.Getenv("KRATOS_ADMIN_URL")
+	if admin == "" {
+		return errors.New("KRATOS_ADMIN_URL is required")
+	}
+	ctx := context.Background()
+	res, err := http.Get(admin + "/admin/identities?credentials_identifier=" + url.QueryEscape(*email))
+	if err != nil {
+		return err
+	}
+	defer res.Body.Close()
+	var ids []struct {
+		ID string `json:"id"`
+	}
+	if err := json.NewDecoder(res.Body).Decode(&ids); err != nil {
+		return fmt.Errorf("find account: %w", err)
+	}
+	if len(ids) != 1 {
+		return fmt.Errorf("no account with email %s", *email)
+	}
+	pool, err := pgxpool.New(ctx, os.Getenv("DATABASE_URL"))
+	if err != nil {
+		return err
+	}
+	defer pool.Close()
+	if err := (&review.Store{Pool: pool}).Grant(ctx, ids[0].ID, *role); err != nil {
+		return err
+	}
+	fmt.Printf("%s is now a %s\n", *email, *role)
 	return nil
 }

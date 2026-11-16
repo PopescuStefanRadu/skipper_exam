@@ -2,6 +2,7 @@
 export interface Me {
   id: string;
   email: string;
+  roles: string[];
 }
 
 export interface ExamFormat {
@@ -101,4 +102,53 @@ export async function postEvents(events: AppEvent[]): Promise<void> {
     body: JSON.stringify({ events }),
   });
   await json(res, "/api/events");
+}
+
+// A passage of a bibliography document.
+export interface Passage {
+  source: string;
+  page: number;
+  reference: string;
+  quote: string;
+}
+
+// A question's explanation as users see it, with reviews applied.
+export interface Explanation extends Passage {
+  questionId: string;
+  status: "suggested" | "verified" | "stale" | "rejected";
+  sourceTitle: string;
+  flagged?: boolean;
+  flagNote?: string;
+  // For reviewers only.
+  concern?: string;
+  note?: string;
+}
+
+export async function getExplanations(): Promise<Explanation[]> {
+  return json(await fetch("/api/explanations", { credentials: "include" }), "/api/explanations");
+}
+
+export type ReviewAction = "confirm" | "reject" | "correct" | "flag" | "reset";
+
+export class ReviewError extends Error {
+  constructor(public status: number) {
+    super(`review: ${status}`);
+  }
+}
+
+export async function postReview(review: {
+  id: string;
+  questionId: string;
+  action: ReviewAction;
+  note?: string;
+  correction?: Passage;
+}): Promise<Explanation> {
+  const res = await fetch("/api/reviews", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify(review),
+  });
+  if (!res.ok) throw new ReviewError(res.status);
+  return res.json();
 }

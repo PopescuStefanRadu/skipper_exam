@@ -70,6 +70,7 @@ The suite is built to run with many workers at once:
 
 - **No shared mutable state:** every test creates its own user, with a unique email, and its own data. Tests never depend on each other's order and never reset the whole database.
 - **Read-only shared content:** the content is loaded once per stack and never modified by tests. A test that needs different content uses its own copy.
+- **Shared state is claimed:** a few actions change what every user sees, such as reviewing an explanation. A test that does this first claims an item no other running test uses (`claimExplanation()` in `e2e/tests/review.ts`, through a claims table in the stack's database) and undoes its changes afterwards. Tests that only read such items use a part of the content the claiming tests never touch.
 - **Per-test control of time and randomness:** timers and random seeds are controlled inside each test, never globally.
 - **Isolated helpers:** each test reads only its own messages from the fake inbox (filtered by its unique email address) and uses its own fake Google identity.
 - **Lower-level tests** run in parallel too. Database tests each get their own fresh database, cloned quickly from a prepared template.

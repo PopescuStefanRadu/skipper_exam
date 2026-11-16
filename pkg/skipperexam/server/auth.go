@@ -20,6 +20,8 @@ const kratosPrefix = "/.ory"
 type Identity struct {
 	ID    string `json:"id"`
 	Email string `json:"email"`
+	// Roles is filled in by /api/me only.
+	Roles []string `json:"roles"`
 }
 
 // ErrNoSession means the request has no valid session.
@@ -93,8 +95,17 @@ func (k *Kratos) Proxy() http.Handler {
 	return p
 }
 
-func me(sessions Sessions) http.HandlerFunc {
-	return withIdentity(sessions, func(w http.ResponseWriter, _ *http.Request, id Identity) {
+func me(sessions Sessions, reviews Reviews) http.HandlerFunc {
+	return withIdentity(sessions, func(w http.ResponseWriter, r *http.Request, id Identity) {
+		id.Roles = []string{}
+		if reviews != nil {
+			roles, err := reviews.Roles(r.Context(), id.ID)
+			if err != nil {
+				writeJSON(w, http.StatusInternalServerError, map[string]string{"error": "could not read roles"})
+				return
+			}
+			id.Roles = roles
+		}
 		writeJSON(w, http.StatusOK, id)
 	})
 }

@@ -37,6 +37,8 @@ The app has three kinds of content. Each one can change independently and must b
   Tags are assigned by RNA number ranges, because the lists group their questions by subject. The ranges are kept in `content/subject-ranges.json`. Equivalent questions must have the same subject.
 - **Every link has a status:** *suggested* (proposed, not yet checked), *verified* (a reviewer confirmed the passage supports the answer), or *stale* (the question or the source changed since it was verified). Unverified links are shown with a clear label, see [Explanations](explanations.md).
 - **Conflicts are flagged, not hidden.** If the official answer seems to contradict the source material, the question is flagged for review.
+- **The bibliography is stored as text, page by page** (`content/bibliography/<source>.json`), extracted from the PDFs with `make content-extract`. Documents printed in Romanian and English side by side (COLREG) keep only the Romanian column. Scanned documents (the motorboat manual) are recognised with OCR in a Docker image (`docker/ocr`): the scans are low-resolution photos of two-page spreads, some rotated, so each page is upscaled, turned upright and split before recognition. OCR text has some errors; quotes come from it word for word, and reviewers can correct them.
+- **Explanations** (`content/explanations.json`) link a question to a passage: the source, the PDF page, the rule or article, the quote, and a status (*suggested*, *verified* or *stale*). Validation checks that every quote is really on its page (ignoring diacritics, punctuation and line breaks), so a proposed passage can't be invented. A proposal can carry a *concern* (the source seems to contradict the official answer) and a *note* for the reviewer.
 - Every content update passes automated validation and the full e2e suite before it's published.
 - **The apps get the content as one package**, built by the server at start-up from the files in `content/`: the questions used by the available exam types, their subjects and equivalence groups, and each exam type with its question IDs. The package has a version derived from its content, so devices download it again only when it changed. Publishing a content update means deploying it and restarting the server. Exams already in progress keep their questions, since question IDs are stable.
 - **Exams only use questions with exactly one correct answer.** A question whose source marks no answer, or several, as correct stays in the pool with an issue, but no exam includes it. Validation checks that every available exam type has enough distinct questions for one exam, counting each equivalence group once.
@@ -56,11 +58,11 @@ The app has three kinds of content. Each one can change independently and must b
 2. Re-locate every linked passage in the new version: same text, possibly a different page. Links whose passage can't be found automatically become *stale*.
 3. Review the *stale* links, then validate and publish as above.
 
-### Creating source links
-1. **Extract the bibliography text**, keeping the page numbers and the rule or article structure, so a passage can be cited precisely. Documents that aren't published online (for example *Rutiera Dunării*, available only at the port captaincies) are added when we get a copy.
-2. **Propose passages automatically** for every question, by matching the question and correct-answer wording against the bibliography and ranking the candidates. Every proposal starts as *suggested*.
-3. **Validate in use.** The reviewer confirms, corrects or rejects explanations directly in the app while practising, see [Explanations](explanations.md). There's no separate review campaign before the app can be used.
-4. Questions where no good passage was found, or where the source seems to contradict the official answer, are listed for attention.
+### Creating explanations
+1. **Add the document** to `content/sources.json` (kind `bibliography`, with `column: "left"` for side-by-side translations or `ocr: true` for scans) and run `make content-extract`. Check a few pages of the result by eye. Documents that aren't published online (for example *Rutiera Dunării*, available only at the port captaincies, or the textbooks in RNA's "Tratate" list) are added when we get a copy.
+2. **Propose passages** for the questions without one. Agents search the text (`go run ./cli/content search`), pick the shortest passage that justifies the official answer, and check it with `go run ./cli/content check-quote`. A second, independent agent checks each proposal: is the quote on the page, does it support the answer, is the reference right. Its findings become the proposal's note. Every proposal starts as *suggested*.
+3. **Validate** (`make content-validate`), then publish.
+4. **Review in use.** The reviewer confirms, corrects or rejects explanations directly in the app while practising, see [Explanations](explanations.md). There's no separate review campaign before the app can be used. Questions with a concern are the first to look at.
 
 ## E2E scenarios
 

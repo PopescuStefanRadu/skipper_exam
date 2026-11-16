@@ -1,0 +1,29 @@
+{
+  "started": "2026-11-16T20-17-12Z",
+  "branch": "task/question-import",
+  "commit": "df5aac5d61f3f55b4e97b1bb69bcc390fabb5fc6",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1141
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 133
+    },
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 15604
+    }
+  ],
+  "result": "passed"
+}

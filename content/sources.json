@@ -1,0 +1,18 @@
+[
+  {
+    "id": "rna-questions-C",
+    "file": "sources/rna/Lista-intrebari-clasa-C-CAA.pdf",
+    "url": "https://portal.rna.ro/wp-content/uploads/2026/07/Lista-intrebari-clasa-C-CAA.pdf",
+    "sha256": "95e9ffc1b87d5a4861ec16f54d69e099a9a27d1442e849b632b44e91773dfaf9",
+    "lastModified": "2026-07-07",
+    "retrievedAt": "2026-11-16"
+  },
+  {
+    "id": "rna-questions-D",
+    "file": "sources/rna/Lista-intrebari-clasa-D-CAA.pdf",
+    "url": "https://portal.rna.ro/wp-content/uploads/2026/07/Lista-intrebari-clasa-D-CAA.pdf",
+    "sha256": "9ccd6a5a84a7954dfd5a08069fe9b7c6ad7221f5f1bedb3987497ef4f934c599",
+    "lastModified": "2026-07-07",
+    "retrievedAt": "2026-11-16"
+  }
+]

@@ -1,0 +1,146 @@
+ Image skipper-question-import-bf981d6a-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 620B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 575B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 ...
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.3s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.8s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 141B done
+#6 DONE 0.0s
+
+#7 [stage-2 1/3] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#7 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#7 DONE 0.0s
+
+#8 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#8 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#8 DONE 0.0s
+
+#9 [internal] load build context
+#9 transferring context: 1.58kB done
+#9 DONE 0.0s
+
+#10 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#10 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#10 extracting sha256:589002ba0eaed121a1dbf42f6648f29e5be55d5c8a6ee0f8eaa0285cc21ac153 0.1s done
+#10 sha256:f7bdfd728ac2ad72d43b82689890dc698260d3a1049845f48fb3fb942df6c581 1.05MB / 79.13MB 0.2s
+#10 sha256:c95d909b2488ff78a51d01ca745429e6d281e314006f231fe6e9f219cf5432ca 126B / 126B 0.3s done
+#10 sha256:8f78851c25d251496dd39ebce311b4d914a4a97c0ba1983039165a05fd96b925 0B / 296.08kB 0.2s
+#10 sha256:f7bdfd728ac2ad72d43b82689890dc698260d3a1049845f48fb3fb942df6c581 17.83MB / 79.13MB 0.3s
+#10 sha256:8f78851c25d251496dd39ebce311b4d914a4a97c0ba1983039165a05fd96b925 296.08kB / 296.08kB 0.4s done
+#10 sha256:f7bdfd728ac2ad72d43b82689890dc698260d3a1049845f48fb3fb942df6c581 52.43MB / 79.13MB 0.6s
+#10 extracting sha256:8f78851c25d251496dd39ebce311b4d914a4a97c0ba1983039165a05fd96b925 0.1s done
+#10 sha256:f7bdfd728ac2ad72d43b82689890dc698260d3a1049845f48fb3fb942df6c581 69.21MB / 79.13MB 0.8s
+#10 sha256:f7bdfd728ac2ad72d43b82689890dc698260d3a1049845f48fb3fb942df6c581 79.13MB / 79.13MB 0.9s done
+#10 extracting sha256:f7bdfd728ac2ad72d43b82689890dc698260d3a1049845f48fb3fb942df6c581
+#10 extracting sha256:f7bdfd728ac2ad72d43b82689890dc698260d3a1049845f48fb3fb942df6c581 2.6s done
+#10 DONE 3.6s
+
+#10 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#10 extracting sha256:c95d909b2488ff78a51d01ca745429e6d281e314006f231fe6e9f219cf5432ca done
+#10 extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 0.0s done
+#10 DONE 3.6s
+
+#11 [backend 2/7] WORKDIR /src
+#11 DONE 0.2s
+
+#12 [backend 3/7] COPY go.mod go.sum ./
+#12 DONE 0.0s
+
+#13 [backend 4/7] RUN go mod download
+#13 DONE 1.3s
+
+#14 [backend 5/7] COPY cli cli
+#14 DONE 0.0s
+
+#15 [backend 6/7] COPY pkg pkg
+#15 DONE 0.0s
+
+#16 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#16 DONE 3.7s
+
+#7 [stage-2 1/3] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#7 CACHED
+
+#17 [web 2/7] RUN corepack enable
+#17 CACHED
+
+#18 [web 3/7] WORKDIR /web
+#18 CACHED
+
+#19 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#19 CACHED
+
+#20 [web 5/7] RUN pnpm install --frozen-lockfile
+#20 CACHED
+
+#21 [web 6/7] COPY web/ ./
+#21 CACHED
+
+#22 [stage-2 2/3] COPY --from=backend /server /server
+#22 DONE 0.0s
+
+#23 [web 7/7] RUN pnpm build
+#23 CACHED
+
+#24 [stage-2 3/3] COPY --from=web /web/dist /web
+#24 DONE 0.0s
+
+#25 exporting to image
+#25 exporting layers
+#25 exporting layers 0.4s done
+#25 exporting manifest sha256:58542728e8a74ce46eed41759cc4e33de5be53e38c207abfab384ceecfff815e done
+#25 exporting config sha256:22da279a3e693c0d9a120a004e162043528c6100a022c161cdaa8fbd610eee9f done
+#25 exporting attestation manifest sha256:960ce5d9d8f14cfcc7177dd5b85ed6bf94342a18eb818e3b6640e15e78937364 done
+#25 exporting manifest list sha256:a65914addd7708fec4f3e9fcd0797ebd8909ee6ec5360fcaa8c6166c240714e8 done
+#25 naming to docker.io/library/skipper-question-import-bf981d6a-app:latest done
+#25 unpacking to docker.io/library/skipper-question-import-bf981d6a-app:latest 0.1s done
+#25 DONE 0.6s
+
+#26 resolving provenance for metadata file
+#26 DONE 0.0s
+ Image skipper-question-import-bf981d6a-app Built 
+ Network skipper-question-import-bf981d6a_default Creating 
+ Network skipper-question-import-bf981d6a_default Created 
+ Volume skipper-question-import-bf981d6a_db Creating 
+ Volume skipper-question-import-bf981d6a_db Created 
+ Container skipper-question-import-bf981d6a-db-1 Creating 
+ Container skipper-question-import-bf981d6a-db-1 Created 
+ Container skipper-question-import-bf981d6a-app-1 Creating 
+ Container skipper-question-import-bf981d6a-app-1 Created 
+ Container skipper-question-import-bf981d6a-db-1 Starting 
+ Container skipper-question-import-bf981d6a-db-1 Started 
+ Container skipper-question-import-bf981d6a-db-1 Waiting 
+ Container skipper-question-import-bf981d6a-db-1 Healthy 
+ Container skipper-question-import-bf981d6a-app-1 Starting 
+ Container skipper-question-import-bf981d6a-app-1 Started 
+ Container skipper-question-import-bf981d6a-app-1 Waiting 
+ Container skipper-question-import-bf981d6a-db-1 Waiting 
+ Container skipper-question-import-bf981d6a-db-1 Healthy 
+ Container skipper-question-import-bf981d6a-app-1 Healthy 
+STACK_PROJECT=skipper-question-import-bf981d6a
+APP_URL=http://127.0.0.1:32788
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32787/skipper_exam
+
+Running 3 tests using 3 workers
+
+  ✓  3 [chromium] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (154ms)
+  ✓  2 [chromium] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (176ms)
+  ✓  1 [chromium] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (183ms)
+
+  3 passed (490ms)

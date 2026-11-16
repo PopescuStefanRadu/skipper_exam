@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: help setup build test e2e test-all check vet fmt tidy up down status dev task-new task-done integrate
+.PHONY: content-validate content-import-rna help setup build test e2e test-all check vet fmt tidy up down status dev task-new task-done integrate
 
 help: ## List available targets
 	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  %-10s %s\n", $$1, $$2}'
@@ -34,6 +34,13 @@ fmt: ## Format Go code
 
 tidy: ## Tidy go.mod/go.sum
 	go mod tidy
+
+content-validate: ## Validate the content in content/
+	go run ./cli/content validate
+
+content-import-rna: ## Re-import an RNA question list: make content-import-rna BANK=C (after replacing its PDF)
+	go run ./cli/content import-rna -bank $(BANK) -file sources/rna/Lista-intrebari-clasa-$(BANK)-CAA.pdf \
+		-url https://portal.rna.ro/wp-content/uploads/2026/07/Lista-intrebari-clasa-$(BANK)-CAA.pdf $(if $(LAST_MODIFIED),-last-modified $(LAST_MODIFIED))
 
 up: ## Build and start this worktree's stack on free ports (writes .stack.env)
 	scripts/stack.sh up

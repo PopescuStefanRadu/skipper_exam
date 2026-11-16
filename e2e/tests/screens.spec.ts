@@ -156,3 +156,40 @@ test("reviewer view", async ({ page }) => {
   await expect(page.getByLabel("Citatul")).toBeVisible();
   await screenshot(page, "22-correction-form");
 });
+
+test("learning", async ({ page }) => {
+  const pkg = await contentPackage(page);
+  await signIn(page, await createAccount());
+  await expect(page).toHaveURL("/tip-examen");
+  await setExamType(page, "C");
+  await page.goto("/invatare/greseli");
+  await expect(page.getByText("Nu ai greșeli de recapitulat.")).toBeVisible();
+  await screenshot(page, "23-no-mistakes");
+
+  await page.goto("/invatare/colreg");
+  await expect(page.getByTestId("question")).toBeVisible();
+  await screenshot(page, "24-learning-question");
+  await answer(page, pkg, false);
+  await expect(page.getByTestId("feedback")).toBeVisible();
+  await screenshot(page, "25-learning-wrong");
+  await page.getByRole("button", { name: "Next" }).click();
+  await answer(page, pkg, true);
+  await expect(page.getByTestId("feedback")).toHaveText("Corect!");
+  await screenshot(page, "26-learning-right");
+  for (let i = 0; i < 4; i++) {
+    await page.getByRole("button", { name: "Next" }).click();
+    await answer(page, pkg, false);
+  }
+
+  await page.goto("/invatare");
+  await expect(page.getByText("Punct slab")).toBeVisible();
+  await screenshot(page, "27-learning-page");
+
+  await page.getByRole("link", { name: "Practică greșelile" }).click();
+  for (let i = 0; i < 5; i++) {
+    await answer(page, pkg, true);
+    await page.getByRole("button", { name: "Next" }).click();
+  }
+  await expect(page.getByTestId("session-score")).toBeVisible();
+  await screenshot(page, "28-mistakes-done");
+});

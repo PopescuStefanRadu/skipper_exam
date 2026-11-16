@@ -61,3 +61,40 @@ blockquote {
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+/* Learning: the answer given and the correct one, after answering. */
+.answer-correct {
+  background: #d1e7dd;
+}
+.answer-wrong {
+  background: #f8d7da;
+}
+.feedback-right {
+  color: #0f5132;
+  font-weight: bold;
+}
+.feedback-wrong {
+  color: #842029;
+  font-weight: bold;
+}
+table.progress {
+  width: 100%;
+  border-collapse: collapse;
+}
+table.progress th,
+table.progress td {
+  padding: 0.4rem;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+  vertical-align: top;
+}
+/* Headers and counts are short: keep them whole instead of breaking words. */
+table.progress thead th,
+table.progress td {
+  overflow-wrap: normal;
+  white-space: nowrap;
+}
+.badge-weak {
+  background: #f8d7da;
+  color: #842029;
+  border: 1px solid #c56b74;
+}

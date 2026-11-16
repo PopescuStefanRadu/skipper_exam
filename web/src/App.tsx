@@ -8,6 +8,7 @@ import { EventsProvider, useEvents } from "./events";
 import { ExplanationsProvider } from "./explanations";
 import { QuestionPage } from "./QuestionPage";
 import { ExamTypePage } from "./ExamTypePage";
+import { LearningPage, PracticePage } from "./LearningPage";
 import { signOut } from "./kratos";
 import { NewPassword, Recovery } from "./Recovery";
 import { ResultPage } from "./ResultPage";
@@ -31,6 +32,9 @@ export function App() {
           <Route path="/tip-examen" element={<RequireSession><ExamTypePage /></RequireSession>} />
           <Route path="/examen" element={<RequireSession><RequireExamType><ExamPage /></RequireExamType></RequireSession>} />
           <Route path="/examen/:examId/rezultat" element={<RequireSession><ResultPage /></RequireSession>} />
+          <Route path="/invatare" element={<RequireSession><RequireExamType><LearningPage /></RequireExamType></RequireSession>} />
+          <Route path="/invatare/greseli" element={<RequireSession><RequireExamType><PracticePage mode="mistakes" /></RequireExamType></RequireSession>} />
+          <Route path="/invatare/:subject" element={<RequireSession><RequireExamType><PracticePage mode="learn" /></RequireExamType></RequireSession>} />
           <Route path="/intrebare/:questionId" element={<RequireSession><QuestionPage /></RequireSession>} />
           <Route path="*" element={<RequireSession><RequireExamType><Home /></RequireExamType></RequireSession>} />
         </Routes>
@@ -165,7 +169,10 @@ function Home() {
       <p>
         {strings.home.preparingFor} <strong data-testid="exam-type">{examType?.name ?? profile?.examType}</strong>
       </p>
-      <Link to="/tip-examen">{strings.home.changeExamType}</Link>
+      <p className="actions">
+        <Link to="/invatare">{strings.learning.title}</Link>
+        <Link to="/tip-examen">{strings.home.changeExamType}</Link>
+      </p>
       {content === null && <p role="alert">{strings.exam.contentUnavailable}</p>}
       {format && (
         <>

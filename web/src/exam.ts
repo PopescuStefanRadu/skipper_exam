@@ -25,6 +25,8 @@ export interface Exam {
   // Question ID to the chosen answer's index in the question.
   answers: Record<string, number>;
   status: "active" | "submitted" | "abandoned";
+  // When it was submitted or abandoned.
+  finishedAt?: number;
   timedOut: boolean;
 }
 
@@ -96,9 +98,11 @@ export function exams(events: AppEvent[]): Exam[] {
       exam.answers[d.questionId] = d.answer;
     } else if (e.type === examEvents.submitted) {
       exam.status = "submitted";
+      exam.finishedAt = at;
       exam.timedOut = d.reason === "timeout";
     } else if (e.type === examEvents.abandoned) {
       exam.status = "abandoned";
+      exam.finishedAt = at;
     }
   }
   return [...byId.values()];

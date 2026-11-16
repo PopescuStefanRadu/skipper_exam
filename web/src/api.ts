@@ -35,9 +35,15 @@ export interface Question {
   group?: string;
 }
 
+export interface Subject {
+  id: string;
+  name: string;
+}
+
 // The content the app downloads and runs exams on, on the device.
 export interface ContentPackage {
   version: string;
+  subjects: Subject[];
   questions: Question[];
   examTypes: (ExamType & { questionIds?: string[] })[];
 }

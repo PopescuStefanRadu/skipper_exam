@@ -7,3 +7,4 @@ web/dist/
 e2e/test-results/
 e2e/playwright-report/
 .pr-body
+.stack/

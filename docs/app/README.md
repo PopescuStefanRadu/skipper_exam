@@ -37,7 +37,7 @@ Each feature has its own document. It describes the expected behaviour and the e
 
 - **Backend:** Go and PostgreSQL. The backend distributes content and syncs progress.
 - **Web and Android from one codebase (decided):** a web front end that is also packaged as an Android app, rather than a separate native Android app. This keeps one implementation of every feature, and most e2e tests can run in a browser. If a native capability is ever needed, it's added as a native piece inside the packaged app. Because Android must work offline, the app logic (choosing questions, scoring, explanations) runs on the device against local content.
-- **Accounts:** standard, well-tested authentication, with nothing home-made for password handling.
+- **Accounts:** standard, well-tested authentication, with nothing home-made for password handling. The account service is served on the app's own address, so the web app and its sign-in share one origin.
 - **Hosting:** the backend initially runs on a home server. It's packaged so it runs the same way anywhere, and can move to a hosted server later. Because Android works offline, short outages at home only delay syncing. To be reachable from outside the home it needs a stable public address with HTTPS, which Google sign-in also requires. It also needs regular database backups.
 - **Android distribution:** development builds installed directly on the device at first, then Google Play.
 - **E2E tooling:** browser automation for web scenarios and a mobile UI testing tool for the Android emulator.

@@ -20,7 +20,10 @@ type Pinger interface {
 
 // Config holds the server's dependencies.
 type Config struct {
-	DB Pinger
+	DB       Pinger
+	Sessions Sessions
+	// AccountsProxy serves the account service's public API under /.ory.
+	AccountsProxy http.Handler
 	// Web holds the built web app. If nil, only the API is served.
 	Web fs.FS
 }
@@ -29,6 +32,10 @@ type Config struct {
 func New(cfg Config) http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /api/health", health(cfg.DB))
+	mux.HandleFunc("GET /api/me", me(cfg.Sessions))
+	if cfg.AccountsProxy != nil {
+		mux.Handle(kratosPrefix+"/", cfg.AccountsProxy)
+	}
 	mux.HandleFunc("/api/", func(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusNotFound, map[string]string{"error": "not found"})
 	})

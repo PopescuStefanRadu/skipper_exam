@@ -1,6 +1,9 @@
 # The full local stack. Start it through scripts/stack.sh (or make up), which gives
 # every worktree its own project name, so stacks never share containers or data.
-# Host ports are assigned by Docker at start-up; nothing uses a fixed port.
+#
+# Host ports are assigned by Docker at start-up, except the app's: Kratos must know
+# the app's public address before it starts, so stack.sh reserves a free port
+# under a lock shared by all worktrees and passes it in as APP_PORT.
 services:
   db:
     image: postgres:17.2
@@ -12,8 +15,49 @@ services:
       - "127.0.0.1::5432"
     volumes:
       - db:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "skipper_exam"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+
+  kratos-migrate:
+    image: oryd/kratos:v1.3.1
+    command: migrate sql -e --yes --config /etc/config/kratos/kratos.yml
+    environment:
+      DSN: postgres://skipper_exam:skipper_exam@db:5432/kratos?sslmode=disable
+    volumes:
+      - ./.stack/kratos.yml:/etc/config/kratos/kratos.yml:ro
+      - ./docker/kratos/identity.schema.json:/etc/config/kratos/identity.schema.json:ro
+    depends_on:
+      db:
+        condition: service_healthy
+
+  kratos:
+    image: oryd/kratos:v1.3.1
+    # --dev allows plain http on 127.0.0.1; --watch-courier sends emails.
+    command: serve --dev --watch-courier --config /etc/config/kratos/kratos.yml
+    volumes:
+      - ./.stack/kratos.yml:/etc/config/kratos/kratos.yml:ro
+      - ./docker/kratos/identity.schema.json:/etc/config/kratos/identity.schema.json:ro
+    ports:
+      - "127.0.0.1::4434"
+    depends_on:
+      kratos-migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:4434/admin/health/ready"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+
+  mailpit:
+    image: axllent/mailpit:v1.21.8
+    ports:
+      - "127.0.0.1::8025"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8025/livez"]
       interval: 1s
       timeout: 3s
       retries: 30
@@ -22,10 +66,13 @@ services:
     build: .
     environment:
       DATABASE_URL: postgres://skipper_exam:skipper_exam@db:5432/skipper_exam
+      KRATOS_PUBLIC_URL: http://kratos:4433
     ports:
-      - "127.0.0.1::8080"
+      - "127.0.0.1:${APP_PORT:?set by scripts/stack.sh}:8080"
     depends_on:
       db:
+        condition: service_healthy
+      kratos:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "/server", "healthcheck"]

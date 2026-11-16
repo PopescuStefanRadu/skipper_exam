@@ -30,7 +30,7 @@ func TestHealth(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 			rec := httptest.NewRecorder()
-			New(Config{DB: tt.db}).ServeHTTP(rec, httptest.NewRequest(http.MethodGet, "/api/health", nil))
+			New(Config{DB: tt.db, Sessions: fakeKratos(t)}).ServeHTTP(rec, httptest.NewRequest(http.MethodGet, "/api/health", nil))
 			if rec.Code != tt.wantStatus {
 				t.Fatalf("status = %d, want %d", rec.Code, tt.wantStatus)
 			}

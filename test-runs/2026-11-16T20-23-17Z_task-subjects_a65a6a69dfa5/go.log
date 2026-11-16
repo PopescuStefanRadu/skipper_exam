@@ -1,0 +1,8 @@
+?   	github.com/PopescuStefanRadu/skipper_exam/cli/content	[no test files]
+?   	github.com/PopescuStefanRadu/skipper_exam/cli/server	[no test files]
+PASS
+ok  	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server	(cached)
+PASS
+PASS
+ok  	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/content	(cached)
+ok  	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/content/rnapdf	(cached)

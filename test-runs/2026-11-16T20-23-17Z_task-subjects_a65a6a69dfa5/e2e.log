@@ -1,0 +1,115 @@
+ Image skipper-subjects-18f4c303-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 592B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 575B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.2s
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.4s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 141B done
+#6 DONE 0.0s
+
+#7 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#7 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#7 DONE 0.0s
+
+#8 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#8 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#8 DONE 0.0s
+
+#9 [stage-2 1/3] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#9 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#9 DONE 0.0s
+
+#10 [internal] load build context
+#10 transferring context: 1.69kB done
+#10 DONE 0.0s
+
+#11 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#11 CACHED
+
+#12 [web 6/7] COPY web/ ./
+#12 CACHED
+
+#13 [web 3/7] WORKDIR /web
+#13 CACHED
+
+#14 [web 7/7] RUN pnpm build
+#14 CACHED
+
+#15 [backend 3/7] COPY go.mod go.sum ./
+#15 CACHED
+
+#16 [backend 6/7] COPY pkg pkg
+#16 CACHED
+
+#17 [backend 2/7] WORKDIR /src
+#17 CACHED
+
+#18 [stage-2 2/3] COPY --from=backend /server /server
+#18 CACHED
+
+#19 [backend 4/7] RUN go mod download
+#19 CACHED
+
+#20 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#20 CACHED
+
+#21 [web 2/7] RUN corepack enable
+#21 CACHED
+
+#22 [web 5/7] RUN pnpm install --frozen-lockfile
+#22 CACHED
+
+#23 [backend 5/7] COPY cli cli
+#23 CACHED
+
+#24 [stage-2 3/3] COPY --from=web /web/dist /web
+#24 CACHED
+
+#25 exporting to image
+#25 exporting layers done
+#25 exporting manifest sha256:21253443f6cfda7ec8b7af3e8c82b1720451c4a6029ad8d1bd12b7c92688dab9 done
+#25 exporting config sha256:0718d4fa7a593f6e0fa2cc9be15d2c5c8e115ab8c5dba9a2e55c6064da936cfb done
+#25 exporting attestation manifest sha256:eb19c8d8328bbb361013ab62212151e1cb61ea910e5589564b006e9cd39255fd done
+#25 exporting manifest list sha256:0f60c3ef0cd49113a467be21d9294ad87000dec0e7cc46c177f6bd8e5fcf6a16 done
+#25 naming to docker.io/library/skipper-subjects-18f4c303-app:latest done
+#25 unpacking to docker.io/library/skipper-subjects-18f4c303-app:latest done
+#25 DONE 0.1s
+
+#26 resolving provenance for metadata file
+#26 DONE 0.0s
+ Image skipper-subjects-18f4c303-app Built 
+ Container skipper-subjects-18f4c303-db-1 Running 
+ Container skipper-subjects-18f4c303-app-1 Recreate 
+ Container skipper-subjects-18f4c303-app-1 Recreated 
+ Container skipper-subjects-18f4c303-db-1 Waiting 
+ Container skipper-subjects-18f4c303-db-1 Healthy 
+ Container skipper-subjects-18f4c303-app-1 Starting 
+ Container skipper-subjects-18f4c303-app-1 Started 
+ Container skipper-subjects-18f4c303-app-1 Waiting 
+ Container skipper-subjects-18f4c303-db-1 Waiting 
+ Container skipper-subjects-18f4c303-db-1 Healthy 
+ Container skipper-subjects-18f4c303-app-1 Healthy 
+STACK_PROJECT=skipper-subjects-18f4c303
+APP_URL=http://127.0.0.1:32792
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32790/skipper_exam
+
+Running 3 tests using 3 workers
+
+  ✓  1 [chromium] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (182ms)
+  ✓  3 [chromium] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (200ms)
+  ✓  2 [chromium] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (210ms)
+
+  3 passed (528ms)

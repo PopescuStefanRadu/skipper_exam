@@ -11,6 +11,8 @@ import (
 	"path"
 	"strings"
 	"time"
+
+	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/content"
 )
 
 // Pinger reports whether a dependency, such as the database, is reachable.
@@ -20,8 +22,10 @@ type Pinger interface {
 
 // Config holds the server's dependencies.
 type Config struct {
-	DB       Pinger
-	Sessions Sessions
+	DB        Pinger
+	Sessions  Sessions
+	Profiles  Profiles
+	ExamTypes []content.ExamType
 	// AccountsProxy serves the account service's public API under /.ory.
 	AccountsProxy http.Handler
 	// Web holds the built web app. If nil, only the API is served.
@@ -33,6 +37,9 @@ func New(cfg Config) http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /api/health", health(cfg.DB))
 	mux.HandleFunc("GET /api/me", me(cfg.Sessions))
+	mux.HandleFunc("GET /api/exam-types", examTypes(cfg.ExamTypes))
+	mux.HandleFunc("GET /api/profile", withIdentity(cfg.Sessions, getProfile(cfg.Profiles)))
+	mux.HandleFunc("PUT /api/profile", withIdentity(cfg.Sessions, putProfile(cfg.Profiles, cfg.ExamTypes)))
 	if cfg.AccountsProxy != nil {
 		mux.Handle(kratosPrefix+"/", cfg.AccountsProxy)
 	}

@@ -92,6 +92,7 @@ func Validate(c *Content, dir string) []Problem {
 	}
 
 	ps = append(ps, validateSubjectRanges(c, subjects)...)
+	ps = append(ps, validateExamTypes(c, subjects)...)
 
 	for _, b := range c.Banks {
 		if c.Source(b.Source) == nil {
@@ -155,6 +156,45 @@ func validateSubjectRanges(c *Content, subjects map[string]bool) []Problem {
 			if !covered {
 				errorf("bank %s s%d#%d: not covered by any subject range", b.ID, e.Section, e.Number)
 			}
+		}
+	}
+	return ps
+}
+
+// validateExamTypes checks that every available exam type draws from a known bank
+// and known subjects, and that there are enough questions for one exam.
+func validateExamTypes(c *Content, subjects map[string]bool) []Problem {
+	var ps []Problem
+	errorf := func(format string, args ...any) {
+		ps = append(ps, Problem{Error: true, Message: fmt.Sprintf(format, args...)})
+	}
+	seen := map[string]bool{}
+	for _, t := range c.ExamTypes {
+		if seen[t.ID] {
+			errorf("exam type %s: duplicate ID", t.ID)
+		}
+		seen[t.ID] = true
+		if t.Name == "" {
+			errorf("exam type %s: no name", t.ID)
+		}
+		if !t.Available {
+			continue
+		}
+		if c.Bank(t.Bank) == nil {
+			errorf("exam type %s: unknown bank %q", t.ID, t.Bank)
+			continue
+		}
+		for _, s := range t.Subjects {
+			if !subjects[s] {
+				errorf("exam type %s: unknown subject %s", t.ID, s)
+			}
+		}
+		if t.Format == nil || t.Format.Questions <= 0 || t.Format.Minutes <= 0 || t.Format.PassPercent <= 0 || t.Format.PassPercent > 100 {
+			errorf("exam type %s: missing or invalid format", t.ID)
+			continue
+		}
+		if n := len(c.ExamQuestions(t)); n < t.Format.Questions {
+			errorf("exam type %s: %d questions available, the format needs %d", t.ID, n, t.Format.Questions)
 		}
 	}
 	return ps

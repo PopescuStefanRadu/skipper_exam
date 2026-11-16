@@ -1,0 +1,48 @@
+[
+  {
+    "id": "C",
+    "name": "Clasa C",
+    "description": "Mare, până la 6 Mm de țărm. Lista RNA pentru clasa C.",
+    "available": true,
+    "bank": "C",
+    "format": { "questions": 40, "minutes": 45, "passPercent": 80, "confirmed": false }
+  },
+  {
+    "id": "D",
+    "name": "Clasa D",
+    "description": "Căi navigabile interioare. Lista RNA pentru clasa D.",
+    "available": true,
+    "bank": "D",
+    "format": { "questions": 40, "minutes": 45, "passPercent": 80, "confirmed": false }
+  },
+  {
+    "id": "C-diff",
+    "name": "Clasa C, examen de diferență",
+    "description": "Pentru posesorii clasei D: doar întrebările COLREG din lista clasei C.",
+    "available": true,
+    "bank": "C",
+    "subjects": ["colreg"],
+    "format": { "questions": 20, "minutes": 30, "passPercent": 80, "confirmed": false }
+  },
+  {
+    "id": "D-diff",
+    "name": "Clasa D, examen de diferență",
+    "description": "Pentru posesorii clasei C: doar întrebările R.N.D. din lista clasei D.",
+    "available": true,
+    "bank": "D",
+    "subjects": ["rnd"],
+    "format": { "questions": 20, "minutes": 30, "passPercent": 80, "confirmed": false }
+  },
+  {
+    "id": "B",
+    "name": "Clasa B",
+    "description": "Mare, până la 24 Mm de țărm. RNA nu a publicat încă întrebări pentru această clasă.",
+    "available": false
+  },
+  {
+    "id": "A",
+    "name": "Clasa A",
+    "description": "Toate apele. RNA nu a publicat încă întrebări pentru această clasă.",
+    "available": false
+  }
+]

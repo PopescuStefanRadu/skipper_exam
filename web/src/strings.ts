@@ -40,6 +40,13 @@ export const strings = {
   home: {
     signedInAs: "Conectat ca",
     signOut: "Ieșire din cont",
+    preparingFor: "Te pregătești pentru:",
+    changeExamType: "Schimbă examenul",
+  },
+  examType: {
+    title: "Pentru ce examen te pregătești?",
+    notAvailable: "Nu este disponibil încă.",
+    save: "Salvează",
   },
   loading: "Se încarcă…",
 

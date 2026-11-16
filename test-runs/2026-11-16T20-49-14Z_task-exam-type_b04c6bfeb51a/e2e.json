@@ -1,0 +1,436 @@
+{
+  "config": {
+    "configFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/playwright.config.ts",
+    "rootDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 5
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/test-runs/2026-11-16T20-49-14Z_task-exam-type_b04c6bfeb51a/e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.49.1",
+    "workers": 12,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "exam-type.spec.ts",
+      "file": "exam-type.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "a new user chooses the exam type right after signing up, and it follows the account",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "failed",
+                  "duration": 5295,
+                  "error": {
+                    "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected string: \u001b[32m\"http://127.0.0.1:38001/\u001b[7mtip-examen\u001b[27m\"\u001b[39m\nReceived string: \u001b[31m\"http://127.0.0.1:38001/\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveURL with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    3 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/inregistrare\"\u001b[22m\n\u001b[2m    6 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/\"\u001b[22m\n",
+                    "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected string: \u001b[32m\"http://127.0.0.1:38001/\u001b[7mtip-examen\u001b[27m\"\u001b[39m\nReceived string: \u001b[31m\"http://127.0.0.1:38001/\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveURL with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    3 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/inregistrare\"\u001b[22m\n\u001b[2m    6 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/\"\u001b[22m\n\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:9:22",
+                    "matcherResult": {
+                      "name": "toHaveURL",
+                      "expected": "http://127.0.0.1:38001/tip-examen",
+                      "message": "\u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected string: \u001b[32m\"http://127.0.0.1:38001/\u001b[7mtip-examen\u001b[27m\"\u001b[39m\nReceived string: \u001b[31m\"http://127.0.0.1:38001/\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveURL with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    3 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/inregistrare\"\u001b[22m\n\u001b[2m    6 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/\"\u001b[22m\n",
+                      "pass": false,
+                      "actual": "http://127.0.0.1:38001/",
+                      "log": [
+                        "  - expect.toHaveURL with timeout 5000ms",
+                        "  - waiting for locator(':root')",
+                        "    3 × locator resolved to <html lang=\"ro\">…</html>",
+                        "      - unexpected value \"http://127.0.0.1:38001/inregistrare\"",
+                        "    6 × locator resolved to <html lang=\"ro\">…</html>",
+                        "      - unexpected value \"http://127.0.0.1:38001/\""
+                      ],
+                      "timeout": 5000
+                    },
+                    "location": {
+                      "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                      "column": 22,
+                      "line": 9
+                    },
+                    "snippet": "   7 |   await signUp(page, email);\n   8 |\n>  9 |   await expect(page).toHaveURL(\"/tip-examen\");\n     |                      ^\n  10 |   await expect(page.getByRole(\"heading\", { name: \"Pentru ce examen te pregătești?\" })).toBeVisible();\n  11 |   await page.getByLabel(\"Clasa D\", { exact: true }).check();\n  12 |   await page.getByRole(\"button\", { name: \"Salvează\" }).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                        "column": 22,
+                        "line": 9
+                      },
+                      "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected string: \u001b[32m\"http://127.0.0.1:38001/\u001b[7mtip-examen\u001b[27m\"\u001b[39m\nReceived string: \u001b[31m\"http://127.0.0.1:38001/\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveURL with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    3 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/inregistrare\"\u001b[22m\n\u001b[2m    6 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/\"\u001b[22m\n\n\n   7 |   await signUp(page, email);\n   8 |\n>  9 |   await expect(page).toHaveURL(\"/tip-examen\");\n     |                      ^\n  10 |   await expect(page.getByRole(\"heading\", { name: \"Pentru ce examen te pregătești?\" })).toBeVisible();\n  11 |   await page.getByLabel(\"Clasa D\", { exact: true }).check();\n  12 |   await page.getByRole(\"button\", { name: \"Salvează\" }).click();\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:9:22"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:49:25.297Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/test-results/exam-type-a-new-user-choos-7d051--and-it-follows-the-account-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                    "column": 22,
+                    "line": 9
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fcd032d4f229257dd75d-7894a7d884c4f924a621",
+          "file": "exam-type.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "changing the exam type later",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "failed",
+                  "duration": 5333,
+                  "error": {
+                    "message": "TimeoutError: locator.check: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Clasa D', { exact: true })\u001b[22m\n",
+                    "stack": "TimeoutError: locator.check: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Clasa D', { exact: true })\u001b[22m\n\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:26:53",
+                    "location": {
+                      "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                      "column": 53,
+                      "line": 26
+                    },
+                    "snippet": "  24 | test(\"changing the exam type later\", async ({ page }) => {\n  25 |   await signUp(page, uniqueEmail());\n> 26 |   await page.getByLabel(\"Clasa D\", { exact: true }).check();\n     |                                                     ^\n  27 |   await page.getByRole(\"button\", { name: \"Salvează\" }).click();\n  28 |\n  29 |   await page.getByRole(\"link\", { name: \"Schimbă examenul\" }).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                        "column": 53,
+                        "line": 26
+                      },
+                      "message": "TimeoutError: locator.check: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Clasa D', { exact: true })\u001b[22m\n\n\n  24 | test(\"changing the exam type later\", async ({ page }) => {\n  25 |   await signUp(page, uniqueEmail());\n> 26 |   await page.getByLabel(\"Clasa D\", { exact: true }).check();\n     |                                                     ^\n  27 |   await page.getByRole(\"button\", { name: \"Salvează\" }).click();\n  28 |\n  29 |   await page.getByRole(\"link\", { name: \"Schimbă examenul\" }).click();\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:26:53"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:49:25.294Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/test-results/exam-type-changing-the-exam-type-later-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                    "column": 53,
+                    "line": 26
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fcd032d4f229257dd75d-9f6d763dfcc5fc97e7b4",
+          "file": "exam-type.spec.ts",
+          "line": 24,
+          "column": 1
+        },
+        {
+          "title": "class A and B are listed as not available yet and can't be chosen",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "status": "failed",
+                  "duration": 5347,
+                  "error": {
+                    "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m()\u001b[22m\n\nLocator: getByLabel('Clasa A', { exact: true })\nExpected: disabled\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeDisabled with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Clasa A', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m()\u001b[22m\n\nLocator: getByLabel('Clasa A', { exact: true })\nExpected: disabled\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeDisabled with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Clasa A', { exact: true })\u001b[22m\n\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:39:58",
+                    "matcherResult": {
+                      "message": "\u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m()\u001b[22m\n\nLocator: getByLabel('Clasa A', { exact: true })\nExpected: disabled\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeDisabled with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Clasa A', { exact: true })\u001b[22m\n",
+                      "pass": false,
+                      "actual": "enabled",
+                      "name": "toBeDisabled",
+                      "expected": "disabled",
+                      "log": [
+                        "  - expect.toBeDisabled with timeout 5000ms",
+                        "  - waiting for getByLabel('Clasa A', { exact: true })"
+                      ],
+                      "timeout": 5000
+                    },
+                    "location": {
+                      "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                      "column": 58,
+                      "line": 39
+                    },
+                    "snippet": "  37 |   await signUp(page, uniqueEmail());\n  38 |   for (const name of [\"Clasa A\", \"Clasa B\"]) {\n> 39 |     await expect(page.getByLabel(name, { exact: true })).toBeDisabled();\n     |                                                          ^\n  40 |   }\n  41 |   await expect(page.getByText(\"Nu este disponibil încă\").first()).toBeVisible();\n  42 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                        "column": 58,
+                        "line": 39
+                      },
+                      "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m()\u001b[22m\n\nLocator: getByLabel('Clasa A', { exact: true })\nExpected: disabled\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeDisabled with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('Clasa A', { exact: true })\u001b[22m\n\n\n  37 |   await signUp(page, uniqueEmail());\n  38 |   for (const name of [\"Clasa A\", \"Clasa B\"]) {\n> 39 |     await expect(page.getByLabel(name, { exact: true })).toBeDisabled();\n     |                                                          ^\n  40 |   }\n  41 |   await expect(page.getByText(\"Nu este disponibil încă\").first()).toBeVisible();\n  42 | });\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:39:58"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:49:25.280Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/test-results/exam-type-class-A-and-B-ar-a8726-ble-yet-and-can-t-be-chosen-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                    "column": 58,
+                    "line": 39
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fcd032d4f229257dd75d-92c665d930b98e891aa0",
+          "file": "exam-type.spec.ts",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "a signed-in user without an exam type is asked to choose one first",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "status": "failed",
+                  "duration": 5568,
+                  "error": {
+                    "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected string: \u001b[32m\"http://127.0.0.1:38001/\u001b[7mtip-examen\u001b[27m\"\u001b[39m\nReceived string: \u001b[31m\"http://127.0.0.1:38001/\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveURL with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    3 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/autentificare\"\u001b[22m\n\u001b[2m    6 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/\"\u001b[22m\n",
+                    "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected string: \u001b[32m\"http://127.0.0.1:38001/\u001b[7mtip-examen\u001b[27m\"\u001b[39m\nReceived string: \u001b[31m\"http://127.0.0.1:38001/\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveURL with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    3 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/autentificare\"\u001b[22m\n\u001b[2m    6 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/\"\u001b[22m\n\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:47:22",
+                    "matcherResult": {
+                      "name": "toHaveURL",
+                      "expected": "http://127.0.0.1:38001/tip-examen",
+                      "message": "\u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected string: \u001b[32m\"http://127.0.0.1:38001/\u001b[7mtip-examen\u001b[27m\"\u001b[39m\nReceived string: \u001b[31m\"http://127.0.0.1:38001/\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveURL with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    3 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/autentificare\"\u001b[22m\n\u001b[2m    6 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/\"\u001b[22m\n",
+                      "pass": false,
+                      "actual": "http://127.0.0.1:38001/",
+                      "log": [
+                        "  - expect.toHaveURL with timeout 5000ms",
+                        "  - waiting for locator(':root')",
+                        "    3 × locator resolved to <html lang=\"ro\">…</html>",
+                        "      - unexpected value \"http://127.0.0.1:38001/autentificare\"",
+                        "    6 × locator resolved to <html lang=\"ro\">…</html>",
+                        "      - unexpected value \"http://127.0.0.1:38001/\""
+                      ],
+                      "timeout": 5000
+                    },
+                    "location": {
+                      "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                      "column": 22,
+                      "line": 47
+                    },
+                    "snippet": "  45 |   const email = await createAccount();\n  46 |   await signIn(page, email);\n> 47 |   await expect(page).toHaveURL(\"/tip-examen\");\n     |                      ^\n  48 |   await page.goto(\"/\");\n  49 |   await expect(page).toHaveURL(\"/tip-examen\");\n  50 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                        "column": 22,
+                        "line": 47
+                      },
+                      "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator(':root')\nExpected string: \u001b[32m\"http://127.0.0.1:38001/\u001b[7mtip-examen\u001b[27m\"\u001b[39m\nReceived string: \u001b[31m\"http://127.0.0.1:38001/\"\u001b[39m\nCall log:\n\u001b[2m  - expect.toHaveURL with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator(':root')\u001b[22m\n\u001b[2m    3 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/autentificare\"\u001b[22m\n\u001b[2m    6 × locator resolved to <html lang=\"ro\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:38001/\"\u001b[22m\n\n\n  45 |   const email = await createAccount();\n  46 |   await signIn(page, email);\n> 47 |   await expect(page).toHaveURL(\"/tip-examen\");\n     |                      ^\n  48 |   await page.goto(\"/\");\n  49 |   await expect(page).toHaveURL(\"/tip-examen\");\n  50 | });\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:47:22"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:49:25.278Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/test-results/exam-type-a-signed-in-user-a3030-s-asked-to-choose-one-first-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                    "column": 22,
+                    "line": 47
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fcd032d4f229257dd75d-8a78fba170ca7e7829aa",
+          "file": "exam-type.spec.ts",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "the server refuses an exam type that isn't available",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "failed",
+                  "duration": 530,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:55:24",
+                    "matcherResult": {
+                      "actual": 404,
+                      "expected": 400,
+                      "message": "\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                      "name": "toBe",
+                      "pass": false
+                    },
+                    "location": {
+                      "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                      "column": 24,
+                      "line": 55
+                    },
+                    "snippet": "  53 |   await signIn(page, await createAccount());\n  54 |   const res = await page.request.put(\"/api/profile\", { data: { examType: \"A\" } });\n> 55 |   expect(res.status()).toBe(400);\n     |                        ^\n  56 | });\n  57 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                        "column": 24,
+                        "line": 55
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n\n  53 |   await signIn(page, await createAccount());\n  54 |   const res = await page.request.put(\"/api/profile\", { data: { examType: \"A\" } });\n> 55 |   expect(res.status()).toBe(400);\n     |                        ^\n  56 | });\n  57 |\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:55:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:49:25.274Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/test-results/exam-type-the-server-refus-36571-m-type-that-isn-t-available-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts",
+                    "column": 24,
+                    "line": 55
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fcd032d4f229257dd75d-15f8ba752e523739160a",
+          "file": "exam-type.spec.ts",
+          "line": 52,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-16T20:49:24.996Z",
+    "duration": 5926.79,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 5,
+    "flaky": 0
+  }
+}

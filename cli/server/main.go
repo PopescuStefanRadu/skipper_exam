@@ -13,6 +13,9 @@ import (
 
 	"github.com/jackc/pgx/v5/pgxpool"
 
+	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/content"
+	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/db"
+	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/profile"
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server"
 )
 
@@ -44,11 +47,30 @@ func run() error {
 	}
 	defer pool.Close()
 
+	if err := db.Migrate(ctx, pool); err != nil {
+		return fmt.Errorf("migrate: %w", err)
+	}
+
+	contentDir := os.Getenv("CONTENT_DIR")
+	if contentDir == "" {
+		contentDir = "content"
+	}
+	c, err := content.Load(contentDir)
+	if err != nil {
+		return fmt.Errorf("load content: %w", err)
+	}
+
 	kratos, err := server.NewKratos(os.Getenv("KRATOS_PUBLIC_URL"))
 	if err != nil || os.Getenv("KRATOS_PUBLIC_URL") == "" {
 		return errors.New("KRATOS_PUBLIC_URL is required")
 	}
-	cfg := server.Config{DB: pool, Sessions: kratos, AccountsProxy: kratos.Proxy()}
+	cfg := server.Config{
+		DB:            pool,
+		Sessions:      kratos,
+		AccountsProxy: kratos.Proxy(),
+		Profiles:      &profile.Store{Pool: pool},
+		ExamTypes:     c.ExamTypes,
+	}
 	if dir := os.Getenv("WEB_DIR"); dir != "" {
 		cfg.Web = os.DirFS(dir)
 	}

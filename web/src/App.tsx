@@ -1,8 +1,10 @@
-import type { ReactNode } from "react";
-import { Link, Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { useEffect, useState, type ReactNode } from "react";
+import { Link, Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { getExamTypes, type ExamType } from "./api";
 import { AuthForm } from "./AuthForm";
-import { NewPassword, Recovery } from "./Recovery";
+import { ExamTypePage } from "./ExamTypePage";
 import { signOut } from "./kratos";
+import { NewPassword, Recovery } from "./Recovery";
 import { ServerStatus } from "./ServerStatus";
 import { SessionProvider, useSession } from "./session";
 import { strings } from "./strings";
@@ -18,7 +20,8 @@ export function App() {
           <Route path="/inregistrare" element={<SignUp />} />
           <Route path="/recuperare" element={<Recovery />} />
           <Route path="/setari" element={<NewPassword />} />
-          <Route path="*" element={<RequireSession><Home /></RequireSession>} />
+          <Route path="/tip-examen" element={<RequireSession><ExamTypePage /></RequireSession>} />
+          <Route path="*" element={<RequireSession><RequireExamType><Home /></RequireExamType></RequireSession>} />
         </Routes>
         <ServerStatus />
       </main>
@@ -31,7 +34,42 @@ function RequireSession({ children }: { children: ReactNode }) {
   const { me } = useSession();
   if (me === undefined) return <p>{strings.loading}</p>;
   if (me === null) return <Navigate to="/autentificare" replace />;
+  return (
+    <>
+      <AccountBar />
+      {children}
+    </>
+  );
+}
+
+// Practice depends on the exam type, so it's chosen before anything else.
+function RequireExamType({ children }: { children: ReactNode }) {
+  const { profile } = useSession();
+  const location = useLocation();
+  if (!profile?.examType) return <Navigate to="/tip-examen" replace state={{ from: location.pathname }} />;
   return children;
+}
+
+function AccountBar() {
+  const { me, refresh } = useSession();
+  const navigate = useNavigate();
+  return (
+    <header>
+      <p>
+        {strings.home.signedInAs} <strong data-testid="signed-in-email">{me?.email}</strong>
+      </p>
+      <button
+        type="button"
+        onClick={async () => {
+          await signOut();
+          await refresh();
+          navigate("/autentificare", { replace: true });
+        }}
+      >
+        {strings.home.signOut}
+      </button>
+    </header>
+  );
 }
 
 function SignIn() {
@@ -83,23 +121,18 @@ function SignUp() {
 }
 
 function Home() {
-  const { me, refresh } = useSession();
-  const navigate = useNavigate();
+  const { profile } = useSession();
+  const [types, setTypes] = useState<ExamType[]>([]);
+  useEffect(() => {
+    getExamTypes().then(setTypes, () => setTypes([]));
+  }, []);
+  const examType = types.find((t) => t.id === profile?.examType);
   return (
     <section>
       <p>
-        {strings.home.signedInAs} <strong data-testid="signed-in-email">{me?.email}</strong>
+        {strings.home.preparingFor} <strong data-testid="exam-type">{examType?.name ?? profile?.examType}</strong>
       </p>
-      <button
-        type="button"
-        onClick={async () => {
-          await signOut();
-          await refresh();
-          navigate("/autentificare", { replace: true });
-        }}
-      >
-        {strings.home.signOut}
-      </button>
+      <Link to="/tip-examen">{strings.home.changeExamType}</Link>
     </section>
   );
 }

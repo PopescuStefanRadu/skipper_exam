@@ -73,6 +73,28 @@ type SubjectRange struct {
 	Subject string `json:"subject"`
 }
 
+// ExamType is an exam a user can prepare for (see docs/app/features/exam-types.md).
+type ExamType struct {
+	ID          string `json:"id"`
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	// Available is false while no official question material exists.
+	Available bool   `json:"available"`
+	Bank      string `json:"bank,omitempty"`
+	// Subjects limits the bank's questions to these subjects; empty means all.
+	Subjects []string    `json:"subjects,omitempty"`
+	Format   *ExamFormat `json:"format,omitempty"`
+}
+
+// ExamFormat is the shape of one exam. Confirmed is false until the values are
+// confirmed by an official source.
+type ExamFormat struct {
+	Questions   int  `json:"questions"`
+	Minutes     int  `json:"minutes"`
+	PassPercent int  `json:"passPercent"`
+	Confirmed   bool `json:"confirmed"`
+}
+
 // Content is everything under the content directory.
 type Content struct {
 	Sources       []Source
@@ -80,6 +102,7 @@ type Content struct {
 	Banks         []Bank
 	Subjects      []Subject
 	SubjectRanges []SubjectRange
+	ExamTypes     []ExamType
 }
 
 const (
@@ -88,6 +111,7 @@ const (
 	banksDir          = "banks"
 	subjectsFile      = "subjects.json"
 	subjectRangesFile = "subject-ranges.json"
+	examTypesFile     = "exam-types.json"
 )
 
 // Load reads the content directory. Missing files mean empty content.
@@ -105,6 +129,9 @@ func Load(dir string) (*Content, error) {
 	if err := readJSON(filepath.Join(dir, subjectRangesFile), &c.SubjectRanges); err != nil {
 		return nil, err
 	}
+	if err := readJSON(filepath.Join(dir, examTypesFile), &c.ExamTypes); err != nil {
+		return nil, err
+	}
 	files, err := filepath.Glob(filepath.Join(dir, banksDir, "*.json"))
 	if err != nil {
 		return nil, err
@@ -120,8 +147,8 @@ func Load(dir string) (*Content, error) {
 	return c, nil
 }
 
-// Save writes the content directory. Subjects and subject ranges are edited by
-// hand and only read.
+// Save writes the content directory. Subjects, subject ranges and exam types are
+// edited by hand and only read.
 func (c *Content) Save(dir string) error {
 	if err := writeJSON(filepath.Join(dir, sourcesFile), c.Sources); err != nil {
 		return err

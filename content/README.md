@@ -7,6 +7,7 @@ The app's content, as described in `docs/app/features/content.md`.
 - `questions.json`: the shared question pool. Question IDs (`q0001`, …) never change and are never reused.
 - `subjects.json`: the subjects questions are tagged with.
 - `subject-ranges.json`: which RNA number ranges of which bank and section belong to which subject. Edit this file, then run `make content-tag`. Every bank entry must be covered by exactly one range.
+- `exam-types.json`: the exams a user can prepare for. Each lists the bank it draws from, the subjects it's limited to (for difference exams), and its exam format. The format is marked unconfirmed until it's checked against an official source.
 - `banks/<id>.json`: one RNA question list each (`C`, `D`). It lists the pool questions in RNA order, with RNA's section and number. The lists are made of untitled sections, and the numbering restarts in each one.
 
 Commands:

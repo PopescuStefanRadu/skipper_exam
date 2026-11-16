@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-16T20-51-52Z",
+  "branch": "task/exam-type",
+  "commit": "0218ffb043116e0993daf6c1e1b1029182440e1f",
+  "ci": false,
+  "suites_requested": [
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 13127
+    }
+  ],
+  "result": "passed"
+}

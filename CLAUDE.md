@@ -9,7 +9,7 @@ Work **e2e-first**. Update the feature document and its e2e scenario before impl
 
 ## Project status
 
-Milestone 0 (foundations) is in place: the backend, the web app shell, the full stack on free ports, parallel e2e tests, the worktree tooling and CI. No product features exist yet.
+Milestone 0 (foundations) is in place: the backend, the web app shell, the full stack on free ports, parallel e2e tests, the worktree tooling and CI. Milestone 1 imported both RNA question lists into `content/` (737 unique questions). No user-facing product features exist yet.
 
 ## Commands
 
@@ -34,6 +34,7 @@ make task-done NAME=x      # after the PR is merged: stop the stack, remove the 
 ## Architecture
 
 - **Backend** (Go): `cli/server` is the entrypoint. It reads `DATABASE_URL`, `LISTEN_ADDR` (default `:8080`) and optionally `WEB_DIR` from the environment. `pkg/skipperexam/server` holds the HTTP handlers: `/api/*` is the JSON API, and every other path serves the built web app, falling back to `index.html` for client-side routes. Postgres is accessed through `pgx/v5` (`pgxpool`).
+- **Content** (`content/`, see `content/README.md`): stored source PDFs, `sources.json`, the shared question pool `questions.json`, and one file per RNA bank in `banks/`. `cli/content` imports and validates it. `pkg/skipperexam/content` holds the model and the import rules that keep question IDs stable (identical questions are shared across banks, slightly changed ones keep their ID). `pkg/skipperexam/content/rnapdf` rebuilds the RNA PDFs' Excel tables from their drawn cell borders, dropping hidden narrow columns. `TestRealContentIsValid` validates the real content in every test run.
 - **Web app** (`web/`, React + TypeScript + Vite, pnpm): it calls the backend on the same origin under `/api`. All interface text is in `web/src/strings.ts`.
 - **E2E tests** (`e2e/`, Playwright): they read the stack's `APP_URL` from `.stack.env` and run fully parallel. Each test must create its own data (see "Parallel tests within a branch" in `docs/DEVELOPMENT.md`).
 - **Stack**: `compose.yaml` and `Dockerfile` build one app image (Go binary + built web app on distroless) and run it next to Postgres 17.2. `scripts/stack.sh` names the Compose project after the worktree and lets Docker assign host ports, so stacks in different worktrees run side by side. `scripts/lock.sh` provides named locks shared by all worktrees; integration runs under the `integrate` lock.

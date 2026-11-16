@@ -13,7 +13,14 @@ The app has three kinds of content. Each one can change independently and must b
 ## Rules
 
 - **Every version is recorded.** Each question bank and bibliography document is stored with its publication date and a fingerprint, so we always know which version a question or a link refers to.
-- **Questions keep a stable identity** across new versions of the bank, so user history and source links survive an update. New, changed and removed questions are detected and reported. Removed questions stay in history but leave practice.
+- **One shared question pool.** Both RNA lists contain many of the same questions, especially on general seamanship. A question that appears in both lists, with the same wording, answers and correct answer, is one question in the pool. Progress on it counts for every exam type that uses it. Each bank lists which pool questions it contains and under which RNA number.
+- **Questions keep a stable identity** across new versions of the bank, so user history and source links survive an update. On re-import:
+  - questions whose text is unchanged keep their identity;
+  - questions that changed slightly (a corrected typo, a reworded answer) keep their identity and are reported as *changed*;
+  - everything else is reported as *new* or *removed*.
+  
+  Removed questions stay in history but leave practice.
+- **Text is normalised on import:** Romanian letters are written with a comma below (ș, ț) rather than the cedilla look-alikes (ş, ţ), whitespace is cleaned up, and wrapped lines are joined. The question's wording isn't otherwise changed, even where it contains mistakes, because it must match what the candidate sees at the exam.
 - **Every question is tagged with its subject** (for example COLREG or R.N.D.). The tags are used to put together difference exams, see [Exam types](exam-types.md).
 - **Every link has a status:** *suggested* (proposed, not yet checked), *verified* (a reviewer confirmed the passage supports the answer), or *stale* (the question or the source changed since it was verified). Unverified links are shown with a clear label, see [Explanations](explanations.md).
 - **Conflicts are flagged, not hidden.** If the official answer seems to contradict the source material, the question is flagged for review.
@@ -23,7 +30,7 @@ The app has three kinds of content. Each one can change independently and must b
 
 ### When RNA publishes a new question bank
 1. Download the new PDF and add it as a new version. The old version is kept.
-2. Run the importer. It extracts the questions and checks them: 3 answers each, exactly one correct, no gaps, clean text.
+2. Run the importer. It extracts the questions and checks them: 3 answers each, exactly one correct, numbering without gaps, no empty text.
 3. Review the **change report**: new, changed and removed questions. A changed question's source links become *stale*.
 4. Create or review source links for new and *stale* questions.
 5. Run the content validation and the full e2e suite, then publish.

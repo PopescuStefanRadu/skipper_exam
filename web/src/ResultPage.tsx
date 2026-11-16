@@ -33,6 +33,9 @@ export function ResultPage() {
                 <p>
                   {s.correctAnswer} <strong data-testid="correct">{w.correct.text}</strong>
                 </p>
+                <Link to={`/intrebare/${w.question.id}`} state={{ given: w.given?.text ?? s.noAnswer }}>
+                  {strings.explanation.seeExplanation}
+                </Link>
               </li>
             ))}
           </ol>

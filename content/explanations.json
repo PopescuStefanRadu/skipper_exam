@@ -1,0 +1,4555 @@
+[
+  {
+    "questionId": "q0001",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 2,
+    "reference": "Regula 1(a)",
+    "quote": "Prezentele reguli se aplică tuturor navelor aflate în mare largă și pe toate apele învecinate navigabile pentru navele maritime.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0002",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 2,
+    "reference": "Regula 1(a)",
+    "quote": "Prezentele reguli se aplică tuturor navelor aflate în mare largă și pe toate apele învecinate navigabile pentru navele maritime.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0003",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 2,
+    "reference": "Regula 1(b)",
+    "quote": "Nici o prevedere a prezentelor reguli nu trebuie să împiedice aplicarea prevederilor speciale, stabilite de către autoritatea competentă, cu privire la navigația în rade, porturi, fluvii, lacuri sau căile navigabile interioare cu acces la marea largă și navigabile pentru navele maritime.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0004",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 2,
+    "reference": "Regula 1(b)",
+    "quote": "Nici o prevedere a prezentelor reguli nu trebuie să împiedice aplicarea prevederilor speciale, stabilite de către autoritatea competentă, cu privire la navigația în rade, porturi, fluvii, lacuri sau căile navigabile interioare cu acces la marea largă și navigabile pentru navele maritime. Aceste prevederi speciale trebuie să fie cât mai conforme posibil cu prezentele reguli.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0005",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 2,
+    "reference": "Regula 1(c)",
+    "quote": "Nici o dispoziție din prezentele reguli nu trebuie să împiedice aplicarea prevederilor speciale stabilite de guvernul unui stat cu privire la suplimentarea numărului luminilor de poziție, a semnalelor luminoase, a semnalelor cu sirena utilizate de către navele de război și navele în convoi",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0006",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 3,
+    "reference": "Regula 2(a)",
+    "quote": "Nici una din prevederile prezentelor reguli nu trebuie să exonereze de răspundere o navă sau pe proprietarul ei, pe comandantul sau echipajul acesteia, față de consecințele unei neglijențe oarecare privind aplicarea acestor reguli sau de neglijarea oricăror măsuri de prevedere cerute de practica obișnuită a navigatorilor sau de împrejurările deosebite în care se găsește nava.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0007",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 3,
+    "reference": "Regula 2(a)",
+    "quote": "Nici una din prevederile prezentelor reguli nu trebuie să exonereze de răspundere o navă sau pe proprietarul ei, pe comandantul sau echipajul acesteia, față de consecințele unei neglijențe oarecare privind aplicarea acestor reguli sau de neglijarea oricăror măsuri de prevedere cerute de practica obișnuită a navigatorilor sau de împrejurările deosebite în care se găsește nava.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0008",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 3,
+    "reference": "Regula 2(b)",
+    "quote": "În interpretarea și conformarea față de prezentele reguli se va ține seama de toate pericolele de navigație și de riscurile de coliziune precum și de toate circumstanțele deosebite incluzând limitele navelor în cauză, care pot duce la îndepărtarea de prezentele reguli în scopul evitării unui pericol imediat.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0009",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 3,
+    "reference": "Regula 2(b)",
+    "quote": "În interpretarea și conformarea față de prezentele reguli se va ține seama de toate pericolele de navigație și de riscurile de coliziune precum și de toate circumstanțele deosebite incluzând limitele navelor în cauză, care pot duce la îndepărtarea de prezentele reguli în scopul evitării unui pericol imediat.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0010",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 3,
+    "reference": "Regula 3(a)",
+    "quote": "Termenul “Navă” include orice mijloace plutitoare inclusiv mijloace fără pescaj și hidroavioanele, folosite sau capabile de a fi folosite ca mijloc de transport pe apă.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0011",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 3,
+    "reference": "Regula 3(b)",
+    "quote": "Expresia “Navă cu propulsie mecanică” înseamnă orice navă propulsată de o mașină.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0012",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 4,
+    "reference": "Regula 3(c)",
+    "quote": "Expresia “Navă cu vele” înseamnă orice navă care navigă sub vele, iar dacă are o mașină de propulsie aceasta nu este folosită.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0013",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 4,
+    "reference": "Regula 3(c)",
+    "quote": "Expresia “Navă cu vele” înseamnă orice navă care navigă sub vele, iar dacă are o mașină de propulsie aceasta nu este folosită.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0014",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 5,
+    "reference": "Regula 3(f)",
+    "quote": "Expresia “navă care nu este stăpână pe manevra sa” înseamnă o navă care, în anumite circumstanțe, nu este în stare să manevreze așa cum cer prezentele reguli și deci nu se poate îndepărta din drumul altei nave.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0015",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 5,
+    "reference": "Regula 3(g)",
+    "quote": "Expresia “navă cu capacitate de manevră redusă” înseamnă o navă a cărei capacitate de a manevra conform prezentelor reguli este limitată prin natura lucrărilor sale și deci nu se poate îndepărta din drumul altei nave.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0016",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 6,
+    "reference": "Regula 3(h)",
+    "quote": "Expresia “Navă stânjenită de pescajul său” desemnează orice navă cu propulsie mecanică, care, din cauza pescajului său, sau a lățimii căii navigabile este mult îngreunată în capacitatea sa de a-și modifica drumul.",
+    "status": "suggested",
+    "note": "The quote says draught or width of the waterway, while the question says draught and depth of water, so the match is close but not exact."
+  },
+  {
+    "questionId": "q0017",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 6,
+    "reference": "Regula 3(i)",
+    "quote": "Expresia „în marș” se aplică oricărei nave care nu este nici la ancoră nici legată la mal (geamandură), nici eșuată;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0018",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 6,
+    "reference": "Regula 3(k)",
+    "quote": "Navele trebuie să fie considerate ca fiind în vedere una față de alta, chiar dacă numai una dintre ele poate fi observată vizual de cealaltă;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0019",
+    "revision": 1,
+    "source": "colreg-a",
+    "page": 6,
+    "reference": "Regula 3(k)",
+    "quote": "Navele trebuie să fie considerate ca fiind în vedere una față de alta, chiar dacă numai una dintre ele poate fi observată vizual de cealaltă;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0020",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 1,
+    "reference": "Regula 5",
+    "quote": "Orice navă trebuie să asigure în permanență o veghe vizuală și auditivă corespunzătoare, folosindu-se în același timp mijloacele disponibile, potrivit cu circumstanțele și condițiile existente, astfel încât să se realizeze aprecierea completă a situației și a pericolului de coliziune.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0021",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 1,
+    "reference": "Regula 6",
+    "quote": "Orice navă trebuie să navigheze tot timpul cu o viteză de siguranță, astfel încât să poată acționa corect și eficient pentru evitarea unei coliziuni și pentru a fi oprită pe o distanță corespunzătoare circumstanțelor și condițiilor existente.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0022",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 1,
+    "reference": "Regula 6(a)",
+    "quote": "Pentru determinarea vitezei de siguranță cel puțin următorii factori trebuie luați în considerare: a) De către toate navele: ■1) vizibilitatea; ■2) densitatea traficului, inclusiv concentrările de nave de pescuit sau de oricare alte nave; ■3) manevrabilitatea navei, cu referire specială la distanța de oprire și capacitatea de girație în condițiile existente; ■4) noaptea, existența unui fundal luminos ca acela produs de luminile de pe coastă sau de lumina difuză a propriilor sale lumini; ■5) starea vântului, a mării și a curenților, precum și apropierea de pericolele pentru navigație;",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote stops at item 5 on page 1, but the official answer also lists the draught of the ship, which is a later item of Rule 6(a) (likely on page 2)."
+  },
+  {
+    "questionId": "q0023",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 2,
+    "reference": "Regula 7(a)",
+    "quote": "Orice navă trebuie să folosească toate mijloacele disponibile corespunzătoare circumstanțelor și condițiilor existente pentru a determina dacă există riscul unei coliziuni.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0024",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 2,
+    "reference": "Regula 7(a)",
+    "quote": "Orice navă trebuie să folosească toate mijloacele disponibile corespunzătoare circumstanțelor și condițiilor existente pentru a determina dacă există riscul unei coliziuni.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0025",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 3,
+    "reference": "Regula 7(d)(1)",
+    "quote": "există risc de coliziune dacă relevmentul compas la o navă care se apropie, nu variază într-un mod apreciabil;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0026",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 3,
+    "reference": "Regula 7(d)(1)",
+    "quote": "există risc de coliziune dacă relevmentul compas la o navă care se apropie, nu variază într-un mod apreciabil;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0027",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 3,
+    "reference": "Regula 8(a)",
+    "quote": "Orice manevră ce se face pentru evitarea unei coliziuni trebuie, dacă circumstanțele permit, să conducă la rezultate pozitive, să fie efectuată din timp și conform cu o bună practică marinărească.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0028",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 3,
+    "reference": "Regula 8(b)",
+    "quote": "Orice schimbare de drum sau de viteză sau amândouă deodată trebuie, dacă circumstanțele permit, să fie destul de mare pentru a putea fi percepută imediat de orice navă care execută observarea vizuală sau cu radarul;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0029",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 3,
+    "reference": "Regula 8(c)",
+    "quote": "Dacă nava are suficient spațiu de manevră, simpla schimbare a drumului poate fi manevra cea mai eficientă pentru a se evita o situație de foarte mare apropiere, cu condiția ca această manevră să fie făcută cu mult timp înainte, să fie substanțială și să nu conducă la o altă situație de foarte mare apropiere.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0030",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 3,
+    "reference": "Regula 8(d)",
+    "quote": "Orice manevră pentru evitarea coliziunii cu o altă navă trebuie făcută astfel încât să permită trecerea la o distanță de siguranță.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0031",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 3,
+    "reference": "Regula 8(d)",
+    "quote": "Eficacitatea manevrei trebuie controlată cu atenție până când cealaltă navă a fost complet și definitiv evitată.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0032",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 3,
+    "reference": "Regula 8(e)",
+    "quote": "Dacă este nevoie să se evite o coliziune sau să se câștige mai mult timp pentru aprecierea situației, nava trebuie să reducă viteza sau să oprească complet",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0033",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 4,
+    "reference": "Regula 9(a)",
+    "quote": "O navă în marș printr-un șenal îngust sau pe o pasă de acces trebuie să navige cât mai aproape posibil de limita exterioară, din tribordul său, a șenalului sau a pasei respective de acces.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0034",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 3,
+    "reference": "Regula 34(d)",
+    "quote": "nava care are îndoieli va exprima imediat emițând cu fluierul o serie rapidă de cel puțin cinci sunete scurte.",
+    "status": "suggested",
+    "note": "Rule 9(d) (colreg-b1 p.4-5) refers the vessel in the channel to the Rule 34(d) signal."
+  },
+  {
+    "questionId": "q0035",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 5,
+    "reference": "Regula 9(f)",
+    "quote": "O navă care se apropie de un cot sau de un loc aflat într-un șenal îngust sau într-o pasă de acces, în care alte nave pot fi mascate de prezența unui obstacol, trebuie să navige cu prudență și vigilență deosebite și să emită semnalul corespunzător prescris de regula 34 e);",
+    "status": "suggested",
+    "note": "Rule 34(e) (colreg-d p.3) specifies the signal as one prolonged blast. Verifier: partial support. The quote only refers to the signal of Rule 34(e); the 'one prolonged blast' that decides between the answers is in colreg-d page 3, so that should be quoted instead or as well."
+  },
+  {
+    "questionId": "q0036",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 5,
+    "reference": "Regula 10(a)",
+    "quote": "Prezenta regulă se aplică dispozitivelor de separare a traficului adoptate de către Organizație",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0037",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 5,
+    "reference": "Regula 10(b)(1)",
+    "quote": "O navă care navigă în interiorul unui dispozitiv de separare a traficului trebuie: ■1) să navige pe pasa de navigație corespunzătoare direcției generale a traficului pentru această pasă;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0038",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 6,
+    "reference": "Regula 10(b)(3)",
+    "quote": "ca regulă generală să se angajeze sau să iasă dintr-o pasă de navigație pe la una din extremități, dar atunci când intră sau iese prin lateral, să facă această manevră sub un unghi cât mai mic posibil față de direcția generală a traficului.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0039",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 6,
+    "reference": "Regula 10(c)",
+    "quote": "Pe cât este posibil, o navă trebuie să evite să traverseze pasele de navigație, dar dacă este obligată să o facă, nava trebuie să le traverseze – pe cât posibil – perpendicular pe direcția generală a traficului;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0040",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 6,
+    "reference": "Regula 10(d)(1)",
+    "quote": "Zonele de trafic costier nu trebuie folosite în mod normal de o navă care poate utiliza în deplină siguranță pasa de navigație corespunzătoare din dispozitivul adiacent de separare a traficului. Totuși navele cu o lungime mai mică de 20 m, navele cu vele și navele care pescuiesc zonele de trafic costier;",
+    "status": "suggested",
+    "note": "The source sentence appears to be missing the verb ('pot folosi') before 'zonele de trafic costier'. The quote is word for word on the page but reads garbled (the verb is missing in the source text); it still shows the exceptions for vessels under 20 m and sailing vessels."
+  },
+  {
+    "questionId": "q0041",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 6,
+    "reference": "Regula 10(e)",
+    "quote": "nu trebuie să intre în zona de separare sau să întretaie linia de separare cu excepția: ■1) cazurilor de urgență pentru evitarea unui pericol imediat; ■2) angajării pentru pescuit în zona de separare.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0042",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 7,
+    "reference": "Regula 10(f)",
+    "quote": "O navă care navigă în zonele vecine cu extremitățile unui dispozitiv de separare a traficului trebuie să navige cu o atenție deosebită.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0043",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 7,
+    "reference": "Regula 10(g)",
+    "quote": "O navă trebuie să evite, pe cât de mult posibil, să ancoreze în interiorul unui dispozitiv de separare a traficului sau în zonele vecine cu extremitățile sale.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0044",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 7,
+    "reference": "Regula 10(h)",
+    "quote": "O navă care nu dorește să folosească un dispozitiv de separare a traficului trebuie să se îndepărteze de acesta cât mai mult posibil.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0045",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 7,
+    "reference": "Regula 10(k)",
+    "quote": "Atunci când se află angajată într-o operațiune pentru menținerea siguranței navigației într-un dispozitiv de separare a traficului, o navă cu capacitatea de manevră redusă este scutită de a se conforma prezentei reguli în măsura necesară executării operațiunii.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0046",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 2,
+    "reference": "Regula 13(a)",
+    "quote": "Oricare ar fi prevederile regulilor din partea B secțiunile I și II, orice navă care ajunge din urmă o altă navă trebuie să se abată din drumul navei ajunse.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0047",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 2,
+    "reference": "Regula 13(a)",
+    "quote": "Oricare ar fi prevederile regulilor din partea B secțiunile I și II, orice navă care ajunge din urmă o altă navă trebuie să se abată din drumul navei ajunse.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0048",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 2,
+    "reference": "Regula 13(b)",
+    "quote": "Va fi considerată navă care ajunge o altă navă, acea navă care se apropie de altă navă venind dintr-un unghi mai mare de 22º, 5 dinapoia traversului acelei nave, adică aceea care se găsește într-o astfel de poziție față de nava ajunsă încât noaptea ar putea vedea numai lumina din pupa navei ajunse",
+    "status": "suggested",
+    "concern": "Regula 13(b) precizează că nava care ajunge din urmă vede numai lumina din pupa, „fără să vadă vreuna din luminile din borduri”, în timp ce răspunsul oficial spune că se văd și luminile din borduri.",
+    "note": "Verifier: partial support. The quote gives the 22.5 degree rule but says only the stern light is seen, which does not match the official answer's added side lights."
+  },
+  {
+    "questionId": "q0049",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 3,
+    "reference": "Regula 13(c)",
+    "quote": "Dacă o navă nu poate stabili cu certitudine că ajunge din urmă o altă navă, ea trebuie să se considere ca fiind navă care ajunge din urmă și să manevreze în consecință.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0050",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 1,
+    "reference": "Regula 12(a)(1)",
+    "quote": "când navele primesc vântul din borduri diferite, nava care primește vântul din babord trebuie să se abată din drumul celeilalte;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0051",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 1,
+    "reference": "Regula 12(a)(2)",
+    "quote": "când cele două nave primesc vântul din același bord, nava din vânt trebuie să se abată din drumul navei de sub vânt;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0052",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 4,
+    "reference": "Regula 17(a)(1)",
+    "quote": "Când din două nave una (neprivilegiată) este obligată să se abată din drumul celeilalte, cealaltă (nava privilegiată) trebuie să-și mențină drumul și viteza.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0053",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 4,
+    "reference": "Regula 17(a)(2)",
+    "quote": "În scopul evitării coliziunii numai prin manevra sa, această din urmă navă (nava privilegiată) poate totuși să acționeze imediat atunci când îi este evident că nava obligată să se abată din drum nu execută manevra corespunzătoare prezentelor reguli.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0054",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 5,
+    "reference": "Regula 18(a)",
+    "quote": "O navă cu propulsie mecanică aflată în marș trebuie să se abată din drumul unei nave: ■1) care nu este stăpână pe manevra sa; ■2) cu capacitate de manevră redusă; ■3) care este angajată în pescuit; ■4) cu vele.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0055",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 5,
+    "reference": "Regula 18(b)",
+    "quote": "O navă cu vele aflată în marș trebuie să se abată din drumul unei nave: ■1) care nu este stăpână pe manevra sa;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0056",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 5,
+    "reference": "Regula 18(b)",
+    "quote": "O navă cu vele aflată în marș trebuie să se abată din drumul unei nave: ■1) care nu este stăpână pe manevra sa; ■2) care are capacitate de manevră redusă;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0057",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 5,
+    "reference": "Regula 18(b)",
+    "quote": "O navă cu vele aflată în marș trebuie să se abată din drumul unei nave: ■1) care nu este stăpână pe manevra sa; ■2) care are capacitate de manevră redusă; ■3) care este angajată în pescuit;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0058",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 5,
+    "reference": "Regula 18(d)(1)",
+    "quote": "Orice navă, alta decât o navă care nu este stăpână pe manevra sau a cărei capacitate de manevră este redusă, trebuie, dacă circumstanțele permit, să nu împiedice trecerea în siguranță a unei nave stânjenită de pescajul său, care arată semnalele prevăzute la regula 28;",
+    "status": "suggested",
+    "note": "Verifier: partial support. Rule 18(d)(1) only says other vessels must not impede a draught-constrained vessel (excluding NUC/RAM), so it needs Rule 18(a)(1) on the same page 5 (a power-driven vessel gives way to a vessel not under command) to decide the answer."
+  },
+  {
+    "questionId": "q0059",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 6,
+    "reference": "Regula 19(a)",
+    "quote": "Prezenta regulă se aplică navelor care nu se văd una pe alta și care navigă înăuntrul sau în apropierea zonelor cu vizibilitate redusă.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0060",
+    "revision": 1,
+    "source": "colreg-b2",
+    "page": 6,
+    "reference": "Regula 19(b)",
+    "quote": "Orice navă trebuie să navige cu o viteză de siguranță adaptată circumstanțelor existente și condițiilor de vizibilitate redusă.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0061",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 1,
+    "reference": "Regula 20(a)",
+    "quote": "Regulile prezentei părți trebuie respectate pe orice vreme.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0062",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 1,
+    "reference": "Regula 20(b)",
+    "quote": "Regulile privitoare la lumini trebuie respectate de la apusul până la răsăritul Soarelui.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0063",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 1,
+    "reference": "Regula 20(d)",
+    "quote": "Regulile referitoare la semne trebuie respectate pe timpul zilei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0064",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 1,
+    "reference": "Regula 20(c)",
+    "quote": "Luminile prevăzute de prezentele reguli, atunci când sunt instalate, pot fi arătate de asemenea de la răsăritul la apusul soarelui pe timp cu vizibilitate redusă și pot fi arătate în toate celelalte împrejurări în care această măsură este considerată necesară.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0065",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 1,
+    "reference": "Regula 20(d)",
+    "quote": "Regulile referitoare la semne trebuie respectate pe timpul zilei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0066",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 1,
+    "reference": "Regula 21(a)",
+    "quote": "Expresia „lumină de catarg” înseamnă o lumină albă amplasată în planul longitudinal al navei, arătând o lumină neîntreruptă pe un arc de orizont de 225 și astfel fixată încât să arate lumina începând din prova până la 22,5 o înapoia traversului, în fiecare bord.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0067",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 2,
+    "reference": "Regula 21(b)",
+    "quote": "Expresia „lumini din bord” înseamnă o lumină verde amplasată în tribord și o lumină roșie în babord, arătând fiecare o lumină neîntreruptă pe un arc de orizont de 112,5 o și fixată încât să arate lumina începând din prova până la 22,5 o grade înapoia traversului în bordul respectiv.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0068",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 1,
+    "reference": "Regula 21(a)",
+    "quote": "Expresia „lumină de catarg” înseamnă o lumină albă amplasată în planul longitudinal al navei, arătând o lumină neîntreruptă pe un arc de orizont de 225 și astfel fixată încât să arate lumina începând din prova până la 22,5 o înapoia traversului, în fiecare bord.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0069",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 2,
+    "reference": "Regula 21(b)",
+    "quote": "Expresia „lumini din bord” înseamnă o lumină verde amplasată în tribord și o lumină roșie în babord, arătând fiecare o lumină neîntreruptă pe un arc de orizont de 112,5 o și fixată încât să arate lumina începând din prova până la 22,5 o grade înapoia traversului în bordul respectiv.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0070",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 2,
+    "reference": "Regula 21(c)",
+    "quote": "Expresia „lumină de pupa” înseamnă o lumină albă amplasată cât mai aproape posibil în pupa, arătând o lumină neîntreruptă pe un arc de orizont de 135º grade și fixată astfel încât să arate lumina pe un sector de 67,5 o în fiecare bord, începând de la pupa.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0071",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 2,
+    "reference": "Regula 21(c)",
+    "quote": "Expresia „lumină de pupa” înseamnă o lumină albă amplasată cât mai aproape posibil în pupa, arătând o lumină neîntreruptă pe un arc de orizont de 135º grade și fixată astfel încât să arate lumina pe un sector de 67,5 o în fiecare bord, începând de la pupa.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0072",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 3,
+    "reference": "Regula 21(d)",
+    "quote": "Expresia „lumină de remorcaj” înseamnă o lumină galbenă, având aceleași caracteristici ca și lumina de pupa definită la paragraful (c) de mai sus.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0073",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 22,
+    "reference": "Regula 27(b)(1)",
+    "quote": "O navă cu capacitate de manevră redusă, alta decât o navă care face operațiuni de deminare, trebuie să poarte: 1) în locul cel mai vizibil, trei lumini pe linie verticală, vizibile pe întreg orizontul, lumina de sus și lumina de jos fiind roșii, iar lumina din mijloc albă;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0074",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 3,
+    "reference": "Regula 21(d)",
+    "quote": "Expresia „lumină de remorcaj” înseamnă o lumină galbenă, având aceleași caracteristici ca și lumina de pupa definită la paragraful (c) de mai sus.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0075",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 23,
+    "reference": "Regula 27(b)(4)",
+    "quote": "când nava este la ancorã, în afarã de luminile sau semnele prescrise la aliniatele (1) și (2) luminile sau semnele prescrise de regula 30).",
+    "status": "suggested",
+    "note": "Verifier: partial support. Paragraph (b)(4) only adds the Rule 30 anchor lights to those in (b)(1)-(2); the red-white-red lights for a vessel with restricted ability to manoeuvre are in 27(b)(1) on page 22, so cite that together with it."
+  },
+  {
+    "questionId": "q0076",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 3,
+    "reference": "Regula 21(e)",
+    "quote": "Expresia „lumină vizibilă pe întregul orizont” înseamnă o lumină care arată o lumină neîntreruptă pe un arc de orizont de 360º.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0077",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 22,
+    "reference": "Regula 27(b)(2)",
+    "quote": "în locul cel mai vizibil, trei semne pe linie verticală, semnul superior și inferior fiind câte o bulă, iar cel din mijloc fiind un bicon;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0078",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 3,
+    "reference": "Regula 21(e)",
+    "quote": "Expresia „lumină vizibilă pe întregul orizont” înseamnă o lumină care arată o lumină neîntreruptă pe un arc de orizont de 360º.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0079",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 3,
+    "reference": "Regula 21(f)",
+    "quote": "Expresia „lumină cu sclipiri” înseamnă o lumină cu sclipiri regulate, a căror frecvență este de 120 sclipiri sau mai multe pe minut.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0080",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 23,
+    "reference": "Regula 27(b)(4)",
+    "quote": "când nava este la ancorã, în afarã de luminile sau semnele prescrise la aliniatele (1) și (2) luminile sau semnele prescrise de regula 30).",
+    "status": "suggested",
+    "note": "Verifier: partial support. Paragraph (b)(4) does not say what the signs are; the ball-diamond-ball signs for restricted ability to manoeuvre are in 27(b)(2) on page 22, so cite that together with it."
+  },
+  {
+    "questionId": "q0081",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 3,
+    "reference": "Regula 21(f)",
+    "quote": "Expresia „lumină cu sclipiri” înseamnă o lumină cu sclipiri regulate, a căror frecvență este de 120 sclipiri sau mai multe pe minut.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0082",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 4,
+    "reference": "Regula 22(b)",
+    "quote": "pentru navele cu o L = 12 m sau mai mare, dar mai mică de 50 m (12<L<50m): - lumina de catarg: 5 mile marine (dacă lungimea navei este mai mică de 20m:3 mile marine);",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0083",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 5,
+    "reference": "Regula 22(c)",
+    "quote": "pentru navele cu o lungime mai mică de 12 m (L< 12 m): - lumina de catarg: 2 mile marine;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0084",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 31,
+    "reference": "Regula 28",
+    "quote": "O navã cu propulsie mecanicã stânjenitã de pescajul sãu în afarã de luminile prescrise pentru navele cu propulsie mecanicã prin regula 23, poate sã poarte în locul cel mai vizibil trei lumini roșii pe linie verticalã vizibile pe întreg orizontul sau semn cilindric.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0085",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 4,
+    "reference": "Regula 22(b)",
+    "quote": "pentru navele cu o L = 12 m sau mai mare, dar mai mică de 50 m (12<L<50m): - lumina de catarg: 5 mile marine (dacă lungimea navei este mai mică de 20m:3 mile marine); - luminile din borduri: 2 mile marine;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0086",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 5,
+    "reference": "Regula 22(c)",
+    "quote": "pentru navele cu o lungime mai mică de 12 m (L< 12 m): - lumina de catarg: 2 mile marine; - luminile din borduri: 1 milă marină;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0087",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 4,
+    "reference": "Regula 22(b)",
+    "quote": "pentru navele cu o L = 12 m sau mai mare, dar mai mică de 50 m (12<L<50m): - lumina de catarg: 5 mile marine (dacă lungimea navei este mai mică de 20m:3 mile marine); - luminile din borduri: 2 mile marine; - lumina de pupa: 2 mile marine;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0088",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 5,
+    "reference": "Regula 22(c)",
+    "quote": "pentru navele cu o lungime mai mică de 12 m (L< 12 m): - lumina de catarg: 2 mile marine; - luminile din borduri: 1 milă marină; - lumina de pupa: 2 mile marine;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0089",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 4,
+    "reference": "Regula 22(a)",
+    "quote": "pentru navele cu o lungime de 50 m sau mai mare: - lumina de catarg: 6 mile marine; - luminile din borduri: 3 mile marine; - lumina de pupa: 3 mile marine; - lumina de remorcaj: 3 mile marine;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0090",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 4,
+    "reference": "Regula 22(b)",
+    "quote": "pentru navele cu o L = 12 m sau mai mare, dar mai mică de 50 m (12<L<50m): - lumina de catarg: 5 mile marine (dacă lungimea navei este mai mică de 20m:3 mile marine); - luminile din borduri: 2 mile marine; - lumina de pupa: 2 mile marine; - lumina de remorcaj: 2 mile marine;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0091",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 5,
+    "reference": "Regula 22(c)",
+    "quote": "pentru navele cu o lungime mai mică de 12 m (L< 12 m): - lumina de catarg: 2 mile marine; - luminile din borduri: 1 milă marină; - lumina de pupa: 2 mile marine; - lumina de remorcaj: 2 mile marine;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0092",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 4,
+    "reference": "Regula 22(b)",
+    "quote": "pentru navele cu o L = 12 m sau mai mare, dar mai mică de 50 m (12<L<50m): - lumina de catarg: 5 mile marine (dacă lungimea navei este mai mică de 20m:3 mile marine); - luminile din borduri: 2 mile marine; - lumina de pupa: 2 mile marine; - lumina de remorcaj: 2 mile marine; - luminile albă, roșie, verde sau galbenă vizibilă pe întregul orizont: 2 mile marine;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0093",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 4,
+    "reference": "Regula 22(b)",
+    "quote": "pentru navele cu o L = 12 m sau mai mare, dar mai mică de 50 m (12<L<50m): - lumina de catarg: 5 mile marine (dacă lungimea navei este mai mică de 20m:3 mile marine); - luminile din borduri: 2 mile marine; - lumina de pupa: 2 mile marine; - lumina de remorcaj: 2 mile marine; - luminile albă, roșie, verde sau galbenă vizibilă pe întregul orizont: 2 mile marine;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0094",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 6,
+    "reference": "Regula 23(b)",
+    "quote": "În afara luminilor prevăzute la paragraful (a) de mai sus, o navă cu pernă de aer, exploatată fără pescaj, trebuie să poarte o lumină galbenă cu sclipiri vizibile pe întregul orizont.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0095",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 7,
+    "reference": "Regula 23(c)(2)",
+    "quote": "În locul luminilor prevăzute la paragraful (a) de mai sus, o navă cu propulsie mecanică cu o lungime mai mică de 7 metri și a cărei viteză maximă nu depășește 7 noduri poate să poarte sus o lumină albă vizibilă pe întreg orizontul și, dacă este posibil, să poarte luminile din borduri.",
+    "status": "suggested",
+    "concern": "Regula 23(c)(2) se referă la navele cu lungimea mai mică de 7 m și viteza maximă de cel mult 7 noduri, nu la navele mai lungi de 7 m cu viteză peste 7 noduri, cum spune întrebarea.",
+    "note": "Verifier: partial support. Rule 23(c)(2) applies to vessels shorter than 7 m and at most 7 knots, which contradicts the question's premise (longer than 7 m, over 7 knots), so it does not clearly justify the official answer and the question may be flawed."
+  },
+  {
+    "questionId": "q0096",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 5,
+    "reference": "Regula 22(d)",
+    "quote": "pentru navele sau obiectele remorcate care sunt parțial în imersiune și greu observabile: - o lumină albă vizibilă pe întregul orizont: 3 mile marine.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0097",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 11,
+    "reference": "Regula 24(e)",
+    "quote": "O navă sau un obiect remorcat, altele decât cele remorcate în paragraful (g) al prezentei reguli, trebuie să poarte: 1) luminile din borduri; 2) lumina de pupa;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0098",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 12,
+    "reference": "Regula 24(f)(1)",
+    "quote": "o navă împinsă, care nu face parte dintr-o uniate compusă, trebuie să poarte la extremitatea sa prova, luminile din borduri;",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote covers a pushed vessel that is NOT part of a composite unit, while the question says it forms a single unit."
+  },
+  {
+    "questionId": "q0099",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 12,
+    "reference": "Regula 24(f)(2)",
+    "quote": "o navă remorcată cuplat trebuie să poarte la extremitatea sa dinspre prova, luminile din borduri.",
+    "status": "suggested",
+    "note": "The stern light for a towed vessel comes from Rule 24(e)(2) (page 11). Verifier: partial support. The quote gives only the side lights at the bow; the stern light needed for the official answer is in Rule 24(e)(2) on page 11."
+  },
+  {
+    "questionId": "q0100",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 14,
+    "reference": "Regula 25(a)",
+    "quote": "O navă cu vele în marș trebuie să poarte: 1) luminile din borduri; 2) luminile de pupa.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0101",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 14,
+    "reference": "Regula 25(a)",
+    "quote": "O navă cu vele în marș trebuie să poarte: 1) luminile din borduri; 2) luminile de pupa.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0102",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 15,
+    "reference": "Regula 25(b)",
+    "quote": "La o navă cu vele, cu lungimea sub 20 metri, luminile prescrise în paragraful (a) al prezentei reguli pot fi combinate într-un felinar situat la sau lângă mărul de la catarg în locul cel mai vizibil.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0103",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 15,
+    "reference": "Regula 25(b)",
+    "quote": "La o navă cu vele, cu lungimea sub 20 metri, luminile prescrise în paragraful (a) al prezentei reguli pot fi combinate într-un felinar situat la sau lângă mărul de la catarg în locul cel mai vizibil.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0104",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 15,
+    "reference": "Regula 25(b)",
+    "quote": "La o navă cu vele, cu lungimea sub 20 metri, luminile prescrise în paragraful (a) al prezentei reguli pot fi combinate într-un felinar situat la sau lângă mărul de la catarg în locul cel mai vizibil.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0105",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 15,
+    "reference": "Regula 25(b)",
+    "quote": "La o navă cu vele, cu lungimea sub 20 metri, luminile prescrise în paragraful (a) al prezentei reguli pot fi combinate într-un felinar situat la sau lângă mărul de la catarg în locul cel mai vizibil.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0106",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 15,
+    "reference": "Regula 25(c)",
+    "quote": "o navă cu vele în marș poate purta, la măr sau la partea superioară a catargului în locul unde sunt cel mai vizibile, două lumini pe verticală, vizibile pe întreg orizontul, lumina superioară fiind roșie iar cea inferioară verde.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0107",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 16,
+    "reference": "Regula 25(d)(1)",
+    "quote": "O navă cu vele cu o lungime mai mică de 7 metri trebuie, dacă este posibil, să poarte luminile prescrise la paragrafele (a) sau (b), dar în cazul că nu le poartă, trebuie să fie pregătite să arate în orice moment, pentru prevenirea unei coliziuni, o lanternă electrică sau un felinar aprins cu lumină albă;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0108",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 16,
+    "reference": "Regula 25(d)(1)",
+    "quote": "O navă cu vele cu o lungime mai mică de 7 metri trebuie, dacă este posibil, să poarte luminile prescrise la paragrafele (a) sau (b), dar în cazul că nu le poartă, trebuie să fie pregătite să arate în orice moment, pentru prevenirea unei coliziuni, o lanternă electrică sau un felinar aprins cu lumină albă;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0109",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 16,
+    "reference": "Regula 25(d)(2)",
+    "quote": "O navă cu rame poate purtă lumile prescrise de prezenta regulă pentru navele cu vele, dar dacă nu le poartă, trebuie să fie pregătită să arate în orice moment, pentru prevenirea unei coliziuni, o lanternă electrică sau un felinar cu lumină albă.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0110",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 17,
+    "reference": "Regula 25(e)",
+    "quote": "O navă care se deplasează în același timp cu vele și cu ajutorul unui aparat propulsor, trebuie să poarte la prova în locul cel mai vizibil, un semn de forma conică, cu vârful în jos.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0111",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 17,
+    "reference": "Regula 25(e)",
+    "quote": "O navă care se deplasează în același timp cu vele și cu ajutorul unui aparat propulsor, trebuie să poarte la prova în locul cel mai vizibil, un semn de forma conică, cu vârful în jos.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0112",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 18,
+    "reference": "Regula 26(b)(2)-(3)",
+    "quote": "lumină de catarg așezată la o înălțime mai mare decât aceea a luminii verzi vizibilă întreg orizontul și înapoia acesteia. Navele cu lungime mai mică 50 metri nu sunt obligate poarte aceasta lumina, dar o pot face; 3) când nava se deplasează prin apă, în afara luminilor prescrise prin paragraful prezent, luminile din borduri si luminile de pupa.",
+    "status": "suggested",
+    "note": "The green-over-white all-round lights are in Rule 26(b)(1), starting on page 17; side lights are added only when making way, so without them the trawler is not making way. Verifier: partial support. The quote starts mid-sentence and omits the green-over-white lights (Rule 26(b)(1), page 17); it only shows that side lights are added when making way."
+  },
+  {
+    "questionId": "q0113",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 34,
+    "reference": "Regula 30(a)(1)",
+    "quote": "O navã ancoratã trebuie sã poarte în locul cel mai vizibil: 1) la partea din prova o luminã albã pe întreg orizontul sau o bulã;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0114",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 37,
+    "reference": "Regula 30(d)",
+    "quote": "O navã eșuatã trebuie sã poarte luminile prescrise la paragraful (a) sau (b) din prezenta regulã și în plus, la locul cel mai vizibil;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0115",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 38,
+    "reference": "Regula 30(e)",
+    "quote": "O navã cu lungime mai micã de 7 metri, când este la ancorã dar nu în interiorul sau în apropierea unei treceri înguste, șenal sau loc de ancoraj, sau acolo unde alte nave navigã în mod obișnuit este obligatã sã arate luminile sau semnele prescrise în paragrafele (a) și (b) din prezenta regulã.",
+    "status": "suggested",
+    "concern": "Textul sursei spune „este obligatã”, deși sensul regulii (și răspunsul oficial) este că nava nu este obligată; probabil lipsește cuvântul „nu”.",
+    "note": "Verifier: partial support. The source text reads 'este obligată' (the 'nu' is missing from the PDF text), so the quote as written says the opposite of the official answer."
+  },
+  {
+    "questionId": "q0116",
+    "revision": 1,
+    "source": "colreg-c",
+    "page": 38,
+    "reference": "Regula 30(f)",
+    "quote": "O navã cu o lungime mai micã de 12metri, atunci când este eșuatã, nu trebuie sã poarte luminile sau semnele prescrise în subparagrafele (d) (1) și (2) ale prezentei reguli.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0117",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 1,
+    "reference": "Regula 32(b)",
+    "quote": "Expresia ’’sunet scurt’’ însemnă un sunet a cărui durată este de aproximativ 1 secundă",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0118",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 1,
+    "reference": "Regula 32(c)",
+    "quote": "Expresia ’’sunet lung’’ înseamnă un sunet a cărui durată este de 4 până la 6 secunde",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0119",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 1,
+    "reference": "Regula 33(a)",
+    "quote": "O navă având o lungime de 12 metri sau mai mare trebuie să fie prevăzută cu un fluier și un clopot,",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0120",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 1,
+    "reference": "Regula 33(b)",
+    "quote": "O navă cu o lungime mai mică de 12 metri nu este obligată să aibă la bord echipamentele de semnalizare sonoră prescrise la paragraful (a) din prezenta regulă, dar trebuie în lipsa acestora, să fie dotată cu un alt mijloc de emitere a uni semnal sonor eficace.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0121",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 1,
+    "reference": "Regula 34(a)",
+    "quote": "Atunci când navele se văd unele pe altele, o navă cu propulsie mecanică în marș, manevrând așa cum este autorizat sau prescris de prezentele Reguli, trebuie să indice aceste manevre prin următoarele semnale, emise cu fluierul:",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0122",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 1,
+    "reference": "Regula 34(a)",
+    "quote": "un sunet scurt pentru a spune:’’Vin la tribord’’",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0123",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 2,
+    "reference": "Regula 34(a)",
+    "quote": "două sunete scurte pentru a spune:’’Vin la babord’’ (..);",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0124",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 2,
+    "reference": "Regula 34(a)",
+    "quote": "trei sunete scurte pentru a spune:’’Am mașina înapoi’’",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0125",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 2,
+    "reference": "Regula 34(b)",
+    "quote": "Toate navele pot completa semnalele cu fluierul prescrise la paragraful (a) cu semnale luminoase repetate, dacă este necesar, pe toată durata manevrei;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0126",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 2,
+    "reference": "Regula 34(b)(2)",
+    "quote": "intervalul între semnalele succesive trebuie să fie de cel puțin 10 secunde;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0127",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 2,
+    "reference": "Regula 34(c)(2)",
+    "quote": "nava care urmează a fi depășită trebuie, manevrând conform dispozițiunilor din regula 9(e)(1) să-și dea acordul sau emițând cu fluierul următorul semnal: un sunet lung, un sunet scurt, un sunet lung și un sunet scurt, emise în această ordine",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0128",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 3,
+    "reference": "Regula 35",
+    "quote": "Atât ziua cât și noaptea înăuntrul sau în apropierea unei zone în care vizibilitatea este redusă, semnele prescrise de prezenta regulă trebuie să fie folosite după cum urmează:",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0129",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 3,
+    "reference": "Regula 35",
+    "quote": "Atât ziua cât și noaptea înăuntrul sau în apropierea unei zone în care vizibilitatea este redusă, semnele prescrise de prezenta regulă trebuie să fie folosite după cum urmează:",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0130",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 3,
+    "reference": "Regula 35(c)",
+    "quote": "O navă care nu este stăpână pe manevră, o navă a cărei capacitate de manevră este redusă, o navă stânjenită de pescajul său, o navă cu vele, o navă care pescuiește și o navă care remorchează sau împinge o altă navă trebuie să emită, în locul semnalelor prescrise la paragrafele (a) și (b) trei sunete consecutive, și anume: un sunet lung urmat de două sunete scurte, la intervale ce nu vor fi mai mari de două minute",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0131",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 3,
+    "reference": "Regula 35(c)",
+    "quote": "O navă care nu este stăpână pe manevră, o navă a cărei capacitate de manevră este redusă, o navă stânjenită de pescajul său, o navă cu vele, o navă care pescuiește și o navă care remorchează sau împinge o altă navă trebuie să emită, în locul semnalelor prescrise la paragrafele (a) și (b) trei sunete consecutive, și anume: un sunet lung urmat de două sunete scurte, la intervale ce nu vor fi mai mari de două minute",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0132",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 3,
+    "reference": "Regula 35(c)",
+    "quote": "O navă care nu este stăpână pe manevră, o navă a cărei capacitate de manevră este redusă, o navă stânjenită de pescajul său, o navă cu vele, o navă care pescuiește și o navă care remorchează sau împinge o altă navă trebuie să emită, în locul semnalelor prescrise la paragrafele (a) și (b) trei sunete consecutive, și anume: un sunet lung urmat de două sunete scurte, la intervale ce nu vor fi mai mari de două minute",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0133",
+    "revision": 1,
+    "source": "colreg-d",
+    "page": 5,
+    "reference": "Regula 35(i)",
+    "quote": "Navă cu lungimea de 12 metri nu este obligată să emită semnalele mai sus menționate, dar în cazul în care nu le emite trebuie să emită un alt semnal sonor, eficient, la intervale care să nu depășească 2 minute.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0134",
+    "revision": 1,
+    "source": "colreg-annexes",
+    "page": 13,
+    "reference": "Anexa IV, punctul 1(f)",
+    "quote": "semnal de pericol N.C. din Codul Internațional de semnale;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0135",
+    "revision": 1,
+    "source": "colreg-annexes",
+    "page": 13,
+    "reference": "Anexa IV, punctul 1(g)",
+    "quote": "semnal constând dintr-un pavilion pătrat având deasupra sau dedesupt o bulă sau un obiect asemănător;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0136",
+    "revision": 1,
+    "source": "colreg-annexes",
+    "page": 14,
+    "reference": "Anexa IV, punctul 1(i)",
+    "quote": "fuzee cu parașuta sau o lumină de mână care produce o lumină roșie;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0137",
+    "revision": 1,
+    "source": "colreg-annexes",
+    "page": 14,
+    "reference": "Anexa IV, punctul 1(k)",
+    "quote": "mișcări lente și repetate de sus în jos a brațelor întinse lateral;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0139",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 6,
+    "reference": "Regula 10(d)(1)",
+    "quote": "Totuși navele cu o lungime mai mică de 20 m, navele cu vele și navele care pescuiesc zonele de trafic costier;",
+    "status": "suggested",
+    "note": "The source text is missing the verb ('pot folosi') but the meaning is clear."
+  },
+  {
+    "questionId": "q0140",
+    "revision": 1,
+    "source": "colreg-b1",
+    "page": 6,
+    "reference": "Regula 10(d)(2)",
+    "quote": "o navă poate folosi zona de trafic costier atunci când se află în drum spre un port sau iese din el, spre sau de la o platformă sau o construcție de foraj marin, spre sau din locul de îmbarcare a pilotului sau orice alt loc situat în zona de trafic costier sau pentru a evita un pericol imediat.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0141",
+    "revision": 1,
+    "source": "colreg-annexes",
+    "page": 14,
+    "reference": "Anexa IV, pct. 1(o)",
+    "quote": "semnale aprobate transmise prin sistemele de radiocomunicații inclusiv cele emise de SART-urile mijloacelor de salvare. 2) Este interzisă folosirea oricăruia din semnalele de mai sus, în afară de cazul când se indică un pericol sau nevoie de ajutor",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0142",
+    "revision": 1,
+    "source": "colreg-annexes",
+    "page": 14,
+    "reference": "Anexa IV, pct. 1(o)",
+    "quote": "semnale aprobate transmise prin sistemele de radiocomunicații inclusiv cele emise de SART-urile mijloacelor de salvare. 2) Este interzisă folosirea oricăruia din semnalele de mai sus, în afară de cazul când se indică un pericol sau nevoie de ajutor",
+    "status": "suggested",
+    "concern": "Anexa IV include semnalele emise de SART-urile mijloacelor de salvare printre semnalele de pericol, nu printre semnalele de atragere a atenției, deci sursa contrazice răspunsul oficial.",
+    "note": "Verifier: unrelated support. The quote classes SART signals as distress signals, contradicting the official answer (attention-attracting signals), so it cannot justify it."
+  },
+  {
+    "questionId": "q0145",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 155,
+    "reference": "Capitolul XIV – Căutare și salvare, tabelul duratei de supraviețuire în apă, p. 308",
+    "quote": "Temperatura (grade Celsius) Durata probabilă de supraviețuire",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote is only a table header (survival time in water by temperature in Celsius), not a statement that sea water temperature is expressed in Celsius."
+  },
+  {
+    "questionId": "q0148",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 57,
+    "reference": "Cunoștințe elementare pentru navigația maritimă – Drumuri și relevmente, p. 112",
+    "quote": "Relevmentul prova babord/tribord (Rpv Bd/Rpv Td) reprezintă unghiul format între direcția de deplasare a navei și direcția la reperul de pe coastă ales (aflat în babord sau",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0149",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 57,
+    "reference": "Cunoștințe elementare pentru navigația maritimă – Sfera terestră. Coordonate geografice, p. 112",
+    "quote": "Latitudinea geografică (φ) reprezintă arcul de meridian format între ecuator",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0152",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 57,
+    "reference": "Cunoștințe elementare pentru navigația maritimă – Drumuri și relevmente, p. 112",
+    "quote": "Relevmentul compas (Rc) reprezintă unghiul format între direcția nordului compas și direcția la reperul vizat de pe coastă.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0153",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 57,
+    "reference": "Cunoștințe elementare pentru navigația maritimă – Sfera terestră. Coordonate geografice, p. 112",
+    "quote": "Longitudinea geografică (λ) reprezintă arcul de ecuator format între meridianul zero și meridianul locului navei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0155",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 57,
+    "reference": "Cunoștințe elementare pentru navigația maritimă – Drumuri și relevmente, p. 112",
+    "quote": "Deviația magnetică (dev - δ) este unghiul format între direcția nordului magnetic (Nm) și direcția nordului compas (Nc).",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote defines magnetic deviation and does not say the compass needle points to compass north; I found no better passage in the manual."
+  },
+  {
+    "questionId": "q0156",
+    "revision": 1,
+    "source": "rnd",
+    "page": 126,
+    "reference": "Anexa nr. 8, cap. II – Balizarea limitelor șenalului pe calea navigabilă, pct. 1",
+    "quote": "Aceste semnale servesc la balizarea limitelor șenalului și indicarea direcției; ele balizează limita dreaptă a șenalului și pericolele de la malul drept.",
+    "status": "suggested",
+    "note": "Verifier: partial support. This is the R.N.D. Danube right-bank channel marking, not the maritime lateral marks system the question names, though it does say the signals mark channel limits."
+  },
+  {
+    "questionId": "q0157",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 57,
+    "reference": "Cunoștințe elementare pentru navigația maritimă – Drumuri și relevmente, p. 112",
+    "quote": "Drumul magnetic (Dm) reprezintă unghiul format între direcția nordului magnetic și direcția de deplasare a navei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0158",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 57,
+    "reference": "Cunoștințe elementare pentru navigația maritimă – Drumuri și relevmente, p. 112",
+    "quote": "Relevmentul magnetic (Rm) reprezintă unghiul format între direcția nordului magnetic și direcția la reperul vizat de pe coastă.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0161",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 117,
+    "reference": "Anexa 1 (R.N.D.), Anexa nr. 8 – Balizarea șenalului, semnale la mal, p. 232",
+    "quote": "Aceste semnale (faruri la malul stâng) servesc la indicarea direcției aproximative a șenalului în raport cu malul și cu semnalele instalate pe calea navigabilă, balizează șenalul acolo unde acesta se apropie de malul stâng; ele servesc de asemenea ca puncte de reper.",
+    "status": "suggested",
+    "note": "It says lighthouses serve as landmarks, which makes 'faruri' right; the printed page 232 is not visible in the OCR text."
+  },
+  {
+    "questionId": "q0162",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 57,
+    "reference": "Capitolul XII Cunoștințe elementare pentru navigația maritimă, Drumuri și relevmente, p. 112-113",
+    "quote": "Drumul adevărat (Da) reprezintă unghiul format între direcția nordului adevărat (Na)",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0165",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 57,
+    "reference": "Cunoștințe elementare pentru navigația maritimă – Sfera terestră. Coordonate geografice, p. 112",
+    "quote": "Longitudinea geografică (λ) reprezintă arcul de ecuator format între meridianul zero și meridianul locului navei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0168",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 57,
+    "reference": "Capitolul XII Cunoștințe elementare pentru navigația maritimă, Drumuri și relevmente, p. 112-113",
+    "quote": "Drumul compas (Dc) reprezintă unghiul format între direcția nordului compas (Nc)",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0170",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 57,
+    "reference": "Capitolul XII Cunoștințe elementare pentru navigația maritimă, Sfera terestră. Coordonate geografice, p. 112",
+    "quote": "Latitudinea geografică (φ) reprezintă arcul de meridian format între ecuator și paralela locului. Ia valori între 0° și 90° spre nord și sud.",
+    "status": "suggested",
+    "note": "Verifier: partial support. Quote defines latitude but does not say it increases when moving north; extend the quote to cover that."
+  },
+  {
+    "questionId": "q0171",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 57,
+    "reference": "Capitolul XII Cunoștințe elementare pentru navigația maritimă, Drumuri și relevmente, p. 113",
+    "quote": "Relevmentul adevărat (Ra) reprezintă unghiul format între direcția nordului adevărat și direcția la reperul vizat de pe coastă.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0174",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 58,
+    "reference": "Capitolul XII, Navigație estimată, p. 114-115",
+    "quote": "instrument de măsurare a vitezei (lochul).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0179",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 155,
+    "reference": "Capitolul XIV – Căutare și salvare, tabelul duratei de supraviețuire în apă, p. 308",
+    "quote": "Temperatura (grade Celsius) Durata probabilă de supraviețuire",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote is only a table header (survival time in water by temperature in Celsius), not a statement that sea water temperature is expressed in Celsius."
+  },
+  {
+    "questionId": "q0180",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 57,
+    "reference": "Capitolul XII Cunoștințe elementare pentru navigația maritimă, Drumuri și relevmente, p. 113",
+    "quote": "Deviația magnetică (dev - δ) este unghiul format între direcția nordului magnetic (Nm) și direcția nordului compas (Nc).",
+    "status": "suggested",
+    "note": "Verifier: partial support. Quote defines deviation, not that the compass needle orients to Nord compas; look for the passage on the needle."
+  },
+  {
+    "questionId": "q0208",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 6,
+    "reference": "Capitolul II Elemente de construcție ale ambarcațiunilor, osatura longitudinală, p. 10-11",
+    "quote": "etrava — piesa de rezistență situată în extremitatea prova, constituie de fapt prelungirea chilei la prova.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0209",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 10,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, rame, p. 18-19",
+    "quote": "Inițial, rama era prinsă cu ajutorul unui laț de piele (numit strapazan) de un cui vertical (cui de strapazan) bătut în marginea bordajului",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0210",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 13,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, lanțul de ancoră, p. 24-25",
+    "quote": "Podul mărește rezistența zalelor la întindere cu 20% împiedicând și încurcarea lanțului.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0211",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, p. 26-27",
+    "quote": "barbetele — sunt bucăți de parâmă fixate la prova și la pupa bărcii și folosesc la legare sau remorcatul bărcii.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0212",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 16,
+    "reference": "Capitolul V Parâme și accesorii de punte, p. 29",
+    "quote": "Parâma obținută din răsucirea șuvițelor se numește parâmă simplă sau lanțană.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0213",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, Accesorii de punte, p. 34-35",
+    "quote": "Rodanțele — sunt apărătoare ale gașelor mici. Se confecționează din tablă de oțel, bronz.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0214",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 21,
+    "reference": "Capitolul VI Matelotaj, Voltele, p. 40",
+    "quote": "volta la baba — reprezintă înfășurarea parâmei într-o serie de opturi în jurul cilindrilor unei babale duble.",
+    "status": "suggested",
+    "note": "Verifier: partial support. Quote defines 'volta la baba', not what babalele serve for; a passage describing babale as used for voltes would be better."
+  },
+  {
+    "questionId": "q0215",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, Accesorii de punte, p. 34-35",
+    "quote": "La navele mici tacheții țin locul babalelor.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0216",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 21,
+    "reference": "Capitolul VI Matelotaj, Matisirea, p. 41",
+    "quote": "Matisirea parâmelor se execută în două scopuri: împreunarea a două capete de parâmă sau realizarea unei gașe sau unui ochi la capătul unei parâme.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0217",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 21,
+    "reference": "Capitolul VI Matelotaj, Voltele, p. 40",
+    "quote": "prin care parâmele se fixează la dispozitivele de legare existente la bord (babale, tacheți, cavile).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0218",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 11,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, rame, p. 20-21",
+    "quote": "pană — partea lată, în formă de lopată;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0219",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 11,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, ancore, p. 20-21",
+    "quote": "În general, o ancoră se compune din următoarele părți: brațele, fixe sau articulate, având la extremități vârfuri ce se înfig în sol și palme (părțile plate ale brațelor) care măresc rezistența împotriva derapării; fusul, care are un inel la extremitatea superioară și o ramificație în două sau patru brațe; diamantul, care este locul de împreunare a brațelor cu fusul; inelul sau veriga de care se leagă unul din capetele lanțului de ancoră cu ajutorul unei chei; traversa",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0221",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Capitolul V Parâme și accesorii de punte, parâme vegetale, p. 30-31",
+    "quote": "o parâmă simplă intră în compunerea altei parâme mai groase, aceasta va purta denumirea de cordon.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0223",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 8,
+    "reference": "Capitolul II Elemente de construcție ale ambarcațiunilor, învelișul exterior, p. 15",
+    "quote": "Fiecare rând de scânduri sau table al învelișului exterior se numește filă.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0224",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 5,
+    "reference": "Capitolul II Elemente de construcție ale ambarcațiunilor, părțile principale ale cocii, p. 8-9",
+    "quote": "Un observator care se află pe puntea navei și privește spre prova (1) are în dreapta bordul tribord (5) și în stânga bordul babord (6).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0225",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 11,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, cârma bărcii, p. 20-21",
+    "quote": "se compune din pană și eche. Echea este o bară de lemn care se fixează pe vârful axului cârmei pentru manevră.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0226",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 12,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, ancora cu patru gheare, p. 22-23",
+    "quote": "La fundarisirea acestei ancore, indiferent de poziția în care cade, două dintre gheare se găsesc — în permanență — în poziție convenabilă pentru fixare pe solul albiei.",
+    "status": "suggested",
+    "note": "Verifier: partial support. Quote does not say where the four-claw anchor is used; the page 12 sentence 'Se întrebuințează la fluviu și ape interioare' (OCR-garbled heading) states it, so quote that."
+  },
+  {
+    "questionId": "q0227",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Parâme și accesorii de punte – Accesorii de punte, p. 35",
+    "quote": "Babalele simple formate dintr-o coloană prevăzută cu traversă pentru luat volta se numesc și binte.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0228",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Parâme și accesorii de punte – Accesorii de punte, p. 35",
+    "quote": "Turnicheții sunt piese metalice de ghidare a parâmelor, care elimină pe cât posibil frecarea.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0229",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 22,
+    "reference": "Matelotaj – Patronarea, p. 42",
+    "quote": "Pentru înfășurarea capetelor de parâmă așa fel încât să nu se destrame, acestea se patronează, adică se înfășoară de câteva ori cu fire, ață de velă sau sârmă moale.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0230",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 6,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Osatura longitudinală, p. 10",
+    "quote": "Chila - piesa fundamentală de rezistență a oricărei nave. Este situată în plan diametral, pe fundul bărcii de la prova la pupa.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0231",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Parâme și accesorii de punte – Parâmele sintetice, p. 33",
+    "quote": "Structura unei parâme sintetice este asemănătoare cu cea a parâmei vegetale, respectiv: fire - sfilață - șuviță - lanțană - garlin.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0232",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Parâme și accesorii de punte – Accesorii de punte, p. 35",
+    "quote": "Tacheții sunt piese metalice de diverse mărimi, au forma literei T, se montează în punte, copastie sau arbori și servesc tot pentru luarea voltelor dar cu parâme mai subțiri.",
+    "status": "suggested",
+    "note": "The last word 'subțiri' is cut off in the OCR text and was restored."
+  },
+  {
+    "questionId": "q0233",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Parâme și accesorii de punte – Accesorii de punte, p. 38",
+    "quote": "Urechile — sunt piese de construcție specială fixate pe punte și au rol de ghidare a parâmei.",
+    "status": "suggested",
+    "concern": "Manualul descrie urechile ca fiind fixate pe punte, nu în bordaj cum spune întrebarea.",
+    "note": "Verifier: partial support. The manual says urechile are fixed on deck (punte), not in the bordaj as the question states, so the quote only matches by elimination."
+  },
+  {
+    "questionId": "q0234",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 6,
+    "reference": "Elemente de construcție ale ambarcațiunilor, p. 10",
+    "quote": "rotund numit etambreul cârmei prin care trece axul cârmei.",
+    "status": "suggested",
+    "note": "The start of the sentence is lost in the OCR scan; the remaining fragment names the etambreu of the rudder."
+  },
+  {
+    "questionId": "q0235",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 58,
+    "reference": "Capitolul XII, Navigație estimată, p. 114-115",
+    "quote": "instrument de măsurare a vitezei (lochul).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0236",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 10,
+    "reference": "Accesoriile ambarcațiunii – Ramele, p. 18",
+    "quote": "Inițial, rama era prinsă cu ajutorul unui laț de piele (numit strapazan) de un cui vertical (cui de strapazan) bătut în marginea bordajului, sau era introdusă într-o scobitură făcută în marginea superioară a bordajului (numită dama).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0237",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 11,
+    "reference": "Accesoriile ambarcațiunii – Ancora, p. 21",
+    "quote": "diamantul, care este locul de împreunare a brațelor cu fusul;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0238",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 13,
+    "reference": "Accesoriile ambarcațiunii – Lanțul de ancoră, p. 25",
+    "quote": "Lanțurile se caracterizează prin calibru, adică grosimea zalei măsurată în dreptul podului, sau la mijlocul zalei, pentru cele fără pod.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0239",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Parâme și accesorii de punte – Accesorii de punte, p. 38",
+    "quote": "Urechile — sunt piese de construcție specială fixate pe punte și au rol de ghidare a parâmei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0241",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii – Lanțul de ancoră, p. 26",
+    "quote": "Ancorele sunt legate de lanțul de ancoră sau parâma de ancoră printr-un „vârtej”. Aceasta permite virarea ușoară la post a ancorei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0243",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 5,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Părțile principale ale cocii, p. 9",
+    "quote": "Un observator care se află pe puntea navei și privește spre prova (1) are în dreapta bordul tribord (5) și în stânga bordul babord (6).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0244",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 8,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Osatura transversală, p. 15",
+    "quote": "Coastele (crevacele) - elemente de rezistență transversale, fixate la intervale",
+    "status": "suggested",
+    "note": "The rest of the definition (fixed on the keel at equal intervals) is cut off in the OCR text."
+  },
+  {
+    "questionId": "q0245",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 8,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Învelișul exterior, p. 15",
+    "quote": "Locul de îmbinare a tablelor se numește cusătură.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0247",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Parâme și accesorii de punte – Parâmele vegetale, p. 31",
+    "quote": "Grosimea parâmelor se măsoară pe circumferință și se exprimă în milimetri sau țoli.",
+    "status": "suggested",
+    "note": "Verifier: the reference may be wrong. The quote sits before the printed page 31 marker on this spread, so it is probably p. 30; page 17 (p. 33, Caracteristicile parâmelor, 'Grosimea... la parâmele vegetale și sintetice prin circumferință') matches the question more directly."
+  },
+  {
+    "questionId": "q0248",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 6,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Osatura longitudinală, p. 10",
+    "quote": "Chila - piesa fundamentală de rezistență a oricărei nave. Este situată în plan diametral, pe fundul bărcii de la prova la pupa.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0249",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Parâme și accesorii de punte – Caracteristicile parâmelor, p. 33",
+    "quote": "Rezistența - reprezintă sarcina la care se rupe parâma.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0250",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Parâme și accesorii de punte – Clasificarea parâmelor după folosință, p. 34",
+    "quote": "merlinul — este o lanțană subțire de circa 7-8 mm formată din două șuvițe răsucite stânga și este utilizat la înfășurări și patronări de parâme groase;",
+    "status": "suggested",
+    "concern": "Manualul spune că merlinul este format din două șuvițe, nu din trei sfilate cum afirmă răspunsul oficial.",
+    "note": "Verifier: partial support. The manual says merlinul has two strands (două șuvițe), not three sfilate as the official answer says; it fits only on the use (înfășurări, patronări) and the other options are clearly wrong."
+  },
+  {
+    "questionId": "q0252",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 6,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Osatura longitudinală, p. 10",
+    "quote": "Etrava - piesa de rezistență situată în extremitatea prova, constituie de fapt prelungirea chilei la prova.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0253",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Parâme și accesorii de punte – Parâmele metalice, p. 31",
+    "quote": "Destinația inimii este de a feri sârmele din interior de oxidare",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0254",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Parâme și accesorii de punte – Caracteristicile parâmelor, p. 33",
+    "quote": "Flexibilitatea - este calitatea parâmei de a se îndoi fără a-și modifica structura",
+    "status": "suggested",
+    "note": "The rest of the sentence is damaged in the OCR text."
+  },
+  {
+    "questionId": "q0255",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Parâme și accesorii de punte – Clasificarea parâmelor după folosință, p. 34",
+    "quote": "grandeea — este o lanțană cu grosime între 25 și 120 mm folosită la confecționarea grandeelor (marginilor întărite) pentru vele și tenzi;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0257",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 6,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Osatura longitudinală, p. 10",
+    "quote": "Etamboul - piesa de rezistență situată în extremitatea pupa, constituie de fapt prelungirea chilei la pupa.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0260",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Parâme și accesorii de punte – Clasificarea parâmelor după folosință, p. 34",
+    "quote": "saula — este denumirea atribuită parâmelor cu grosime între 15 și 40 mm. Saula împletită cunoscută și sub denumirea de saulă englezească, are calitatea de a nu se răsuci și se folosește pentru loch, sondă și pavilion;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0262",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 8,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Osatura transversală, p. 15",
+    "quote": "Coastele (crevacele) - elemente de rezistență transversale, fixate la intervale",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0265",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Parâme și accesorii de punte – Clasificarea parâmelor după folosință, p. 35",
+    "quote": "Lusinul — este o lanțană mai fină decât merlinul, formată din 2-3 șuvițe de calitate",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0267",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 8,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Osatura transversală, p. 15",
+    "quote": "Varangele - elemente de rezistență transversale care unesc capetele inferioare ale coastelor în scopul sporirii rezistenței fundului bărcii.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0269",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Parâme și accesorii de punte – Întreținerea parâmelor, p. 34",
+    "quote": "Parâmele vegetale se întrețin ferindu-le de umezeală.",
+    "status": "suggested",
+    "note": "The manual only mentions damp for vegetal ropes; protection from sunlight is given for synthetic ropes. Verifier: partial support. The quote covers only umezeală; the official answer also names radiația solară, which the manual states only for synthetic ropes."
+  },
+  {
+    "questionId": "q0271",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Parâme și accesorii de punte – Clasificarea parâmelor după folosință, p. 34",
+    "quote": "garlinul — parâma cu grosime cuprinsă între 100 și 620 mm destinată pentru legarea și remorcarea navelor mari;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0273",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Parâme și accesorii de punte – Parâmele sintetice, p. 33",
+    "quote": "Structura unei parâme sintetice este asemănătoare cu cea a parâmei vegetale, respectiv: fire - sfilață - șuviță - lanțană - garlin.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0274",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Parâme și accesorii de punte – Parâmele metalice, p. 31",
+    "quote": "se confecționează din sârmă de oțel zincat cu diametrul cuprins între 0,2 și 0,6",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0276",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 16,
+    "reference": "Parâme și accesorii de punte (cap. V), p. 29",
+    "quote": "Parâma obținută din răsucirea șuvițelor se numește parâmă simplă sau lanțană.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0280",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Parâme și accesorii de punte – Parâmele vegetale, p. 31",
+    "quote": "mai multe fire, răsucite între ele spre stânga formează o sfilață;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0281",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 40,
+    "reference": "Mijloace de salvare – Mijloace de salvare individuale, p. 78",
+    "quote": "vesta de salvare — mijlocul individual de salvare",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote only establishes that the vest is an individual rescue means; the inventory part of the official answer is not covered (page 40 intro about the mandatory number of vests on board is closer)."
+  },
+  {
+    "questionId": "q0282",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Parâme și accesorii de punte – Parâmele vegetale, p. 31",
+    "quote": "Parâmele de sizal — se confecționează din frunzele unei plante (cactus).",
+    "status": "suggested",
+    "note": "Verifier: the reference may be wrong. This passage precedes the printed page 31 marker on its spread, so it is probably p. 30, not 31."
+  },
+  {
+    "questionId": "q0284",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 40,
+    "reference": "Mijloace de salvare – Vesta de salvare, p. 78",
+    "quote": "capabile să susțină o persoană aflată în apă, cu capul deasupra apei, indiferent dacă persoana este conștientă sau nu",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0285",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Parâme și accesorii de punte – Recepția parâmelor, p. 34",
+    "quote": "se acordă atenție culorii și mirosului în cazul parâmelor vegetale, urmărindu-se să nu fie pătate (semne de putrezire) și să nu aibă miros de mucegai;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0287",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii, p. 27",
+    "quote": "barbetele — sunt bucăți de parâmă fixate la prova și la pupa bărcii",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0288",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 22,
+    "reference": "Capitolul VI Matelotaj, boțuri, p. 42",
+    "quote": "Boțul este un capăt de parâmă sau de lanț ce servește la asigurarea unei parâme",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0289",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, Accesorii de punte, p. 35",
+    "quote": "Tacheții — sunt piese metalice de diverse mărimi, au forma literei T, se montează pe punte, copastie sau arbori și servesc tot pentru luarea voltelor dar cu parâme mai subțiri.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0290",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, Accesorii de punte, p. 35",
+    "quote": "Turnicheții — sunt piese metalice de ghidare a parâmelor, care elimină pe cât posibil frecarea.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0291",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 60,
+    "reference": "Navigație estimată, Deriva de vânt, p. 118",
+    "quote": "Măsurarea vitezei vântului Vw se face la bordul navei, cu un instrument anemometru.",
+    "status": "suggested",
+    "note": "The quote shows the anemometer measures wind speed, which makes the statement about ship speed false."
+  },
+  {
+    "questionId": "q0293",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 12,
+    "reference": "Ancore, Ancora Hall, p. 23",
+    "quote": "Ancora Hall este o ancoră fără traversă, cu două brațe articulate care se pot roti în ambele sensuri cu 40-50 grade",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote says the Hall anchor has articulated arms, not an articulated shank, so it only indirectly fits 'cu fus articulat'."
+  },
+  {
+    "questionId": "q0294",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Capitolul V Parâme și accesorii de punte, Caracteristicile parâmelor, p. 33",
+    "quote": "Greutatea — reprezintă masa, în kilograme a unui metru liniar de parâmă",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0295",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Capitolul V Parâme și accesorii de punte, Parâme vegetale, p. 30",
+    "quote": "Grosimea parâmelor se măsoară pe circumferință și se exprimă în milimetrii sau țoli.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0296",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Capitolul V Parâme și accesorii de punte, Caracteristicile parâmelor, p. 33",
+    "quote": "Rezistența — reprezintă sarcina la care se rupe parâma.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0297",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 11,
+    "reference": "Accesoriile ambarcațiunii, Cârma bărcii, p. 21",
+    "quote": "Cârma se compune din pană și eche. Echea este o bară de lemn care se fixează pe vârful cârmei pentru manevră.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0298",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 11,
+    "reference": "Accesoriile ambarcațiunii, Ancore, p. 21",
+    "quote": "În general, o ancoră se compune din următoarele părți: brațele, fixe sau articulate, având la extremități vârfuri ce se înfig în sol și palme (părțile plate ale brațelor) care măresc rezistența împotriva derapării; fusul, care are un inel la extremitatea superioară și o ramificație în două sau patru brațe; diamantul, care este locul de împreunare a brațelor cu fusul;",
+    "status": "suggested",
+    "note": "The quote does not mention 'gheare', but arms, shank and diamond rule out the other options."
+  },
+  {
+    "questionId": "q0299",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Capitolul V Parâme și accesorii de punte, Parâmele sintetice, p. 32",
+    "quote": "Structura unei parâme sintetice este asemănătoare cu cea a parâmei vegetale, respectiv: fire - sfilață - șuviță - lanțană - garlin.",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quoted sequence omits 'cordon', which is in the correct answer, so it does not decide between the options on its own."
+  },
+  {
+    "questionId": "q0306",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii, p. 27",
+    "quote": "Pe lângă colaci de salvare ambarcațiunea poate fi dotată cu centuri sau veste de salvare.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0307",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii, p. 27",
+    "quote": "Pentru salvare în inventarul bărcii se află colaci de salvare",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0309",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii, p. 27",
+    "quote": "Din categoria obiectelor din inventarul bărcii care sunt destinate vitalității fac parte: ghiordelul — căldare din lemn sau pânză impermeabilă cu mâner de saulă, folosită pentru golirea bărcii de apă;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0310",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii, p. 27",
+    "quote": "Din categoria obiectelor din inventarul bărcii care sunt destinate vitalității fac parte: ghiordelul — căldare din lemn sau pânză impermeabilă cu mâner de saulă, folosită pentru golirea bărcii de apă; ispolul — scafă din lemn, cu margini ridicate pentru strâns apa de pe fundul bărcii",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0312",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii, p. 27",
+    "quote": "Din categoria obiectelor din inventarul bărcii care sunt destinate vitalității fac parte: ghiordelul — căldare din lemn sau pânză impermeabilă cu mâner de saulă, folosită pentru golirea bărcii de apă; ispolul — scafă din lemn, cu margini ridicate pentru strâns apa de pe fundul bărcii; trusa de marangozerie — conține ciocan, clește, daltă, pene de lemn, câlți,",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0313",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii, p. 27",
+    "quote": "Din categoria obiectelor din inventarul bărcii care sunt destinate vitalității fac parte: ghiordelul — căldare din lemn sau pânză impermeabilă cu mâner de saulă, folosită pentru golirea bărcii de apă; ispolul — scafă din lemn, cu margini ridicate pentru strâns apa de pe fundul bărcii; trusa de marangozerie — conține ciocan, clește, daltă, pene de lemn, câlți,",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0317",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 24,
+    "reference": "Capitolul VII Manevra ambarcațiunilor cu motor, p. 44",
+    "quote": "Guvernarea ambarcațiunii se realizează cu ajutorul instalației de guvernare. Aceasta se compune din: timonă sau manipulatorul electric; servomotorul; sistemul de transmisie timonă-servomotor-cârmă; cârma propriu-zisă.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0318",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 24,
+    "reference": "Capitolul VII Manevra ambarcațiunilor cu motor, p. 44",
+    "quote": "Manevrabilitatea constă în capacitatea bărcii de a-și menține direcția de înaintare sau de a schimba această direcție cu ajutorul cârmei și elicei. Guvernarea ambarcațiunii se realizează cu ajutorul instalației de guvernare.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0322",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Capitolul VI Matelotaj, Nodurile de legătură, p. 37",
+    "quote": "nodul de ancoră - permite legarea capătului unei parâme de inelul ancorei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0325",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Capitolul VI Matelotaj, Nodurile de împreunare, p. 37",
+    "quote": "nodul de pescar — folosește la unirea a două capete de saulă, merlin, lusin.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0329",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 19,
+    "reference": "Capitolul VI Matelotaj, Nodurile de cârlig, p. 38",
+    "quote": "nodul gura de știucă — este un nod foarte rezistent, nu permite deloc filarea. Se folosește atunci când cârligul este supus unei tracțiuni mari.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0330",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Capitolul VI Matelotaj, Nodurile de împreunare, p. 37",
+    "quote": "Nodurile de împreunare — se folosesc pentru unirea (împreunarea) a două parâme de grosimi aproximativ egale. Cele mai uzuale noduri de împreunare sunt: nodul lat — format din două noduri simple suprapuse.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0331",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 19,
+    "reference": "Capitolul VI Matelotaj, Nodurile de cârlig, p. 38",
+    "quote": "folosesc pentru legarea unui capăt de parâmă la un cârlig",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0332",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Capitolul VI Matelotaj, Nodurile de împreunare, p. 37",
+    "quote": "Nodurile de împreunare — se folosesc pentru unirea (împreunarea) a două parâme de grosimi aproximativ egale.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0333",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Capitolul VI Matelotaj, Nodurile de legătură, p. 37",
+    "quote": "Nodurile de legătură — se folosesc la fixarea unui capăt de parâmă pentru legarea",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0339",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Capitolul V Parâme și accesorii de punte, Calitățile și folosirea parâmelor sintetice, p. 32",
+    "quote": "Se folosesc ca mijloace de legătură, remorcare și manevre curente la bord.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0342",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Capitolul V Parâme și accesorii de punte, Parâme vegetale, p. 30",
+    "quote": "Parâmele de sizal — se confecționează din frunzele unei plante (cactus).",
+    "status": "suggested",
+    "note": "The quote says sisal comes from a cactus-like plant, which implies it is not hemp."
+  },
+  {
+    "questionId": "q0348",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, Accesorii de punte, p. 35",
+    "quote": "Rodanțele — sunt apărătoare ale gașelor mici.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0350",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Parâme și accesorii de punte – Caracteristicile parâmelor, p. 33",
+    "quote": "Rezistența - reprezintă sarcina la care se rupe parâma.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0352",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 16,
+    "reference": "Capitolul IV Lucrări de întreținere a ambarcațiunilor, p. 28",
+    "quote": "După uscarea primului strat, care se dă mai subțire se aplică uniform al doilea strat.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0356",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 24,
+    "reference": "Capitolul VII Manevra ambarcațiunilor cu motor",
+    "quote": "Guvernarea ambarcațiunii se realizează cu ajutorul instalației de guvernare. Aceasta se compune din: timonă sau manipulatorul electric;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0357",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Capitolul V Parâme și accesorii de punte, parâmele vegetale",
+    "quote": "Gudronarea nu apără însă complet parâma de acțiunea apei și dacă o parâmă umedă se strânge înainte de a fi bine uscată, atunci sfilatele interioare se alterează reducând rezistența parâmei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0359",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 21,
+    "reference": "Capitolul VI Matelotaj, Voltele, p. 40",
+    "quote": "prin care parâmele se fixează la dispozitivele de legare existente la bord (babale, tacheți, cavile).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0360",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 21,
+    "reference": "Capitolul VI Matelotaj, Voltele, p. 40",
+    "quote": "prin care parâmele se fixează la dispozitivele de legare existente la bord (babale, tacheți, cavile).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0361",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 23,
+    "reference": "Instalația de guvernare – efectul cârmei, p. 46",
+    "quote": "La deplasarea înainte a bărcii efectul cârmei determină orientarea provei în bordul în care s-a pus cârma și a pupei în bordul opus.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0362",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 25,
+    "reference": "Capitolul VII Manevra ambarcațiunilor cu motor – efectul de guvernare al elicei",
+    "quote": "La marș înainte pupa este abătută în bordul pasului elicei iar prova are tendința să gireze în bordul opus pasului elicei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0363",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 28,
+    "reference": "Acostarea/plecarea ambarcațiunii la mal neamenajat, p. 53",
+    "quote": "se molează legăturile din pupa pentru a deschide pupa și a proteja cârma și elicea;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0364",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 27,
+    "reference": "Capitolul VII Manevra ambarcațiunilor cu motor – depășiri și întâlniri",
+    "quote": "Depășirile se execută la o distanță cât mai mare de nava aflată în marș. Viteza se adaptează situației urmărind a nu face valuri pentru nava depășită dar acordând atenția necesară întâmpinării valurilor din siajul acesteia.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0365",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 29,
+    "reference": "Remorcarea ambarcațiunilor, p. 56",
+    "quote": "Lungimea parâmei de remorcă se va alege astfel încât nava remorcată să nu suporte curentul respins de elicea navei remorcher.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0366",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 30,
+    "reference": "Navigația prin ecluze – Traversarea ecluzelor, p. 58-59",
+    "quote": "Înainte de pătrunderea în ecluză parâmele trebuie ținute din scurt și componentele echipamentului trebuie să nu depășească limitele navei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0367",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 31,
+    "reference": "Navigația prin ecluze – Traversarea ecluzelor, p. 60",
+    "quote": "Din motive de siguranță și fluidizare a circulației, pentru accelerarea traversării și pentru exploatarea în plin a ecluzelor, personalul de supraveghere a ecluzelor poate emite ordine care să completeze aceste paragrafe sau care se abat de la acestea. Conducătorul navei trebuie să urmeze aceste ordine în zona de ecluzare.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0368",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 48,
+    "reference": "Capitolul XI Inițiere în navigația de mare viteză – Barca, p. 94",
+    "quote": "În general vorbind, cu cât este mai mică această atingere cu apa, cu atât viteza este mai mare.",
+    "status": "suggested",
+    "note": "The direct sentence on p. 93 (manual page 47) is too garbled by OCR to quote."
+  },
+  {
+    "questionId": "q0371",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 23,
+    "reference": "Elicea, p. 47",
+    "quote": "Numărul de ture pe care îl efectuează o elice în mișcarea de rotație într-un interval de timp de un minut reprezintă numărul de rotații al elicei",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0372",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 28,
+    "reference": "Acostarea/plecarea ambarcațiunii la mal neamenajat, p. 53",
+    "quote": "Odată ajuns la o distanță corespunzătoare de mal se dau legăturile din sectoarele prova și pupa.",
+    "status": "suggested",
+    "note": "The OCR text lost the word 'prova' at the line start; it was restored in the quote."
+  },
+  {
+    "questionId": "q0373",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 27,
+    "reference": "Capitolul VII – Ancorarea, condițiile locului de ancorare",
+    "quote": "să permită plecarea rapidă a navei de la ancoră, în orice condiții, ziua sau noaptea; spațiul de girație la ancoră să fie suficient",
+    "status": "suggested",
+    "note": "The manual does not mention not disturbing other boats; this is the closest passage. Verifier: partial support. The quote covers quick departure and swinging room but not the 'without disturbing other boats' part of the correct answer."
+  },
+  {
+    "questionId": "q0375",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 31,
+    "reference": "Navigația prin ecluze – În camerele ecluzei, pct. 9 d), p. 60",
+    "quote": "este interzisă: curățarea și măturarea navelor și corpurilor flotante",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0376",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 32,
+    "reference": "Motocicletele nautice, pct. 2, p. 62",
+    "quote": "Motorul trebuie să se oprească automat la căderea conducătorului, sau să fie cuplat automat pe cea mai mică viteză, în timp ce vehiculul trebuie să descrie o traiectorie circulară.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0377",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 50,
+    "reference": "Capitolul XI – Sistemul de guvernare, p. 98",
+    "quote": "Dacă barca dumneavoastră este echipată cu un sistem de cablu împinge-trage, mecanic, toate componentele sistemului trebuie să îndeplinească",
+    "status": "suggested",
+    "note": "The rest of the sentence ('sau să întreacă cererile menționate în standard') is interleaved with a figure caption in the OCR text. The quote stops before the key words 'sau să depășească', but the other answers are clearly excluded."
+  },
+  {
+    "questionId": "q0378",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 52,
+    "reference": "Capitolul XI – Închiderea prea rapidă a trotei / oprirea bărcii, p. 102",
+    "quote": "În cazul în care nu există nici un motiv să faceți altfel, reduceți în mod gradat viteza.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0379",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 52,
+    "reference": "Capitolul XI – Înclinarea motorului, p. 102",
+    "quote": "Dacă trimul este făcut la viteze mari, forțele turbionare vor acționa brusc și vor cauza pierderea controlului.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0380",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 26,
+    "reference": "Capitolul VII – Acostarea",
+    "quote": "La acostare, se folosesc baloane de protecție. Baloanele actual produse și comercializate sunt confecționate din materiale plastice polivinilice umplute cu aer.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0382",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 23,
+    "reference": "Elicea, p. 47",
+    "quote": "Mărimea și forma elicei depinde de puterea motorului și de scopul pentru care este destinată barca: tracțiune sau viteză.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0384",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 26,
+    "reference": "Capitolul VII – Acostarea",
+    "quote": "La acostare pe lângă calitățile manevriere ale navei, tot timpul se va ține cont de vânt și curent urmărindu-se ca forța acestora să fie folosită în ajutorul manevrei și nu manevra să lupte împotriva lor",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0385",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 29,
+    "reference": "Manevra de „Om la apă”, p. 57",
+    "quote": "Este o manevră clasică de recuperare care se efectuează ținând cont de efectul vântului și curentului.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0386",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 31,
+    "reference": "Navigația prin ecluze – În camerele ecluzei, pct. 9 c), p. 60",
+    "quote": "se folosesc trancheți care trebuie să fie flotabili dacă nu sunt legați strâns de navă",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0387",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 32,
+    "reference": "Motocicletele nautice, pct. 1, p. 62",
+    "quote": "dar nu înainte de răsăritul soarelui și nici după apusul soarelui.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0388",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 49,
+    "reference": "Capitolul XI – Aparat de măsură al înclinării longitudinale (trimm), p. 96",
+    "quote": "Indicatorul înclinării longitudinale permite conducătorului să orienteze motorul la un unghi predeterminat pentru o performanță mai bună în navigație.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0389",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 51,
+    "reference": "Capitolul XI – Înainte de a părăsi locul de acostare, p. 100",
+    "quote": "Asigurați-vă că operațiunile de pe “CHECK LIST”-ul dumneavoastră au fost verificate.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0390",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 52,
+    "reference": "Capitolul XI – Pasul elicei (Pitch), p. 103",
+    "quote": "Pasul elicei reprezintă avansul teoretic - distanța parcursă de elice - în timpul unei",
+    "status": "suggested",
+    "note": "The OCR text cuts the sentence after 'în timpul unei'; the printed text continues with one rotation."
+  },
+  {
+    "questionId": "q0391",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 27,
+    "reference": "Capitolul VII – Ancorarea, condițiile locului de ancorare",
+    "quote": "să prezinte adăpost împotriva valurilor, curentului și vântului;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0392",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 30,
+    "reference": "Navigația prin ecluze – Traversarea ecluzelor, pct. 1, p. 58",
+    "quote": "În categoria ecluzelor intră: a. ecluzele b. oglinzile de apă dinăuntrul și dinafara ecluzelor care servesc legării la cheu, înșiruirii și așteptării navelor, ca și montarea și demontarea de ansamble (avanport de ecluză).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0393",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 31,
+    "reference": "Navigația prin ecluze – În camerele ecluzei, pct. 9 f), p. 60",
+    "quote": "ambarcațiunile mici trebuie să păstreze suficientă distanță față de alte nave",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0394",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 32,
+    "reference": "Motocicletele nautice, pct. 3, p. 62",
+    "quote": "Conducătorul și însoțitorul trebuie să poarte veste de salvare.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0396",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 51,
+    "reference": "Capitolul XI – Turbion, p. 101",
+    "quote": "Direcția și “mărimea” forței ce acționează asupra volanului sunt influențate de puterea motorului, de câtă porțiune din elice este în apă, de tipul",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0397",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 24,
+    "reference": "Capitolul VII Manevra ambarcațiunilor cu motor",
+    "quote": "Guvernarea ambarcațiunii se realizează cu ajutorul instalației de guvernare. Aceasta se compune din: timonă sau manipulatorul electric; servomotorul; sistemul de transmisie timonă-servomotor-cârmă; cârma propriu-zisă.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0399",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 26,
+    "reference": "Capitolul VII – Acostarea/plecarea ambarcațiunii la cheu",
+    "quote": "Principiul general constă în cazul acostării cu bordul ca nava să se apropie de cheu sub un unghi ascuțit pentru a atenua impactul provei cu cheul",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0401",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 84,
+    "reference": "R.N.D. Articolul 6.28 - Trecerea prin ecluze, alin. 5",
+    "quote": "În ecluze, ancorele trebuie să fie ridicate complet; aceasta este valabil și la locurile de staționare a navelor din fața ecluzelor, atât timp cât ancorele nu se folosesc.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0402",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 47,
+    "reference": "Capitolul XI Inițiere în navigația de mare viteză – Siguranța, p. 93",
+    "quote": "Supraputerea motorului poate determina pierderea controlului bărcii.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0404",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 54,
+    "reference": "Capitolul XI – Alegerea elicei, p. 106",
+    "quote": "viteza probabilă a bărcii; care este cea mai bună elice pentru designul și viteza bărcii dumneavoastră; modul în care doriți să folosiți barca; testarea pasului elicei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0405",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 23,
+    "reference": "Elicea, p. 47",
+    "quote": "Înmulțind RPM cu pasul elicei se obține spațiul teoretic parcurs de ambarcațiune într-un minut",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0406",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 27,
+    "reference": "Capitolul VII – Ancorarea, condițiile locului de ancorare",
+    "quote": "să permită plecarea rapidă a navei de la ancoră, în orice condiții, ziua sau noaptea;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0407",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 30,
+    "reference": "Navigația prin ecluze – Traversarea ecluzelor, pct. 2, p. 58",
+    "quote": "În zona de ecluzare este interzisă depășirea. Navele au voie să treacă pe lângă alte nave care așteaptă în ecluză, numai atunci când trebuie să fie ecluzate înainte sau pentru a se poziționa în spațiile libere aflate la îndemână.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0408",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 30,
+    "reference": "Navigația prin ecluze – Traversarea ecluzelor, p. 58-59",
+    "quote": "Înainte de pătrunderea în ecluză parâmele trebuie ținute din scurt și componentele echipamentului trebuie să nu depășească limitele navei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0409",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 31,
+    "reference": "Navigația prin ecluze – În camerele ecluzei, pct. 9 d) (este interzisă), p. 60",
+    "quote": "să se lase pasagerii să urce sau să coboare fără permisiunea personalului ecluzei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0410",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 32,
+    "reference": "Motocicletele nautice, pct. 4, p. 62",
+    "quote": "Pe motocicletele nautice trebuie să se aplice numere de înmatriculare vizibile acordate de căpitănie.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0411",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 51,
+    "reference": "Capitolul XI – Turbion, avertisment de siguranță, p. 101",
+    "quote": "Conducătorul nu ar trebui să dea drumul volanului la nici un fel de viteză. Din cauza forțelor turbionare prezente în sistemul de guvernare, barca ar putea să înceapă să se rotească rapid.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0412",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 52,
+    "reference": "Capitolul XI – Oprirea bărcii, p. 102",
+    "quote": "un motor înclinat în sus are o abilitate de frânare mai redusă decât unul înclinat în jos. Când este înclinat în sus, veți avea nevoie de mai mult spațiu pentru a opri barca.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0413",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 24,
+    "reference": "Capitolul VII Manevra ambarcațiunilor cu motor",
+    "quote": "Schimbarea direcției de deplasare a bărcii se realizează prin punerea cârmei într-un bord sau altul și este determinată de forța curentului care apasă asupra penei cârmei (efectul cârmei).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0414",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 25,
+    "reference": "Capitolul VII – Efectul de guvernare al elicei",
+    "quote": "Pe lângă efectul propulsiv, în secundar elicea dă naștere și unei forțe care acționează pe direcția rotirii, ce determină efectul de guvernare al elicei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0415",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 52,
+    "reference": "Capitolul XI – Înclinarea motorului, p. 102",
+    "quote": "Dacă trimul este făcut la viteze mari, forțele turbionare vor acționa brusc și vor cauza pierderea controlului.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0416",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 30,
+    "reference": "Navigația prin ecluze – Traversarea ecluzelor, p. 59",
+    "quote": "La trecerea prin avanporturi de ecluză și la intrarea în ecluze navele trebuie să-și micșoreze viteza, astfel încât să fie posibilă în orice condiții o oprire sigură cu ajutorul cablurilor de oțel, parâmelor și a altor măsuri potrivite",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0417",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 31,
+    "reference": "Navigația prin ecluze – Ordinea ecluzării, pct. 10, p. 61",
+    "quote": "Ordinea ecluzării: navele administrației; navele care sunt plecate pentru îndeplinirea unor misiuni excepționale; navele avariate grav au prioritate la ecluzare în fața celorlalte fără a sta la rând; navele de pompieri și de salvare aflate în drum spre locul accidentului.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0418",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 47,
+    "reference": "Capitolul XI Inițiere în navigația de mare viteză – Siguranța, p. 93",
+    "quote": "Acordați mare atenție faptului că o persoană neantrenată pentru navigația de mare viteză poate să piardă controlul bărcii, fapt ce duce la avarii și/sau accidente.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0421",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 54,
+    "reference": "Capitolul XI, Inițiere în navigația de mare viteză, p. 107",
+    "quote": "În cazul în care ambarcațiunea dvs. este utilizată în regim de mare viteză în mod constant, este nevoie să fie verificată cu grijă la intervale mai scurte de timp.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0422",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 24,
+    "reference": "Capitolul VII, Manevra ambarcațiunilor cu motor",
+    "quote": "Manevrabilitatea constă în capacitatea bărcii de a-și menține direcția de înaintare sau de a schimba această direcție cu ajutorul cârmei și elicei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0424",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 26,
+    "reference": "Capitolul VII, Manevra ambarcațiunilor cu motor, Acostarea",
+    "quote": "Prezintă grad sporit de dificultate, solicitând cunoașterea calităților manevriere ale navei și deprinderi marinărești.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0426",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 30,
+    "reference": "Capitolul VII, Navigația prin ecluze, p. 59",
+    "quote": "În zona de ecluzare navele care sunt dotate cu o instalație de emisie — recepție pentru domeniul de comunicații „Informații nautice“ trebuie să aibă comutat la recepție canalul ecluzei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0427",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 31,
+    "reference": "Capitolul VII, Navigația prin ecluze, pct. 9 lit. e), p. 60",
+    "quote": "este interzis să se folosească după legarea navei și până la permiterea ieșirii atât propulsia mecanică, cât și instalația de guvernare prova; din motive de siguranță acest lucru este permis numai pentru fracțiuni scurte de timp.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0429",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 54,
+    "reference": "Capitolul XI, Inițiere în navigația de mare viteză, p. 107",
+    "quote": "În cazul în care ambarcațiunea dvs. este utilizată în regim de mare viteză în mod constant, este nevoie să fie verificată cu grijă la intervale mai scurte de timp.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0430",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 23,
+    "reference": "Instalația de guvernare, efectul cârmei, p. 46",
+    "quote": "La deplasarea înapoi a bărcii efectul cârmei determină orientarea provei în bordul opus celui în care s-a pus cârma și a pupei în sensul punerii cârmei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0431",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 25,
+    "reference": "Capitolul VII, Manevra ambarcațiunilor cu motor, Efectul pasului elicei",
+    "quote": "La marș înapoi pupa este abătută în bordul opus pasului elicei iar prova va gira în bordul pasului elicei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0433",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 27,
+    "reference": "Capitolul VII, Manevra ambarcațiunilor cu motor, Depășiri și întâlniri",
+    "quote": "La întâlniri conducătorul ambarcațiunii va reduce viteza în întâmpinarea valurilor provocate de nava ce vine din sens opus și va adopta o viteză corespunzătoare evitării răsturnării.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0434",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 31,
+    "reference": "Capitolul VII, Navigația prin ecluze, pct. 9 lit. a), p. 60",
+    "quote": "navele trebuie să se mențină în interiorul limitelor, în cazul în care pe pereții ecluzelor sunt marcate granițe/limite.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0435",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 31,
+    "reference": "Capitolul VII, Schiul nautic, p. 61",
+    "quote": "Schiul nautic pe căile navigabile interioare este permis numai în zonele stabilite și marcate. Acest lucru este valabil și pentru activități în care persoanele sunt trase de o ambarcațiune, fără schiuri nautice sau pe altfel de obiecte.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0436",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 52,
+    "reference": "Capitolul XI, Inițiere în navigația de mare viteză, înclinarea motorului, p. 102",
+    "quote": "Când motorul este înclinat în jos de tot, prova bărcii va intra mai adânc în apă.",
+    "status": "suggested",
+    "concern": "Manualul spune că, la motorul înclinat în jos de tot, prova (nu pupa) intră mai adânc în apă, ceea ce contrazice răspunsul oficial.",
+    "note": "Verifier: unrelated support. The manual says the bow (prova), not the stern, goes deeper, so it contradicts the official answer; the question looks flawed and should not be explained with this quote."
+  },
+  {
+    "questionId": "q0437",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 52,
+    "reference": "Capitolul XI – Pasul elicei (Pitch), p. 103",
+    "quote": "Pasul elicei reprezintă avansul teoretic - distanța parcursă de elice - în timpul unei",
+    "status": "suggested",
+    "note": "The OCR text cuts the sentence after 'în timpul unei'; the printed text continues with one rotation."
+  },
+  {
+    "questionId": "q0438",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 25,
+    "reference": "Capitolul VII, Manevra ambarcațiunilor cu motor, propulsoare prova și pupa",
+    "quote": "Denumirea consacrată este: bowtruster — pentru prova, stern truster — pentru pupa.",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote only names bow/stern thrusters; check that the page also says they assist steering, and add a page citation (spread 50-51 area printed number not visible)."
+  },
+  {
+    "questionId": "q0440",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 48,
+    "reference": "Capitolul XI, Inițiere în navigația de mare viteză, Barca, p. 94",
+    "quote": "Dacă barca nu are o placă de capacitate, contactați dealer-ul dumneavoastră sau producătorul bărcii,",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0441",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 51,
+    "reference": "Capitolul XI, Inițiere în navigația de mare viteză, verificări înainte de plecare, p. 100",
+    "quote": "Asigurați-vă că parâma este bine legată de hainele sau vesta dumneavoastră de salvare.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0442",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 52,
+    "reference": "Capitolul XI, Inițiere în navigația de mare viteză, înclinarea motorului, p. 102",
+    "quote": "Dacă prova intră adânc în apă barca ar putea să înceapă să se rotească rapid și să arunce pasagerii peste bord.",
+    "status": "suggested",
+    "concern": "Manualul vorbește despre prova care intră adânc în apă la motorul înclinat în jos, nu despre pupa, cum spune întrebarea.",
+    "note": "Verifier: partial support. The quote concerns the bow digging in, not the stern as the question states; it gives the consequence in the answer but not the question's premise."
+  },
+  {
+    "questionId": "q0443",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 45,
+    "reference": "Capitolul IX, B. Primul ajutor medical, Cazul de înec, respirația gură la gură, p. 88",
+    "quote": "Ca durată, manevra se efectuează până la restabilirea funcției respiratorii (uneori după o oră și jumătate și chiar mai mult) sau până la apariția semnelor certe de moarte definitivă.",
+    "status": "suggested",
+    "concern": "Manualul spune că manevra de reanimare se continuă până la restabilirea respirației, uneori peste o oră și jumătate, ceea ce contrazice durata maximă de 10-15 minute.",
+    "note": "Verifier: unrelated support. The manual (p. 45) says the maneuver continues until breathing returns, even over 90 minutes, and gives no 10-15 minute limit; no supporting passage found."
+  },
+  {
+    "questionId": "q0444",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 43,
+    "reference": "Capitolul IX, B. Primul ajutor medical, 1. Cazul de înec, p. 85",
+    "quote": "restabilirea imediată a respirației — aceasta fiind cea mai importantă cerință a primului ajutor în caz de înec;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0445",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 43,
+    "reference": "Capitolul IX, B. Primul ajutor medical, p. 85",
+    "quote": "îngrijirea imediată a unui accidentat până la sosirea medicului și transportarea victimei la o unitate sanitară.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0455",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 46,
+    "reference": "Capitolul IX, B. Primul ajutor medical, oprirea hemoragiei, p. 90",
+    "quote": "În cazul rănilor deschise, cu hemoragie arterială, se aplică un bandaj strâns deasupra tăieturii astfel încât hemoragia să fie oprită.",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote covers only stopping arterial bleeding with a bandage, not transport to hospital; pair it with the p. 85 sentence on transporting the victim to a medical unit."
+  },
+  {
+    "questionId": "q0458",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 46,
+    "reference": "Capitolul IX, B. Primul ajutor medical, oprirea hemoragiei, p. 90",
+    "quote": "În cazul rănilor deschise, cu hemoragie arterială, se aplică un bandaj strâns deasupra tăieturii astfel încât hemoragia să fie oprită.",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote shows a bandage stopping hemorrhage but not that bandages cover wounds; no better passage found."
+  },
+  {
+    "questionId": "q0459",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 43,
+    "reference": "Capitolul IX, B. Primul ajutor medical, p. 85",
+    "quote": "trebuie să știm ce anume să facem și ce nu trebuie să facem pentru a nu agrava",
+    "status": "suggested",
+    "note": "Verifier: partial support. Generic first-aid sentence about not aggravating; it does not specifically address removing victims from a damaged boat."
+  },
+  {
+    "questionId": "q0463",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 45,
+    "reference": "Capitolul IX, B. Primul ajutor medical, respirația artificială în hipotermie, p. 89",
+    "quote": "Orice semn al existenței pulsului, oricât de slab ar fi, indică faptul că inima bate și deci nu începem să facem masajul cardiac extern,",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0464",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 46,
+    "reference": "Capitolul IX, B. Primul ajutor medical, pansarea luxațiilor și fracturilor, p. 90",
+    "quote": "Pentru rigidizare se folosesc atele, confecționate în general din bucăți de lemn.",
+    "status": "suggested",
+    "note": "Verifier: partial support. Splints for rigidizing is relevant to immobilizing but the quote does not say immobilization avoids complications."
+  },
+  {
+    "questionId": "q0466",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 46,
+    "reference": "Capitolul IX, B. Primul ajutor medical, pansarea luxațiilor și fracturilor, p. 90",
+    "quote": "Metode diferite de pansare a unei luxații sau deget/braț rupt. Pentru rigidizare se folosesc atele, confecționate în general din bucăți de lemn. În cazul în care acestea sunt nefinisate se pot înfășura în bandaj și apoi folosi.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0471",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 45,
+    "reference": "Capitolul IX, B. Primul ajutor medical, Metoda gură la nas, p. 88",
+    "quote": "dacă aerul intră în plămâni și pulsul este prezent, continuați respirația ritmic, în același mod ca la metoda gură la gură.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0473",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 43,
+    "reference": "Capitolul IX, B. Primul ajutor medical, p. 85",
+    "quote": "îngrijirea imediată a unui accidentat până la sosirea medicului și transportarea victimei la o unitate sanitară.",
+    "status": "suggested",
+    "note": "Verifier: partial support. Generic statement about immediate care and transport to a medical unit; it does not address the victim recovering after cardiac massage."
+  },
+  {
+    "questionId": "q0477",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 44,
+    "reference": "Capitolul IX, B. Primul ajutor medical, Reanimarea înecatului, p. 86",
+    "quote": "Deoarece înecatul este de cele mai multe ori un asfixiat, orice pierdere de timp până la oxigenarea organismului poate deveni fatală — trebuie să se facă de urgență reanimarea respiratorie.",
+    "status": "suggested",
+    "note": "Does not say explicitly where; the same page says artificial respiration is done at or near the accident site."
+  },
+  {
+    "questionId": "q0481",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 45,
+    "reference": "Primul ajutor medical – Respirația artificială în hipotermie, p. 89",
+    "quote": "Verificăm cu grijă pulsul la carotidă timp de până la 2 minute",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote mentions only the carotid pulse and gives no location (neck or Adam's apple); the section is about hypothermia. The text at page 43 (\"la nivelul arterei carotide\") is just as vague."
+  },
+  {
+    "questionId": "q0482",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 46,
+    "reference": "Primul ajutor medical – Cazul de rănire cu hemoragii, luxații sau rupturi, p. 90",
+    "quote": "În cazul rănilor deschise, cu hemoragie arterială, se aplică un bandaj strâns deasupra tăieturii astfel încât hemoragia să fie oprită.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0486",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 45,
+    "reference": "Primul ajutor medical – Cazul de înec, Metoda gură la nas, p. 88",
+    "quote": "Această metodă poate fi folosită în cazurile în care există vătămări ale gurii sau atunci când nu este posibilă acoperirea ei completă; acest procedeu mai este indicat la cel cu convulsii, având avantajul că victima nu poate mușca, iar aerul insuflat nu pătrunde în stomac, ca în respirația gură la gură.",
+    "status": "suggested",
+    "note": "The quote does not mention a clenched mouth, only mouth injuries or no full cover; it still points to the nose method."
+  },
+  {
+    "questionId": "q0491",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 46,
+    "reference": "Primul ajutor medical – Cazul de rănire cu hemoragii, luxații sau rupturi, p. 90",
+    "quote": "Se notează ora opririi hemoragiei și se slăbește bandajul la fiecare 15 minute în scopul irigării părții exterioare a membrului afectat (superior sau inferior).",
+    "status": "suggested",
+    "note": "It supports noting the time, but it does not mention a note attached to the tourniquet."
+  },
+  {
+    "questionId": "q0494",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 46,
+    "reference": "Capitolul X – Infracțiuni și contravenții (Legea 191/2003), p. 91",
+    "quote": "Stânjenirea îndeplinirii atribuțiilor de serviciu ale echipajului de conducere a unei nave",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0518",
+    "revision": 1,
+    "source": "rnd",
+    "page": 11,
+    "reference": "Articolul 1.01, lit. c) pct. 5",
+    "quote": "termenul „serie de sunete foarte scurte” desemnează o serie de minim șase sunete cu o durată de aproximativ un sfert de secundă fiecare, separate prin pauze cu o durată de aproximativ un sfert de secundă;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0519",
+    "revision": 1,
+    "source": "rnd",
+    "page": 15,
+    "reference": "Articolul 1.05",
+    "quote": "Pentru a evita un pericol iminent, conducătorii trebuie să ia toate măsurile impuse de împrejurări, chiar dacă prin aceasta trebuie să se îndepărteze de la prevederile prezentului Regulament.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0520",
+    "revision": 1,
+    "source": "rnd",
+    "page": 18,
+    "reference": "Articolul 1.16, alin. 1",
+    "quote": "În caz de accident care pune în pericol persoanele aflate la bord, conducătorul trebuie să facă uz de toate mijloacele aflate la dispoziția sa pentru a salva aceste persoane.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0521",
+    "revision": 1,
+    "source": "rnd",
+    "page": 12,
+    "reference": "Articolul 1.01, lit. d) pct. 7",
+    "quote": "termenul „zi” desemnează perioada cuprinsă între răsăritul și apusul soarelui;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0522",
+    "revision": 1,
+    "source": "rnd",
+    "page": 22,
+    "reference": "Articolul 2.04, alin. 1",
+    "quote": "Orice navă, cu excepția ambarcațiunilor mici, trebuie să poarte mărcile ce indică planul de afundare maximă.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0523",
+    "revision": 1,
+    "source": "rnd",
+    "page": 11,
+    "reference": "Articolul 1.01, lit. c) pct. 4",
+    "quote": "termenul „sunet lung” desemnează un sunet cu o durată de cca. 4 secunde",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0524",
+    "revision": 1,
+    "source": "rnd",
+    "page": 13,
+    "reference": "Articolul 1.02, alin. 4",
+    "quote": "Într-un convoi remorcat conducătorii navelor remorcate trebuie să se conformeze ordinelor conducătorului convoiului;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0526",
+    "revision": 1,
+    "source": "rnd",
+    "page": 10,
+    "reference": "Articolul 1.01, lit. a) pct. 1",
+    "quote": "termenul „navă” desemnează navele de navigație interioară inclusiv ambarcațiunile mici și bacurile, precum și aparatele plutitoare și navele maritime;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0527",
+    "revision": 1,
+    "source": "rnd",
+    "page": 12,
+    "reference": "Articolul 1.01, lit. d) pct. 3",
+    "quote": "termenul „în staționare” desemnează o navă, un material plutitor sau o instalație plutitoare care este, direct sau indirect, la ancoră sau legată la mal;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0528",
+    "revision": 1,
+    "source": "rnd",
+    "page": 14,
+    "reference": "Articolul 1.03, alin. 2",
+    "quote": "Orice alte persoane aflate la bordul unei nave trebuie să se conformeze ordinelor ce le sunt date de către conducătorul navei în interesul siguranței navigației sau ordinei la bord.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0529",
+    "revision": 1,
+    "source": "rnd",
+    "page": 18,
+    "reference": "Articolul 1.13, alin. 3",
+    "quote": "În general, orice conducător are datoria să anunțe fără întârziere căpitănia de port cea mai apropiată asupra incidentelor sau accidentelor constatate la instalațiile de semnalizare (stingerea unei lumini, deplasarea unei geamanduri, distrugerea unui semnal etc.).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0530",
+    "revision": 1,
+    "source": "rnd",
+    "page": 12,
+    "reference": "Articolul 1.01, lit. d) pct. 4",
+    "quote": "termenul „în marș” desemnează situația în care se află o navă, un material plutitor sau o instalație plutitoare care nu este direct sau indirect nici ancorată, nici legată la mal și nici eșuată.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0531",
+    "revision": 1,
+    "source": "rnd",
+    "page": 15,
+    "reference": "Articolul 1.07, alin. 5",
+    "quote": "Navele destinate transportului de pasageri nu trebuie să aibă la bord un număr de pasageri mai mare decât cel autorizat de autoritățile competente.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0532",
+    "revision": 1,
+    "source": "rnd",
+    "page": 12,
+    "reference": "Articolul 1.01, lit. d) pct. 6",
+    "quote": "termenul „noapte” desemnează perioada cuprinsă între apusul și răsăritul soarelui;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0533",
+    "revision": 1,
+    "source": "rnd",
+    "page": 11,
+    "reference": "Articolul 1.01, lit. c) pct. 4",
+    "quote": "termenul „sunet scurt” desemnează un sunet cu o durată de cca. 1 secundă",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0534",
+    "revision": 1,
+    "source": "rnd",
+    "page": 22,
+    "reference": "Articolul 2.04, alin. 2",
+    "quote": "Orice navă, cu excepția ambarcațiunilor mici al cărei pescaj poate atinge un metru trebuie să aibă scări de pescaj.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0535",
+    "revision": 1,
+    "source": "rnd",
+    "page": 11,
+    "reference": "Articolul 1.01, lit. a) pct. 10",
+    "quote": "termenul „ambarcațiune mică” desemnează orice navă a cărei lungime a carenei, exclusiv cârma și bompresul, este mai mică de 20 m, cu excepția navelor care sunt construite și amenajate pentru a remorca, împinge sau pentru a conduce în cuplu nave, altele decât ambarcațiuni mici și cu excepția navelor care sunt autorizate pentru transportul a mai mult de 12 pasageri, a bacurilor și a barjelor de împingere.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0536",
+    "revision": 1,
+    "source": "rnd",
+    "page": 11,
+    "reference": "Articolul 1.01, lit. c) pct. 5",
+    "quote": "termenul „serie de sunete foarte scurte” desemnează o serie de minim șase sunete cu o durată de aproximativ un sfert de secundă fiecare",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0537",
+    "revision": 1,
+    "source": "rnd",
+    "page": 14,
+    "reference": "Articolul 1.04, alin. 2",
+    "quote": "Chiar dacă în prezentul Regulament, nu sunt prevăzute dispoziții speciale, conducătorii trebuie să ia toate măsurile de precauție pe care le impun îndatoririle generale de vigilență și practica profesională curentă pentru a evita în special: a) de a pune în pericol viața persoanelor;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0538",
+    "revision": 1,
+    "source": "rnd",
+    "page": 18,
+    "reference": "Articolul 1.16, alin. 2",
+    "quote": "Orice conducător de navă aflată în apropierea unei nave sau a unui material plutitor, victimă a unui accident care pune în pericol persoane sau amenință să producă o obstrucționare a șenalului navigabil este obligat, în măsura în care nu pune în pericol siguranța propriei sale nave, să acorde asistență imediată.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0539",
+    "revision": 1,
+    "source": "rnd",
+    "page": 12,
+    "reference": "Articolul 1.01, lit. d) pct. 5",
+    "quote": "termenul „navă care pescuiește” desemnează orice navă care pescuiește cu plase, carmace, traul sau cu alte unelte de pescuit care îi reduc capacitatea de manevră;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0540",
+    "revision": 1,
+    "source": "rnd",
+    "page": 12,
+    "reference": "Articolul 1.01, lit. c) pct. 7",
+    "quote": "termenul „serie de bătăi de clopot” desemnează două bătăi de clopot;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0541",
+    "revision": 1,
+    "source": "rnd",
+    "page": 24,
+    "reference": "Articolul 3.07, alin. 1",
+    "quote": "Se interzice folosirea de lumini sau proiectoare, ca și de panouri, pavilioane sau alte obiecte, dacă acestea pot fi confundate cu luminile sau semnalele menționate în prezentul Regulament, sau dacă acestea împiedică vizibilitatea sau complică identificarea luminilor sau semnalelor.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0542",
+    "revision": 1,
+    "source": "rnd",
+    "page": 23,
+    "reference": "Articolul 3.01, alin. 3 lit. c)",
+    "quote": "termenul “lumină de pupa” desemnează o lumină albă sau galbenă, clară sau obișnuită, proiectând o lumină continuă vizibilă pe toată întinderea unui arc de orizont de 1350",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote gives the 135 degree arc but says 'clară sau obișnuită', so it does not alone choose 'obișnuită' (the printed '1350' is OCR for 135°)."
+  },
+  {
+    "questionId": "q0543",
+    "revision": 1,
+    "source": "rnd",
+    "page": 29,
+    "reference": "Articolul 3.12, alin. 2",
+    "quote": "În afara luminilor prevăzute la paragraful 1 de mai sus, o navă cu vele poate purta: - două lumini obișnuite sau clare suprapuse, vizibile din toate direcțiile, din care lumina superioară trebuie să fie roșie și lumina inferioară verde; aceste lumini trebuie să fie amplasate într-un loc corespunzător, în vârful sau în partea superioară a catargului, la cel puțin 1 m una de alta.",
+    "status": "suggested",
+    "concern": "R.N.D. face obligatorii doar luminile din borduri și lumina de pupa (alin. 1), iar cele două lumini roșie peste verde sunt facultative („poate purta”), pe când răspunsul le prezintă ca obligatorii.",
+    "note": "Verifier: partial support. The quote only shows the red-over-green masthead lights are optional ('poate purta'); the side and stern lights of Art. 3.12 alin. 1 on the same page are needed to match the full official answer."
+  },
+  {
+    "questionId": "q0544",
+    "revision": 1,
+    "source": "rnd",
+    "page": 30,
+    "reference": "Articolul 3.13, alin. 3",
+    "quote": "Dacă o ambarcațiune mică remorchează sau duce în cuplu numai ambarcațiuni mici, ea trebuie să poarte luminile prevăzute la paragraful 1 de mai sus.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0545",
+    "revision": 1,
+    "source": "rnd",
+    "page": 30,
+    "reference": "Articolul 3.13, alin. 2",
+    "quote": "Ambarcațiunile mici autopropulsate navigând izolat, cu o lungime mai mică de 7 m, pot, în locul luminilor prevăzute la paragraful 1 de mai sus, să poarte o lumină albă obișnuită dispusă într-un loc corespunzător și la o înălțime de la care să fie vizibilă din toate părțile.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0546",
+    "revision": 1,
+    "source": "rnd",
+    "page": 34,
+    "reference": "Articolul 3.20, alin. 3",
+    "quote": "O ambarcațiune mică în staționare, cu excepția bărcilor de serviciu ale navelor, poate purta: - în locul luminilor prevăzute la paragrafele 1 și 2 de mai sus, o lumină albă, obișnuită dispusă într-un loc corespunzător și la o înălțime de la care să fie vizibilă din toate părțile.",
+    "status": "suggested",
+    "concern": "Articolul 3.20, alin. 4 lit. d) prevede că semnalizarea nu este obligatorie când o ambarcațiune mică este legată la mal, ceea ce corespunde mai degrabă variantei „Nu este obligatorie semnalizarea”.",
+    "note": "Verifier: partial support. The quote says a moored small craft 'poate purta' a white light, while Art. 3.20 alin. 4 d) (same page) makes signalling not obligatory when tied to shore, so the official answer is weakly supported and the question is arguably flawed."
+  },
+  {
+    "questionId": "q0547",
+    "revision": 1,
+    "source": "rnd",
+    "page": 35,
+    "reference": "Articolul 3.24",
+    "quote": "Ziua: - prin flotoare galbene sau pavilioane galbene în număr suficient pentru a indica poziția lor.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0548",
+    "revision": 1,
+    "source": "rnd",
+    "page": 30,
+    "reference": "Articolul 3.13, alin. 6",
+    "quote": "Ambarcațiunile mici izolate care nu sunt nici autopropulsate nici cu vele trebuie să poarte: Noaptea: - o lumină albă obișnuită, vizibilă din toate părțile. Totuși bărcile de serviciu care se găsesc în aceleași condiții trebuie să arate această lumină numai la apropierea altor nave.",
+    "status": "suggested",
+    "concern": "R.N.D. cere ambarcațiunilor mici fără propulsie și fără vele o lumină albă obișnuită vizibilă din toate părțile în permanență, numai bărcile de serviciu o arată doar la apropierea altor nave, deci varianta „vizibilă pe întreg orizontul (360)” pare mai corectă.",
+    "note": "Verifier: partial support. Art. 3.13 alin. 6 requires the all-round white light permanently and only service boats show it 'numai la apropierea altor nave'; the official answer matches only the service-boat clause, so the quote does not clearly support it."
+  },
+  {
+    "questionId": "q0549",
+    "revision": 1,
+    "source": "rnd",
+    "page": 29,
+    "reference": "Articolul 3.12, alin. 1",
+    "quote": "Navele cu vele trebuie să poarte: Noaptea: a) luminile din borduri, prevăzute la paragraful 1 b) de la art. 3.08; totuși, aceste lumini pot fi lumini obișnuite în loc de lumini clare; b) lumina de pupa, prevăzută la paragraful 1 c) de la art. 3.08.",
+    "status": "suggested",
+    "concern": "Conform alin. 2 al aceluiași articol, cele două lumini suprapuse roșie peste verde sunt facultative („poate purta”), nu obligatorii cum le prezintă răspunsul.",
+    "note": "Verifier: partial support. The quote covers only the mandatory side and stern lights; the red-over-green masthead lights in the official answer are optional per alin. 2 (page 29)."
+  },
+  {
+    "questionId": "q0550",
+    "revision": 1,
+    "source": "rnd",
+    "page": 29,
+    "reference": "Articolul 3.12, alin. 3",
+    "quote": "Pe timp de zi: Un con negru cu vârful in jos. Acest con trebuie să fie plasat cât mai sus posibil și într-un loc unde va fi cel mai vizibil.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0551",
+    "revision": 1,
+    "source": "rnd",
+    "page": 23,
+    "reference": "Articolul 3.01, alin. 1",
+    "quote": "Atunci când condițiile de vizibilitate impun, semnalizarea de noapte trebuie să fie purtată și",
+    "status": "suggested",
+    "note": "The page text extraction puts the final word 'ziua.' before the sentence, so the quote stops at 'și'. Quote ends mid-sentence ('...purtată și' with 'ziua.' extracted before it); acceptable but 'condițiile de vizibilitate impun' only implies reduced visibility."
+  },
+  {
+    "questionId": "q0552",
+    "revision": 1,
+    "source": "rnd",
+    "page": 38,
+    "reference": "Articolul 3.27",
+    "quote": "a) ziua, pavilionul lor național și un pavilion alb în centrul căruia se găsește semnul distinctiv sus menționat; b) ziua și noaptea, o lumină albastră intermitentă dacă aceasta este necesară pentru exercitarea atribuțiilor lor.",
+    "status": "suggested",
+    "note": "Quote does not mention the rhombus/blue border; adding the first sentence of Art. 3.27 would make it complete."
+  },
+  {
+    "questionId": "q0553",
+    "revision": 1,
+    "source": "rnd",
+    "page": 106,
+    "reference": "Anexa nr. 6, III.A. Semnale generale",
+    "quote": "Un sunet lung. ATENȚIE!",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0554",
+    "revision": 1,
+    "source": "rnd",
+    "page": 127,
+    "reference": "Anexa nr. 8, II.3 Bifurcația șenalului",
+    "quote": "un semn sferic cu benzi orizontale roșii și verzi este obligatoriu pe geamanduri și școndri, dacă acestea nu sunt sferice",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0555",
+    "revision": 1,
+    "source": "rnd",
+    "page": 136,
+    "reference": "Anexa nr. 8, IV.A.3 Semnale costiere mediane",
+    "quote": "două panouri triunghiulare albe, suprapuse și opuse la vârfuri, cel de deasupra mărginit cu banda roșie iar cel de dedesubt cu banda verde.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0556",
+    "revision": 1,
+    "source": "rnd",
+    "page": 44,
+    "reference": "Articolul 4.04, alin. 1",
+    "quote": "Atunci când o navă în pericol vrea să ceară ajutor, ea poate emite sunete de clopot sau sunete prelungite repetate.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0557",
+    "revision": 1,
+    "source": "rnd",
+    "page": 126,
+    "reference": "Anexa nr. 8, II.1 Partea dreaptă a șenalului",
+    "quote": "un semn cilindric roșu este obligatoriu pe geamanduri și pe școndri, dacă acestea nu sunt cilindrice.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0558",
+    "revision": 1,
+    "source": "rnd",
+    "page": 24,
+    "reference": "Articolul 3.05, alin. 2",
+    "quote": "Totuși, pentru comunicările între nave sau între nave și uscat, este admisă folosirea altor lumini și semnale cu condiția ca acestea să nu poată fi confundate cu luminile sau semnalele menționate în prezentul Regulament.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0559",
+    "revision": 1,
+    "source": "rnd",
+    "page": 46,
+    "reference": "Articolul 5.02, alin. 2",
+    "quote": "Pe întregul parcurs navigabil al fluviului, șenalul este balizat după sistemul lateral, care indică poziția limitelor sale în raport cu drumul unei nave care urmează șenalul.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0560",
+    "revision": 1,
+    "source": "rnd",
+    "page": 44,
+    "reference": "Articolul 4.04, alin. 1",
+    "quote": "Atunci când o navă în pericol vrea să ceară ajutor, ea poate emite sunete de clopot sau sunete prelungite repetate.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0561",
+    "revision": 1,
+    "source": "rnd",
+    "page": 47,
+    "reference": "Articolul 6.03, alin. 4",
+    "quote": "Orice conducător care constată un pericol de abordaj trebuie să emită o serie de semnale foarte scurte.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0562",
+    "revision": 1,
+    "source": "rnd",
+    "page": 127,
+    "reference": "Anexa nr. 8, II.2 Partea stângă a șenalului",
+    "quote": "un semn conic verde este obligatoriu pe geamanduri și pe școndri, dacă acestea nu sunt conice.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0563",
+    "revision": 1,
+    "source": "rnd",
+    "page": 127,
+    "reference": "Anexa nr. 8, II.2 Partea stângă a șenalului",
+    "quote": "verde geamandură, de preferință conică, școndru sau jaloane",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0564",
+    "revision": 1,
+    "source": "rnd",
+    "page": 39,
+    "reference": "Articolul 3.30, alin. 2",
+    "quote": "Când o navă în pericol vrea să ceară ajutor, ea poate arăta: a) un pavilion sau orice alt obiect corespunzător agitat circular; b) un pavilion având, deasupra sau dedesubt, un balon sau un obiect analog; c) o lumină agitată circular;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0565",
+    "revision": 1,
+    "source": "rnd",
+    "page": 127,
+    "reference": "Anexa nr. 8, II.2 Partea stângă a șenalului",
+    "quote": "ele balizează partea stângă a șenalului și pericolele de pe malul stâng.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0566",
+    "revision": 1,
+    "source": "rnd",
+    "page": 130,
+    "reference": "Anexa nr. 8, III.A.2 Șenalul navigabil în apropierea malului stâng",
+    "quote": "panouri pătrate (având diagonale orizontale și verticale) vopsite în verde la jumătatea superioară și în alb la jumătatea inferioară",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0567",
+    "revision": 1,
+    "source": "rnd",
+    "page": 126,
+    "reference": "Anexa nr. 8, II.1 Partea dreaptă a șenalului",
+    "quote": "Aceste semnale servesc la balizarea limitelor șenalului și indicarea direcției; ele balizează limita dreaptă a șenalului și pericolele de la malul drept.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0568",
+    "revision": 1,
+    "source": "rnd",
+    "page": 129,
+    "reference": "Anexa nr. 8, III.A",
+    "quote": "Aceste semnale indică poziția șenalului în raport cu malurile și cu semnalele instalate pe calea navigabilă, balizează șenalul acolo unde acesta se apropie de maluri; ele servesc de asemenea ca puncte de reper.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0569",
+    "revision": 1,
+    "source": "rnd",
+    "page": 39,
+    "reference": "Articolul 3.30, alin. 2, lit. a)",
+    "quote": "Când o navă în pericol vrea să ceară ajutor, ea poate arăta: a) un pavilion sau orice alt obiect corespunzător agitat circular;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0570",
+    "revision": 1,
+    "source": "rnd",
+    "page": 126,
+    "reference": "Anexa nr. 8, II.1 Partea dreaptă a șenalului",
+    "quote": "Aceste semnale servesc la balizarea limitelor șenalului și indicarea direcției; ele balizează limita dreaptă a șenalului și pericolele de la malul drept.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0571",
+    "revision": 1,
+    "source": "rnd",
+    "page": 129,
+    "reference": "Anexa nr. 8, III.A.1 Șenalul navigabil în apropierea malului drept",
+    "quote": "panouri pătrate (cu laturile orizontale și verticale) roșii, mărginite de două benzi orizontale albe",
+    "status": "suggested",
+    "note": "Verifier: partial support. Quote covers the red panel but not the red light that separates the two red-panel answers; extend it to include 'Lumini ritmice roșii (faruri)' on page 129."
+  },
+  {
+    "questionId": "q0572",
+    "revision": 1,
+    "source": "rnd",
+    "page": 128,
+    "reference": "Anexa nr. 8, II.3 Bifurcația șenalului",
+    "quote": "Aceste semnalele servesc la balizarea bifurcației și joncțiunii șenalului precum și a diferitelor pericole situate în limitele șenalului.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0573",
+    "revision": 1,
+    "source": "rnd",
+    "page": 126,
+    "reference": "Anexa nr. 8, II.1 Partea dreaptă a șenalului",
+    "quote": "roșu geamandură, de preferință cilindrică, școndru sau jaloane",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0574",
+    "revision": 1,
+    "source": "rnd",
+    "page": 133,
+    "reference": "Anexa nr. 8, III.B.3.2 Indicarea aliniamentului unei lungi traversări",
+    "quote": "Două semnale de traversare identice (fig.8 sau fig.9) plasate unul în spatele celuilalt, semnalul anterior fiind mai jos decât semnalul posterior; linia care unește semnalele indică axa traversării.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0575",
+    "revision": 1,
+    "source": "rnd",
+    "page": 47,
+    "reference": "Articolul 6.02, alin. 2",
+    "quote": "aceste ambarcațiuni mici au obligația de a lăsa tuturor celorlalte nave, inclusiv navelor rapide, spațiul necesar pentru a-și urma drumul lor și pentru a manevra; ele nu pot pretinde ca acestea să se abată în favoarea lor.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0576",
+    "revision": 1,
+    "source": "rnd",
+    "page": 50,
+    "reference": "Articolul 6.07, alin. 1, lit. a)",
+    "quote": "a) toate navele trebuie să străbată trecerile înguste cât mai repede posibil;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0577",
+    "revision": 1,
+    "source": "rnd",
+    "page": 48,
+    "reference": "Articolul 6.031, alin. 3",
+    "quote": "ambarcațiunile mici autopropulsate vor trebui să se abată din drumul tuturor celorlalte ambarcațiuni mici",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0578",
+    "revision": 1,
+    "source": "rnd",
+    "page": 13,
+    "reference": "Articolul 1.01, pct. 15",
+    "quote": "termenul „amonte”desemnează direcția mergând spre izvoare și termenul „aval” desemnează direcția mergând spre vărsare;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0579",
+    "revision": 1,
+    "source": "rnd",
+    "page": 54,
+    "reference": "Articolul 6.15",
+    "quote": "Este interzis a se angaja în intervalele dintre unitățile unui convoi remorcat.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0580",
+    "revision": 1,
+    "source": "rnd",
+    "page": 64,
+    "reference": "Articolul 6.36, alin. 2",
+    "quote": "Instalarea de echipamente de pescuit în sau în apropierea șenalului și în zonele marcate prin semnale de staționare a navelor nu este autorizată.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0581",
+    "revision": 1,
+    "source": "rnd",
+    "page": 55,
+    "reference": "Articolul 6.18, alin. 3",
+    "quote": "Această interzicere nu se aplică nici pe sectoarele semnalizate, conform prevederilor de la paragraful 2 art. 7.03, prin semnalul de indicație E.6 (Anexa nr. 7).",
+    "status": "suggested",
+    "concern": "Alineatul 2 al aceluiași articol spune că interdicția nu se aplică nici micilor mișcări la locurile de staționare și nici manevrelor, ceea ce corespunde variantei «În cazul micilor deplasări...», marcată greșită; iar alineatul 3 se referă la sectoarele semnalizate cu E.6, nu la orice sector unde este permisă ancorarea.",
+    "note": "Verifier: partial support. Para 3 only exempts sectors signalled E.6, not 'always where anchoring is allowed'; para 2 supports the other answer, so the official answer is weakly backed and needs human review."
+  },
+  {
+    "questionId": "q0582",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 6,
+    "reference": "Capitolul II Elemente de construcție ale ambarcațiunilor, osatura longitudinală",
+    "quote": "Etrava — piesa de rezistență situată în extremitatea prova, constituie de fapt prelungirea chilei la prova.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0583",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 10,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, rame, p. 18-19",
+    "quote": "Inițial, rama era prinsă cu ajutorul unui laț de piele (numit strapazan) de un cui vertical (cui de strapazan) bătut în marginea bordajului",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0584",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 13,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, lanțul de ancoră, p. 24-25",
+    "quote": "Podul mărește rezistența zalelor la întindere cu 20% împiedicând și încurcarea lanțului.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0585",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, p. 26-27",
+    "quote": "barbetele — sunt bucăți de parâmă fixate la prova și la pupa bărcii și folosesc la legare sau remorcatul bărcii.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0586",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 16,
+    "reference": "Capitolul V Parâme și accesorii de punte, p. 29",
+    "quote": "Parâma obținută din răsucirea șuvițelor se numește parâmă simplă sau lanțană.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0587",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, Accesorii de punte, p. 34-35",
+    "quote": "Rodanțele — sunt apărătoare ale gașelor mici. Se confecționează din tablă de oțel, bronz.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0588",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 21,
+    "reference": "Capitolul VI Matelotaj, Voltele, p. 40",
+    "quote": "volta la baba — reprezintă înfășurarea parâmei într-o serie de opturi în jurul cilindrilor unei babale duble.",
+    "status": "suggested",
+    "note": "Verifier: partial support. Quote defines 'volta la baba', not what babalele serve for; a passage describing babale as used for voltes would be better."
+  },
+  {
+    "questionId": "q0589",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, Accesorii de punte, p. 34-35",
+    "quote": "La navele mici tacheții țin locul babalelor.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0590",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 21,
+    "reference": "Capitolul VI Matelotaj, Matisirea, p. 41",
+    "quote": "Matisirea parâmelor se execută în două scopuri: împreunarea a două capete de parâmă sau realizarea unei gașe sau unui ochi la capătul unei parâme.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0591",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 11,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, rame, p. 20-21",
+    "quote": "pană — partea lată, în formă de lopată;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0592",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 11,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, ancore, p. 20-21",
+    "quote": "În general, o ancoră se compune din următoarele părți: brațele, fixe sau articulate, având la extremități vârfuri ce se înfig în sol și palme (părțile plate ale brațelor) care măresc rezistența împotriva derapării; fusul, care are un inel la extremitatea superioară și o ramificație în două sau patru brațe; diamantul, care este locul de împreunare a brațelor cu fusul; inelul sau veriga de care se leagă unul din capetele lanțului de ancoră cu ajutorul unei chei; traversa",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0594",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Capitolul V Parâme și accesorii de punte, parâme vegetale, p. 30-31",
+    "quote": "o parâmă simplă intră în compunerea altei parâme mai groase, aceasta va purta denumirea de cordon.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0595",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 8,
+    "reference": "Capitolul II Elemente de construcție ale ambarcațiunilor, învelișul exterior, p. 15",
+    "quote": "Fiecare rând de scânduri sau table al învelișului exterior se numește filă.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0596",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 5,
+    "reference": "Capitolul II Elemente de construcție ale ambarcațiunilor, corpul (coca) ambarcațiunii",
+    "quote": "Un observator care se află pe puntea navei și privește spre prova are în dreapta bordul tribord și în stânga bordul babord.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0597",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 11,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, cârma bărcii, p. 20-21",
+    "quote": "se compune din pană și eche. Echea este o bară de lemn care se fixează pe vârful axului cârmei pentru manevră.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0598",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 12,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, ancora cu patru gheare, p. 22-23",
+    "quote": "La fundarisirea acestei ancore, indiferent de poziția în care cade, două dintre gheare se găsesc — în permanență — în poziție convenabilă pentru fixare pe solul albiei.",
+    "status": "suggested",
+    "note": "Verifier: partial support. Quote does not say where the four-claw anchor is used; the page 12 sentence 'Se întrebuințează la fluviu și ape interioare' (OCR-garbled heading) states it, so quote that."
+  },
+  {
+    "questionId": "q0599",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Parâme și accesorii de punte – Accesorii de punte, p. 35",
+    "quote": "Babalele simple formate dintr-o coloană prevăzută cu traversă pentru luat volta se numesc și binte.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0600",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, Accesorii de punte, p. 35",
+    "quote": "Turnicheții — sunt piese metalice de ghidare a parâmelor, care elimină pe cât posibil frecarea.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0601",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 22,
+    "reference": "Matelotaj – Patronarea, p. 42",
+    "quote": "Pentru înfășurarea capetelor de parâmă așa fel încât să nu se destrame, acestea se patronează, adică se înfășoară de câteva ori cu fire, ață de velă sau sârmă moale.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0602",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 6,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Osatura longitudinală, p. 10",
+    "quote": "Chila - piesa fundamentală de rezistență a oricărei nave. Este situată în plan diametral, pe fundul bărcii de la prova la pupa.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0603",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Parâme și accesorii de punte – Parâmele sintetice, p. 33",
+    "quote": "Structura unei parâme sintetice este asemănătoare cu cea a parâmei vegetale, respectiv: fire - sfilață - șuviță - lanțană - garlin.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0604",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Parâme și accesorii de punte – Accesorii de punte, p. 35",
+    "quote": "Tacheții sunt piese metalice de diverse mărimi, au forma literei T, se montează în punte, copastie sau arbori și servesc tot pentru luarea voltelor dar cu parâme mai subțiri.",
+    "status": "suggested",
+    "note": "The last word 'subțiri' is cut off in the OCR text and was restored."
+  },
+  {
+    "questionId": "q0605",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Parâme și accesorii de punte – Accesorii de punte, p. 38",
+    "quote": "Urechile — sunt piese de construcție specială fixate pe punte și au rol de ghidare a parâmei.",
+    "status": "suggested",
+    "concern": "Manualul descrie urechile ca fiind fixate pe punte, nu în bordaj cum spune întrebarea.",
+    "note": "Verifier: partial support. The manual says urechile are fixed on deck (punte), not in the bordaj as the question states, so the quote only matches by elimination."
+  },
+  {
+    "questionId": "q0606",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 6,
+    "reference": "Capitolul II Elemente de construcție ale ambarcațiunilor, pupa",
+    "quote": "rotund numit etambreul cârmei prin care trece axul cârmei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0607",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 10,
+    "reference": "Accesoriile ambarcațiunii – Ramele, p. 18",
+    "quote": "Inițial, rama era prinsă cu ajutorul unui laț de piele (numit strapazan) de un cui vertical (cui de strapazan) bătut în marginea bordajului, sau era introdusă într-o scobitură făcută în marginea superioară a bordajului (numită dama).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0608",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 13,
+    "reference": "Accesoriile ambarcațiunii – Lanțul de ancoră, p. 25",
+    "quote": "Lanțurile se caracterizează prin calibru, adică grosimea zalei măsurată în dreptul podului, sau la mijlocul zalei, pentru cele fără pod.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0609",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Parâme și accesorii de punte – Accesorii de punte, p. 38",
+    "quote": "Urechile — sunt piese de construcție specială fixate pe punte și au rol de ghidare a parâmei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0610",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii – Lanțul de ancoră, p. 26",
+    "quote": "Ancorele sunt legate de lanțul de ancoră sau parâma de ancoră printr-un „vârtej”. Aceasta permite virarea ușoară la post a ancorei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0612",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 5,
+    "reference": "Capitolul II Elemente de construcție ale ambarcațiunilor, părțile principale ale cocii, p. 8-9",
+    "quote": "Un observator care se află pe puntea navei și privește spre prova (1) are în dreapta bordul tribord (5) și în stânga bordul babord (6).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0613",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 8,
+    "reference": "Capitolul II Elemente de construcție ale ambarcațiunilor, osatura transversală",
+    "quote": "Coastele (crevacele) - elemente de rezistență transversale, fixate la intervale",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0614",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 8,
+    "reference": "Capitolul II Elemente de construcție ale ambarcațiunilor, învelișul exterior",
+    "quote": "Locul de îmbinare a tablelor se numește cusătură.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0616",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 6,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Osatura longitudinală, p. 10",
+    "quote": "Chila - piesa fundamentală de rezistență a oricărei nave. Este situată în plan diametral, pe fundul bărcii de la prova la pupa.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0617",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Parâme și accesorii de punte – Caracteristicile parâmelor, p. 33",
+    "quote": "Rezistența - reprezintă sarcina la care se rupe parâma.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0618",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, clasificarea parâmelor, p. 34",
+    "quote": "merlinul — este o lantană subțire de circa 7-8 mm formată din două șuvițe răsucite stânga și este utilizat la înfășurări și patronări de parâme groase;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0620",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 6,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Osatura longitudinală, p. 10",
+    "quote": "Etrava - piesa de rezistență situată în extremitatea prova, constituie de fapt prelungirea chilei la prova.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0621",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Parâme și accesorii de punte – Parâmele metalice, p. 31",
+    "quote": "Destinația inimii este de a feri sârmele din interior de oxidare",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0622",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Parâme și accesorii de punte – Caracteristicile parâmelor, p. 33",
+    "quote": "Flexibilitatea - este calitatea parâmei de a se îndoi fără a-și modifica structura",
+    "status": "suggested",
+    "note": "The rest of the sentence is damaged in the OCR text."
+  },
+  {
+    "questionId": "q0623",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, clasificarea parâmelor, p. 34",
+    "quote": "grandeea — este o lantană cu grosime între 25 și 120 mm folosită la confecționarea grandeelor (marginilor întărite) pentru vele și tenzi;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0625",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 6,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Osatura longitudinală, p. 10",
+    "quote": "Etamboul - piesa de rezistență situată în extremitatea pupa, constituie de fapt prelungirea chilei la pupa.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0626",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Capitolul V Parâme și accesorii de punte, Caracteristicile parâmelor, p. 33",
+    "quote": "Flexibilitatea - este calitatea parâmei de a se îndoi fără a-și modifica structura și fără a-și pierde rezistența.",
+    "status": "suggested",
+    "note": "The OCR of the list heading is too damaged to quote. The list covers grosimea, greutatea, rezistența, flexibilitatea and elasticitatea, each in its own paragraph. Verifier: partial support. The quote only defines flexibility; it does not show that the full five-item list (grosimea, greutatea, rezistența, flexibilitatea, elasticitatea) is the book's list of characteristics."
+  },
+  {
+    "questionId": "q0628",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, clasificarea parâmelor, p. 34",
+    "quote": "saula — este denumirea atribuită parâmelor cu grosime între 15 și 40 mm.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0630",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 8,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Osatura transversală, p. 15",
+    "quote": "Coastele (crevacele) - elemente de rezistență transversale, fixate la intervale",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0633",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, clasificarea parâmelor, p. 35",
+    "quote": "Lusinul — este o lantană mai fină decât merlinul, formată din 2-3 șuvițe de calitate",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0635",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 8,
+    "reference": "Elemente de construcție ale ambarcațiunilor – Osatura transversală, p. 15",
+    "quote": "Varangele - elemente de rezistență transversale care unesc capetele inferioare ale coastelor în scopul sporirii rezistenței fundului bărcii.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0637",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, întreținerea parâmelor, p. 34",
+    "quote": "Parâmele vegetale se întrețin ferindu-le de umezeală.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0639",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, clasificarea parâmelor, p. 34",
+    "quote": "garlinul — parâma cu grosime cuprinsă între 100 și 620 mm destinată pentru legarea și remorcarea navelor mari;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0641",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Parâme și accesorii de punte – Parâmele sintetice, p. 33",
+    "quote": "Structura unei parâme sintetice este asemănătoare cu cea a parâmei vegetale, respectiv: fire - sfilață - șuviță - lanțană - garlin.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0642",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Parâme și accesorii de punte – Parâmele metalice, p. 31",
+    "quote": "se confecționează din sârmă de oțel zincat cu diametrul cuprins între 0,2 și 0,6",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0644",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 16,
+    "reference": "Parâme și accesorii de punte (cap. V), p. 29",
+    "quote": "Parâma obținută din răsucirea șuvițelor se numește parâmă simplă sau lanțană.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0648",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Parâme și accesorii de punte – Parâmele vegetale, p. 31",
+    "quote": "mai multe fire, răsucite între ele spre stânga formează o sfilață;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0649",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Capitolul V Parâme și accesorii de punte, parâmele vegetale",
+    "quote": "Parâmele de sizal — se confecționează din frunzele unei plante (cactus).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0651",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 40,
+    "reference": "Mijloace de salvare – Vesta de salvare, p. 78",
+    "quote": "capabile să susțină o persoană aflată în apă, cu capul deasupra apei, indiferent dacă persoana este conștientă sau nu",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0652",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Parâme și accesorii de punte – Recepția parâmelor, p. 34",
+    "quote": "se acordă atenție culorii și mirosului în cazul parâmelor vegetale, urmărindu-se să nu fie pătate (semne de putrezire) și să nu aibă miros de mucegai;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0654",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii, p. 27",
+    "quote": "barbetele — sunt bucăți de parâmă fixate la prova și la pupa bărcii",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0655",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 22,
+    "reference": "Capitolul VI Matelotaj, Boțul",
+    "quote": "Boțul este un capăt de parâmă sau de lanț ce servește la asigurarea unei parâme",
+    "status": "suggested",
+    "concern": "Manualul definește boțul ca un capăt de parâmă sau de lanț care asigură o parâmă (prima variantă), nu ca știfturi de siguranță ale unei chei de împreunare.",
+    "note": "Verifier: unrelated support. The quote defines the boț as a rope or chain end, which matches the other answer option, not the official correct answer (safety pins of a joining shackle); the manual does not support the official answer."
+  },
+  {
+    "questionId": "q0656",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, Accesorii de punte, p. 35",
+    "quote": "Tacheții — sunt piese metalice de diverse mărimi, au forma literei T, se montează pe punte, copastie sau arbori și servesc tot pentru luarea voltelor dar cu parâme mai subțiri.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0657",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, Accesorii de punte, p. 35",
+    "quote": "Turnicheții — sunt piese metalice de ghidare a parâmelor, care elimină pe cât posibil frecarea.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0658",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 60,
+    "reference": "Navigație estimată, Deriva de vânt, p. 118",
+    "quote": "Măsurarea vitezei vântului Vw se face la bordul navei, cu un instrument anemometru.",
+    "status": "suggested",
+    "note": "The quote shows the anemometer measures wind speed, which makes the statement about ship speed false."
+  },
+  {
+    "questionId": "q0659",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Capitolul V Parâme și accesorii de punte, Caracteristicile parâmelor, p. 33",
+    "quote": "Greutatea — reprezintă masa, în kilograme a unui metru liniar de parâmă",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0660",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Capitolul V Parâme și accesorii de punte, parâmele vegetale",
+    "quote": "Grosimea parâmelor se măsoară pe circumferință și se exprimă în milimetri sau țoli.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0661",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Capitolul V Parâme și accesorii de punte, Caracteristicile parâmelor, p. 33",
+    "quote": "Rezistența — reprezintă sarcina la care se rupe parâma.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0662",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 11,
+    "reference": "Accesoriile ambarcațiunii, Cârma bărcii, p. 21",
+    "quote": "Cârma se compune din pană și eche. Echea este o bară de lemn care se fixează pe vârful cârmei pentru manevră.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0663",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 11,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, ancora",
+    "quote": "În general, o ancoră se compune din următoarele părți: brațele, fixe sau articulate, având la extremități vârfuri ce se înfig în sol și palme (părțile plate ale brațelor) care măresc rezistența împotriva derapării; fusul, care are un inel la extremitatea superioară și o ramificație în două sau patru brațe; diamantul, care este locul de împreunare a brațelor cu fusul;",
+    "status": "suggested",
+    "note": "The quote covers brațe, fus and diamant; the word 'gheare' in the correct answer is not in the quote, but the answer is still clearly the best match."
+  },
+  {
+    "questionId": "q0664",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Capitolul V Parâme și accesorii de punte, Parâmele sintetice, p. 32",
+    "quote": "Structura unei parâme sintetice este asemănătoare cu cea a parâmei vegetale, respectiv: fire - sfilață - șuviță - lanțană - garlin.",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quoted sequence omits 'cordon', which is in the correct answer, so it does not decide between the options on its own."
+  },
+  {
+    "questionId": "q0671",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, inventarul bărcii, p. 27",
+    "quote": "Pentru salvare în inventarul bărcii se află colaci de salvare, având pe margine o saulă denumită ține-te bine, proiectați să țină la suprafața apei patru persoane. Pe lângă colaci de salvare ambarcațiunea poate fi dotată cu centuri sau veste de salvare.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0672",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii, p. 27",
+    "quote": "Pentru salvare în inventarul bărcii se află colaci de salvare",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0674",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii, p. 27",
+    "quote": "Din categoria obiectelor din inventarul bărcii care sunt destinate vitalității fac parte: ghiordelul — căldare din lemn sau pânză impermeabilă cu mâner de saulă, folosită pentru golirea bărcii de apă;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0675",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii, p. 27",
+    "quote": "Din categoria obiectelor din inventarul bărcii care sunt destinate vitalității fac parte: ghiordelul — căldare din lemn sau pânză impermeabilă cu mâner de saulă, folosită pentru golirea bărcii de apă; ispolul — scafă din lemn, cu margini ridicate pentru strâns apa de pe fundul bărcii",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0677",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii, p. 27",
+    "quote": "Din categoria obiectelor din inventarul bărcii care sunt destinate vitalității fac parte: ghiordelul — căldare din lemn sau pânză impermeabilă cu mâner de saulă, folosită pentru golirea bărcii de apă; ispolul — scafă din lemn, cu margini ridicate pentru strâns apa de pe fundul bărcii; trusa de marangozerie — conține ciocan, clește, daltă, pene de lemn, câlți,",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0678",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Accesoriile ambarcațiunii, p. 27",
+    "quote": "Din categoria obiectelor din inventarul bărcii care sunt destinate vitalității fac parte: ghiordelul — căldare din lemn sau pânză impermeabilă cu mâner de saulă, folosită pentru golirea bărcii de apă; ispolul — scafă din lemn, cu margini ridicate pentru strâns apa de pe fundul bărcii; trusa de marangozerie — conține ciocan, clește, daltă, pene de lemn, câlți,",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0687",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Capitolul VI Matelotaj, Nodurile de legătură, p. 37",
+    "quote": "nodul de ancoră - permite legarea capătului unei parâme de inelul ancorei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0690",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Capitolul VI Matelotaj, Nodurile de împreunare, p. 37",
+    "quote": "nodul de pescar — folosește la unirea a două capete de saulă, merlin, lusin.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0694",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 19,
+    "reference": "Capitolul VI Matelotaj, Nodurile de cârlig, p. 38",
+    "quote": "nodul gura de știucă — este un nod foarte rezistent, nu permite deloc filarea. Se folosește atunci când cârligul este supus unei tracțiuni mari.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0695",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Capitolul VI Matelotaj, Nodurile de împreunare, p. 37",
+    "quote": "Nodurile de împreunare — se folosesc pentru unirea (împreunarea) a două parâme de grosimi aproximativ egale. Cele mai uzuale noduri de împreunare sunt: nodul lat — format din două noduri simple suprapuse.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0696",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Capitolul VI Matelotaj, p. 39",
+    "quote": "un nod marinăresc trebuie să îndeplinească două condiții: să fie rezistent (adică să țină foarte bine) și să se desfacă ușor",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote gives only two conditions (strong, easy to untie); the correct answer also lists easy to make and not damaging the rope, so it still fits but is not fully shown."
+  },
+  {
+    "questionId": "q0697",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 19,
+    "reference": "Capitolul VI Matelotaj, Nodurile de cârlig, p. 38",
+    "quote": "folosesc pentru legarea unui capăt de parâmă la un cârlig",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0698",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Capitolul VI Matelotaj, Nodurile de împreunare, p. 37",
+    "quote": "Nodurile de împreunare — se folosesc pentru unirea (împreunarea) a două parâme de grosimi aproximativ egale.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0699",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 20,
+    "reference": "Capitolul VI Matelotaj, Nodurile de legătură, p. 37",
+    "quote": "Nodurile de legătură — se folosesc la fixarea unui capăt de parâmă pentru legarea",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0706",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Capitolul V Parâme și accesorii de punte, Parâme vegetale, p. 30",
+    "quote": "Parâmele de sizal — se confecționează din frunzele unei plante (cactus).",
+    "status": "suggested",
+    "note": "The quote says sisal comes from a cactus-like plant, which implies it is not hemp."
+  },
+  {
+    "questionId": "q0708",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 14,
+    "reference": "Capitolul III Accesoriile ambarcațiunii, cangea, p. 27",
+    "quote": "Se folosește la acostări, pentru a îndepărta prova sau la plecări de la o scară, un debarcader etc.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0712",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 18,
+    "reference": "Capitolul V Parâme și accesorii de punte, Accesorii de punte, p. 35",
+    "quote": "Rodanțele — sunt apărătoare ale gașelor mici.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0714",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 17,
+    "reference": "Parâme și accesorii de punte – Caracteristicile parâmelor, p. 33",
+    "quote": "Rezistența - reprezintă sarcina la care se rupe parâma.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0716",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 16,
+    "reference": "Capitolul IV Lucrări de întreținere a ambarcațiunilor, p. 28",
+    "quote": "După uscarea primului strat, care se dă mai subțire se aplică uniform al doilea strat.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0720",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 24,
+    "reference": "Capitolul VII Manevra ambarcațiunilor cu motor",
+    "quote": "Guvernarea ambarcațiunii se realizează cu ajutorul instalației de guvernare. Aceasta se compune din: timonă sau manipulatorul electric;",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0721",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 15,
+    "reference": "Capitolul V Parâme și accesorii de punte, parâmele vegetale",
+    "quote": "Gudronarea nu apără însă complet parâma de acțiunea apei și dacă o parâmă umedă se strânge înainte de a fi bine uscată, atunci sfilatele interioare se alterează reducând rezistența parâmei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0723",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 21,
+    "reference": "Capitolul VI Matelotaj, Voltele, p. 40",
+    "quote": "prin care parâmele se fixează la dispozitivele de legare existente la bord (babale, tacheți, cavile).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0724",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 21,
+    "reference": "Capitolul VI Matelotaj, Voltele, p. 40",
+    "quote": "prin care parâmele se fixează la dispozitivele de legare existente la bord (babale, tacheți, cavile).",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0726",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 52,
+    "reference": "Capitolul XI – Închiderea prea rapidă a trotei / oprirea bărcii, p. 102",
+    "quote": "În cazul în care nu există nici un motiv să faceți altfel, reduceți în mod gradat viteza.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0727",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 29,
+    "reference": "Manevra de „Om la apă”, p. 57",
+    "quote": "Este o manevră clasică de recuperare care se efectuează ținând cont de efectul vântului și curentului.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0728",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 52,
+    "reference": "Capitolul XI – Pasul elicei (Pitch), p. 103",
+    "quote": "Pasul elicei reprezintă avansul teoretic - distanța parcursă de elice - în timpul unei",
+    "status": "suggested",
+    "note": "The OCR text cuts the sentence after 'în timpul unei'; the printed text continues with one rotation."
+  },
+  {
+    "questionId": "q0729",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 31,
+    "reference": "Navigația prin ecluze – În camerele ecluzei, pct. 9 f), p. 60",
+    "quote": "ambarcațiunile mici trebuie să păstreze suficientă distanță față de alte nave",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0730",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 30,
+    "reference": "Navigația prin ecluze – Traversarea ecluzelor, p. 58-59",
+    "quote": "Înainte de pătrunderea în ecluză parâmele trebuie ținute din scurt și componentele echipamentului trebuie să nu depășească limitele navei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0731",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 52,
+    "reference": "Capitolul XI – Înclinarea motorului, p. 102",
+    "quote": "Dacă trimul este făcut la viteze mari, forțele turbionare vor acționa brusc și vor cauza pierderea controlului.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0732",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 31,
+    "reference": "Navigația prin ecluze – Ordinea ecluzării, pct. 10, p. 61",
+    "quote": "Ordinea ecluzării: navele administrației; navele care sunt plecate pentru îndeplinirea unor misiuni excepționale; navele avariate grav au prioritate la ecluzare în fața celorlalte fără a sta la rând; navele de pompieri și de salvare aflate în drum spre locul accidentului.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0733",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 24,
+    "reference": "Capitolul VII, Manevra ambarcațiunilor cu motor",
+    "quote": "Manevrabilitatea constă în capacitatea bărcii de a-și menține direcția de înaintare sau de a schimba această direcție cu ajutorul cârmei și elicei.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0734",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 54,
+    "reference": "Capitolul XI, Inițiere în navigația de mare viteză, p. 107",
+    "quote": "În cazul în care ambarcațiunea dvs. este utilizată în regim de mare viteză în mod constant, este nevoie să fie verificată cu grijă la intervale mai scurte de timp.",
+    "status": "suggested"
+  },
+  {
+    "questionId": "q0735",
+    "revision": 1,
+    "source": "manual-caa",
+    "page": 25,
+    "reference": "Capitolul VII, Manevra ambarcațiunilor cu motor, propulsoare prova și pupa",
+    "quote": "Denumirea consacrată este: bowtruster — pentru prova, stern truster — pentru pupa.",
+    "status": "suggested",
+    "note": "Verifier: partial support. The quote only names bow/stern thrusters; check that the page also says they assist steering, and add a page citation (spread 50-51 area printed number not visible)."
+  }
+]

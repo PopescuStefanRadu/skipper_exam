@@ -1,0 +1,172 @@
+ Image skipper-bibliography-ee72827a-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 608B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#4 DONE 0.4s
+
+#5 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#5 DONE 0.5s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 500.32kB 0.0s done
+#7 DONE 0.0s
+
+#8 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#8 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#8 DONE 0.0s
+
+#9 [backend 3/7] COPY go.mod go.sum ./
+#9 CACHED
+
+#10 [backend 2/7] WORKDIR /src
+#10 CACHED
+
+#11 [backend 4/7] RUN go mod download
+#11 CACHED
+
+#12 [backend 5/7] COPY cli cli
+#12 CACHED
+
+#13 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#13 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#13 DONE 0.0s
+
+#14 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#14 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#14 DONE 0.0s
+
+#15 [web 3/7] WORKDIR /web
+#15 CACHED
+
+#16 [web 2/7] RUN corepack enable
+#16 CACHED
+
+#17 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#17 CACHED
+
+#18 [web 5/7] RUN pnpm install --frozen-lockfile
+#18 CACHED
+
+#19 [backend 6/7] COPY pkg pkg
+#19 DONE 0.0s
+
+#20 [web 6/7] COPY web/ ./
+#20 DONE 0.0s
+
+#21 [web 7/7] RUN pnpm build
+#21 0.228 $ tsc -b && vite build
+#21 1.797 vite v6.0.7 building for production...
+#21 1.869 transforming...
+#21 2.724 ✓ 47 modules transformed.
+#21 2.862 rendering chunks...
+#21 2.871 computing gzip size...
+#21 2.878 dist/index.html                   0.40 kB │ gzip:  0.27 kB
+#21 2.878 dist/assets/index-BBNEY1MC.css    0.35 kB │ gzip:  0.24 kB
+#21 2.878 dist/assets/index-C7S78Ipb.js   195.59 kB │ gzip: 63.29 kB
+#21 2.879 ✓ built in 1.05s
+#21 DONE 3.1s
+
+#22 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#22 DONE 5.0s
+
+#13 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#13 CACHED
+
+#23 [stage-2 2/4] COPY --from=backend /server /server
+#23 DONE 0.0s
+
+#24 [stage-2 3/4] COPY --from=web /web/dist /web
+#24 DONE 0.0s
+
+#25 [stage-2 4/4] COPY content /content
+#25 DONE 0.0s
+
+#26 exporting to image
+#26 exporting layers
+#26 exporting layers 0.6s done
+#26 exporting manifest sha256:89f3d0f30c5407a0d2fdd534d0beb003e0d2cf77aaccffdca119e25ab13620bc done
+#26 exporting config sha256:f5ce10f084e2a646eb22946414dbb0b5316998c2b4353646445bfd15911aaae8 done
+#26 exporting attestation manifest sha256:e32aac787427a96423401b93df13f35f3865321313755d0bdb17dcf11fa8dc6a done
+#26 exporting manifest list sha256:a9d2d5c1e36659366c231540c6e32899476f1f8ac050703663ff02c74ba510b1 done
+#26 naming to docker.io/library/skipper-bibliography-ee72827a-app:latest done
+#26 unpacking to docker.io/library/skipper-bibliography-ee72827a-app:latest
+#26 unpacking to docker.io/library/skipper-bibliography-ee72827a-app:latest 0.2s done
+#26 DONE 0.8s
+
+#27 resolving provenance for metadata file
+#27 DONE 0.0s
+ Image skipper-bibliography-ee72827a-app Built 
+ Container skipper-bibliography-ee72827a-kratos-1 Running 
+ Container skipper-bibliography-ee72827a-mock-oidc-1 Running 
+ Container skipper-bibliography-ee72827a-mailpit-1 Running 
+ Container skipper-bibliography-ee72827a-db-1 Running 
+ Container skipper-bibliography-ee72827a-app-1 Recreate 
+ Container skipper-bibliography-ee72827a-app-1 Recreated 
+ Container skipper-bibliography-ee72827a-db-1 Waiting 
+ Container skipper-bibliography-ee72827a-db-1 Healthy 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Starting 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Started 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Waiting 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Exited 
+ Container skipper-bibliography-ee72827a-kratos-1 Waiting 
+ Container skipper-bibliography-ee72827a-db-1 Waiting 
+ Container skipper-bibliography-ee72827a-kratos-1 Healthy 
+ Container skipper-bibliography-ee72827a-db-1 Healthy 
+ Container skipper-bibliography-ee72827a-app-1 Starting 
+ Container skipper-bibliography-ee72827a-app-1 Started 
+ Container skipper-bibliography-ee72827a-mailpit-1 Waiting 
+ Container skipper-bibliography-ee72827a-app-1 Waiting 
+ Container skipper-bibliography-ee72827a-db-1 Waiting 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Waiting 
+ Container skipper-bibliography-ee72827a-kratos-1 Waiting 
+ Container skipper-bibliography-ee72827a-mock-oidc-1 Waiting 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Exited 
+ Container skipper-bibliography-ee72827a-db-1 Healthy 
+ Container skipper-bibliography-ee72827a-mock-oidc-1 Healthy 
+ Container skipper-bibliography-ee72827a-kratos-1 Healthy 
+ Container skipper-bibliography-ee72827a-mailpit-1 Healthy 
+ Container skipper-bibliography-ee72827a-app-1 Healthy 
+STACK_PROJECT=skipper-bibliography-ee72827a
+APP_URL=http://127.0.0.1:37483
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32823/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32824
+MAILPIT_URL=http://127.0.0.1:32822
+MOCK_OIDC_URL=http://127.0.0.1:39767
+
+Running 16 tests using 12 workers
+
+
+  ✓  4 [web] › explanations.spec.ts:146:1 › a normal user can't review, also through the API (1.2s)
+  ✓  6 [android] › explanations.spec.ts:39:1 › a suggested explanation is labelled unverified (1.3s)
+  ✓  3 [android] › explanations.spec.ts:49:1 › a question without an explanation says so (1.4s)
+  ✓  7 [web] › explanations.spec.ts:49:1 › a question without an explanation says so (1.6s)
+
+  ✓  12 [web] › explanations.spec.ts:39:1 › a suggested explanation is labelled unverified (1.6s)
+  ✓  2 [android] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page (1.8s)
+
+  ✓  8 [web] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page (1.9s)
+  ✓  11 [web] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused (2.0s)
+  ✓  1 [web] › explanations.spec.ts:84:3 › reviewing › a reviewer rejects an explanation, then undoes it (2.3s)
+
+  ✓  13 [android] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused (1.3s)
+  ✓  10 [android] › explanations.spec.ts:66:3 › reviewing › a reviewer confirms an explanation, and it's verified for everyone (2.6s)
+  ✓  9 [web] › explanations.spec.ts:66:3 › reviewing › a reviewer confirms an explanation, and it's verified for everyone (2.5s)
+  ✓  5 [web] › explanations.spec.ts:128:3 › reviewing › a reviewer flags a question, and everyone sees it's being checked (2.7s)
+  ✓  16 [android] › explanations.spec.ts:146:1 › a normal user can't review, also through the API (925ms)
+  ✓  14 [android] › explanations.spec.ts:128:3 › reviewing › a reviewer flags a question, and everyone sees it's being checked (1.8s)
+  ✓  15 [android] › explanations.spec.ts:84:3 › reviewing › a reviewer rejects an explanation, then undoes it (1.9s)
+
+  16 passed (4.7s)

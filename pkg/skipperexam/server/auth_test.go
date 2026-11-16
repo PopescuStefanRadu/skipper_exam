@@ -43,7 +43,7 @@ func TestMe(t *testing.T) {
 		h.ServeHTTP(rec, req)
 		var got Identity
 		_ = json.NewDecoder(rec.Body).Decode(&got)
-		if rec.Code != http.StatusOK || got != (Identity{ID: "id-1", Email: "a@example.test"}) {
+		if rec.Code != http.StatusOK || got.ID != "id-1" || got.Email != "a@example.test" || got.Roles == nil {
 			t.Fatalf("got %d %+v", rec.Code, got)
 		}
 	})

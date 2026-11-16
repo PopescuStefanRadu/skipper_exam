@@ -2,6 +2,9 @@
 //
 //	content import-rna -bank C -file sources/rna/Lista-intrebari-clasa-C-CAA.pdf -url https://... [-last-modified ...]
 //	content tag          apply content/subject-ranges.json to the questions
+//	content extract-text [-source ID]   extract the text of the bibliography sources (needs poppler's pdftotext)
+//	content search [-source ID] words...               pages of the bibliography containing all the words
+//	content check-quote -source ID -page N "quote"      whether the quote is on that page (or runs on to the next)
 //	content validate
 //
 // Paths are relative to the content directory (-dir, default "content").
@@ -34,6 +37,12 @@ func main() {
 		err = tag(os.Args[2:])
 	case "validate":
 		err = validate(os.Args[2:])
+	case "extract-text":
+		err = extractText(os.Args[2:])
+	case "search":
+		err = search(os.Args[2:])
+	case "check-quote":
+		err = checkQuote(os.Args[2:])
 	default:
 		usage()
 	}
@@ -44,7 +53,7 @@ func main() {
 }
 
 func usage() {
-	fmt.Fprintln(os.Stderr, "usage: content import-rna|tag|validate [flags]")
+	fmt.Fprintln(os.Stderr, "usage: content import-rna|tag|extract-text|search|check-quote|validate [flags]")
 	os.Exit(2)
 }
 
@@ -82,6 +91,7 @@ func importRNA(args []string) error {
 		SHA256:       hex.EncodeToString(sum[:]),
 		LastModified: *lastModified,
 		RetrievedAt:  time.Now().UTC().Format(time.DateOnly),
+		Kind:         content.KindQuestions,
 	}
 	if s := c.Source(source.ID); s != nil {
 		*s = source
@@ -173,4 +183,106 @@ func validateContent(c *content.Content, dir string) error {
 	}
 	fmt.Printf("content valid: %d questions (%d equivalence groups), %d banks, %d sources\n", len(c.Questions), len(groups), len(c.Banks), len(c.Sources))
 	return nil
+}
+
+func extractText(args []string) error {
+	fs := flag.NewFlagSet("extract-text", flag.ExitOnError)
+	dir := fs.String("dir", "content", "content directory")
+	only := fs.String("source", "", "only this source ID")
+	_ = fs.Parse(args)
+	c, err := content.Load(*dir)
+	if err != nil {
+		return err
+	}
+	for _, s := range c.Sources {
+		if s.Kind != content.KindBibliography || (*only != "" && s.ID != *only) {
+			continue
+		}
+		t, err := content.ExtractText(*dir, s)
+		if err != nil {
+			return err
+		}
+		chars, empty := 0, 0
+		for _, p := range t.Pages {
+			chars += len(p.Text)
+			if len(p.Text) < 20 {
+				empty++
+			}
+		}
+		fmt.Printf("%s: %d pages, %d characters, %d pages without text\n", s.ID, len(t.Pages), chars, empty)
+	}
+	return nil
+}
+
+func bibliographyTexts(dir, only string) ([]*content.SourceText, error) {
+	c, err := content.Load(dir)
+	if err != nil {
+		return nil, err
+	}
+	var texts []*content.SourceText
+	for _, s := range c.Sources {
+		if s.Kind != content.KindBibliography || (only != "" && s.ID != only) {
+			continue
+		}
+		t, err := content.LoadText(dir, s.ID)
+		if err != nil {
+			return nil, err
+		}
+		texts = append(texts, t)
+	}
+	if len(texts) == 0 {
+		return nil, fmt.Errorf("no bibliography source %q", only)
+	}
+	return texts, nil
+}
+
+func search(args []string) error {
+	fs := flag.NewFlagSet("search", flag.ExitOnError)
+	dir := fs.String("dir", "content", "content directory")
+	only := fs.String("source", "", "only this source ID")
+	full := fs.Bool("full", false, "print the whole page, not only the matching lines")
+	_ = fs.Parse(args)
+	texts, err := bibliographyTexts(*dir, *only)
+	if err != nil {
+		return err
+	}
+	query := strings.Join(fs.Args(), " ")
+	hits := content.Search(texts, query)
+	for _, h := range hits {
+		fmt.Printf("== %s page %d\n", h.Source, h.Page)
+		if *full {
+			fmt.Println(h.Text)
+			continue
+		}
+		for _, line := range strings.Split(h.Text, "\n") {
+			if len(content.Search([]*content.SourceText{{Pages: []content.PageText{{Text: line}}}}, strings.Fields(query)[0])) > 0 {
+				fmt.Println("  " + line)
+			}
+		}
+	}
+	fmt.Printf("%d pages\n", len(hits))
+	return nil
+}
+
+func checkQuote(args []string) error {
+	fs := flag.NewFlagSet("check-quote", flag.ExitOnError)
+	dir := fs.String("dir", "content", "content directory")
+	source := fs.String("source", "", "source ID")
+	page := fs.Int("page", 0, "PDF page, from 1")
+	_ = fs.Parse(args)
+	texts, err := bibliographyTexts(*dir, *source)
+	if err != nil || *source == "" {
+		return errors.New("-source must name a bibliography source")
+	}
+	quote := strings.Join(fs.Args(), " ")
+	if texts[0].QuoteOnPage(quote, *page) {
+		fmt.Println("ok: the quote is on that page")
+		return nil
+	}
+	for _, h := range content.Search(texts, quote) {
+		if texts[0].QuoteOnPage(quote, h.Page) {
+			return fmt.Errorf("not on page %d, but on page %d", *page, h.Page)
+		}
+	}
+	return fmt.Errorf("not found: the quote must be copied word for word from the page text")
 }

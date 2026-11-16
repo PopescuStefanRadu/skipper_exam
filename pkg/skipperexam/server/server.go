@@ -29,6 +29,9 @@ type Config struct {
 	ExamTypes []content.ExamType
 	// Content is the content package the apps download.
 	Content *content.Package
+	// Library and Reviews serve explanations, reviews and source documents.
+	Library *Library
+	Reviews Reviews
 	// AccountsProxy serves the account service's public API under /.ory.
 	AccountsProxy http.Handler
 	// Web holds the built web app. If nil, only the API is served.
@@ -39,7 +42,7 @@ type Config struct {
 func New(cfg Config) http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /api/health", health(cfg.DB))
-	mux.HandleFunc("GET /api/me", me(cfg.Sessions))
+	mux.HandleFunc("GET /api/me", me(cfg.Sessions, cfg.Reviews))
 	mux.HandleFunc("GET /api/exam-types", examTypes(cfg.ExamTypes))
 	mux.HandleFunc("GET /api/profile", withIdentity(cfg.Sessions, getProfile(cfg.Profiles)))
 	mux.HandleFunc("PUT /api/profile", withIdentity(cfg.Sessions, putProfile(cfg.Profiles, cfg.ExamTypes)))
@@ -49,6 +52,11 @@ func New(cfg Config) http.Handler {
 	if cfg.Events != nil {
 		mux.HandleFunc("GET /api/events", withIdentity(cfg.Sessions, listEvents(cfg.Events)))
 		mux.HandleFunc("POST /api/events", withIdentity(cfg.Sessions, postEvents(cfg.Events)))
+	}
+	if cfg.Library != nil && cfg.Reviews != nil {
+		mux.HandleFunc("GET /api/explanations", withIdentity(cfg.Sessions, listExplanations(cfg.Library, cfg.Reviews)))
+		mux.HandleFunc("POST /api/reviews", withIdentity(cfg.Sessions, postReview(cfg.Library, cfg.Reviews)))
+		mux.HandleFunc("GET /api/sources/{id}", sourceDocument(cfg.Library))
 	}
 	if cfg.AccountsProxy != nil {
 		mux.Handle(kratosPrefix+"/", cfg.AccountsProxy)

@@ -1,0 +1,269 @@
+ Image skipper-bibliography-ee72827a-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 608B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 ...
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.4s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.8s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#7 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#7 DONE 0.0s
+
+#8 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#8 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#8 DONE 0.0s
+
+#9 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#9 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#9 DONE 0.0s
+
+#10 [internal] load build context
+#10 transferring context: 26.31MB 0.1s done
+#10 DONE 0.2s
+
+#11 [backend 3/7] COPY go.mod go.sum ./
+#11 CACHED
+
+#12 [backend 2/7] WORKDIR /src
+#12 CACHED
+
+#13 [backend 4/7] RUN go mod download
+#13 CACHED
+
+#14 [web 3/7] WORKDIR /web
+#14 CACHED
+
+#15 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#15 CACHED
+
+#16 [web 2/7] RUN corepack enable
+#16 CACHED
+
+#17 [web 5/7] RUN pnpm install --frozen-lockfile
+#17 CACHED
+
+#18 [backend 5/7] COPY cli cli
+#18 DONE 0.0s
+
+#19 [web 6/7] COPY web/ ./
+#19 DONE 0.0s
+
+#20 [backend 6/7] COPY pkg pkg
+#20 DONE 0.0s
+
+#21 [web 7/7] RUN pnpm build
+#21 0.257 $ tsc -b && vite build
+#21 1.853 vite v6.0.7 building for production...
+#21 1.942 transforming...
+#21 2.748 ✓ 46 modules transformed.
+#21 2.898 rendering chunks...
+#21 2.907 computing gzip size...
+#21 2.915 dist/index.html                  0.32 kB │ gzip:  0.23 kB
+#21 2.915 dist/assets/index-Df1pKFxW.js  195.59 kB │ gzip: 63.29 kB
+#21 2.915 ✓ built in 1.03s
+#21 DONE 3.2s
+
+#22 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#22 DONE 5.2s
+
+#7 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#7 CACHED
+
+#23 [stage-2 2/4] COPY --from=backend /server /server
+#23 DONE 0.0s
+
+#24 [stage-2 3/4] COPY --from=web /web/dist /web
+#24 DONE 0.0s
+
+#25 [stage-2 4/4] COPY content /content
+#25 DONE 0.0s
+
+#26 exporting to image
+#26 exporting layers
+#26 exporting layers 0.5s done
+#26 exporting manifest sha256:383b2623db43c772548d9853d324f47cfa91beac56774fe70955cada7b1ac749 done
+#26 exporting config sha256:bf44bfe45a46cfe1afdfe32d3bddd281930083b9be505c1cc42588a17656c033 done
+#26 exporting attestation manifest sha256:b5bb3da46a6ee373638203edaaafab4198125eb334a51530a8aab8510b085bd4 done
+#26 exporting manifest list sha256:af14380e2bbbb9831d07c69d7f8f51d5b4fd3ee83f39d91dfbe81247171286a2 done
+#26 naming to docker.io/library/skipper-bibliography-ee72827a-app:latest done
+#26 unpacking to docker.io/library/skipper-bibliography-ee72827a-app:latest 0.1s done
+#26 DONE 0.7s
+
+#27 resolving provenance for metadata file
+#27 DONE 0.0s
+ Image skipper-bibliography-ee72827a-app Built 
+ Network skipper-bibliography-ee72827a_default Creating 
+ Network skipper-bibliography-ee72827a_default Created 
+ Volume skipper-bibliography-ee72827a_db Creating 
+ Volume skipper-bibliography-ee72827a_db Created 
+ Container skipper-bibliography-ee72827a-mailpit-1 Creating 
+ Container skipper-bibliography-ee72827a-db-1 Creating 
+ Container skipper-bibliography-ee72827a-mailpit-1 Created 
+ Container skipper-bibliography-ee72827a-db-1 Created 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Creating 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Created 
+ Container skipper-bibliography-ee72827a-kratos-1 Creating 
+ Container skipper-bibliography-ee72827a-kratos-1 Created 
+ Container skipper-bibliography-ee72827a-mock-oidc-1 Creating 
+ Container skipper-bibliography-ee72827a-app-1 Creating 
+ Container skipper-bibliography-ee72827a-app-1 Created 
+ Container skipper-bibliography-ee72827a-mock-oidc-1 Created 
+ Container skipper-bibliography-ee72827a-mailpit-1 Starting 
+ Container skipper-bibliography-ee72827a-db-1 Starting 
+ Container skipper-bibliography-ee72827a-mailpit-1 Started 
+ Container skipper-bibliography-ee72827a-db-1 Started 
+ Container skipper-bibliography-ee72827a-db-1 Waiting 
+ Container skipper-bibliography-ee72827a-db-1 Healthy 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Starting 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Started 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Waiting 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Exited 
+ Container skipper-bibliography-ee72827a-kratos-1 Starting 
+ Container skipper-bibliography-ee72827a-kratos-1 Started 
+ Container skipper-bibliography-ee72827a-mock-oidc-1 Starting 
+ Container skipper-bibliography-ee72827a-db-1 Waiting 
+ Container skipper-bibliography-ee72827a-kratos-1 Waiting 
+ Container skipper-bibliography-ee72827a-mock-oidc-1 Started 
+ Container skipper-bibliography-ee72827a-db-1 Healthy 
+ Container skipper-bibliography-ee72827a-kratos-1 Healthy 
+ Container skipper-bibliography-ee72827a-app-1 Starting 
+ Container skipper-bibliography-ee72827a-app-1 Started 
+ Container skipper-bibliography-ee72827a-mailpit-1 Waiting 
+ Container skipper-bibliography-ee72827a-app-1 Waiting 
+ Container skipper-bibliography-ee72827a-db-1 Waiting 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Waiting 
+ Container skipper-bibliography-ee72827a-kratos-1 Waiting 
+ Container skipper-bibliography-ee72827a-mock-oidc-1 Waiting 
+ Container skipper-bibliography-ee72827a-db-1 Healthy 
+ Container skipper-bibliography-ee72827a-kratos-migrate-1 Exited 
+ Container skipper-bibliography-ee72827a-mock-oidc-1 Healthy 
+ Container skipper-bibliography-ee72827a-mailpit-1 Healthy 
+ Container skipper-bibliography-ee72827a-kratos-1 Healthy 
+ Container skipper-bibliography-ee72827a-app-1 Healthy 
+STACK_PROJECT=skipper-bibliography-ee72827a
+APP_URL=http://127.0.0.1:37483
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32823/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32824
+MAILPIT_URL=http://127.0.0.1:32822
+MOCK_OIDC_URL=http://127.0.0.1:39767
+
+Running 16 tests using 12 workers
+
+
+  ✓  4 [web] › explanations.spec.ts:146:1 › a normal user can't review, also through the API (1.4s)
+  ✓  3 [android] › explanations.spec.ts:39:1 › a suggested explanation is labelled unverified (1.5s)
+  ✓  5 [android] › explanations.spec.ts:49:1 › a question without an explanation says so (1.7s)
+  ✓  7 [web] › explanations.spec.ts:49:1 › a question without an explanation says so (1.7s)
+  ✓  11 [web] › explanations.spec.ts:39:1 › a suggested explanation is labelled unverified (1.7s)
+
+  ✓  6 [web] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page (2.1s)
+  ✓  2 [android] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page (2.2s)
+  ✓  12 [web] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused (2.1s)
+  ✓  1 [web] › explanations.spec.ts:128:3 › reviewing › a reviewer flags a question, and everyone sees it's being checked (2.5s)
+
+  ✓  9 [web] › explanations.spec.ts:84:3 › reviewing › a reviewer rejects an explanation, then undoes it (2.7s)
+  ✓  10 [web] › explanations.spec.ts:66:3 › reviewing › a reviewer confirms an explanation, and it's verified for everyone (2.8s)
+  ✓  8 [android] › explanations.spec.ts:66:3 › reviewing › a reviewer confirms an explanation, and it's verified for everyone (2.9s)
+  ✓  16 [android] › explanations.spec.ts:146:1 › a normal user can't review, also through the API (1.0s)
+  ✓  14 [android] › explanations.spec.ts:128:3 › reviewing › a reviewer flags a question, and everyone sees it's being checked (1.9s)
+  ✓  15 [android] › explanations.spec.ts:84:3 › reviewing › a reviewer rejects an explanation, then undoes it (1.9s)
+  ✘  13 [android] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused (6.2s)
+
+
+  1) [android] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Salvează corectura' })[22m
+    [2m    - locator resolved to <button type="submit">Salvează corectura</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <form>…</form> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <section>…</section> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <section>…</section> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <form>…</form> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <section>…</section> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <section>…</section> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <section>…</section> intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 500ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+
+
+      116 |     await page.getByLabel("Referința").fill(other.reference);
+      117 |     await page.getByLabel("Citatul").fill("un text care nu există în document");
+    > 118 |     await page.getByRole("button", { name: "Salvează corectura" }).click();
+          |                                                                    ^
+      119 |     await expect(page.getByRole("alert")).toHaveText("Citatul nu se găsește pe pagina indicată.");
+      120 |
+      121 |     await page.getByLabel("Citatul").fill(other.quote);
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/bibliography/e2e/tests/explanations.spec.ts:118:68
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/explanations-reviewing-a-r-1b2e4-sn-t-on-the-page-is-refused-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/explanations-reviewing-a-r-1b2e4-sn-t-on-the-page-is-refused-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [android] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused 
+  15 passed (8.5s)

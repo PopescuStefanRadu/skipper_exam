@@ -1,0 +1,63 @@
+/* Minimal layout rules until the interface gets its design: nothing may be wider
+   than the screen, and form fields stack one per line. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0 16px;
+  overflow-wrap: anywhere;
+}
+main {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  max-width: 100%;
+}
+form label {
+  display: block;
+  margin-block: 0.5rem;
+}
+form label > input:not([type="radio"]):not([type="checkbox"]),
+form label > select,
+form label > textarea {
+  display: block;
+  width: 100%;
+}
+figure {
+  margin: 1rem 0;
+}
+blockquote {
+  margin: 0.75rem 0;
+  padding-left: 0.75rem;
+  border-left: 3px solid #888;
+}
+/* Status of an explanation: unverified must stand out. */
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+}
+.badge-unverified {
+  background: #fff3cd;
+  color: #664d03;
+  border: 1px solid #c9a227;
+}
+.badge-verified {
+  background: #d1e7dd;
+  color: #0f5132;
+  border: 1px solid #5a9e7c;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: content-validate content-tag content-import-rna help setup build test e2e test-all check vet fmt tidy up down status screenshots dev task-new task-done integrate
+.PHONY: grant-reviewer content-extract content-validate content-tag content-import-rna help setup build test e2e test-all check vet fmt tidy up down status screenshots dev task-new task-done integrate
 
 help: ## List available targets
 	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  %-10s %s\n", $$1, $$2}'
@@ -38,6 +38,13 @@ fmt: ## Format Go code
 
 tidy: ## Tidy go.mod/go.sum
 	go mod tidy
+
+grant-reviewer: ## Give an account of this worktree's stack the reviewer role (EMAIL=...)
+	docker exec $$(sed -n 's/^STACK_PROJECT=//p' .stack.env)-app-1 /server grant-role -email "$(EMAIL)" -role reviewer
+
+content-extract: ## Extract the bibliography's text into content/bibliography/ (needs poppler-utils and Docker for OCR; SOURCE=id for one)
+	docker build -q -t skipper-exam-ocr docker/ocr >/dev/null
+	go run ./cli/content extract-text $(if $(SOURCE),-source $(SOURCE))
 
 content-validate: ## Validate the content in content/
 	go run ./cli/content validate

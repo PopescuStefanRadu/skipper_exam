@@ -23,6 +23,16 @@ type Source struct {
 	// LastModified is the date the publisher reports for the document.
 	LastModified string `json:"lastModified,omitempty"`
 	RetrievedAt  string `json:"retrievedAt"`
+	// Kind is "questions" for an RNA question list, "bibliography" for a document
+	// explanations quote.
+	Kind  string `json:"kind"`
+	Title string `json:"title,omitempty"`
+	// Column is "left" when only the left half of each page is used, for
+	// documents printed in two languages side by side.
+	Column string `json:"column,omitempty"`
+	// OCR is set for scanned documents without a text layer; their text is
+	// recognised with the OCR image built from docker/ocr.
+	OCR bool `json:"ocr,omitempty"`
 }
 
 // Question is one question of the shared pool.
@@ -103,6 +113,7 @@ type Content struct {
 	Subjects      []Subject
 	SubjectRanges []SubjectRange
 	ExamTypes     []ExamType
+	Explanations  []Explanation
 }
 
 const (
@@ -130,6 +141,9 @@ func Load(dir string) (*Content, error) {
 		return nil, err
 	}
 	if err := readJSON(filepath.Join(dir, examTypesFile), &c.ExamTypes); err != nil {
+		return nil, err
+	}
+	if err := readJSON(filepath.Join(dir, explanationsFile), &c.Explanations); err != nil {
 		return nil, err
 	}
 	files, err := filepath.Glob(filepath.Join(dir, banksDir, "*.json"))

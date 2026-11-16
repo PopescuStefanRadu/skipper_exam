@@ -7,6 +7,7 @@ Each folder contains:
 - `<suite>.log`: the readable output of each suite (`lint`, `go`, `e2e`);
 - `go-test.json`: the Go test events (`go test -json`), including per-test timings;
 - `e2e.json`: the Playwright results, including per-test timings and retries;
-- `stack.env`: the ports the e2e stack used.
+- `stack.env`: the ports the e2e stack used;
+- `screenshots/<platform>/`: the screenshot tour's images, when the tour ran. They aren't committed.
 
 CI runs aren't committed. They're uploaded as the `test-runs` artifact of each workflow run.

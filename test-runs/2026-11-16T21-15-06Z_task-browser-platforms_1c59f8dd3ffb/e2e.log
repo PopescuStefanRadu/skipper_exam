@@ -1,0 +1,139 @@
+ Image skipper-browser-platforms-d2a2e89b-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 628B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 ...
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.5s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.5s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 3.67kB done
+#7 DONE 0.0s
+
+#8 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#8 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#8 DONE 0.0s
+
+#9 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#9 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#9 DONE 0.0s
+
+#10 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#10 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#10 DONE 0.0s
+
+#11 [stage-2 2/4] COPY --from=backend /server /server
+#11 CACHED
+
+#12 [web 2/7] RUN corepack enable
+#12 CACHED
+
+#13 [web 5/7] RUN pnpm install --frozen-lockfile
+#13 CACHED
+
+#14 [web 7/7] RUN pnpm build
+#14 CACHED
+
+#15 [stage-2 3/4] COPY --from=web /web/dist /web
+#15 CACHED
+
+#16 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#16 CACHED
+
+#17 [backend 4/7] RUN go mod download
+#17 CACHED
+
+#18 [backend 6/7] COPY pkg pkg
+#18 CACHED
+
+#19 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#19 CACHED
+
+#20 [web 3/7] WORKDIR /web
+#20 CACHED
+
+#21 [backend 2/7] WORKDIR /src
+#21 CACHED
+
+#22 [backend 5/7] COPY cli cli
+#22 CACHED
+
+#23 [web 6/7] COPY web/ ./
+#23 CACHED
+
+#24 [backend 3/7] COPY go.mod go.sum ./
+#24 CACHED
+
+#25 [stage-2 4/4] COPY content /content
+#25 CACHED
+
+#26 exporting to image
+#26 exporting layers done
+#26 exporting manifest sha256:f07521b3375c861aea7ffbd41680d1397df3fed54cd5c34c96a280af98d1eb1d done
+#26 exporting config sha256:5539b69960a4ecd80207d944c29062459e584997e01cd01af97840e7add77f41 done
+#26 exporting attestation manifest sha256:f7e425cbef3da85634e87e91319ac0a7f1623dec02a42fe9de50e3a468ceae0b done
+#26 exporting manifest list sha256:9898bdedde16df933a7bba3b03c39ac966a40d8208379d6a6b7144a803bf2130 done
+#26 naming to docker.io/library/skipper-browser-platforms-d2a2e89b-app:latest done
+#26 unpacking to docker.io/library/skipper-browser-platforms-d2a2e89b-app:latest done
+#26 DONE 0.1s
+
+#27 resolving provenance for metadata file
+#27 DONE 0.0s
+ Image skipper-browser-platforms-d2a2e89b-app Built 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Running 
+ Container skipper-browser-platforms-d2a2e89b-mock-oidc-1 Running 
+ Container skipper-browser-platforms-d2a2e89b-mailpit-1 Running 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Running 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Recreate 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Recreated 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Starting 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Started 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Exited 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Starting 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Started 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-mock-oidc-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-mailpit-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-mock-oidc-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-mailpit-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Exited 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Healthy 
+STACK_PROJECT=skipper-browser-platforms-d2a2e89b
+APP_URL=http://127.0.0.1:33729
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32817/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32818
+MAILPIT_URL=http://127.0.0.1:32816
+MOCK_OIDC_URL=http://127.0.0.1:51417
+Error: No tests found.
+Make sure that arguments are regular expressions matching test files.
+You may need to escape symbols like "$" or "*" and quote the arguments.
+

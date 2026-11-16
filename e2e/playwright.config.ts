@@ -20,5 +20,10 @@ export default defineConfig({
     // Fail fast: in a local stack every action should take well under a second.
     actionTimeout: 5_000,
   },
-  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
+  // Every test runs on both platforms. "android" is a phone in Chromium, the engine of
+  // the Android WebView the app is packaged in.
+  projects: [
+    { name: "web", use: { ...devices["Desktop Chrome"] } },
+    { name: "android", use: { ...devices["Pixel 7"] } },
+  ],
 });

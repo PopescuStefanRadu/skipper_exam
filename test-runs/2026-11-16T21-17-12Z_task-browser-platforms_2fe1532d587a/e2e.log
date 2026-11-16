@@ -1,0 +1,362 @@
+ Image skipper-browser-platforms-d2a2e89b-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 628B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#4 ...
+
+#5 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#5 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#4 DONE 0.3s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 3.67kB done
+#7 DONE 0.0s
+
+#8 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#8 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#8 DONE 0.0s
+
+#9 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#9 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#9 DONE 0.0s
+
+#10 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#10 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#10 DONE 0.0s
+
+#11 [web 3/7] WORKDIR /web
+#11 CACHED
+
+#12 [web 6/7] COPY web/ ./
+#12 CACHED
+
+#13 [backend 3/7] COPY go.mod go.sum ./
+#13 CACHED
+
+#14 [backend 5/7] COPY cli cli
+#14 CACHED
+
+#15 [backend 6/7] COPY pkg pkg
+#15 CACHED
+
+#16 [web 2/7] RUN corepack enable
+#16 CACHED
+
+#17 [stage-2 3/4] COPY --from=web /web/dist /web
+#17 CACHED
+
+#18 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#18 CACHED
+
+#19 [web 5/7] RUN pnpm install --frozen-lockfile
+#19 CACHED
+
+#20 [backend 2/7] WORKDIR /src
+#20 CACHED
+
+#21 [backend 4/7] RUN go mod download
+#21 CACHED
+
+#22 [web 7/7] RUN pnpm build
+#22 CACHED
+
+#23 [stage-2 2/4] COPY --from=backend /server /server
+#23 CACHED
+
+#24 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#24 CACHED
+
+#25 [stage-2 4/4] COPY content /content
+#25 CACHED
+
+#26 exporting to image
+#26 exporting layers done
+#26 exporting manifest sha256:b1da3771c91ebed5b4473d2b7436ba0daccfd8472b33fc37a42f544e97d7f377 done
+#26 exporting config sha256:27267c62f47d2be3b8c4eadfbd1d34f54cb800df22112508acc1e146191c88c9 done
+#26 exporting attestation manifest sha256:4b9a51c1632c92251fef038db965a874bdc3f66eb7627060703d2a2c90bb8fdb done
+#26 exporting manifest list sha256:6b388932b92eaa65a599f951554a2241a07acb983f3193354a0c7736e121d891 done
+#26 naming to docker.io/library/skipper-browser-platforms-d2a2e89b-app:latest done
+#26 unpacking to docker.io/library/skipper-browser-platforms-d2a2e89b-app:latest done
+#26 DONE 0.1s
+
+#27 resolving provenance for metadata file
+#27 DONE 0.0s
+ Image skipper-browser-platforms-d2a2e89b-app Built 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Running 
+ Container skipper-browser-platforms-d2a2e89b-mock-oidc-1 Running 
+ Container skipper-browser-platforms-d2a2e89b-mailpit-1 Running 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Running 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Recreate 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Recreated 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Starting 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Started 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Exited 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Starting 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Started 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-mock-oidc-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-mailpit-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Exited 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-mock-oidc-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-mailpit-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Healthy 
+STACK_PROJECT=skipper-browser-platforms-d2a2e89b
+APP_URL=http://127.0.0.1:33729
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32817/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32818
+MAILPIT_URL=http://127.0.0.1:32816
+MOCK_OIDC_URL=http://127.0.0.1:51417
+
+Running 222 tests using 12 workers
+
+  ✓  4 [web] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (389ms)
+  ✓  6 [web] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (437ms)
+  ✓  10 [web] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (431ms)
+  ✓  12 [web] › accounts.spec.ts:34:1 › opening the app while signed out leads to sign-in (393ms)
+  ✓  9 [web] › accounts.spec.ts:59:1 › a password shorter than 8 characters is refused (546ms)
+  ✓  8 [web] › accounts.spec.ts:47:1 › an unknown email gets the same message as a wrong password (841ms)
+  ✓  1 [web] › accounts.spec.ts:4:1 › sign up, stay signed in after a reload, then sign out (990ms)
+  ✓  3 [web] › accounts.spec.ts:52:1 › signing up with an email that is already used is refused (1.0s)
+  ✓  5 [web] › accounts.spec.ts:40:1 › a wrong password is refused without revealing account details (1.0s)
+  ✓  14 [web] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (569ms)
+  ✓  13 [web] › exam-type.spec.ts:24:1 › changing the exam type later (777ms)
+  ✓  16 [web] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (714ms)
+  ✓  15 [web] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (790ms)
+  ✓  2 [web] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (1.4s)
+  ✓  11 [web] › accounts.spec.ts:18:1 › signing in on a second device opens the same account (1.4s)
+  ✓  7 [web] › accounts.spec.ts:64:1 › after a refused attempt, the form works again (1.4s)
+  ✓  22 [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.1s)
+  ✓  21 [web] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (1.1s)
+  ✓  20 [web] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (1.2s)
+  ✓  24 [web] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (1.0s)
+  ✓  26 [web] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (883ms)
+  ✓  23 [web] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (1.1s)
+  ✓  33 [web] › screens.spec.ts:58:1 › server unavailable (190ms)
+  ✓  30 [web] › password-reset.spec.ts:46:1 › an unknown email gets the same confirmation, without revealing that no account exists (362ms)
+  ✓  25 [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.4s)
+  ✓  19 [web] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (1.8s)
+  ✓  31 [web] › screens.spec.ts:25:1 › signed-out screens (689ms)
+  ✓  29 [web] › password-reset.spec.ts:37:1 › a wrong recovery code is refused (843ms)
+  ✓  32 [web] › screens.spec.ts:44:1 › password recovery screens (804ms)
+  ✓  27 [web] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (1.6s)
+  ✓  34 [web] › screens.spec.ts:65:1 › exam type and home (807ms)
+  ✓  40 [web] › accounts.spec.ts:34:1 › opening the app while signed out leads to sign-in (309ms)
+  ✓  44 [web] › accounts.spec.ts:59:1 › a password shorter than 8 characters is refused (186ms)
+  ✓  37 [web] › screens.spec.ts:112:1 › time ran out (1.2s)
+  ✓  38 [web] › accounts.spec.ts:4:1 › sign up, stay signed in after a reload, then sign out (911ms)
+  ✓  46 [web] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (92ms)
+  ✓  35 [web] › screens.spec.ts:75:1 › exam screens and a failed result (1.7s)
+  ✓  47 [web] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (124ms)
+  ✓  41 [web] › accounts.spec.ts:40:1 › a wrong password is refused without revealing account details (890ms)
+  ✓  28 [web] › password-reset.spec.ts:16:1 › reset a forgotten password and sign in with the new one (3.0s)
+  ✓  42 [web] › accounts.spec.ts:52:1 › signing up with an email that is already used is refused (881ms)
+  ✓  49 [web] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (242ms)
+  ✓  39 [web] › accounts.spec.ts:18:1 › signing in on a second device opens the same account (1.4s)
+  ✓  43 [web] › accounts.spec.ts:47:1 › an unknown email gets the same message as a wrong password (1.2s)
+  ✓  17 [web] › exam.spec.ts:23:1 › answering everything correctly passes the exam (4.3s)
+  ✓  50 [web] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (533ms)
+  ✓  48 [web] › exam-type.spec.ts:24:1 › changing the exam type later (730ms)
+  ✓  36 [web] › screens.spec.ts:98:1 › a passed result (2.6s)
+  ✓  45 [web] › accounts.spec.ts:64:1 › after a refused attempt, the form works again (1.2s)
+  ✓  51 [web] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (698ms)
+  ✓  18 [web] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (4.4s)
+  ✓  56 [web] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (883ms)
+  ✓  57 [web] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (1.0s)
+  ✓  59 [web] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (1.0s)
+  ✓  52 [web] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (1.4s)
+  ✓  58 [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.1s)
+  ✓  67 [web] › password-reset.spec.ts:46:1 › an unknown email gets the same confirmation, without revealing that no account exists (267ms)
+  ✓  55 [web] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (1.8s)
+  ✓  60 [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.4s)
+  ✓  61 [web] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (1.4s)
+  ✓  70 [web] › screens.spec.ts:58:1 › server unavailable (191ms)
+  ✓  62 [web] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (1.2s)
+  ✓  66 [web] › password-reset.spec.ts:37:1 › a wrong recovery code is refused (785ms)
+  ✓  63 [web] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (1.2s)
+  ✓  64 [web] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (1.5s)
+  ✓  71 [web] › screens.spec.ts:65:1 › exam type and home (845ms)
+  ✓  68 [web] › screens.spec.ts:25:1 › signed-out screens (1.4s)
+  ✓  74 [web] › screens.spec.ts:112:1 › time ran out (1.2s)
+  ✓  69 [web] › screens.spec.ts:44:1 › password recovery screens (1.6s)
+  ✓  77 [web] › accounts.spec.ts:34:1 › opening the app while signed out leads to sign-in (271ms)
+  ✓  76 [web] › accounts.spec.ts:4:1 › sign up, stay signed in after a reload, then sign out (970ms)
+  ✓  65 [web] › password-reset.spec.ts:16:1 › reset a forgotten password and sign in with the new one (2.3s)
+  ✓  79 [web] › accounts.spec.ts:47:1 › an unknown email gets the same message as a wrong password (314ms)
+  ✓  81 [web] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (151ms)
+  ✓  72 [web] › screens.spec.ts:75:1 › exam screens and a failed result (1.8s)
+  ✓  82 [web] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (170ms)
+  ✓  75 [web] › accounts.spec.ts:18:1 › signing in on a second device opens the same account (1.4s)
+  ✓  53 [web] › exam.spec.ts:23:1 › answering everything correctly passes the exam (4.2s)
+  ✓  86 [web] › accounts.spec.ts:59:1 › a password shorter than 8 characters is refused (287ms)
+  ✓  78 [web] › accounts.spec.ts:40:1 › a wrong password is refused without revealing account details (922ms)
+  ✓  85 [web] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (540ms)
+  ✓  88 [web] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (242ms)
+  ✓  54 [web] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (4.5s)
+  ✓  80 [web] › accounts.spec.ts:64:1 › after a refused attempt, the form works again (1.2s)
+  ✓  73 [web] › screens.spec.ts:98:1 › a passed result (2.6s)
+  ✓  84 [web] › accounts.spec.ts:52:1 › signing up with an email that is already used is refused (888ms)
+  ✓  87 [web] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (770ms)
+  ✓  83 [web] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (1.2s)
+  ✓  89 [web] › exam-type.spec.ts:24:1 › changing the exam type later (943ms)
+  ✓  93 [web] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (1.1s)
+  ✓  95 [web] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (918ms)
+  ✓  94 [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.0s)
+  ✓  96 [web] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (1.1s)
+  ✓  104 [web] › password-reset.spec.ts:46:1 › an unknown email gets the same confirmation, without revealing that no account exists (281ms)
+  ✓  99 [web] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (1.1s)
+  ✓  92 [web] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (1.8s)
+  ✓  97 [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.5s)
+  ✓  98 [web] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (1.3s)
+  ✓  107 [web] › screens.spec.ts:58:1 › server unavailable (257ms)
+  ✓  105 [web] › screens.spec.ts:25:1 › signed-out screens (563ms)
+  ✓  100 [web] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (1.3s)
+  ✓  101 [web] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (1.5s)
+  ✓  108 [web] › screens.spec.ts:65:1 › exam type and home (851ms)
+  ✓  106 [web] › screens.spec.ts:44:1 › password recovery screens (1.4s)
+  ✓  103 [web] › password-reset.spec.ts:37:1 › a wrong recovery code is refused (1.7s)
+  ✓  114 [android] › accounts.spec.ts:34:1 › opening the app while signed out leads to sign-in (229ms)
+  ✓  111 [web] › screens.spec.ts:112:1 › time ran out (1.2s)
+  ✓  112 [android] › accounts.spec.ts:4:1 › sign up, stay signed in after a reload, then sign out (795ms)
+  ✓  115 [android] › accounts.spec.ts:59:1 › a password shorter than 8 characters is refused (186ms)
+  ✓  118 [android] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (119ms)
+  ✓  102 [web] › password-reset.spec.ts:16:1 › reset a forgotten password and sign in with the new one (2.2s)
+  ✓  117 [android] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (150ms)
+  ✓  119 [android] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (143ms)
+  ✓  109 [web] › screens.spec.ts:75:1 › exam screens and a failed result (1.7s)
+  ✓  113 [android] › accounts.spec.ts:18:1 › signing in on a second device opens the same account (1.3s)
+  ✓  123 [android] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (547ms)
+  ✓  121 [android] › exam-type.spec.ts:24:1 › changing the exam type later (698ms)
+  ✓  116 [android] › accounts.spec.ts:40:1 › a wrong password is refused without revealing account details (882ms)
+  ✓  90 [web] › exam.spec.ts:23:1 › answering everything correctly passes the exam (4.4s)
+  ✓  120 [android] › accounts.spec.ts:52:1 › signing up with an email that is already used is refused (879ms)
+  ✓  91 [web] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (4.5s)
+  ✓  110 [web] › screens.spec.ts:98:1 › a passed result (2.5s)
+  ✓  125 [android] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (760ms)
+  ✓  122 [android] › accounts.spec.ts:47:1 › an unknown email gets the same message as a wrong password (1.2s)
+  ✓  128 [android] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (846ms)
+  ✓  124 [android] › accounts.spec.ts:64:1 › after a refused attempt, the form works again (1.3s)
+  ✓  126 [android] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (1.3s)
+  ✓  131 [android] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (999ms)
+  ✓  133 [android] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (1.0s)
+  ✓  141 [android] › password-reset.spec.ts:46:1 › an unknown email gets the same confirmation, without revealing that no account exists (193ms)
+  ✓  130 [android] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (1.7s)
+  ✓  132 [android] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (1.3s)
+  ✓  135 [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.2s)
+  ✓  134 [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.4s)
+  ✓  136 [android] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (1.1s)
+  ✓  137 [android] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (1.1s)
+  ✓  144 [android] › screens.spec.ts:58:1 › server unavailable (199ms)
+  ✓  142 [android] › screens.spec.ts:25:1 › signed-out screens (662ms)
+  ✓  138 [android] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (1.5s)
+  ✓  140 [android] › password-reset.spec.ts:37:1 › a wrong recovery code is refused (1.5s)
+  ✓  145 [android] › screens.spec.ts:65:1 › exam type and home (945ms)
+  ✓  143 [android] › screens.spec.ts:44:1 › password recovery screens (1.1s)
+  ✓  151 [android] › accounts.spec.ts:34:1 › opening the app while signed out leads to sign-in (254ms)
+  ✓  149 [android] › accounts.spec.ts:4:1 › sign up, stay signed in after a reload, then sign out (887ms)
+  ✓  153 [android] › accounts.spec.ts:59:1 › a password shorter than 8 characters is refused (188ms)
+  ✓  148 [android] › screens.spec.ts:112:1 › time ran out (1.5s)
+  ✓  157 [android] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (115ms)
+  ✓  158 [android] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (138ms)
+  ✓  154 [android] › accounts.spec.ts:47:1 › an unknown email gets the same message as a wrong password (685ms)
+  ✓  152 [android] › accounts.spec.ts:40:1 › a wrong password is refused without revealing account details (866ms)
+  ✓  146 [android] › screens.spec.ts:75:1 › exam screens and a failed result (2.1s)
+  ✓  150 [android] › accounts.spec.ts:18:1 › signing in on a second device opens the same account (1.3s)
+  ✓  127 [android] › exam.spec.ts:23:1 › answering everything correctly passes the exam (4.2s)
+  ✓  160 [android] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (207ms)
+  ✓  155 [android] › accounts.spec.ts:52:1 › signing up with an email that is already used is refused (807ms)
+  ✓  129 [android] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (4.3s)
+  ✓  139 [android] › password-reset.spec.ts:16:1 › reset a forgotten password and sign in with the new one (3.2s)
+  ✓  156 [android] › accounts.spec.ts:64:1 › after a refused attempt, the form works again (1.1s)
+  ✓  147 [android] › screens.spec.ts:98:1 › a passed result (2.6s)
+  ✓  162 [android] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (535ms)
+  ✓  161 [android] › exam-type.spec.ts:24:1 › changing the exam type later (790ms)
+  ✓  163 [android] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (692ms)
+  ✓  159 [android] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (1.2s)
+  ✓  166 [android] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (842ms)
+  ✓  167 [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (991ms)
+  ✓  169 [android] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (966ms)
+  ✓  173 [android] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (835ms)
+  ✓  178 [android] › password-reset.spec.ts:46:1 › an unknown email gets the same confirmation, without revealing that no account exists (232ms)
+  ✓  165 [android] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (1.7s)
+  ✓  171 [android] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (1.2s)
+  ✓  170 [android] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (1.3s)
+  ✓  175 [android] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (1.2s)
+  ✓  181 [android] › screens.spec.ts:58:1 › server unavailable (236ms)
+  ✓  172 [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.4s)
+  ✓  179 [android] › screens.spec.ts:25:1 › signed-out screens (640ms)
+  ✓  174 [android] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (1.7s)
+  ✓  177 [android] › password-reset.spec.ts:37:1 › a wrong recovery code is refused (1.2s)
+  ✓  182 [android] › screens.spec.ts:65:1 › exam type and home (939ms)
+  ✓  180 [android] › screens.spec.ts:44:1 › password recovery screens (1.1s)
+  ✓  188 [android] › accounts.spec.ts:34:1 › opening the app while signed out leads to sign-in (246ms)
+  ✓  186 [android] › accounts.spec.ts:4:1 › sign up, stay signed in after a reload, then sign out (897ms)
+  ✓  185 [android] › screens.spec.ts:112:1 › time ran out (1.4s)
+  ✓  192 [android] › accounts.spec.ts:59:1 › a password shorter than 8 characters is refused (204ms)
+  ✓  194 [android] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (97ms)
+  ✓  195 [android] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (112ms)
+  ✓  189 [android] › accounts.spec.ts:40:1 › a wrong password is refused without revealing account details (890ms)
+  ✓  187 [android] › accounts.spec.ts:18:1 › signing in on a second device opens the same account (1.3s)
+  ✓  197 [android] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (199ms)
+  ✓  183 [android] › screens.spec.ts:75:1 › exam screens and a failed result (2.2s)
+  ✓  191 [android] › accounts.spec.ts:52:1 › signing up with an email that is already used is refused (848ms)
+  ✓  176 [android] › password-reset.spec.ts:16:1 › reset a forgotten password and sign in with the new one (2.9s)
+  ✓  164 [android] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (4.3s)
+  ✓  184 [android] › screens.spec.ts:98:1 › a passed result (2.5s)
+  ✓  193 [android] › accounts.spec.ts:64:1 › after a refused attempt, the form works again (1.1s)
+  ✓  199 [android] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (540ms)
+  ✓  168 [android] › exam.spec.ts:23:1 › answering everything correctly passes the exam (4.2s)
+  ✓  198 [android] › exam-type.spec.ts:24:1 › changing the exam type later (733ms)
+  ✓  200 [android] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (760ms)
+  ✓  196 [android] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (1.2s)
+  ✓  202 [android] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (829ms)
+  ✓  190 [android] › accounts.spec.ts:47:1 › an unknown email gets the same message as a wrong password (2.2s)
+  ✓  203 [android] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (1.0s)
+  ✓  204 [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.0s)
+  ✓  206 [android] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (957ms)
+  ✓  210 [android] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (824ms)
+  ✓  215 [android] › password-reset.spec.ts:46:1 › an unknown email gets the same confirmation, without revealing that no account exists (233ms)
+  ✓  218 [android] › screens.spec.ts:58:1 › server unavailable (198ms)
+  ✓  209 [android] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (1.2s)
+  ✓  211 [android] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (1.1s)
+  ✓  208 [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.3s)
+  ✓  214 [android] › password-reset.spec.ts:37:1 › a wrong recovery code is refused (977ms)
+  ✓  216 [android] › screens.spec.ts:25:1 › signed-out screens (961ms)
+  ✓  207 [android] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (1.8s)
+  ✓  217 [android] › screens.spec.ts:44:1 › password recovery screens (914ms)
+  ✓  212 [android] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (1.5s)
+  ✓  219 [android] › screens.spec.ts:65:1 › exam type and home (869ms)
+  ✓  222 [android] › screens.spec.ts:112:1 › time ran out (1.4s)
+  ✓  213 [android] › password-reset.spec.ts:16:1 › reset a forgotten password and sign in with the new one (2.5s)
+  ✓  201 [android] › exam.spec.ts:23:1 › answering everything correctly passes the exam (3.9s)
+  ✓  220 [android] › screens.spec.ts:75:1 › exam screens and a failed result (2.0s)
+  ✓  221 [android] › screens.spec.ts:98:1 › a passed result (2.5s)
+  ✓  205 [android] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (4.2s)
+
+  222 passed (26.8s)

@@ -169,6 +169,9 @@ test("coming back after the exam's time ran out shows its result", async ({ page
 test("an exam started on one device can be resumed on another", async ({ browser }) => {
   const email = await createAccount();
   const one = await (await browser.newContext()).newPage();
+  // A frozen clock on a whole second: the exam starts and is answered at the same
+  // time, which the server writes as "…:00Z". Both devices must still order them.
+  await one.clock.setFixedTime(new Date(Math.floor(Date.now() / 1000) * 1000));
   const pkg = await contentPackage(one);
   await signIn(one, email);
   await expect(one).toHaveURL("/tip-examen");

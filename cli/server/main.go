@@ -44,7 +44,11 @@ func run() error {
 	}
 	defer pool.Close()
 
-	cfg := server.Config{DB: pool}
+	kratos, err := server.NewKratos(os.Getenv("KRATOS_PUBLIC_URL"))
+	if err != nil || os.Getenv("KRATOS_PUBLIC_URL") == "" {
+		return errors.New("KRATOS_PUBLIC_URL is required")
+	}
+	cfg := server.Config{DB: pool, Sessions: kratos, AccountsProxy: kratos.Proxy()}
 	if dir := os.Getenv("WEB_DIR"); dir != "" {
 		cfg.Web = os.DirFS(dir)
 	}

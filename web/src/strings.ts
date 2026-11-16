@@ -7,4 +7,36 @@ export const strings = {
   serverChecking: "Se verifică…",
   serverOk: "Conectat",
   serverUnavailable: "Serverul nu este disponibil",
+
+  email: "Email",
+  password: "Parolă",
+  signIn: {
+    title: "Autentificare",
+    submit: "Intră în cont",
+    noAccount: "Nu ai cont?",
+    toSignUp: "Creează un cont",
+  },
+  signUp: {
+    title: "Creare cont",
+    submit: "Creează contul",
+    haveAccount: "Ai deja cont?",
+    toSignIn: "Autentifică-te",
+    passwordHint: "Cel puțin 8 caractere.",
+  },
+  home: {
+    signedInAs: "Conectat ca",
+    signOut: "Ieșire din cont",
+  },
+  loading: "Se încarcă…",
+
+  errors: {
+    invalidCredentials: "Emailul sau parola nu sunt corecte.",
+    emailTaken: "Există deja un cont cu acest email.",
+    passwordTooShort: "Parola trebuie să aibă cel puțin 8 caractere.",
+    passwordTooSimilar: "Parola seamănă prea mult cu emailul.",
+    invalidEmail: "Adresa de email nu este validă.",
+    required: "Completează toate câmpurile.",
+    expired: "Formularul a expirat. Încearcă din nou.",
+    generic: "A apărut o eroare. Încearcă din nou.",
+  },
 } as const;

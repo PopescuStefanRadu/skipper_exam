@@ -55,7 +55,7 @@ Every worktree runs its own complete stack (database, backend, accounts, fake ma
 
 - **Separate names:** each stack's containers, networks and volumes are named after its worktree, so stacks can't collide.
 - **No fixed ports:** services take free ports assigned by the system at start-up, and the actual ports are written to the worktree's environment file for the tests to read. Nothing assumes a well-known port.
-- **Locks only where needed:** when a tool needs its port, or another scarce resource, known before it starts, the allocation goes through a lock shared by all worktrees. Android emulators are limited to a fixed number of slots, because they're too heavy to run without a limit.
+- **Locks only where needed:** when a tool needs its port, or another scarce resource, known before it starts, the allocation goes through a lock shared by all worktrees. The app's port is one such case: the account service must know the app's address in advance. Android emulators are limited to a fixed number of slots, because they're too heavy to run without a limit.
 - **Reuse within a worktree:** the stack starts once and stays up between test runs. The test command starts it if it isn't running.
 
 ## Parallel tests within a branch

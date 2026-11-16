@@ -4,7 +4,7 @@ import { strings } from "./strings";
 
 const base = "/.ory";
 
-type FlowKind = "login" | "registration";
+type FlowKind = "login" | "registration" | "recovery";
 
 interface UiNode {
   attributes: { name?: string; value?: unknown };
@@ -19,6 +19,7 @@ interface UiMessage {
 
 export interface Flow {
   id: string;
+  state?: string;
   ui: { action: string; nodes: UiNode[]; messages?: UiMessage[] };
 }
 
@@ -55,6 +56,50 @@ export async function submitFlow(flow: Flow, body: Record<string, unknown>): Pro
   return { ok: false, errors: [strings.errors.generic] };
 }
 
+// Posts to a flow and returns the updated flow, a redirect, or errors.
+type FlowResult = { flow: Flow; errors: string[] } | { redirectTo: string } | { errors: string[] };
+
+async function postFlow(flow: Flow, body: Record<string, unknown>): Promise<FlowResult> {
+  const res = await fetch(flow.ui.action, {
+    method: "POST",
+    headers: { Accept: "application/json", "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify({ ...body, csrf_token: csrfToken(flow) }),
+  });
+  if (res.status === 403 || res.status === 410) return { errors: [strings.errors.expired] };
+  const json = await res.json().catch(() => null);
+  // Kratos asks the browser to continue elsewhere, e.g. after a valid recovery code.
+  if (res.status === 422 && json?.redirect_browser_to) {
+    const url = new URL(json.redirect_browser_to);
+    return { redirectTo: url.pathname + url.search };
+  }
+  if ((res.ok || res.status === 400) && json?.ui) {
+    const errors = res.ok && !hasErrors(json) ? [] : messagesOf(json);
+    return { flow: json, errors };
+  }
+  return { errors: [strings.errors.generic] };
+}
+
+function hasErrors(flow: Flow): boolean {
+  return [...(flow.ui.messages ?? []), ...flow.ui.nodes.flatMap((n) => n.messages)].some((m) => m.type === "error");
+}
+
+// Recovery: request a code by email, then submit it. A valid code signs the user
+// in for a short time and redirects to the settings flow to set a new password.
+export const sendRecoveryCode = (flow: Flow, email: string) => postFlow(flow, { method: "code", email });
+export const submitRecoveryCode = (flow: Flow, code: string) => postFlow(flow, { method: "code", code });
+
+export async function getSettingsFlow(id: string): Promise<Flow> {
+  const res = await fetch(`${base}/self-service/settings/flows?id=${encodeURIComponent(id)}`, {
+    headers: { Accept: "application/json" },
+    credentials: "include",
+  });
+  if (!res.ok) throw new Error(`settings flow: ${res.status}`);
+  return res.json();
+}
+
+export const setNewPassword = (flow: Flow, password: string) => postFlow(flow, { method: "password", password });
+
 export async function signOut(): Promise<void> {
   const res = await fetch(`${base}/self-service/logout/browser`, {
     headers: { Accept: "application/json" },
@@ -76,6 +121,8 @@ const messageText: Record<number, string> = {
   4000007: strings.errors.emailTaken,
   4000031: strings.errors.passwordTooSimilar,
   4000032: strings.errors.passwordTooShort,
+  4060005: strings.errors.expired,
+  4060006: strings.errors.invalidCode,
 };
 
 function messagesOf(flow: Flow): string[] {

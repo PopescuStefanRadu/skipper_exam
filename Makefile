@@ -17,7 +17,7 @@ build: ## Build the backend and the web app
 test: ## Go tests (single test: make test RUN=TestName PKG=./pkg/skipperexam/server)
 	GO_TEST_ARGS="$(if $(RUN),-run $(RUN)) $(or $(PKG),./...)" scripts/test-run.sh go
 
-e2e: ## E2E tests against this worktree's stack, started if needed (filter: make e2e ARGS="-g 'deep link'")
+e2e: ## E2E tests against this worktree's stack, started if needed (filter: make e2e ARGS="tests/accounts" or ARGS="-g 'deep link'"; file filters match the whole path)
 	E2E_ARGS="$(ARGS)" scripts/test-run.sh e2e
 
 check: ## Lint (gofmt check, vet, type checks) and Go tests

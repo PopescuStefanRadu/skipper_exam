@@ -7,6 +7,7 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: 0,
+  expect: { timeout: 5_000 },
   // scripts/test-run.sh sets TEST_RUN_DIR; the JSON results become part of the run's record.
   reporter: [
     ["list"],
@@ -16,6 +17,8 @@ export default defineConfig({
   use: {
     baseURL: stackEnv().APP_URL,
     trace: "retain-on-failure",
+    // Fail fast: in a local stack every action should take well under a second.
+    actionTimeout: 5_000,
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
 });

@@ -15,6 +15,17 @@ export const strings = {
     submit: "Intră în cont",
     noAccount: "Nu ai cont?",
     toSignUp: "Creează un cont",
+    forgotPassword: "Ai uitat parola?",
+  },
+  recovery: {
+    title: "Recuperare parolă",
+    sendCode: "Trimite codul",
+    codeSent: "Dacă există un cont cu acest email, ți-am trimis un cod.",
+    code: "Cod",
+    confirmCode: "Confirmă codul",
+    newPasswordTitle: "Parolă nouă",
+    newPassword: "Parolă nouă",
+    save: "Salvează parola",
   },
   signUp: {
     title: "Creare cont",
@@ -37,6 +48,7 @@ export const strings = {
     invalidEmail: "Adresa de email nu este validă.",
     required: "Completează toate câmpurile.",
     expired: "Formularul a expirat. Încearcă din nou.",
+    invalidCode: "Codul nu este corect sau a expirat.",
     generic: "A apărut o eroare. Încearcă din nou.",
   },
 } as const;

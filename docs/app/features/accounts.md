@@ -4,7 +4,7 @@
 
 - Every user has an account from the start. Progress, history and settings belong to the account and follow you across web and Android.
 - Sign up and sign in with **email and password** or with **Google**. Signing in with Google using an email that already has a password account opens that same account, and doesn't create a second one.
-- Sign out, and reset a forgotten password (for email and password accounts).
+- Sign out, and reset a forgotten password (for email and password accounts). The reset sends a 6-digit code by email. Entering it lets you set a new password and signs you in. The confirmation after asking for a code is the same whether or not the email has an account, so the page reveals nothing about which accounts exist.
 - There is no guest mode: you need an account to use the app.
 - Some accounts have the **reviewer** role, which unlocks reviewing explanations (see [Explanations](explanations.md)). Roles are assigned by an administrator, not chosen by the user.
 - At sign-up you choose your [exam type](exam-types.md).
@@ -16,11 +16,13 @@
 Main paths:
 - Sign up, sign in, sign out. Signing in on another device shows the same progress.
 - Sign up and sign in with Google. The e2e environment uses a fake Google sign-in provider.
-- Reset a forgotten password and sign in with the new one. The e2e environment uses a fake mail inbox.
+- Reset a forgotten password and sign in with the new one. The old password no longer works. The e2e environment uses a fake mail inbox.
 
 Less common paths:
 - Sign-in with a wrong password or an unknown email fails with a clear message and reveals no account details.
 - Signing up with an email that's already used is refused.
+- A wrong recovery code is refused.
+- Asking for a reset code for an unknown email shows the same confirmation as for a real account.
 - Signing in with Google using the email of an existing password account opens the same account.
 - Opening the app while signed out leads to sign-in; no practice is possible without an account.
 - One user never sees another user's progress.

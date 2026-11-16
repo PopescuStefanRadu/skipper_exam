@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link, Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { AuthForm } from "./AuthForm";
+import { NewPassword, Recovery } from "./Recovery";
 import { signOut } from "./kratos";
 import { ServerStatus } from "./ServerStatus";
 import { SessionProvider, useSession } from "./session";
@@ -15,6 +16,8 @@ export function App() {
         <Routes>
           <Route path="/autentificare" element={<SignIn />} />
           <Route path="/inregistrare" element={<SignUp />} />
+          <Route path="/recuperare" element={<Recovery />} />
+          <Route path="/setari" element={<NewPassword />} />
           <Route path="*" element={<RequireSession><Home /></RequireSession>} />
         </Routes>
         <ServerStatus />
@@ -46,6 +49,9 @@ function SignIn() {
           navigate("/", { replace: true });
         }}
       />
+      <p>
+        <Link to="/recuperare">{strings.signIn.forgotPassword}</Link>
+      </p>
       <p>
         {strings.signIn.noAccount} <Link to="/inregistrare">{strings.signIn.toSignUp}</Link>
       </p>

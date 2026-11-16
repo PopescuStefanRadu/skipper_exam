@@ -1,0 +1,29 @@
+{
+  "started": "2026-11-16T20-35-58Z",
+  "branch": "task/password-reset",
+  "commit": "38d080bb7d0fbf0c14480b81aedc6ee08ee73ab9",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1251
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 88
+    },
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 8697
+    }
+  ],
+  "result": "passed"
+}

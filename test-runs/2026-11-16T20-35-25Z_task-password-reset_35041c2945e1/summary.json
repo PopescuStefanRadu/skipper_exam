@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-16T20-35-25Z",
+  "branch": "task/password-reset",
+  "commit": "35041c2945e109184e08150a8bb501019e0e893d",
+  "ci": false,
+  "suites_requested": [
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 9739
+    }
+  ],
+  "result": "passed"
+}

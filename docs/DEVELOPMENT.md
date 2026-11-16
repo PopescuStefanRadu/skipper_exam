@@ -20,7 +20,7 @@ Rules:
 
 ## Test data
 
-- E2E tests use a small, **fixed test content set** (questions, sources and links), not the real banks. That keeps them deterministic: random choices take a known seed, timers can be sped up, and email goes to a fake inbox.
+- E2E tests use a small, **fixed test content set** (questions, sources and links), not the real banks. That keeps them deterministic: random choices take a known seed, timers can be sped up, email goes to a fake inbox, and Google sign-in goes to a fake provider.
 - A separate **content validation** checks the real question banks, the bibliography and the links. It runs on every content update.
 
 ## Keeping docs current

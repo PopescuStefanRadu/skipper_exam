@@ -15,12 +15,17 @@ Official exam page: https://portal.rna.ro/personal-navigant/conducator-ambarcati
 
 Progress belongs to the user's account and is shared across both platforms.
 
+## Language
+
+The interface is in Romanian, like the questions and the source material. The exception is short navigation words such as *Next*, *Previous*, *Back* and *Submit*, which stay in English because the Romanian versions read awkwardly. Interface text is kept in one place so wording can be changed without touching features.
+
 ## Features
 
 Each feature has its own document. It describes the expected behaviour and the end-to-end scenarios that prove it.
 
 | Feature | Summary |
 |---|---|
+| [Exam types](features/exam-types.md) | The exam the user is preparing for (Class C, D, difference exams); decides which questions are practised |
 | [Exam simulation](features/exam-simulation.md) | A timed, random set of questions in the real exam format, with pass or fail |
 | [Explanations](features/explanations.md) | Why an answer is correct: the quoted source passage and a precise reference |
 | [Learning and review](features/learning-and-review.md) | Learning mode, "practice my mistakes", coverage and weak topics |
@@ -28,16 +33,15 @@ Each feature has its own document. It describes the expected behaviour and the e
 | [Offline and sync](features/offline-and-sync.md) | Android works without a connection and syncs later |
 | [Content](features/content.md) | Question banks, bibliography, question → source links, and how to update them |
 
-## Technical direction (proposed, to be confirmed)
+## Technical direction
 
 - **Backend:** Go and PostgreSQL. The backend distributes content and syncs progress.
-- **Web and Android from one codebase:** a web front end that is also packaged as an Android app. Because Android must work offline, the app logic (choosing questions, scoring, explanations) runs on the device against local content.
+- **Web and Android from one codebase (decided):** a web front end that is also packaged as an Android app, rather than a separate native Android app. This keeps one implementation of every feature, and most e2e tests can run in a browser. If a native capability is ever needed, it's added as a native piece inside the packaged app. Because Android must work offline, the app logic (choosing questions, scoring, explanations) runs on the device against local content.
 - **Accounts:** standard, well-tested authentication, with nothing home-made for password handling.
+- **Hosting:** the backend initially runs on a home server. It's packaged so it runs the same way anywhere, and can move to a hosted server later. Because Android works offline, short outages at home only delay syncing. To be reachable from outside the home it needs a stable public address with HTTPS, which Google sign-in also requires. It also needs regular database backups.
+- **Android distribution:** development builds installed directly on the device at first, then Google Play.
 - **E2E tooling:** browser automation for web scenarios and a mobile UI testing tool for the Android emulator.
-
+See
 ## Open points
 
-- The official exam format (questions per exam, time limit, pass mark) still needs confirming from OMTI 427/2026 and the related regulations.
-- Which class to prepare first: C, D or both.
-- Sign-in method: email and password, Google sign-in, or both.
-- Whether to offer a guest mode before sign-up.
+- The official exam format (questions per exam, time limit, pass mark) isn't in OMTI 427/2026. It's delegated to an unpublished ANR methodology (see [Exam types](features/exam-types.md)).

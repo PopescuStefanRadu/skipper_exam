@@ -14,7 +14,8 @@ The app has three kinds of content. Each one can change independently and must b
 
 - **Every version is recorded.** Each question bank and bibliography document is stored with its publication date and a fingerprint, so we always know which version a question or a link refers to.
 - **Questions keep a stable identity** across new versions of the bank, so user history and source links survive an update. New, changed and removed questions are detected and reported. Removed questions stay in history but leave practice.
-- **Every link has a status:** *suggested* (proposed, not yet checked), *verified* (a person confirmed the passage supports the answer), or *stale* (the question or the source changed since it was verified). Only *verified* links count as explanations.
+- **Every question is tagged with its subject** (for example COLREG or R.N.D.). The tags are used to put together difference exams, see [Exam types](exam-types.md).
+- **Every link has a status:** *suggested* (proposed, not yet checked), *verified* (a reviewer confirmed the passage supports the answer), or *stale* (the question or the source changed since it was verified). Unverified links are shown with a clear label, see [Explanations](explanations.md).
 - **Conflicts are flagged, not hidden.** If the official answer seems to contradict the source material, the question is flagged for review.
 - Every content update passes automated validation and the full e2e suite before it's published.
 
@@ -33,9 +34,10 @@ The app has three kinds of content. Each one can change independently and must b
 3. Review the *stale* links, then validate and publish as above.
 
 ### Creating source links
-- Candidate passages are proposed automatically, for example by searching the bibliography for the question and answer wording. Every candidate starts as *suggested*.
-- A person reviews each suggestion and marks it *verified*, or corrects it.
-- If the source seems to contradict the official answer, the question is flagged.
+1. **Extract the bibliography text**, keeping the page numbers and the rule or article structure, so a passage can be cited precisely. Documents that aren't published online (for example *Rutiera Dunării*, available only at the port captaincies) are added when we get a copy.
+2. **Propose passages automatically** for every question, by matching the question and correct-answer wording against the bibliography and ranking the candidates. Every proposal starts as *suggested*.
+3. **Validate in use.** The reviewer confirms, corrects or rejects explanations directly in the app while practising, see [Explanations](explanations.md). There's no separate review campaign before the app can be used.
+4. Questions where no good passage was found, or where the source seems to contradict the official answer, are listed for attention.
 
 ## E2E scenarios
 

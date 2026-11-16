@@ -11,7 +11,8 @@
 # ports actually in use are written to .stack.env for tests and dev tools to read.
 set -euo pipefail
 
-root=$(git rev-parse --show-toplevel)
+# The worktree is the one this script belongs to, wherever it is called from.
+root=$(git -C "$(dirname "$0")" rev-parse --show-toplevel)
 cd "$root"
 
 # Name: directory name plus a hash of the full path, so two worktrees with the same

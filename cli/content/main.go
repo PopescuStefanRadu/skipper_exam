@@ -1,6 +1,7 @@
 // Command content manages the app's content (see docs/app/features/content.md).
 //
 //	content import-rna -bank C -file sources/rna/Lista-intrebari-clasa-C-CAA.pdf -url https://... [-last-modified ...]
+//	content tag          apply content/subject-ranges.json to the questions
 //	content validate
 //
 // Paths are relative to the content directory (-dir, default "content").
@@ -29,6 +30,8 @@ func main() {
 	switch os.Args[1] {
 	case "import-rna":
 		err = importRNA(os.Args[2:])
+	case "tag":
+		err = tag(os.Args[2:])
 	case "validate":
 		err = validate(os.Args[2:])
 	default:
@@ -41,7 +44,7 @@ func main() {
 }
 
 func usage() {
-	fmt.Fprintln(os.Stderr, "usage: content import-rna|validate [flags]")
+	fmt.Fprintln(os.Stderr, "usage: content import-rna|tag|validate [flags]")
 	os.Exit(2)
 }
 
@@ -118,6 +121,30 @@ func printList(title string, items []string) {
 	}
 }
 
+func tag(args []string) error {
+	fs := flag.NewFlagSet("tag", flag.ExitOnError)
+	dir := fs.String("dir", "content", "content directory")
+	_ = fs.Parse(args)
+	c, err := content.Load(*dir)
+	if err != nil {
+		return err
+	}
+	if err := c.ApplySubjectRanges(); err != nil {
+		return err
+	}
+	if err := c.Save(*dir); err != nil {
+		return err
+	}
+	counts := map[string]int{}
+	for _, q := range c.Questions {
+		counts[q.Subject]++
+	}
+	for _, s := range c.Subjects {
+		fmt.Printf("  %-14s %4d  %s\n", s.ID, counts[s.ID], s.Name)
+	}
+	return validateContent(c, *dir)
+}
+
 func validate(args []string) error {
 	fs := flag.NewFlagSet("validate", flag.ExitOnError)
 	dir := fs.String("dir", "content", "content directory")
@@ -140,6 +167,10 @@ func validateContent(c *content.Content, dir string) error {
 	if errs > 0 {
 		return fmt.Errorf("content validation failed: %d error(s)", errs)
 	}
-	fmt.Printf("content valid: %d questions, %d banks, %d sources\n", len(c.Questions), len(c.Banks), len(c.Sources))
+	groups := map[string]bool{}
+	for _, g := range c.EquivalenceGroups() {
+		groups[g] = true
+	}
+	fmt.Printf("content valid: %d questions (%d equivalence groups), %d banks, %d sources\n", len(c.Questions), len(groups), len(c.Banks), len(c.Sources))
 	return nil
 }

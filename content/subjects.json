@@ -1,0 +1,9 @@
+[
+  { "id": "colreg", "name": "COLREG" },
+  { "id": "rnd", "name": "R.N.D." },
+  { "id": "navigation", "name": "Navigație și balizaj" },
+  { "id": "seamanship", "name": "Marinărie și construcția navei" },
+  { "id": "boat-handling", "name": "Manevra ambarcațiunii" },
+  { "id": "first-aid", "name": "Prim ajutor" },
+  { "id": "legislation", "name": "Legislație" }
+]

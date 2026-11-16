@@ -1,0 +1,21 @@
+[
+  { "bank": "C", "section": 1, "from": 1, "to": 142, "subject": "colreg" },
+  { "bank": "C", "section": 1, "from": 143, "to": 209, "subject": "navigation" },
+  { "bank": "C", "section": 1, "from": 210, "to": 223, "subject": "seamanship" },
+  { "bank": "C", "section": 1, "from": 224, "to": 224, "subject": "navigation" },
+  { "bank": "C", "section": 1, "from": 225, "to": 236, "subject": "seamanship" },
+  { "bank": "C", "section": 1, "from": 237, "to": 237, "subject": "navigation" },
+  { "bank": "C", "section": 1, "from": 238, "to": 371, "subject": "seamanship" },
+  { "bank": "C", "section": 1, "from": 408, "to": 489, "subject": "boat-handling" },
+  { "bank": "C", "section": 2, "from": 1, "to": 50, "subject": "first-aid" },
+  { "bank": "C", "section": 3, "from": 1, "to": 25, "subject": "legislation" },
+  { "bank": "D", "section": 1, "from": 1, "to": 67, "subject": "rnd" },
+  { "bank": "D", "section": 1, "from": 68, "to": 81, "subject": "seamanship" },
+  { "bank": "D", "section": 1, "from": 82, "to": 82, "subject": "navigation" },
+  { "bank": "D", "section": 1, "from": 83, "to": 94, "subject": "seamanship" },
+  { "bank": "D", "section": 1, "from": 95, "to": 95, "subject": "navigation" },
+  { "bank": "D", "section": 1, "from": 96, "to": 229, "subject": "seamanship" },
+  { "bank": "D", "section": 1, "from": 266, "to": 347, "subject": "boat-handling" },
+  { "bank": "D", "section": 2, "from": 1, "to": 50, "subject": "first-aid" },
+  { "bank": "D", "section": 3, "from": 1, "to": 25, "subject": "legislation" }
+]

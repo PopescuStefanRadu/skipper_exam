@@ -44,6 +44,14 @@ func Validate(c *Content, dir string) []Problem {
 		}
 	}
 
+	subjects := map[string]bool{}
+	for _, s := range c.Subjects {
+		if subjects[s.ID] {
+			errorf("subject %s: duplicate ID", s.ID)
+		}
+		subjects[s.ID] = true
+	}
+
 	seen := map[string]bool{}
 	for _, q := range c.Questions {
 		if seen[q.ID] {
@@ -68,10 +76,22 @@ func Validate(c *Content, dir string) []Problem {
 		if correct != 1 {
 			errorf("question %s: %d correct answers, want exactly 1", q.ID, correct)
 		}
+		if !subjects[q.Subject] {
+			errorf("question %s: unknown or missing subject %q", q.ID, q.Subject)
+		}
 		for _, issue := range q.Issues {
 			warnf("question %s: %s", q.ID, issue)
 		}
 	}
+
+	groups := c.EquivalenceGroups()
+	for id, group := range groups {
+		if a, b := c.Question(id), c.Question(group); a.Subject != b.Subject {
+			errorf("question %s: subject %s differs from equivalent question %s (%s)", id, a.Subject, group, b.Subject)
+		}
+	}
+
+	ps = append(ps, validateSubjectRanges(c, subjects)...)
 
 	for _, b := range c.Banks {
 		if c.Source(b.Source) == nil {
@@ -94,6 +114,47 @@ func Validate(c *Content, dir string) []Problem {
 				warnf("bank %s section %d: numbers %d-%d are missing", b.ID, e.Section, prev+1, e.Number-1)
 			}
 			last[e.Section] = e.Number
+		}
+	}
+	return ps
+}
+
+// validateSubjectRanges checks that the ranges refer to known banks and subjects,
+// don't overlap, and cover every bank entry, so re-applying them always gives
+// the same tags.
+func validateSubjectRanges(c *Content, subjects map[string]bool) []Problem {
+	var ps []Problem
+	errorf := func(format string, args ...any) {
+		ps = append(ps, Problem{Error: true, Message: fmt.Sprintf(format, args...)})
+	}
+	for i, r := range c.SubjectRanges {
+		if c.Bank(r.Bank) == nil {
+			errorf("subject range %d: unknown bank %s", i+1, r.Bank)
+		}
+		if !subjects[r.Subject] {
+			errorf("subject range %d: unknown subject %s", i+1, r.Subject)
+		}
+		if r.From > r.To {
+			errorf("subject range %d: from %d is after to %d", i+1, r.From, r.To)
+		}
+		for j, o := range c.SubjectRanges[:i] {
+			if o.Bank == r.Bank && o.Section == r.Section && r.From <= o.To && o.From <= r.To {
+				errorf("subject ranges %d and %d overlap", j+1, i+1)
+			}
+		}
+	}
+	for _, b := range c.Banks {
+		for _, e := range b.Entries {
+			covered := false
+			for _, r := range c.SubjectRanges {
+				if r.Bank == b.ID && r.Section == e.Section && e.Number >= r.From && e.Number <= r.To {
+					covered = true
+					break
+				}
+			}
+			if !covered {
+				errorf("bank %s s%d#%d: not covered by any subject range", b.ID, e.Section, e.Number)
+			}
 		}
 	}
 	return ps

@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: content-validate content-import-rna help setup build test e2e test-all check vet fmt tidy up down status dev task-new task-done integrate
+.PHONY: content-validate content-tag content-import-rna help setup build test e2e test-all check vet fmt tidy up down status dev task-new task-done integrate
 
 help: ## List available targets
 	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  %-10s %s\n", $$1, $$2}'
@@ -37,6 +37,9 @@ tidy: ## Tidy go.mod/go.sum
 
 content-validate: ## Validate the content in content/
 	go run ./cli/content validate
+
+content-tag: ## Apply content/subject-ranges.json to the question pool
+	go run ./cli/content tag
 
 content-import-rna: ## Re-import an RNA question list: make content-import-rna BANK=C (after replacing its PDF)
 	go run ./cli/content import-rna -bank $(BANK) -file sources/rna/Lista-intrebari-clasa-$(BANK)-CAA.pdf \

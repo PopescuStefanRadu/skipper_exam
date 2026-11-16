@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 # One worktree and branch per task (see docs/DEVELOPMENT.md).
 #
-#   task.sh new <name>    create .worktrees/<name> on branch task/<name> from the latest main
-#   task.sh integrate     (inside a task worktree) rebase onto main, run the full suite,
-#                         then fast-forward main; one integration at a time
-#   task.sh done <name>   stop the task's stack, remove its worktree and its (merged) branch
+#   task.sh new <name>    create .worktrees/<name> on branch task/<name> from the latest origin/main
+#   task.sh integrate     (inside a task worktree) get the branch into main through a pull request:
+#                         rebase on origin/main, run the full suite, push, wait for CI, merge.
+#                         If main moves at any point, the whole loop starts again.
+#   task.sh done <name>   stop the task's stack, remove its worktree and its merged branch
 #
-# Set PUSH=1 to also push main to origin after a successful integration.
+# main is protected on GitHub: a pull request can only be merged when CI passed and the
+# branch is up to date with main, so nothing untested can reach main.
 set -euo pipefail
 
 scripts=$(cd "$(dirname "$0")" && pwd)
@@ -14,15 +16,51 @@ scripts=$(cd "$(dirname "$0")" && pwd)
 # The main checkout is the first entry of the worktree list.
 main_root=$(git worktree list --porcelain | awk '/^worktree /{print substr($0, 10); exit}')
 
+# CI job that must pass on the exact commit being merged.
+ci_check=test
+ci_timeout_seconds=${CI_TIMEOUT_SECONDS:-1800}
+
+# Keeps the main checkout equal to origin/main, when it's safe to update it.
+sync_main_checkout() {
+  git -C "$main_root" fetch --quiet origin
+  if [[ "$(git -C "$main_root" rev-parse --abbrev-ref HEAD)" == main && -z "$(git -C "$main_root" status --porcelain)" ]]; then
+    git -C "$main_root" merge --quiet --ff-only origin/main
+  else
+    echo "note: main checkout not updated (not on main, or has local changes)" >&2
+  fi
+}
+
 new() {
   local name=$1 dir="$main_root/.worktrees/$1"
-  git -C "$main_root" worktree add -b "task/$name" "$dir" main
+  sync_main_checkout
+  git -C "$main_root" worktree add -b "task/$name" "$dir" origin/main
+  git -C "$dir" branch --quiet --unset-upstream 2>/dev/null || true
   make -C "$dir" setup
   echo "worktree ready: $dir"
 }
 
+# Waits for the CI check on one exact commit. Returns non-zero if it failed.
+wait_for_ci() {
+  local sha=$1 waited=0 state
+  echo "waiting for CI ($ci_check) on ${sha:0:7}..."
+  while true; do
+    state=$(gh api "repos/{owner}/{repo}/commits/$sha/check-runs" \
+      --jq "[.check_runs[] | select(.name == \"$ci_check\")] | sort_by(.started_at) | last | \"\(.status) \(.conclusion)\"")
+    case "$state" in
+      "completed success") echo "CI passed"; return 0 ;;
+      completed*) echo "CI failed: $state" >&2; return 1 ;;
+    esac
+    if ((waited >= ci_timeout_seconds)); then
+      echo "CI did not finish within ${ci_timeout_seconds}s" >&2
+      return 1
+    fi
+    sleep 15
+    waited=$((waited + 15))
+  done
+}
+
 integrate() {
-  local root branch
+  local root branch base head
   root=$(git rev-parse --show-toplevel)
   branch=$(git rev-parse --abbrev-ref HEAD)
   if [[ "$root" == "$main_root" || "$branch" != task/* ]]; then
@@ -33,37 +71,50 @@ integrate() {
     echo "commit or discard your changes first" >&2
     exit 1
   fi
-  if [[ "$(git -C "$main_root" rev-parse --abbrev-ref HEAD)" != main || -n "$(git -C "$main_root" status --porcelain)" ]]; then
-    echo "the main checkout must be on main with no uncommitted changes" >&2
-    exit 1
-  fi
 
   while true; do
-    local base
-    base=$(git rev-parse main)
-    git rebase main
+    git fetch --quiet origin
+    base=$(git rev-parse origin/main)
+    git rebase origin/main
     make -C "$root" test-all
-    # If main moved while the suite was running, rebase and test again.
-    if [[ "$(git rev-parse main)" == "$base" ]]; then
+    head=$(git rev-parse HEAD)
+
+    git push --quiet --force-with-lease origin "HEAD:refs/heads/$branch"
+    if ! gh pr view "$branch" --json number >/dev/null 2>&1; then
+      gh pr create --base main --head "$branch" --fill-verbose
+    fi
+    wait_for_ci "$head" || exit 1
+
+    git fetch --quiet origin
+    if [[ "$(git rev-parse origin/main)" != "$base" ]]; then
+      echo "main moved while testing; starting again"
+      continue
+    fi
+    # --match-head-commit: merge only the exact commit that was tested.
+    if gh pr merge "$branch" --rebase --match-head-commit "$head"; then
       break
     fi
-    echo "main moved during testing; rebasing again"
+    echo "merge refused (main probably moved); starting again"
   done
-  git -C "$main_root" merge --ff-only "$branch"
-  echo "main is now at $(git rev-parse --short main)"
-  if [[ "${PUSH:-}" == 1 ]]; then
-    git -C "$main_root" push origin main
-  fi
+
+  sync_main_checkout
+  echo "merged; main is now at $(git -C "$main_root" rev-parse --short origin/main)"
 }
 
 done_task() {
-  local name=$1 dir="$main_root/.worktrees/$1"
+  local name=$1 dir="$main_root/.worktrees/$1" state
+  # GitHub's rebase merge rewrites commits, so "merged" is decided by the pull request.
+  state=$(gh pr view "task/$name" --json state --jq .state 2>/dev/null || echo NONE)
+  if [[ "$state" != MERGED && "${FORCE:-}" != 1 ]]; then
+    echo "task/$name has no merged pull request (state: $state); use FORCE=1 to discard it" >&2
+    exit 1
+  fi
   if [[ -d "$dir" ]]; then
     "$dir/scripts/stack.sh" down || true
-    git -C "$main_root" worktree remove "$dir"
+    git -C "$main_root" worktree remove ${FORCE:+--force} "$dir"
   fi
-  # -d refuses to delete a branch that isn't merged into main.
-  git -C "$main_root" branch -d "task/$name"
+  git -C "$main_root" branch -D "task/$name"
+  sync_main_checkout
 }
 
 case "${1:-}" in

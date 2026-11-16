@@ -27,10 +27,24 @@ Rules:
 
 Several tasks can be developed at the same time, by people or by parallel agents. Each task lives in its own git worktree on its own branch.
 
-1. **Start:** create a worktree and a branch from the latest `main`, one per task.
+1. **Start:** create a worktree and a branch from the latest `main` on GitHub, one per task.
 2. **Work:** use the normal e2e-first loop inside the worktree, against that worktree's own environment (see below).
-3. **Integrate:** rebase onto the latest `main`, run the full suite again, then fast-forward `main`. Integration happens **one branch at a time**, under a shared lock, so `main` is always a rebased, tested state. If `main` moves while a branch is being tested, rebase and test again.
-4. **Clean up:** stop the worktree's environment, remove its data, then remove the worktree and the branch.
+3. **Integrate through a pull request:**
+   1. Rebase onto the latest `main` and run **all** tests locally, including e2e.
+   2. Push the branch and open (or update) its pull request.
+   3. Wait for CI to pass on that exact commit.
+   4. Merge, but only if `main` hasn't moved and the pull request still points at the tested commit.
+   5. If `main` moved at any point, start again from step 1: rebase, test, fix, push.
+4. **Clean up:** after the merge, stop the worktree's environment, remove its data, then remove the worktree and the branch.
+
+Integration runs under a lock shared by all worktrees on the machine, so local branches don't race each other.
+
+`main` is protected on GitHub, so nothing untested can reach it:
+- changes arrive only through pull requests;
+- CI must pass;
+- the branch must be up to date with `main`;
+- history stays linear (rebase merges only);
+- the rules apply to administrators too.
 
 Tasks run in parallel only when they're independent, for example separate features or separate content batches. Work that touches the same area is done in sequence.
 

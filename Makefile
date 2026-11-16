@@ -45,11 +45,11 @@ status: ## Show this worktree's stack
 dev: up ## Run the web app with hot reload against this worktree's backend (Vite picks the next free port if 5173 is taken)
 	. ./.stack.env && cd web && API_URL=$$APP_URL pnpm dev
 
-task-new: ## Create a task worktree: make task-new NAME=<name>
+task-new: ## Create a task worktree from the latest origin/main: make task-new NAME=<name>
 	scripts/task.sh new $(NAME)
 
-task-done: ## Remove a task worktree and its merged branch: make task-done NAME=<name>
+task-done: ## After the PR is merged: stop the stack, remove the worktree and branch: make task-done NAME=<name>
 	scripts/task.sh done $(NAME)
 
-integrate: ## In a task worktree: rebase on main, run everything, fast-forward main (PUSH=1 to push)
+integrate: ## In a task worktree: rebase on origin/main, test-all, push, PR, wait for CI, merge; repeats if main moves
 	scripts/task.sh integrate

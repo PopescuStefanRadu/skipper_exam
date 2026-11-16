@@ -10,8 +10,8 @@ Source: OMTI 427/2026, *Regulament privind cerințele minime de pregătire și c
 |---|---|---|---|
 | **Class C** | After an approved class C course | Sea, up to 6 Mm from shore | RNA class C list (mainly COLREG) |
 | **Class D** | After an approved class D course | Inland waterways only | RNA class D list (mainly R.N.D.) |
-| **Class C, difference exam** | Holders of class D | as class C | COLREG only (Annex 1, III.1(b)) |
-| **Class D, difference exam** | Holders of class C | as class D | R.N.D. only (Annex 1, IV.1(b)) |
+| **Class C, difference exam** | Holders of class D | as class C | The class C list's COLREG questions (Annex 1, III.1(b)) |
+| **Class D, difference exam** | Holders of class C | as class D | The class D list's R.N.D. questions (Annex 1, IV.1(b)) |
 | **Class B** | Class C or D for at least 2 years, plus a course | Sea, up to 24 Mm | No official list published |
 | **Class A** | Class B for at least 2 years, plus a course | All waters | No official list published |
 

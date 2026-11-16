@@ -21,7 +21,20 @@ The app has three kinds of content. Each one can change independently and must b
   
   Removed questions stay in history but leave practice.
 - **Text is normalised on import:** Romanian letters are written with a comma below (ș, ț) rather than the cedilla look-alikes (ş, ţ), whitespace is cleaned up, and wrapped lines are joined. The question's wording isn't otherwise changed, even where it contains mistakes, because it must match what the candidate sees at the exam.
-- **Every question is tagged with its subject** (for example COLREG or R.N.D.). The tags are used to put together difference exams, see [Exam types](exam-types.md).
+- **Equivalent questions share progress.** The lists often repeat a question with only cosmetic differences: missing diacritics, punctuation, capitals. This happens across the two lists and sometimes within one list. Such questions form an *equivalence group*: they keep their own wording, so each exam type shows exactly what RNA published, but answering one counts as answering all of them. The groups are computed from the text, never maintained by hand. Two questions are equivalent when their question and answers match, in the same order and with the same correct answer, once diacritics, punctuation and case are ignored.
+- **Every question is tagged with exactly one subject.** The tags are used to put together difference exams (see [Exam types](exam-types.md)) and to show weak topics. The subjects are:
+
+  | Subject | Covers |
+  |---|---|
+  | COLREG | International collision regulations, including lights, sound signals and distress signals |
+  | R.N.D. | Danube navigation regulation |
+  | Navigație și balizaj | Charts, coordinates, compass, courses and bearings, buoyage, lighthouses, wind |
+  | Marinărie și construcția navei | Ropes and knots, anchors, deck gear, hull structure, boat equipment |
+  | Manevra ambarcațiunii | Steering, propellers and engines, berthing, anchoring, locks, towing, personal watercraft |
+  | Prim ajutor | First aid |
+  | Legislație | Offences and penalties |
+
+  Tags are assigned by RNA number ranges, because the lists group their questions by subject. The ranges are kept in `content/subject-ranges.json`. Equivalent questions must have the same subject.
 - **Every link has a status:** *suggested* (proposed, not yet checked), *verified* (a reviewer confirmed the passage supports the answer), or *stale* (the question or the source changed since it was verified). Unverified links are shown with a clear label, see [Explanations](explanations.md).
 - **Conflicts are flagged, not hidden.** If the official answer seems to contradict the source material, the question is flagged for review.
 - Every content update passes automated validation and the full e2e suite before it's published.
@@ -31,9 +44,10 @@ The app has three kinds of content. Each one can change independently and must b
 ### When RNA publishes a new question bank
 1. Download the new PDF and add it as a new version. The old version is kept.
 2. Run the importer. It extracts the questions and checks them: 3 answers each, exactly one correct, numbering without gaps, no empty text.
-3. Review the **change report**: new, changed and removed questions. A changed question's source links become *stale*.
-4. Create or review source links for new and *stale* questions.
-5. Run the content validation and the full e2e suite, then publish.
+3. Update the subject ranges if the numbering changed, then re-apply them. New questions without a subject fail validation.
+4. Review the **change report**: new, changed and removed questions. A changed question's source links become *stale*.
+5. Create or review source links for new and *stale* questions.
+6. Run the content validation and the full e2e suite, then publish.
 
 ### When a bibliography document changes
 1. Add the new document version. The old one is kept.

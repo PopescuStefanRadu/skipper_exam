@@ -31,6 +31,7 @@ type Question struct {
 	Text     string   `json:"text"`
 	Answers  []Answer `json:"answers"`
 	Revision int      `json:"revision"`
+	Subject  string   `json:"subject,omitempty"`
 	// Issues lists defects of the source, such as a missing correct flag.
 	Issues []string `json:"issues,omitempty"`
 }
@@ -56,17 +57,37 @@ type BankEntry struct {
 	QuestionID string `json:"questionId"`
 }
 
+// Subject is one topic a question can be tagged with.
+type Subject struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
+}
+
+// SubjectRange tags the questions numbered From to To (inclusive) in one section
+// of a bank with a subject.
+type SubjectRange struct {
+	Bank    string `json:"bank"`
+	Section int    `json:"section"`
+	From    int    `json:"from"`
+	To      int    `json:"to"`
+	Subject string `json:"subject"`
+}
+
 // Content is everything under the content directory.
 type Content struct {
-	Sources   []Source   `json:"-"`
-	Questions []Question `json:"-"`
-	Banks     []Bank     `json:"-"`
+	Sources       []Source
+	Questions     []Question
+	Banks         []Bank
+	Subjects      []Subject
+	SubjectRanges []SubjectRange
 }
 
 const (
-	sourcesFile = "sources.json"
-	poolFile    = "questions.json"
-	banksDir    = "banks"
+	sourcesFile       = "sources.json"
+	poolFile          = "questions.json"
+	banksDir          = "banks"
+	subjectsFile      = "subjects.json"
+	subjectRangesFile = "subject-ranges.json"
 )
 
 // Load reads the content directory. Missing files mean empty content.
@@ -76,6 +97,12 @@ func Load(dir string) (*Content, error) {
 		return nil, err
 	}
 	if err := readJSON(filepath.Join(dir, poolFile), &c.Questions); err != nil {
+		return nil, err
+	}
+	if err := readJSON(filepath.Join(dir, subjectsFile), &c.Subjects); err != nil {
+		return nil, err
+	}
+	if err := readJSON(filepath.Join(dir, subjectRangesFile), &c.SubjectRanges); err != nil {
 		return nil, err
 	}
 	files, err := filepath.Glob(filepath.Join(dir, banksDir, "*.json"))
@@ -93,7 +120,8 @@ func Load(dir string) (*Content, error) {
 	return c, nil
 }
 
-// Save writes the content directory.
+// Save writes the content directory. Subjects and subject ranges are edited by
+// hand and only read.
 func (c *Content) Save(dir string) error {
 	if err := writeJSON(filepath.Join(dir, sourcesFile), c.Sources); err != nil {
 		return err

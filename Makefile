@@ -13,16 +13,18 @@ build: ## Build the backend and the web app
 	go build ./...
 	cd web && pnpm build
 
-test: ## Run the Go tests (single test: make test RUN=TestName PKG=./pkg/skipperexam/server)
-	go test $(if $(RUN),-run $(RUN)) $(or $(PKG),./...)
+# Every test target records its run in test-runs/ and needs a clean, committed tree.
+test: ## Go tests (single test: make test RUN=TestName PKG=./pkg/skipperexam/server)
+	GO_TEST_ARGS="$(if $(RUN),-run $(RUN)) $(or $(PKG),./...)" scripts/test-run.sh go
 
-e2e: up ## Run the e2e tests against this worktree's stack (filter: make e2e ARGS="-g 'deep link'")
-	cd e2e && pnpm exec tsc -p . && pnpm exec playwright test $(ARGS)
+e2e: ## E2E tests against this worktree's stack, started if needed (filter: make e2e ARGS="-g 'deep link'")
+	E2E_ARGS="$(ARGS)" scripts/test-run.sh e2e
 
-test-all: check e2e ## Everything: fmt, vet, Go tests, web type check, e2e
+check: ## Lint (gofmt check, vet, type checks) and Go tests
+	scripts/test-run.sh lint go
 
-check: fmt vet test ## Format, vet, Go tests and web type check
-	cd web && pnpm typecheck
+test-all: ## Everything: lint, Go tests, e2e
+	scripts/test-run.sh lint go e2e
 
 vet: ## Run go vet
 	go vet ./...
@@ -51,5 +53,5 @@ task-new: ## Create a task worktree from the latest origin/main: make task-new N
 task-done: ## After the PR is merged: stop the stack, remove the worktree and branch: make task-done NAME=<name>
 	scripts/task.sh done $(NAME)
 
-integrate: ## In a task worktree: rebase on origin/main, test-all, push, PR, wait for CI, merge; repeats if main moves
-	scripts/task.sh integrate
+integrate: ## In a task worktree: squash, rebase on origin/main, test-all, push, PR, wait for CI, merge; repeats if main moves (TITLE="...")
+	TITLE="$(TITLE)" scripts/task.sh integrate

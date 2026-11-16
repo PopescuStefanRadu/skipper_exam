@@ -1,0 +1,683 @@
+{
+  "config": {
+    "configFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/playwright.config.ts",
+    "rootDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 12
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/test-runs/2026-11-16T21-01-16Z_task-exam-simulation_190c0e6985c4/e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.49.1",
+    "workers": 12,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "exam-type.spec.ts",
+      "file": "exam-type.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "a new user chooses the exam type right after signing up, and it follows the account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 1578,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:30.863Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fcd032d4f229257dd75d-7894a7d884c4f924a621",
+          "file": "exam-type.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "changing the exam type later",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "passed",
+                  "duration": 1097,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:30.910Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fcd032d4f229257dd75d-9f6d763dfcc5fc97e7b4",
+          "file": "exam-type.spec.ts",
+          "line": 24,
+          "column": 1
+        },
+        {
+          "title": "class A and B are listed as not available yet and can't be chosen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "status": "passed",
+                  "duration": 844,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:30.806Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fcd032d4f229257dd75d-92c665d930b98e891aa0",
+          "file": "exam-type.spec.ts",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "a signed-in user without an exam type is asked to choose one first",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "status": "passed",
+                  "duration": 1102,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:30.824Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fcd032d4f229257dd75d-8a78fba170ca7e7829aa",
+          "file": "exam-type.spec.ts",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "the server refuses an exam type that isn't available",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "passed",
+                  "duration": 1069,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:30.872Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fcd032d4f229257dd75d-15f8ba752e523739160a",
+          "file": "exam-type.spec.ts",
+          "line": 52,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "exam.spec.ts",
+      "file": "exam.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "answering everything correctly passes the exam",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "status": "failed",
+                  "duration": 667,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n    at setExamType (/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts:59:20)\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/exam.spec.ts:26:3",
+                    "matcherResult": {
+                      "message": "\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m",
+                      "pass": false
+                    },
+                    "location": {
+                      "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts",
+                      "column": 20,
+                      "line": 59
+                    },
+                    "snippet": "   at helpers.ts:59\n\n  57 | export async function setExamType(page: Page, examType: string) {\n  58 |   const res = await page.request.put(\"/api/profile\", { data: { examType } });\n> 59 |   expect(res.ok()).toBeTruthy();\n     |                    ^\n  60 | }\n  61 |\n  62 | // The question content as the app receives it, so tests know the correct answers."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts",
+                        "column": 20,
+                        "line": 59
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n\n   at helpers.ts:59\n\n  57 | export async function setExamType(page: Page, examType: string) {\n  58 |   const res = await page.request.put(\"/api/profile\", { data: { examType } });\n> 59 |   expect(res.ok()).toBeTruthy();\n     |                    ^\n  60 | }\n  61 |\n  62 | // The question content as the app receives it, so tests know the correct answers.\n    at setExamType (/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts:59:20)\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/exam.spec.ts:26:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:30.845Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/test-results/exam-answering-everything-correctly-passes-the-exam-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts",
+                    "column": 20,
+                    "line": 59
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-33ba880dfe3d1c206170",
+          "file": "exam.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "wrong answers fail the exam and are listed with the correct answer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "passed",
+                  "duration": 4850,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:30.772Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-198d3c7a868df5676f0b",
+          "file": "exam.spec.ts",
+          "line": 43,
+          "column": 1
+        },
+        {
+          "title": "an exam has only the exam type's questions, without repeats or equivalent pairs",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "status": "passed",
+                  "duration": 1937,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:30.760Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-eb6df138797b03ca3faf",
+          "file": "exam.spec.ts",
+          "line": 70,
+          "column": 1
+        },
+        {
+          "title": "when the time runs out the exam is submitted, unanswered questions counting as wrong",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "status": "failed",
+                  "duration": 6056,
+                  "error": {
+                    "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Întrebarea 1 din 3')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Întrebarea 1 din 3')\u001b[22m\n",
+                    "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Întrebarea 1 din 3')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Întrebarea 1 din 3')\u001b[22m\n\n    at expectQuestionNumber (/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts:109:64)\n    at answerAll (/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/exam.spec.ts:17:11)\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/exam.spec.ts:96:9",
+                    "matcherResult": {
+                      "message": "\u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Întrebarea 1 din 3')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Întrebarea 1 din 3')\u001b[22m\n",
+                      "pass": false,
+                      "actual": "hidden",
+                      "name": "toBeVisible",
+                      "expected": "visible",
+                      "log": [
+                        "  - expect.toBeVisible with timeout 5000ms",
+                        "  - waiting for getByText('Întrebarea 1 din 3')"
+                      ],
+                      "timeout": 5000
+                    },
+                    "location": {
+                      "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts",
+                      "column": 64,
+                      "line": 109
+                    },
+                    "snippet": "   at helpers.ts:109\n\n  107 |\n  108 | export async function expectQuestionNumber(page: Page, n: number, total: number) {\n> 109 |   await expect(page.getByText(`Întrebarea ${n} din ${total}`)).toBeVisible();\n      |                                                                ^\n  110 | }\n  111 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts",
+                        "column": 64,
+                        "line": 109
+                      },
+                      "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Întrebarea 1 din 3')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Întrebarea 1 din 3')\u001b[22m\n\n\n   at helpers.ts:109\n\n  107 |\n  108 | export async function expectQuestionNumber(page: Page, n: number, total: number) {\n> 109 |   await expect(page.getByText(`Întrebarea ${n} din ${total}`)).toBeVisible();\n      |                                                                ^\n  110 | }\n  111 |\n    at expectQuestionNumber (/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts:109:64)\n    at answerAll (/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/exam.spec.ts:17:11)\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/exam.spec.ts:96:9"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:30.756Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/test-results/exam-when-the-time-runs-ou-26cf5-questions-counting-as-wrong-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts",
+                    "column": 64,
+                    "line": 109
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-f14143d70cadab4a54ee",
+          "file": "exam.spec.ts",
+          "line": 92,
+          "column": 1
+        },
+        {
+          "title": "submitting with unanswered questions asks for confirmation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "status": "passed",
+                  "duration": 1469,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:30.828Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-82c366f80ac3996cdb12",
+          "file": "exam.spec.ts",
+          "line": 107,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "status": "passed",
+                  "duration": 1408,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:30.812Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-e660c4cde223b3ddeb41",
+          "file": "exam.spec.ts",
+          "line": 122,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be abandoned",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "status": "passed",
+                  "duration": 1414,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:30.774Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-c206d1be3acf3912d6ba",
+          "file": "exam.spec.ts",
+          "line": 137,
+          "column": 1
+        },
+        {
+          "title": "coming back after the exam's time ran out shows its result",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "status": "failed",
+                  "duration": 6098,
+                  "error": {
+                    "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Timpul examenului neterminat a expirat.')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Timpul examenului neterminat a expirat.')\u001b[22m\n",
+                    "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Timpul examenului neterminat a expirat.')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Timpul examenului neterminat a expirat.')\u001b[22m\n\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/exam.spec.ts:158:75",
+                    "matcherResult": {
+                      "message": "\u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Timpul examenului neterminat a expirat.')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Timpul examenului neterminat a expirat.')\u001b[22m\n",
+                      "pass": false,
+                      "actual": "hidden",
+                      "name": "toBeVisible",
+                      "expected": "visible",
+                      "log": [
+                        "  - expect.toBeVisible with timeout 5000ms",
+                        "  - waiting for getByText('Timpul examenului neterminat a expirat.')"
+                      ],
+                      "timeout": 5000
+                    },
+                    "location": {
+                      "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/exam.spec.ts",
+                      "column": 75,
+                      "line": 158
+                    },
+                    "snippet": "  156 |   await page.clock.fastForward(\"31:00\");\n  157 |   await page.reload();\n> 158 |   await expect(page.getByText(\"Timpul examenului neterminat a expirat.\")).toBeVisible();\n      |                                                                           ^\n  159 |   await page.getByRole(\"link\", { name: \"Vezi rezultatul\" }).click();\n  160 |   await expect(page.getByRole(\"heading\", { name: \"Respins\" })).toBeVisible();\n  161 |   await expect(page.getByText(\"1 din 20 de răspunsuri corecte (5%).\", { exact: false })).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/exam.spec.ts",
+                        "column": 75,
+                        "line": 158
+                      },
+                      "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByText('Timpul examenului neterminat a expirat.')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Timpul examenului neterminat a expirat.')\u001b[22m\n\n\n  156 |   await page.clock.fastForward(\"31:00\");\n  157 |   await page.reload();\n> 158 |   await expect(page.getByText(\"Timpul examenului neterminat a expirat.\")).toBeVisible();\n      |                                                                           ^\n  159 |   await page.getByRole(\"link\", { name: \"Vezi rezultatul\" }).click();\n  160 |   await expect(page.getByRole(\"heading\", { name: \"Respins\" })).toBeVisible();\n  161 |   await expect(page.getByText(\"1 din 20 de răspunsuri corecte (5%).\", { exact: false })).toBeVisible();\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/exam.spec.ts:158:75"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:32.037Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/test-results/exam-coming-back-after-the-f6709-me-ran-out-shows-its-result-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/exam.spec.ts",
+                    "column": 75,
+                    "line": 158
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-d34c1b40022f5d2519c3",
+          "file": "exam.spec.ts",
+          "line": 150,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "status": "failed",
+                  "duration": 443,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n    at setExamType (/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts:59:20)\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/exam.spec.ts:169:3",
+                    "matcherResult": {
+                      "message": "\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m",
+                      "pass": false
+                    },
+                    "location": {
+                      "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts",
+                      "column": 20,
+                      "line": 59
+                    },
+                    "snippet": "   at helpers.ts:59\n\n  57 | export async function setExamType(page: Page, examType: string) {\n  58 |   const res = await page.request.put(\"/api/profile\", { data: { examType } });\n> 59 |   expect(res.ok()).toBeTruthy();\n     |                    ^\n  60 | }\n  61 |\n  62 | // The question content as the app receives it, so tests know the correct answers."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts",
+                        "column": 20,
+                        "line": 59
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeTruthy\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mfalse\u001b[39m\n\n   at helpers.ts:59\n\n  57 | export async function setExamType(page: Page, examType: string) {\n  58 |   const res = await page.request.put(\"/api/profile\", { data: { examType } });\n> 59 |   expect(res.ok()).toBeTruthy();\n     |                    ^\n  60 | }\n  61 |\n  62 | // The question content as the app receives it, so tests know the correct answers.\n    at setExamType (/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts:59:20)\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/exam.spec.ts:169:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:01:31.730Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/exam-simulation/e2e/tests/helpers.ts",
+                    "column": 20,
+                    "line": 59
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-25129f9e363db5dba281",
+          "file": "exam.spec.ts",
+          "line": 164,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-16T21:01:30.432Z",
+    "duration": 7825.579000000001,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

@@ -19,6 +19,37 @@ export interface ExamType {
   format?: ExamFormat;
 }
 
+export interface Answer {
+  text: string;
+  correct: boolean;
+}
+
+export interface Question {
+  id: string;
+  text: string;
+  answers: Answer[];
+  revision: number;
+  subject: string;
+  // Shared by equivalent questions.
+  group?: string;
+}
+
+// The content the app downloads and runs exams on, on the device.
+export interface ContentPackage {
+  version: string;
+  questions: Question[];
+  examTypes: (ExamType & { questionIds?: string[] })[];
+}
+
+// One thing the user did, recorded on the device and synced to the server.
+export interface AppEvent {
+  id: string;
+  type: string;
+  // ISO 8601
+  at: string;
+  data: Record<string, unknown>;
+}
+
 export interface Profile {
   // Empty until the user has chosen one.
   examType: string;
@@ -52,4 +83,22 @@ export async function setExamType(examType: string): Promise<Profile> {
     body: JSON.stringify({ examType }),
   });
   return json(res, "/api/profile");
+}
+
+export async function getContent(): Promise<ContentPackage> {
+  return json(await fetch("/api/content"), "/api/content");
+}
+
+export async function getEvents(): Promise<AppEvent[]> {
+  return json(await fetch("/api/events", { credentials: "include" }), "/api/events");
+}
+
+export async function postEvents(events: AppEvent[]): Promise<void> {
+  const res = await fetch("/api/events", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify({ events }),
+  });
+  await json(res, "/api/events");
 }

@@ -26,6 +26,8 @@ test("reset a forgotten password and sign in with the new one", async ({ page })
   await expectSignedInAs(page, email);
 
   await page.getByRole("button", { name: "Ieșire din cont" }).click();
+  // Wait for the sign-out to finish; reloading earlier would cancel it.
+  await expect(page).toHaveURL("/autentificare");
   await signIn(page, email, password);
   await expect(page.getByRole("alert")).toHaveText("Emailul sau parola nu sunt corecte.");
   await signIn(page, email, newPassword);

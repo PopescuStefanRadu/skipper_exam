@@ -20,7 +20,7 @@ Rules:
 
 ## Test data
 
-- E2E tests use a small, **fixed test content set** (questions, sources and links), not the real banks. That keeps them deterministic: random choices take a known seed, timers can be sped up, email goes to a fake inbox, and Google sign-in goes to a fake provider.
+- E2E tests use the **real content**, read through the same API as the app (`contentPackage()` in `e2e/tests/helpers.ts`), so a test knows the correct answer to whatever question is on the screen. Tests don't depend on which random questions are chosen. Timers are controlled with Playwright's clock (`page.clock`), email goes to a fake inbox, and Google sign-in goes to a fake provider.
 - A separate **content validation** checks the real question banks, the bibliography and the links. It runs on every content update.
 
 ## Parallel work: one worktree per task

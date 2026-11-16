@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-16T21-02-32Z",
+  "branch": "task/exam-simulation",
+  "commit": "981f3cd06bb87a126c970898bcd1f562b735f13c",
+  "ci": false,
+  "suites_requested": [
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 18450
+    }
+  ],
+  "result": "passed"
+}

@@ -25,7 +25,10 @@ type Config struct {
 	DB        Pinger
 	Sessions  Sessions
 	Profiles  Profiles
+	Events    Events
 	ExamTypes []content.ExamType
+	// Content is the content package the apps download.
+	Content *content.Package
 	// AccountsProxy serves the account service's public API under /.ory.
 	AccountsProxy http.Handler
 	// Web holds the built web app. If nil, only the API is served.
@@ -40,6 +43,13 @@ func New(cfg Config) http.Handler {
 	mux.HandleFunc("GET /api/exam-types", examTypes(cfg.ExamTypes))
 	mux.HandleFunc("GET /api/profile", withIdentity(cfg.Sessions, getProfile(cfg.Profiles)))
 	mux.HandleFunc("PUT /api/profile", withIdentity(cfg.Sessions, putProfile(cfg.Profiles, cfg.ExamTypes)))
+	if cfg.Content != nil {
+		mux.HandleFunc("GET /api/content", contentPackage(cfg.Content))
+	}
+	if cfg.Events != nil {
+		mux.HandleFunc("GET /api/events", withIdentity(cfg.Sessions, listEvents(cfg.Events)))
+		mux.HandleFunc("POST /api/events", withIdentity(cfg.Sessions, postEvents(cfg.Events)))
+	}
 	if cfg.AccountsProxy != nil {
 		mux.Handle(kratosPrefix+"/", cfg.AccountsProxy)
 	}

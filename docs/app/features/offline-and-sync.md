@@ -2,6 +2,8 @@
 
 ## Behaviour
 
+- **The app runs on the device, on the web too.** It keeps the content package and the user's events (exam started, question answered, exam submitted or abandoned) on the device, and works from them. Each event gets its ID on the device, so sending it twice stores it once. Events are sent to the server as soon as it's reachable, and the server's events are merged in, so what was done on another device shows up. On the web, the device storage is the browser's local storage.
+
 - **Android works fully offline.** The question banks, explanations and quoted passages are stored on the device, so exam simulation, learning mode and review all work without a connection.
 - You sign in once while online. After that the app stays signed in while offline.
 - Answers given offline are kept on the device and synced when it's back online. No answers are lost, even if the same account was used on another device in the meantime.

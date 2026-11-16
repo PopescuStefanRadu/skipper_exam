@@ -193,8 +193,8 @@ func validateExamTypes(c *Content, subjects map[string]bool) []Problem {
 			errorf("exam type %s: missing or invalid format", t.ID)
 			continue
 		}
-		if n := len(c.ExamQuestions(t)); n < t.Format.Questions {
-			errorf("exam type %s: %d questions available, the format needs %d", t.ID, n, t.Format.Questions)
+		if n := c.ExamGroupCount(t); n < t.Format.Questions {
+			errorf("exam type %s: %d distinct questions available, the format needs %d", t.ID, n, t.Format.Questions)
 		}
 	}
 	return ps

@@ -1,0 +1,13 @@
+?   	github.com/PopescuStefanRadu/skipper_exam/cli/content	[no test files]
+?   	github.com/PopescuStefanRadu/skipper_exam/cli/server	[no test files]
+?   	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/db	[no test files]
+?   	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/events	[no test files]
+?   	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/profile	[no test files]
+PASS
+ok  	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/review	0.003s
+PASS
+ok  	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server	0.005s
+PASS
+ok  	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/content	0.383s
+PASS
+ok  	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/content/rnapdf	0.799s

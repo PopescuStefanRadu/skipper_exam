@@ -1,0 +1,163 @@
+ Image skipper-learning-c392f261-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 592B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 ...
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.5s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.5s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 5.49kB 0.0s done
+#7 DONE 0.0s
+
+#8 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#8 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#8 DONE 0.0s
+
+#9 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#9 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#9 DONE 0.0s
+
+#10 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#10 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#10 DONE 0.0s
+
+#11 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#11 CACHED
+
+#12 [web 5/7] RUN pnpm install --frozen-lockfile
+#12 CACHED
+
+#13 [stage-2 2/4] COPY --from=backend /server /server
+#13 CACHED
+
+#14 [backend 3/7] COPY go.mod go.sum ./
+#14 CACHED
+
+#15 [backend 2/7] WORKDIR /src
+#15 CACHED
+
+#16 [web 6/7] COPY web/ ./
+#16 CACHED
+
+#17 [backend 4/7] RUN go mod download
+#17 CACHED
+
+#18 [web 7/7] RUN pnpm build
+#18 CACHED
+
+#19 [stage-2 3/4] COPY --from=web /web/dist /web
+#19 CACHED
+
+#20 [backend 6/7] COPY pkg pkg
+#20 CACHED
+
+#21 [web 3/7] WORKDIR /web
+#21 CACHED
+
+#22 [web 2/7] RUN corepack enable
+#22 CACHED
+
+#23 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#23 CACHED
+
+#24 [backend 5/7] COPY cli cli
+#24 CACHED
+
+#25 [stage-2 4/4] COPY content /content
+#25 CACHED
+
+#26 exporting to image
+#26 exporting layers done
+#26 exporting manifest sha256:f2c31670bf1572ed3af3c07eb3aae98c75cbcf2dac1cf5f9edcf04f53eb09f71 done
+#26 exporting config sha256:77b71f6b1eac5765dc85761b4891f9f5798a920ac1f635d224bc44d2f9857fc7
+#26 exporting config sha256:77b71f6b1eac5765dc85761b4891f9f5798a920ac1f635d224bc44d2f9857fc7 done
+#26 exporting attestation manifest sha256:918a0a2eab56deac1d4e498e8bad1186c2d04eedce64bea431cc35ed34ac31cb done
+#26 exporting manifest list sha256:65da7bba575531b676a1063bf40552b61cea22465fbf4fa10a4ef4f8e6ee7e04 done
+#26 naming to docker.io/library/skipper-learning-c392f261-app:latest done
+#26 unpacking to docker.io/library/skipper-learning-c392f261-app:latest done
+#26 DONE 0.1s
+
+#27 resolving provenance for metadata file
+#27 DONE 0.0s
+ Image skipper-learning-c392f261-app Built 
+ Container skipper-learning-c392f261-mock-oidc-1 Running 
+ Container skipper-learning-c392f261-mailpit-1 Running 
+ Container skipper-learning-c392f261-db-1 Running 
+ Container skipper-learning-c392f261-kratos-1 Running 
+ Container skipper-learning-c392f261-app-1 Recreate 
+ Container skipper-learning-c392f261-app-1 Recreated 
+ Container skipper-learning-c392f261-db-1 Waiting 
+ Container skipper-learning-c392f261-db-1 Healthy 
+ Container skipper-learning-c392f261-kratos-migrate-1 Starting 
+ Container skipper-learning-c392f261-kratos-migrate-1 Started 
+ Container skipper-learning-c392f261-kratos-migrate-1 Waiting 
+ Container skipper-learning-c392f261-kratos-migrate-1 Exited 
+ Container skipper-learning-c392f261-db-1 Waiting 
+ Container skipper-learning-c392f261-kratos-1 Waiting 
+ Container skipper-learning-c392f261-db-1 Healthy 
+ Container skipper-learning-c392f261-kratos-1 Healthy 
+ Container skipper-learning-c392f261-app-1 Starting 
+ Container skipper-learning-c392f261-app-1 Started 
+ Container skipper-learning-c392f261-kratos-1 Waiting 
+ Container skipper-learning-c392f261-mock-oidc-1 Waiting 
+ Container skipper-learning-c392f261-mailpit-1 Waiting 
+ Container skipper-learning-c392f261-app-1 Waiting 
+ Container skipper-learning-c392f261-db-1 Waiting 
+ Container skipper-learning-c392f261-kratos-migrate-1 Waiting 
+ Container skipper-learning-c392f261-kratos-1 Healthy 
+ Container skipper-learning-c392f261-mock-oidc-1 Healthy 
+ Container skipper-learning-c392f261-mailpit-1 Healthy 
+ Container skipper-learning-c392f261-kratos-migrate-1 Exited 
+ Container skipper-learning-c392f261-db-1 Healthy 
+ Container skipper-learning-c392f261-app-1 Healthy 
+STACK_PROJECT=skipper-learning-c392f261
+APP_URL=http://127.0.0.1:56455
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32829/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32830
+MAILPIT_URL=http://127.0.0.1:32828
+MOCK_OIDC_URL=http://127.0.0.1:38693
+
+Running 20 tests using 12 workers
+
+  ✓  10 [web] › screens.spec.ts:59:1 › server unavailable (599ms)
+
+  ✓  1 [web] › screens.spec.ts:66:1 › exam type and home (1.2s)
+  ✓  8 [web] › screens.spec.ts:45:1 › password recovery screens (1.4s)
+  ✓  3 [web] › screens.spec.ts:132:1 › explanations (1.6s)
+  ✓  12 [android] › screens.spec.ts:45:1 › password recovery screens (1.6s)
+  ✓  7 [web] › screens.spec.ts:148:1 › reviewer view (1.7s)
+  ✓  4 [android] › screens.spec.ts:26:1 › signed-out screens (2.0s)
+  ✓  13 [android] › screens.spec.ts:59:1 › server unavailable (555ms)
+  ✓  11 [web] › screens.spec.ts:113:1 › time ran out (2.0s)
+
+  ✓  6 [web] › screens.spec.ts:76:1 › exam screens and a failed result (2.6s)
+  ✓  9 [web] › screens.spec.ts:26:1 › signed-out screens (2.8s)
+  ✓  5 [web] › screens.spec.ts:160:1 › learning (3.3s)
+  ✓  15 [android] › screens.spec.ts:66:1 › exam type and home (1.3s)
+  ✓  16 [android] › screens.spec.ts:148:1 › reviewer view (1.4s)
+  ✓  2 [web] › screens.spec.ts:99:1 › a passed result (3.6s)
+  ✓  14 [android] › screens.spec.ts:113:1 › time ran out (1.9s)
+  ✓  20 [android] › screens.spec.ts:132:1 › explanations (1.3s)
+  ✓  17 [android] › screens.spec.ts:160:1 › learning (2.7s)
+  ✓  18 [android] › screens.spec.ts:76:1 › exam screens and a failed result (2.4s)
+  ✓  19 [android] › screens.spec.ts:99:1 › a passed result (2.9s)
+
+  20 passed (6.0s)

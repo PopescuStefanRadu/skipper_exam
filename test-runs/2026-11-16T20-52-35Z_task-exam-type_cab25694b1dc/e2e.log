@@ -1,0 +1,159 @@
+ Image skipper-exam-type-b4a43b4c-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 596B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.2s
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.3s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 3.30kB done
+#7 DONE 0.0s
+
+#8 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#8 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#8 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#8 DONE 0.0s
+
+#9 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#9 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#9 DONE 0.0s
+
+#10 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#10 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#10 DONE 0.0s
+
+#11 [web 3/7] WORKDIR /web
+#11 CACHED
+
+#12 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#12 CACHED
+
+#13 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#13 CACHED
+
+#14 [web 6/7] COPY web/ ./
+#14 CACHED
+
+#15 [backend 3/7] COPY go.mod go.sum ./
+#15 CACHED
+
+#16 [web 5/7] RUN pnpm install --frozen-lockfile
+#16 CACHED
+
+#17 [web 7/7] RUN pnpm build
+#17 CACHED
+
+#18 [stage-2 2/4] COPY --from=backend /server /server
+#18 CACHED
+
+#19 [web 2/7] RUN corepack enable
+#19 CACHED
+
+#20 [backend 2/7] WORKDIR /src
+#20 CACHED
+
+#21 [backend 6/7] COPY pkg pkg
+#21 CACHED
+
+#22 [stage-2 3/4] COPY --from=web /web/dist /web
+#22 CACHED
+
+#23 [backend 4/7] RUN go mod download
+#23 CACHED
+
+#24 [backend 5/7] COPY cli cli
+#24 CACHED
+
+#25 [stage-2 4/4] COPY content /content
+#25 CACHED
+
+#26 exporting to image
+#26 exporting layers done
+#26 exporting manifest sha256:2ae32bfce87e4ddb819b37e63db12709ffdaa4220ba824c1a4e31993efc20006 done
+#26 exporting config sha256:8391a19cca19de10cba9fe1a6785ad0d2975d91dabc8c52f2973f0e9e5977064 done
+#26 exporting attestation manifest sha256:098ceca731d6cb57d96670d7b22ea611b6c76ee33e32b84b21c6cfbebce99111 done
+#26 exporting manifest list sha256:afc598beeda21c9e4b6fc5bdc9cc0db458d9994d3e57c9a521a0cd14b479cc0c done
+#26 naming to docker.io/library/skipper-exam-type-b4a43b4c-app:latest done
+#26 unpacking to docker.io/library/skipper-exam-type-b4a43b4c-app:latest done
+#26 DONE 0.1s
+
+#27 resolving provenance for metadata file
+#27 DONE 0.0s
+ Image skipper-exam-type-b4a43b4c-app Built 
+ Container skipper-exam-type-b4a43b4c-mock-oidc-1 Running 
+ Container skipper-exam-type-b4a43b4c-mailpit-1 Running 
+ Container skipper-exam-type-b4a43b4c-db-1 Running 
+ Container skipper-exam-type-b4a43b4c-kratos-1 Running 
+ Container skipper-exam-type-b4a43b4c-app-1 Recreate 
+ Container skipper-exam-type-b4a43b4c-app-1 Recreated 
+ Container skipper-exam-type-b4a43b4c-db-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-db-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Starting 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Started 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Exited 
+ Container skipper-exam-type-b4a43b4c-kratos-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-db-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-kratos-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-db-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-app-1 Starting 
+ Container skipper-exam-type-b4a43b4c-app-1 Started 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-kratos-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-mock-oidc-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-mailpit-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-app-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-db-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Exited 
+ Container skipper-exam-type-b4a43b4c-mock-oidc-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-db-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-mailpit-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-kratos-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-app-1 Healthy 
+STACK_PROJECT=skipper-exam-type-b4a43b4c
+APP_URL=http://127.0.0.1:38001
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32811/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32812
+MAILPIT_URL=http://127.0.0.1:32810
+MOCK_OIDC_URL=http://127.0.0.1:43273
+
+Running 21 tests using 12 workers
+
+  ✓  1 [chromium] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (400ms)
+  ✓  4 [chromium] › accounts.spec.ts:34:1 › opening the app while signed out leads to sign-in (528ms)
+  ✓  5 [chromium] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (574ms)
+  ✓  12 [chromium] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (501ms)
+  ✓  2 [chromium] › accounts.spec.ts:59:1 › a password shorter than 8 characters is refused (620ms)
+  ✓  6 [chromium] › accounts.spec.ts:47:1 › an unknown email gets the same message as a wrong password (633ms)
+  ✓  14 [chromium] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (559ms)
+  ✓  11 [chromium] › accounts.spec.ts:52:1 › signing up with an email that is already used is refused (1.1s)
+  ✓  9 [chromium] › accounts.spec.ts:40:1 › a wrong password is refused without revealing account details (1.1s)
+  ✓  13 [chromium] › exam-type.spec.ts:24:1 › changing the exam type later (779ms)
+  ✓  10 [chromium] › accounts.spec.ts:4:1 › sign up, stay signed in after a reload, then sign out (1.2s)
+  ✓  15 [chromium] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (725ms)
+  ✓  17 [chromium] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (724ms)
+  ✓  21 [chromium] › password-reset.spec.ts:44:1 › an unknown email gets the same confirmation, without revealing that no account exists (172ms)
+  ✓  3 [chromium] › accounts.spec.ts:18:1 › signing in on a second device opens the same account (1.4s)
+  ✓  16 [chromium] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (810ms)
+  ✓  7 [chromium] › accounts.spec.ts:64:1 › after a refused attempt, the form works again (1.6s)
+  ✓  8 [chromium] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (1.6s)
+  ✓  18 [chromium] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (1.4s)
+  ✓  20 [chromium] › password-reset.spec.ts:35:1 › a wrong recovery code is refused (1.1s)
+  ✓  19 [chromium] › password-reset.spec.ts:16:1 › reset a forgotten password and sign in with the new one (2.6s)
+
+  21 passed (4.2s)

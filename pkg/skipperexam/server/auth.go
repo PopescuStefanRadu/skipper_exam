@@ -94,15 +94,7 @@ func (k *Kratos) Proxy() http.Handler {
 }
 
 func me(sessions Sessions) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		id, err := sessions.Identity(r.Context(), r)
-		switch {
-		case errors.Is(err, ErrNoSession):
-			writeJSON(w, http.StatusUnauthorized, map[string]string{"error": "not signed in"})
-		case err != nil:
-			writeJSON(w, http.StatusBadGateway, map[string]string{"error": "account service unavailable"})
-		default:
-			writeJSON(w, http.StatusOK, id)
-		}
-	}
+	return withIdentity(sessions, func(w http.ResponseWriter, _ *http.Request, id Identity) {
+		writeJSON(w, http.StatusOK, id)
+	})
 }

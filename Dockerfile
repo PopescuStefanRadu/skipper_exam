@@ -17,6 +17,7 @@ RUN CGO_ENABLED=0 go build -o /server ./cli/server
 FROM gcr.io/distroless/static-debian12
 COPY --from=backend /server /server
 COPY --from=web /web/dist /web
-ENV WEB_DIR=/web LISTEN_ADDR=:8080
+COPY content /content
+ENV WEB_DIR=/web CONTENT_DIR=/content LISTEN_ADDR=:8080
 EXPOSE 8080
 ENTRYPOINT ["/server"]

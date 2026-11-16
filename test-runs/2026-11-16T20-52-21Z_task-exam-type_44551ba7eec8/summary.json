@@ -1,0 +1,29 @@
+{
+  "started": "2026-11-16T20-52-21Z",
+  "branch": "task/exam-type",
+  "commit": "44551ba7eec8eaa779f8a857431f018532fa7352",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1393
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 993
+    },
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 9438
+    }
+  ],
+  "result": "passed"
+}

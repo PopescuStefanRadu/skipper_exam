@@ -4,7 +4,6 @@ import { createAccount, expectSignedInAs, password, signIn, signUp, uniqueEmail 
 test("sign up, stay signed in after a reload, then sign out", async ({ page }) => {
   const email = uniqueEmail();
   await signUp(page, email);
-  await expect(page).toHaveURL("/");
   await expectSignedInAs(page, email);
 
   await page.reload();

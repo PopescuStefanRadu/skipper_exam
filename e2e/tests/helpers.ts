@@ -51,3 +51,10 @@ export async function continueWithGoogle(page: Page, email: string) {
   await page.locator("textarea[name=claims]").fill(JSON.stringify({ email, email_verified: true }));
   await page.locator("input[type=submit]").click();
 }
+
+// Sets the signed-in user's exam type through the API, for tests that don't
+// exercise choosing it.
+export async function setExamType(page: Page, examType: string) {
+  const res = await page.request.put("/api/profile", { data: { examType } });
+  expect(res.ok()).toBeTruthy();
+}

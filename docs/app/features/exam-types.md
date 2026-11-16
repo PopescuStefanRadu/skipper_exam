@@ -21,14 +21,15 @@ Not exam types:
 
 ## Behaviour
 
-- At sign-up, and at any time later, the user picks the exam type they're preparing for. The app remembers it per account, so it follows the user across devices.
+- Right after signing up, or after the first sign-in of an account that has none yet, the user picks the exam type they're preparing for. Nothing else in the app is reachable until it's chosen. It can be changed at any time later. The app remembers it per account, so it follows the user across devices.
 - An exam type is defined by:
   - which questions it draws from: question banks, filtered by subject for the difference exams;
   - the exam format: number of questions, time limit and pass mark.
 - Every question is tagged with its subject (for example COLREG or R.N.D.), so the difference exams can be put together from the full lists.
 - Class A and B are shown as "not available yet" until official question material exists.
 - Progress is kept per question. Questions shared between exam types (for example a COLREG question used by both Class C and the C difference exam) count toward both.
-- The exam format for each type is configuration, not code. Every value records whether it's confirmed by an official source or still an assumption, and the user sees when the format is unconfirmed.
+- The exam types and their formats are content, in `content/exam-types.json`, not code. Each format records whether it's confirmed by an official source or still an assumption, and the user sees when the format is unconfirmed. Until official values are found, full exams assume 40 questions in 45 minutes and difference exams 20 questions in 30 minutes, both with an 80% pass mark. Validation checks that every available exam type has enough questions for one exam.
+- The server accepts only available exam types.
 
 ## Unknowns
 
@@ -38,10 +39,12 @@ Not exam types:
 ## E2E scenarios
 
 Main paths:
-- A new user picks "Class D" at sign-up. Exams and learning mode use only class D questions.
-- A user changes from "Class D" to "Class C, difference exam". Exams now contain only COLREG questions, and their existing history is kept.
+- A new user picks "Class D" right after signing up. The choice is kept after a reload and on another device.
+- A user changes from "Class D" to "Class C, difference exam".
+- Once practice exists: exams and learning mode use only the chosen exam type's questions, and changing the exam type keeps the user's history.
 
 Less common paths:
-- Class A and B are listed as not available and can't be selected.
+- Class A and B are listed as not available and can't be selected. The server refuses them too.
+- A signed-in user without an exam type is sent to choose one before anything else.
 - An exam type whose format is unconfirmed shows a visible "format not confirmed" note on the exam screen.
 - The exam type chosen on the web is the one used on Android, including offline after the next sync.

@@ -1,0 +1,317 @@
+ Image skipper-exam-type-b4a43b4c-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 596B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 575B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 ...
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.4s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.5s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#7 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#7 DONE 0.0s
+
+#8 [stage-2 1/3] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#8 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#8 DONE 0.0s
+
+#9 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#9 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#9 DONE 0.0s
+
+#10 [internal] load build context
+#10 transferring context: 124.08kB done
+#10 DONE 0.0s
+
+#11 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#11 CACHED
+
+#12 [web 2/7] RUN corepack enable
+#12 CACHED
+
+#13 [web 3/7] WORKDIR /web
+#13 CACHED
+
+#14 [web 5/7] RUN pnpm install --frozen-lockfile
+#14 CACHED
+
+#15 [web 6/7] COPY web/ ./
+#15 DONE 0.0s
+
+#16 [web 7/7] RUN pnpm build
+#16 0.173 $ tsc -b && vite build
+#16 1.103 vite v6.0.7 building for production...
+#16 1.143 transforming...
+#16 1.500 ✓ 37 modules transformed.
+#16 1.557 rendering chunks...
+#16 1.561 computing gzip size...
+#16 1.566 dist/index.html                  0.32 kB │ gzip:  0.23 kB
+#16 1.566 dist/assets/index-C7Qp8f3u.js  177.25 kB │ gzip: 57.71 kB
+#16 1.566 ✓ built in 446ms
+#16 DONE 1.6s
+
+#17 [backend 2/7] WORKDIR /src
+#17 CACHED
+
+#18 [backend 4/7] RUN go mod download
+#18 CACHED
+
+#19 [backend 6/7] COPY pkg pkg
+#19 CACHED
+
+#20 [stage-2 2/3] COPY --from=backend /server /server
+#20 CACHED
+
+#21 [backend 3/7] COPY go.mod go.sum ./
+#21 CACHED
+
+#22 [backend 5/7] COPY cli cli
+#22 CACHED
+
+#23 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#23 CACHED
+
+#24 [stage-2 3/3] COPY --from=web /web/dist /web
+#24 CACHED
+
+#25 exporting to image
+#25 exporting layers done
+#25 exporting manifest sha256:4393bb6ec8f5b96152a05d675b53ee5f00705d2f8c8f5cf1e9c3952f76ba2a44 done
+#25 exporting config sha256:87cf458a6b5fca9d5401ecd3f944943edfc3db8c0c602aa850df30a6925fe7a6 done
+#25 exporting attestation manifest sha256:713b5a6a92d5d7cce821e0c03aad3256816c21246f64da95590f9bcdb69138cc done
+#25 exporting manifest list sha256:14a297473e8642cbfa5012a2c9e8898ef04e2d99aa417ff77bf1f987025225e6 done
+#25 naming to docker.io/library/skipper-exam-type-b4a43b4c-app:latest done
+#25 unpacking to docker.io/library/skipper-exam-type-b4a43b4c-app:latest done
+#25 DONE 0.1s
+
+#26 resolving provenance for metadata file
+#26 DONE 0.0s
+ Image skipper-exam-type-b4a43b4c-app Built 
+ Network skipper-exam-type-b4a43b4c_default Creating 
+ Network skipper-exam-type-b4a43b4c_default Created 
+ Volume skipper-exam-type-b4a43b4c_db Creating 
+ Volume skipper-exam-type-b4a43b4c_db Created 
+ Container skipper-exam-type-b4a43b4c-db-1 Creating 
+ Container skipper-exam-type-b4a43b4c-mailpit-1 Creating 
+ Container skipper-exam-type-b4a43b4c-mailpit-1 Created 
+ Container skipper-exam-type-b4a43b4c-db-1 Created 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Creating 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Created 
+ Container skipper-exam-type-b4a43b4c-kratos-1 Creating 
+ Container skipper-exam-type-b4a43b4c-kratos-1 Created 
+ Container skipper-exam-type-b4a43b4c-mock-oidc-1 Creating 
+ Container skipper-exam-type-b4a43b4c-app-1 Creating 
+ Container skipper-exam-type-b4a43b4c-app-1 Created 
+ Container skipper-exam-type-b4a43b4c-mock-oidc-1 Created 
+ Container skipper-exam-type-b4a43b4c-db-1 Starting 
+ Container skipper-exam-type-b4a43b4c-mailpit-1 Starting 
+ Container skipper-exam-type-b4a43b4c-mailpit-1 Started 
+ Container skipper-exam-type-b4a43b4c-db-1 Started 
+ Container skipper-exam-type-b4a43b4c-db-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-db-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Starting 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Started 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Exited 
+ Container skipper-exam-type-b4a43b4c-kratos-1 Starting 
+ Container skipper-exam-type-b4a43b4c-kratos-1 Started 
+ Container skipper-exam-type-b4a43b4c-mock-oidc-1 Starting 
+ Container skipper-exam-type-b4a43b4c-kratos-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-db-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-mock-oidc-1 Started 
+ Container skipper-exam-type-b4a43b4c-db-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-kratos-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-app-1 Starting 
+ Container skipper-exam-type-b4a43b4c-app-1 Started 
+ Container skipper-exam-type-b4a43b4c-app-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-db-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-kratos-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-mock-oidc-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-mailpit-1 Waiting 
+ Container skipper-exam-type-b4a43b4c-mock-oidc-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-mailpit-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-kratos-migrate-1 Exited 
+ Container skipper-exam-type-b4a43b4c-kratos-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-db-1 Healthy 
+ Container skipper-exam-type-b4a43b4c-app-1 Healthy 
+STACK_PROJECT=skipper-exam-type-b4a43b4c
+APP_URL=http://127.0.0.1:38001
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32811/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32812
+MAILPIT_URL=http://127.0.0.1:32810
+MOCK_OIDC_URL=http://127.0.0.1:43273
+
+Running 5 tests using 5 workers
+
+  ✘  1 [chromium] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (530ms)
+  ✘  4 [chromium] › exam-type.spec.ts:24:1 › changing the exam type later (5.3s)
+  ✘  3 [chromium] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (5.3s)
+  ✘  5 [chromium] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (5.3s)
+  ✘  2 [chromium] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (5.6s)
+
+
+  1) [chromium] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account 
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoHaveURL[2m([22m[32mexpected[39m[2m)[22m
+
+    Locator: locator(':root')
+    Expected string: [32m"http://127.0.0.1:38001/[7mtip-examen[27m"[39m
+    Received string: [31m"http://127.0.0.1:38001/"[39m
+    Call log:
+    [2m  - expect.toHaveURL with timeout 5000ms[22m
+    [2m  - waiting for locator(':root')[22m
+    [2m    3 × locator resolved to <html lang="ro">…</html>[22m
+    [2m      - unexpected value "http://127.0.0.1:38001/inregistrare"[22m
+    [2m    6 × locator resolved to <html lang="ro">…</html>[22m
+    [2m      - unexpected value "http://127.0.0.1:38001/"[22m
+
+
+       7 |   await signUp(page, email);
+       8 |
+    >  9 |   await expect(page).toHaveURL("/tip-examen");
+         |                      ^
+      10 |   await expect(page.getByRole("heading", { name: "Pentru ce examen te pregătești?" })).toBeVisible();
+      11 |   await page.getByLabel("Clasa D", { exact: true }).check();
+      12 |   await page.getByRole("button", { name: "Salvează" }).click();
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:9:22
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-type-a-new-user-choos-7d051--and-it-follows-the-account-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-type-a-new-user-choos-7d051--and-it-follows-the-account-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › exam-type.spec.ts:24:1 › changing the exam type later ────────────────────────────
+
+    TimeoutError: locator.check: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByLabel('Clasa D', { exact: true })[22m
+
+
+      24 | test("changing the exam type later", async ({ page }) => {
+      25 |   await signUp(page, uniqueEmail());
+    > 26 |   await page.getByLabel("Clasa D", { exact: true }).check();
+         |                                                     ^
+      27 |   await page.getByRole("button", { name: "Salvează" }).click();
+      28 |
+      29 |   await page.getByRole("link", { name: "Schimbă examenul" }).click();
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:26:53
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-type-changing-the-exam-type-later-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-type-changing-the-exam-type-later-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen 
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeDisabled[2m()[22m
+
+    Locator: getByLabel('Clasa A', { exact: true })
+    Expected: disabled
+    Received: <element(s) not found>
+    Call log:
+    [2m  - expect.toBeDisabled with timeout 5000ms[22m
+    [2m  - waiting for getByLabel('Clasa A', { exact: true })[22m
+
+
+      37 |   await signUp(page, uniqueEmail());
+      38 |   for (const name of ["Clasa A", "Clasa B"]) {
+    > 39 |     await expect(page.getByLabel(name, { exact: true })).toBeDisabled();
+         |                                                          ^
+      40 |   }
+      41 |   await expect(page.getByText("Nu este disponibil încă").first()).toBeVisible();
+      42 | });
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:39:58
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-type-class-A-and-B-ar-a8726-ble-yet-and-can-t-be-chosen-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-type-class-A-and-B-ar-a8726-ble-yet-and-can-t-be-chosen-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [chromium] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first 
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoHaveURL[2m([22m[32mexpected[39m[2m)[22m
+
+    Locator: locator(':root')
+    Expected string: [32m"http://127.0.0.1:38001/[7mtip-examen[27m"[39m
+    Received string: [31m"http://127.0.0.1:38001/"[39m
+    Call log:
+    [2m  - expect.toHaveURL with timeout 5000ms[22m
+    [2m  - waiting for locator(':root')[22m
+    [2m    3 × locator resolved to <html lang="ro">…</html>[22m
+    [2m      - unexpected value "http://127.0.0.1:38001/autentificare"[22m
+    [2m    6 × locator resolved to <html lang="ro">…</html>[22m
+    [2m      - unexpected value "http://127.0.0.1:38001/"[22m
+
+
+      45 |   const email = await createAccount();
+      46 |   await signIn(page, email);
+    > 47 |   await expect(page).toHaveURL("/tip-examen");
+         |                      ^
+      48 |   await page.goto("/");
+      49 |   await expect(page).toHaveURL("/tip-examen");
+      50 | });
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:47:22
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-type-a-signed-in-user-a3030-s-asked-to-choose-one-first-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-type-a-signed-in-user-a3030-s-asked-to-choose-one-first-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [chromium] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available ────
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m400[39m
+    Received: [31m404[39m
+
+      53 |   await signIn(page, await createAccount());
+      54 |   const res = await page.request.put("/api/profile", { data: { examType: "A" } });
+    > 55 |   expect(res.status()).toBe(400);
+         |                        ^
+      56 | });
+      57 |
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/exam-type/e2e/tests/exam-type.spec.ts:55:24
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-type-the-server-refus-36571-m-type-that-isn-t-available-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-type-the-server-refus-36571-m-type-that-isn-t-available-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5 failed
+    [chromium] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account 
+    [chromium] › exam-type.spec.ts:24:1 › changing the exam type later ─────────────────────────────
+    [chromium] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen 
+    [chromium] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first 
+    [chromium] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available ─────

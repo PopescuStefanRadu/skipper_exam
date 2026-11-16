@@ -42,8 +42,8 @@ down: ## Stop this worktree's stack and delete its data
 status: ## Show this worktree's stack
 	scripts/stack.sh status
 
-dev: up ## Run the web app with hot reload against this worktree's backend
-	. ./.stack.env && cd web && API_URL=$$APP_URL pnpm dev --port 0
+dev: up ## Run the web app with hot reload against this worktree's backend (Vite picks the next free port if 5173 is taken)
+	. ./.stack.env && cd web && API_URL=$$APP_URL pnpm dev
 
 task-new: ## Create a task worktree: make task-new NAME=<name>
 	scripts/task.sh new $(NAME)

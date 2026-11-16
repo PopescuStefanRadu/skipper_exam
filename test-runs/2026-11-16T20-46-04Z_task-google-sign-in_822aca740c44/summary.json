@@ -1,0 +1,29 @@
+{
+  "started": "2026-11-16T20-46-04Z",
+  "branch": "task/google-sign-in",
+  "commit": "822aca740c4490cceaf2f1cf5d0ac05acfce6bfd",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1341
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 126
+    },
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 11675
+    }
+  ],
+  "result": "passed"
+}

@@ -25,6 +25,43 @@ export interface Flow {
 
 export type SubmitResult = { ok: true } | { ok: false; errors: string[] };
 
+// Loads a flow Kratos redirected the browser to, e.g. after a Google sign-in that
+// needs the user to confirm with their password.
+export async function getFlow(kind: FlowKind, id: string): Promise<Flow> {
+  const res = await fetch(`${base}/self-service/${kind}/flows?id=${encodeURIComponent(id)}`, {
+    headers: { Accept: "application/json" },
+    credentials: "include",
+  });
+  if (!res.ok) throw new Error(`could not load ${kind} flow: ${res.status}`);
+  return res.json();
+}
+
+// Messages the flow carries for the user (errors and information), in Romanian.
+export function flowMessages(flow: Flow): { errors: string[]; info: string[] } {
+  const all = [...(flow.ui.messages ?? []), ...flow.ui.nodes.flatMap((n) => n.messages)];
+  const text = (m: UiMessage) => messageText[m.id] ?? (m.type === "error" ? strings.errors.generic : null);
+  const pick = (type: UiMessage["type"]) =>
+    [...new Set(all.filter((m) => m.type === type).map(text))].filter((t): t is string => t !== null);
+  return { errors: pick("error"), info: pick("info") };
+}
+
+// Starts a sign-in with an external provider: Kratos answers with the provider's
+// address, which the browser then opens.
+export async function startProviderSignIn(flow: Flow, provider: string): Promise<SubmitResult> {
+  const res = await fetch(flow.ui.action, {
+    method: "POST",
+    headers: { Accept: "application/json", "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify({ method: "oidc", provider, csrf_token: csrfToken(flow) }),
+  });
+  const json = await res.json().catch(() => null);
+  if (res.status === 422 && json?.redirect_browser_to) {
+    window.location.assign(json.redirect_browser_to);
+    return { ok: true };
+  }
+  return { ok: false, errors: [strings.errors.generic] };
+}
+
 export async function createFlow(kind: FlowKind): Promise<Flow> {
   const res = await fetch(`${base}/self-service/${kind}/browser`, {
     headers: { Accept: "application/json" },
@@ -121,6 +158,7 @@ const messageText: Record<number, string> = {
   4000007: strings.errors.emailTaken,
   4000031: strings.errors.passwordTooSimilar,
   4000032: strings.errors.passwordTooShort,
+  1010016: strings.signIn.linkGoogle,
   4060005: strings.errors.expired,
   4060006: strings.errors.invalidCode,
 };

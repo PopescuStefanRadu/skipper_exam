@@ -16,6 +16,9 @@ export const strings = {
     noAccount: "Nu ai cont?",
     toSignUp: "Creează un cont",
     forgotPassword: "Ai uitat parola?",
+    google: "Continuă cu Google",
+    or: "sau",
+    linkGoogle: "Există deja un cont cu acest email. Intră cu parola contului pentru a-l lega de Google.",
   },
   recovery: {
     title: "Recuperare parolă",

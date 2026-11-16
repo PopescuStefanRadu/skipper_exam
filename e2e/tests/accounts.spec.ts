@@ -66,6 +66,8 @@ test("after a refused attempt, the form works again", async ({ page }) => {
   const email = await createAccount();
   await signIn(page, email, "parola-gresita-123");
   await expect(page.getByRole("alert")).toBeVisible();
+  // The email typed before stays; only the password is typed again.
+  await expect(page.getByLabel("Email")).toHaveValue(email);
   await page.getByLabel("Parolă").fill(password);
   await page.getByRole("button", { name: "Intră în cont" }).click();
   await expectSignedInAs(page, email);

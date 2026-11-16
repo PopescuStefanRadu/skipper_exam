@@ -1,9 +1,10 @@
 # The full local stack. Start it through scripts/stack.sh (or make up), which gives
 # every worktree its own project name, so stacks never share containers or data.
 #
-# Host ports are assigned by Docker at start-up, except the app's: Kratos must know
-# the app's public address before it starts, so stack.sh reserves a free port
-# under a lock shared by all worktrees and passes it in as APP_PORT.
+# Host ports are assigned by Docker at start-up, except the app's and the mock
+# Google server's: Kratos must know both addresses before it starts, so stack.sh
+# reserves free ports under a lock shared by all worktrees and passes them in as
+# APP_PORT and MOCK_OIDC_PORT.
 services:
   db:
     image: postgres:17.2
@@ -30,6 +31,7 @@ services:
     volumes:
       - ./.stack/kratos.yml:/etc/config/kratos/kratos.yml:ro
       - ./docker/kratos/identity.schema.json:/etc/config/kratos/identity.schema.json:ro
+      - ./docker/kratos/oidc.google.jsonnet:/etc/config/kratos/oidc.google.jsonnet:ro
     depends_on:
       db:
         condition: service_healthy
@@ -41,8 +43,11 @@ services:
     volumes:
       - ./.stack/kratos.yml:/etc/config/kratos/kratos.yml:ro
       - ./docker/kratos/identity.schema.json:/etc/config/kratos/identity.schema.json:ro
+      - ./docker/kratos/oidc.google.jsonnet:/etc/config/kratos/oidc.google.jsonnet:ro
     ports:
       - "127.0.0.1::4434"
+      # The mock Google server listens in Kratos's network (see mock-oidc).
+      - "127.0.0.1:${MOCK_OIDC_PORT:?set by scripts/stack.sh}:${MOCK_OIDC_PORT}"
     depends_on:
       kratos-migrate:
         condition: service_completed_successfully
@@ -51,6 +56,19 @@ services:
       interval: 1s
       timeout: 3s
       retries: 30
+
+  # Stands in for Google sign-in. It runs in Kratos's network on the reserved port,
+  # so Kratos and the browser reach it at the same address, 127.0.0.1:MOCK_OIDC_PORT;
+  # its tokens' issuer then matches what Kratos expects.
+  mock-oidc:
+    image: ghcr.io/navikt/mock-oauth2-server:2.1.10
+    network_mode: service:kratos
+    environment:
+      SERVER_PORT: "${MOCK_OIDC_PORT:?set by scripts/stack.sh}"
+      JSON_CONFIG: '{"interactiveLogin": true}'
+    depends_on:
+      kratos:
+        condition: service_started
 
   mailpit:
     image: axllent/mailpit:v1.21.8

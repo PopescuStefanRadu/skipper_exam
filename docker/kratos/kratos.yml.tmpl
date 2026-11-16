@@ -1,5 +1,6 @@
-# Kratos configuration template. scripts/stack.sh replaces __APP_URL__ with the
-# stack's address and writes the result to .stack/kratos.yml.
+# Kratos configuration template for the local and test stack. scripts/stack.sh
+# replaces __APP_URL__ and __MOCK_OIDC_URL__ with the stack's addresses and writes
+# the result to .stack/kratos.yml.
 version: v1.3.1
 
 dsn: postgres://skipper_exam:skipper_exam@db:5432/kratos?sslmode=disable
@@ -21,6 +22,22 @@ selfservice:
       config:
         # Tests and home servers must not depend on an external service.
         haveibeenpwned_enabled: false
+    oidc:
+      enabled: true
+      config:
+        providers:
+          # "Google" is the stack's mock OpenID Connect server. It shares Kratos's
+          # network, so Kratos and the browser both reach it at the same address.
+          - id: google
+            provider: generic
+            label: Google
+            client_id: skipper-exam
+            client_secret: skipper-exam-secret
+            issuer_url: __MOCK_OIDC_URL__/default
+            mapper_url: file:///etc/config/kratos/oidc.google.jsonnet
+            scope:
+              - openid
+              - email
   flows:
     login:
       ui_url: __APP_URL__/autentificare
@@ -30,6 +47,9 @@ selfservice:
       enable_legacy_one_step: true
       after:
         password:
+          hooks:
+            - hook: session
+        oidc:
           hooks:
             - hook: session
     settings:

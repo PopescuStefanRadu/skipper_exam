@@ -1,0 +1,139 @@
+{
+  "config": {
+    "configFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/playwright.config.ts",
+    "rootDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/test-runs/2026-11-16T20-40-46Z_task-google-sign-in_c1fd270acd59/e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.49.1",
+    "workers": 12,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "google-sign-in.spec.ts",
+      "file": "google-sign-in.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "sign up with Google, then sign in with Google on another device",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 1031,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:40:53.684Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-f9db92b50b9b46c69574",
+          "file": "google-sign-in.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "Google sign-in with the email of a password account links Google to that account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "passed",
+                  "duration": 1536,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:40:53.692Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-b47edd42e2e7624eb828",
+          "file": "google-sign-in.spec.ts",
+          "line": 17,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-16T20:40:53.425Z",
+    "duration": 1912.208,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

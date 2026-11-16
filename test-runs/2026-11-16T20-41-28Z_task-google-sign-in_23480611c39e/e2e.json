@@ -1,0 +1,653 @@
+{
+  "config": {
+    "configFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/playwright.config.ts",
+    "rootDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 12
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/test-runs/2026-11-16T20-41-28Z_task-google-sign-in_23480611c39e/e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.49.1",
+    "workers": 12,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "accounts.spec.ts",
+      "file": "accounts.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "sign up, stay signed in after a reload, then sign out",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 987,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.329Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-76d1329eaa612308a1c5",
+          "file": "accounts.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "signing in on a second device opens the same account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "passed",
+                  "duration": 1314,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.336Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-a5d8e127e7a9096ebb01",
+          "file": "accounts.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "opening the app while signed out leads to sign-in",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "status": "passed",
+                  "duration": 372,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.297Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-2315b96d1840621deb09",
+          "file": "accounts.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "a wrong password is refused without revealing account details",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "status": "passed",
+                  "duration": 974,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.269Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-0c6053cb248bf8fa01a2",
+          "file": "accounts.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "an unknown email gets the same message as a wrong password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "passed",
+                  "duration": 529,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.300Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-6b813836fb62f95ad77a",
+          "file": "accounts.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "signing up with an email that is already used is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "status": "passed",
+                  "duration": 983,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.333Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-00e42cef4ea00afc1cc2",
+          "file": "accounts.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "a password shorter than 8 characters is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "passed",
+                  "duration": 506,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.306Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-bbfc5cdf8e149b0e5c30",
+          "file": "accounts.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "after a refused attempt, the form works again",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "status": "failed",
+                  "duration": 6060,
+                  "error": {
+                    "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: getByTestId('signed-in-email')\nExpected string: \u001b[32m\"test-2312e6fe-ce86-4d75-8f9c-54d70c450818@example.test\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toHaveText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('signed-in-email')\u001b[22m\n",
+                    "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: getByTestId('signed-in-email')\nExpected string: \u001b[32m\"test-2312e6fe-ce86-4d75-8f9c-54d70c450818@example.test\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toHaveText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('signed-in-email')\u001b[22m\n\n    at expectSignedInAs (/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts:43:53)\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/accounts.spec.ts:71:9",
+                    "matcherResult": {
+                      "name": "toHaveText",
+                      "expected": "test-2312e6fe-ce86-4d75-8f9c-54d70c450818@example.test",
+                      "message": "\u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: getByTestId('signed-in-email')\nExpected string: \u001b[32m\"test-2312e6fe-ce86-4d75-8f9c-54d70c450818@example.test\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toHaveText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('signed-in-email')\u001b[22m\n",
+                      "pass": false,
+                      "actual": "<element(s) not found>",
+                      "log": [
+                        "  - expect.toHaveText with timeout 5000ms",
+                        "  - waiting for getByTestId('signed-in-email')"
+                      ],
+                      "timeout": 5000
+                    },
+                    "location": {
+                      "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts",
+                      "column": 53,
+                      "line": 43
+                    },
+                    "snippet": "   at helpers.ts:43\n\n  41 |\n  42 | export async function expectSignedInAs(page: Page, email: string) {\n> 43 |   await expect(page.getByTestId(\"signed-in-email\")).toHaveText(email);\n     |                                                     ^\n  44 | }\n  45 |\n  46 | // Signs in through the fake Google provider (the stack's mock OpenID Connect"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts",
+                        "column": 53,
+                        "line": 43
+                      },
+                      "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: getByTestId('signed-in-email')\nExpected string: \u001b[32m\"test-2312e6fe-ce86-4d75-8f9c-54d70c450818@example.test\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toHaveText with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('signed-in-email')\u001b[22m\n\n\n   at helpers.ts:43\n\n  41 |\n  42 | export async function expectSignedInAs(page: Page, email: string) {\n> 43 |   await expect(page.getByTestId(\"signed-in-email\")).toHaveText(email);\n     |                                                     ^\n  44 | }\n  45 |\n  46 | // Signs in through the fake Google provider (the stack's mock OpenID Connect\n    at expectSignedInAs (/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts:43:53)\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/accounts.spec.ts:71:9"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.287Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/test-results/accounts-after-a-refused-attempt-the-form-works-again-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts",
+                    "column": 53,
+                    "line": 43
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-21ed72c97e37addb01f0",
+          "file": "accounts.spec.ts",
+          "line": 65,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "app-shell.spec.ts",
+      "file": "app-shell.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "the app opens and is connected to the server",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "status": "passed",
+                  "duration": 376,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.283Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de3ddf94bbc829c059ee-a965afeb42b4c4596447",
+          "file": "app-shell.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "a deep link opens the app instead of a not-found page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "status": "passed",
+                  "duration": 416,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.329Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de3ddf94bbc829c059ee-068726e55c2d553e5915",
+          "file": "app-shell.spec.ts",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "the backend being unavailable shows a clear message",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "status": "passed",
+                  "duration": 246,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.260Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de3ddf94bbc829c059ee-b75398ae031980936949",
+          "file": "app-shell.spec.ts",
+          "line": 17,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "google-sign-in.spec.ts",
+      "file": "google-sign-in.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "sign up with Google, then sign in with Google on another device",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "status": "passed",
+                  "duration": 1075,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.331Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-f9db92b50b9b46c69574",
+          "file": "google-sign-in.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "Google sign-in with the email of a password account links Google to that account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "status": "passed",
+                  "duration": 1428,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.562Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-b47edd42e2e7624eb828",
+          "file": "google-sign-in.spec.ts",
+          "line": 17,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "password-reset.spec.ts",
+      "file": "password-reset.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "reset a forgotten password and sign in with the new one",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "status": "passed",
+                  "duration": 2707,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.736Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4e9f88fefb1813ba7d98-26f590b03f04f253c02b",
+          "file": "password-reset.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "a wrong recovery code is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "status": "passed",
+                  "duration": 1465,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.754Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4e9f88fefb1813ba7d98-5390541d28a4eb45e7f9",
+          "file": "password-reset.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "an unknown email gets the same confirmation, without revealing that no account exists",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "status": "passed",
+                  "duration": 324,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:41:35.836Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4e9f88fefb1813ba7d98-345f43898667b904a24f",
+          "file": "password-reset.spec.ts",
+          "line": 44,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-16T20:41:34.929Z",
+    "duration": 6529.459,
+    "expected": 15,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

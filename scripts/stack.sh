@@ -8,9 +8,9 @@
 #
 # Each worktree gets its own Docker Compose project name, so parallel stacks never
 # share containers, networks or volumes. Host ports are assigned by Docker, except
-# the app's: Kratos needs the app's address in its configuration before it starts,
-# so a free port is reserved under the "ports" lock (shared by all worktrees) and
-# held until Docker has bound it. The ports in use are written to .stack.env for
+# the app's and the mock Google server's: Kratos needs both addresses in its
+# configuration before it starts, so free ports are reserved under the "ports"
+# lock (shared by all worktrees), which is held until Docker has bound them. The ports in use are written to .stack.env for
 # tests and dev tools to read. Generated files (Kratos configuration, secrets)
 # live in .stack/.
 set -euo pipefail
@@ -26,9 +26,19 @@ hash=$(printf '%s' "$root" | sha256sum | cut -c1-8)
 project="skipper-${slug}-${hash}"
 compose=(docker compose --project-name "$project" --file "$root/compose.yaml")
 
-# APP_PORT only matters when starting the app; other commands just need it set.
+# The reserved ports only matter when starting; other commands just need them set.
 host_port() {
-  APP_PORT=0 "${compose[@]}" port "$1" "$2" 2>/dev/null | sed 's/.*://'
+  APP_PORT=65535 MOCK_OIDC_PORT=65535 "${compose[@]}" port "$1" "$2" 2>/dev/null | sed 's/.*://'
+}
+
+# The port a running service already uses, or a new free one.
+reserve_port() {
+  local port
+  port=$(host_port "$1" "$2" || true)
+  if [[ -z "$port" ]]; then
+    port=$(free_port)
+  fi
+  echo "$port"
 }
 
 free_port() {
@@ -43,24 +53,30 @@ up() {
   # shellcheck source=/dev/null
   . .stack/secrets
 
-  local app_port previous="" recreate=()
-  app_port=$(host_port app 8080 || true)
-  if [[ -f .stack/app-port ]]; then
-    previous=$(cat .stack/app-port)
+  local app_port mock_port previous="" recreate=()
+  app_port=$(reserve_port app 8080)
+  mock_port=""
+  if [[ -f .stack/ports && -n "$(host_port app 8080 || true)" ]]; then
+    mock_port=$(cut -d' ' -f2 .stack/ports)
   fi
-  if [[ -z "$app_port" ]]; then
-    app_port=$(free_port)
+  mock_port=${mock_port:-$(free_port)}
+  while [[ "$mock_port" == "$app_port" ]]; do
+    mock_port=$(free_port)
+  done
+  if [[ -f .stack/ports ]]; then
+    previous=$(cat .stack/ports)
   fi
-  local app_url="http://127.0.0.1:$app_port"
-  sed -e "s|__APP_URL__|$app_url|g" -e "s|__COOKIE_SECRET__|$COOKIE_SECRET|" -e "s|__CIPHER_SECRET__|$CIPHER_SECRET|" \
+  local app_url="http://127.0.0.1:$app_port" mock_url="http://127.0.0.1:$mock_port"
+  sed -e "s|__APP_URL__|$app_url|g" -e "s|__MOCK_OIDC_URL__|$mock_url|g" \
+    -e "s|__COOKIE_SECRET__|$COOKIE_SECRET|" -e "s|__CIPHER_SECRET__|$CIPHER_SECRET|" \
     docker/kratos/kratos.yml.tmpl >.stack/kratos.yml
 
-  # Kratos reads its configuration at start-up, so a new address needs new containers.
-  if [[ "$previous" != "$app_port" ]]; then
+  # Kratos reads its configuration at start-up, so new addresses need new containers.
+  if [[ "$previous" != "$app_port $mock_port" ]]; then
     recreate=(--force-recreate)
   fi
-  APP_PORT=$app_port "${compose[@]}" up --detach --build --wait --quiet-pull "${recreate[@]}"
-  echo "$app_port" >.stack/app-port
+  APP_PORT=$app_port MOCK_OIDC_PORT=$mock_port "${compose[@]}" up --detach --build --wait --quiet-pull "${recreate[@]}"
+  echo "$app_port $mock_port" >.stack/ports
 
   {
     echo "STACK_PROJECT=$project"
@@ -68,6 +84,7 @@ up() {
     echo "DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:$(host_port db 5432)/skipper_exam"
     echo "KRATOS_ADMIN_URL=http://127.0.0.1:$(host_port kratos 4434)"
     echo "MAILPIT_URL=http://127.0.0.1:$(host_port mailpit 8025)"
+    echo "MOCK_OIDC_URL=$mock_url"
   } >.stack.env
   cat .stack.env
 }
@@ -80,14 +97,14 @@ case "${1:-}" in
     up
     ;;
   down)
-    APP_PORT=0 "${compose[@]}" down --volumes --remove-orphans
+    APP_PORT=65535 MOCK_OIDC_PORT=65535 "${compose[@]}" down --volumes --remove-orphans
     rm -rf .stack.env .stack
     ;;
   name)
     echo "$project"
     ;;
   status)
-    APP_PORT=0 "${compose[@]}" ps
+    APP_PORT=65535 MOCK_OIDC_PORT=65535 "${compose[@]}" ps
     ;;
   *)
     echo "usage: $0 up|down|name|status" >&2

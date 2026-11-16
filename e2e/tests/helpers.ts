@@ -42,3 +42,12 @@ export async function signUp(page: Page, email: string, pass = password) {
 export async function expectSignedInAs(page: Page, email: string) {
   await expect(page.getByTestId("signed-in-email")).toHaveText(email);
 }
+
+// Signs in through the fake Google provider (the stack's mock OpenID Connect
+// server), as the Google user with the given email.
+export async function continueWithGoogle(page: Page, email: string) {
+  await page.getByRole("button", { name: "Continuă cu Google" }).click();
+  await page.locator("input[name=username]").fill(email);
+  await page.locator("textarea[name=claims]").fill(JSON.stringify({ email, email_verified: true }));
+  await page.locator("input[type=submit]").click();
+}

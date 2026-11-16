@@ -167,7 +167,7 @@ done_task() {
     exit 1
   fi
   if [[ -d "$dir" ]]; then
-    "$dir/scripts/stack.sh" down || true
+    "$dir/scripts/stack.sh" down || echo "warning: could not stop the stack of $name; check docker ps" >&2
     git -C "$main_root" worktree remove ${FORCE:+--force} "$dir"
   fi
   git -C "$main_root" branch -D "task/$name"

@@ -1,0 +1,199 @@
+{
+  "config": {
+    "configFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/playwright.config.ts",
+    "rootDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/test-runs/2026-11-16T20-38-49Z_task-google-sign-in_bcfe4ca47319/e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.49.1",
+    "workers": 12,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "google-sign-in.spec.ts",
+      "file": "google-sign-in.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "sign up with Google, then sign in with Google on another device",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "failed",
+                  "duration": 5155,
+                  "error": {
+                    "message": "TimeoutError: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Continuă cu Google' })\u001b[22m\n",
+                    "stack": "TimeoutError: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Continuă cu Google' })\u001b[22m\n\n    at continueWithGoogle (/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts:49:66)\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/google-sign-in.spec.ts:8:9",
+                    "location": {
+                      "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts",
+                      "column": 66,
+                      "line": 49
+                    },
+                    "snippet": "   at helpers.ts:49\n\n  47 | // server), as the Google user with the given email.\n  48 | export async function continueWithGoogle(page: Page, email: string) {\n> 49 |   await page.getByRole(\"button\", { name: \"Continuă cu Google\" }).click();\n     |                                                                  ^\n  50 |   await page.locator(\"input[name=username]\").fill(email);\n  51 |   await page.locator(\"textarea[name=claims]\").fill(JSON.stringify({ email, email_verified: true }));\n  52 |   await page.locator(\"input[type=submit]\").click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts",
+                        "column": 66,
+                        "line": 49
+                      },
+                      "message": "TimeoutError: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Continuă cu Google' })\u001b[22m\n\n\n   at helpers.ts:49\n\n  47 | // server), as the Google user with the given email.\n  48 | export async function continueWithGoogle(page: Page, email: string) {\n> 49 |   await page.getByRole(\"button\", { name: \"Continuă cu Google\" }).click();\n     |                                                                  ^\n  50 |   await page.locator(\"input[name=username]\").fill(email);\n  51 |   await page.locator(\"textarea[name=claims]\").fill(JSON.stringify({ email, email_verified: true }));\n  52 |   await page.locator(\"input[type=submit]\").click();\n    at continueWithGoogle (/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts:49:66)\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/google-sign-in.spec.ts:8:9"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:38:59.668Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/test-results/google-sign-in-sign-up-wit-999ac-th-Google-on-another-device-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts",
+                    "column": 66,
+                    "line": 49
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-f9db92b50b9b46c69574",
+          "file": "google-sign-in.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "Google sign-in with the email of a password account links Google to that account",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "failed",
+                  "duration": 5270,
+                  "error": {
+                    "message": "TimeoutError: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Continuă cu Google' })\u001b[22m\n",
+                    "stack": "TimeoutError: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Continuă cu Google' })\u001b[22m\n\n    at continueWithGoogle (/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts:49:66)\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/google-sign-in.spec.ts:21:9",
+                    "location": {
+                      "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts",
+                      "column": 66,
+                      "line": 49
+                    },
+                    "snippet": "   at helpers.ts:49\n\n  47 | // server), as the Google user with the given email.\n  48 | export async function continueWithGoogle(page: Page, email: string) {\n> 49 |   await page.getByRole(\"button\", { name: \"Continuă cu Google\" }).click();\n     |                                                                  ^\n  50 |   await page.locator(\"input[name=username]\").fill(email);\n  51 |   await page.locator(\"textarea[name=claims]\").fill(JSON.stringify({ email, email_verified: true }));\n  52 |   await page.locator(\"input[type=submit]\").click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts",
+                        "column": 66,
+                        "line": 49
+                      },
+                      "message": "TimeoutError: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Continuă cu Google' })\u001b[22m\n\n\n   at helpers.ts:49\n\n  47 | // server), as the Google user with the given email.\n  48 | export async function continueWithGoogle(page: Page, email: string) {\n> 49 |   await page.getByRole(\"button\", { name: \"Continuă cu Google\" }).click();\n     |                                                                  ^\n  50 |   await page.locator(\"input[name=username]\").fill(email);\n  51 |   await page.locator(\"textarea[name=claims]\").fill(JSON.stringify({ email, email_verified: true }));\n  52 |   await page.locator(\"input[type=submit]\").click();\n    at continueWithGoogle (/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts:49:66)\n    at /home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/google-sign-in.spec.ts:21:9"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:38:59.667Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/test-results/google-sign-in-Google-sign-9c2b3-inks-Google-to-that-account-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts",
+                    "column": 66,
+                    "line": 49
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-b47edd42e2e7624eb828",
+          "file": "google-sign-in.spec.ts",
+          "line": 17,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-16T20:38:59.411Z",
+    "duration": 5637.1990000000005,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

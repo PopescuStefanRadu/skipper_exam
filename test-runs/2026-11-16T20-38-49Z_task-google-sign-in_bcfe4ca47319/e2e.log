@@ -1,0 +1,216 @@
+ Image skipper-google-sign-in-eb4dade9-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 616B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 575B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 ...
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.4s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 1.0s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#7 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#7 DONE 0.0s
+
+#8 [stage-2 1/3] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#8 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#8 DONE 0.0s
+
+#9 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#9 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#9 DONE 0.0s
+
+#10 [internal] load build context
+#10 transferring context: 120.60kB done
+#10 DONE 0.0s
+
+#11 [web 2/7] RUN corepack enable
+#11 CACHED
+
+#12 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#12 CACHED
+
+#13 [web 3/7] WORKDIR /web
+#13 CACHED
+
+#14 [web 5/7] RUN pnpm install --frozen-lockfile
+#14 CACHED
+
+#15 [web 6/7] COPY web/ ./
+#15 DONE 0.0s
+
+#16 [web 7/7] RUN pnpm build
+#16 0.147 $ tsc -b && vite build
+#16 1.018 vite v6.0.7 building for production...
+#16 1.056 transforming...
+#16 1.414 ✓ 37 modules transformed.
+#16 1.475 rendering chunks...
+#16 1.478 computing gzip size...
+#16 1.482 dist/index.html                  0.32 kB │ gzip:  0.23 kB
+#16 1.483 dist/assets/index-DqPeM7vP.js  175.60 kB │ gzip: 57.31 kB
+#16 1.483 ✓ built in 447ms
+#16 DONE 1.5s
+
+#17 [backend 5/7] COPY cli cli
+#17 CACHED
+
+#18 [backend 2/7] WORKDIR /src
+#18 CACHED
+
+#19 [backend 6/7] COPY pkg pkg
+#19 CACHED
+
+#20 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#20 CACHED
+
+#21 [stage-2 2/3] COPY --from=backend /server /server
+#21 CACHED
+
+#22 [backend 3/7] COPY go.mod go.sum ./
+#22 CACHED
+
+#23 [backend 4/7] RUN go mod download
+#23 CACHED
+
+#24 [stage-2 3/3] COPY --from=web /web/dist /web
+#24 CACHED
+
+#25 exporting to image
+#25 exporting layers done
+#25 exporting manifest sha256:b0d6c6133357640825c57d4e208fedccbc548d78f1b37f207f769fa87fddf310 done
+#25 exporting config sha256:2685ca79a6dea6d546712156096d1c1fdf56fa7ffbcc70c5d38d32684146df44 done
+#25 exporting attestation manifest sha256:ad2030d1fcca1f2b2fb68772c0772938df8986f1018109ee94d1111fa52849f5 done
+#25 exporting manifest list sha256:1621245fb7961f5aa750b11e41b0ceeb17aa3a397e6864ec565f3b8137379ff0 done
+#25 naming to docker.io/library/skipper-google-sign-in-eb4dade9-app:latest done
+#25 unpacking to docker.io/library/skipper-google-sign-in-eb4dade9-app:latest done
+#25 DONE 0.1s
+
+#26 resolving provenance for metadata file
+#26 DONE 0.0s
+ Image skipper-google-sign-in-eb4dade9-app Built 
+ Network skipper-google-sign-in-eb4dade9_default Creating 
+ Network skipper-google-sign-in-eb4dade9_default Created 
+ Volume skipper-google-sign-in-eb4dade9_db Creating 
+ Volume skipper-google-sign-in-eb4dade9_db Created 
+ Container skipper-google-sign-in-eb4dade9-mailpit-1 Creating 
+ Container skipper-google-sign-in-eb4dade9-db-1 Creating 
+ Container skipper-google-sign-in-eb4dade9-mailpit-1 Created 
+ Container skipper-google-sign-in-eb4dade9-db-1 Created 
+ Container skipper-google-sign-in-eb4dade9-kratos-migrate-1 Creating 
+ Container skipper-google-sign-in-eb4dade9-kratos-migrate-1 Created 
+ Container skipper-google-sign-in-eb4dade9-kratos-1 Creating 
+ Container skipper-google-sign-in-eb4dade9-kratos-1 Created 
+ Container skipper-google-sign-in-eb4dade9-app-1 Creating 
+ Container skipper-google-sign-in-eb4dade9-app-1 Created 
+ Container skipper-google-sign-in-eb4dade9-db-1 Starting 
+ Container skipper-google-sign-in-eb4dade9-mailpit-1 Starting 
+ Container skipper-google-sign-in-eb4dade9-mailpit-1 Started 
+ Container skipper-google-sign-in-eb4dade9-db-1 Started 
+ Container skipper-google-sign-in-eb4dade9-db-1 Waiting 
+ Container skipper-google-sign-in-eb4dade9-db-1 Healthy 
+ Container skipper-google-sign-in-eb4dade9-kratos-migrate-1 Starting 
+ Container skipper-google-sign-in-eb4dade9-kratos-migrate-1 Started 
+ Container skipper-google-sign-in-eb4dade9-kratos-migrate-1 Waiting 
+ Container skipper-google-sign-in-eb4dade9-kratos-migrate-1 Exited 
+ Container skipper-google-sign-in-eb4dade9-kratos-1 Starting 
+ Container skipper-google-sign-in-eb4dade9-kratos-1 Started 
+ Container skipper-google-sign-in-eb4dade9-kratos-1 Waiting 
+ Container skipper-google-sign-in-eb4dade9-db-1 Waiting 
+ Container skipper-google-sign-in-eb4dade9-db-1 Healthy 
+ Container skipper-google-sign-in-eb4dade9-kratos-1 Healthy 
+ Container skipper-google-sign-in-eb4dade9-app-1 Starting 
+ Container skipper-google-sign-in-eb4dade9-app-1 Started 
+ Container skipper-google-sign-in-eb4dade9-db-1 Waiting 
+ Container skipper-google-sign-in-eb4dade9-kratos-migrate-1 Waiting 
+ Container skipper-google-sign-in-eb4dade9-kratos-1 Waiting 
+ Container skipper-google-sign-in-eb4dade9-mailpit-1 Waiting 
+ Container skipper-google-sign-in-eb4dade9-app-1 Waiting 
+ Container skipper-google-sign-in-eb4dade9-mailpit-1 Healthy 
+ Container skipper-google-sign-in-eb4dade9-db-1 Healthy 
+ Container skipper-google-sign-in-eb4dade9-kratos-migrate-1 Exited 
+ Container skipper-google-sign-in-eb4dade9-kratos-1 Healthy 
+ Container skipper-google-sign-in-eb4dade9-app-1 Healthy 
+STACK_PROJECT=skipper-google-sign-in-eb4dade9
+APP_URL=http://127.0.0.1:34859
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32801/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32802
+MAILPIT_URL=http://127.0.0.1:32800
+
+Running 2 tests using 2 workers
+
+  ✘  2 [chromium] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (5.2s)
+  ✘  1 [chromium] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (5.3s)
+
+
+  1) [chromium] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Continuă cu Google' })[22m
+
+
+       at helpers.ts:49
+
+      47 | // server), as the Google user with the given email.
+      48 | export async function continueWithGoogle(page: Page, email: string) {
+    > 49 |   await page.getByRole("button", { name: "Continuă cu Google" }).click();
+         |                                                                  ^
+      50 |   await page.locator("input[name=username]").fill(email);
+      51 |   await page.locator("textarea[name=claims]").fill(JSON.stringify({ email, email_verified: true }));
+      52 |   await page.locator("input[type=submit]").click();
+        at continueWithGoogle (/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts:49:66)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/google-sign-in.spec.ts:8:9
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/google-sign-in-sign-up-wit-999ac-th-Google-on-another-device-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/google-sign-in-sign-up-wit-999ac-th-Google-on-another-device-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Continuă cu Google' })[22m
+
+
+       at helpers.ts:49
+
+      47 | // server), as the Google user with the given email.
+      48 | export async function continueWithGoogle(page: Page, email: string) {
+    > 49 |   await page.getByRole("button", { name: "Continuă cu Google" }).click();
+         |                                                                  ^
+      50 |   await page.locator("input[name=username]").fill(email);
+      51 |   await page.locator("textarea[name=claims]").fill(JSON.stringify({ email, email_verified: true }));
+      52 |   await page.locator("input[type=submit]").click();
+        at continueWithGoogle (/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/helpers.ts:49:66)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests/google-sign-in.spec.ts:21:9
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/google-sign-in-Google-sign-9c2b3-inks-Google-to-that-account-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/google-sign-in-Google-sign-9c2b3-inks-Google-to-that-account-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [chromium] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device 
+    [chromium] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account 

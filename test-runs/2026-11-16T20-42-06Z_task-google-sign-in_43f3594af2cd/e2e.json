@@ -1,0 +1,1683 @@
+{
+  "config": {
+    "configFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/playwright.config.ts",
+    "rootDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 12
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/test-runs/2026-11-16T20-42-06Z_task-google-sign-in_43f3594af2cd/e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/test-results",
+        "repeatEach": 5,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/google-sign-in/e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.49.1",
+    "workers": 12,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "accounts.spec.ts",
+      "file": "accounts.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "sign up, stay signed in after a reload, then sign out",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 950,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:13.637Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-76d1329eaa612308a1c5",
+          "file": "accounts.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "signing in on a second device opens the same account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "passed",
+                  "duration": 1331,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:13.675Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-a5d8e127e7a9096ebb01",
+          "file": "accounts.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "opening the app while signed out leads to sign-in",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "status": "passed",
+                  "duration": 298,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:13.597Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-2315b96d1840621deb09",
+          "file": "accounts.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "a wrong password is refused without revealing account details",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "status": "passed",
+                  "duration": 915,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:13.667Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-0c6053cb248bf8fa01a2",
+          "file": "accounts.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "an unknown email gets the same message as a wrong password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "passed",
+                  "duration": 2323,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:13.666Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-6b813836fb62f95ad77a",
+          "file": "accounts.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "signing up with an email that is already used is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "status": "passed",
+                  "duration": 946,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:13.705Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-00e42cef4ea00afc1cc2",
+          "file": "accounts.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "a password shorter than 8 characters is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "passed",
+                  "duration": 418,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:13.651Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-bbfc5cdf8e149b0e5c30",
+          "file": "accounts.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "after a refused attempt, the form works again",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "status": "passed",
+                  "duration": 1383,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:13.653Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-21ed72c97e37addb01f0",
+          "file": "accounts.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "sign up, stay signed in after a reload, then sign out",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "status": "passed",
+                  "duration": 911,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:13.592Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-71c115dc47968aed41f8",
+          "file": "accounts.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "signing in on a second device opens the same account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "status": "passed",
+                  "duration": 1356,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:13.657Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-67cfaf308a000378d0d2",
+          "file": "accounts.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "opening the app while signed out leads to sign-in",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "status": "passed",
+                  "duration": 210,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:14.408Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-78386d4fd1afa47e46fc",
+          "file": "accounts.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "a wrong password is refused without revealing account details",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "status": "passed",
+                  "duration": 838,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:14.543Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-f05aceae2cad981415b8",
+          "file": "accounts.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "an unknown email gets the same message as a wrong password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "status": "passed",
+                  "duration": 183,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:14.569Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-20f7767a5d72b08144d8",
+          "file": "accounts.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "signing up with an email that is already used is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "status": "passed",
+                  "duration": 702,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:14.664Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-381175f55737d73a0825",
+          "file": "accounts.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "a password shorter than 8 characters is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "status": "passed",
+                  "duration": 275,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:15.027Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-6127b3f398daaf55b708",
+          "file": "accounts.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "after a refused attempt, the form works again",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "status": "passed",
+                  "duration": 1327,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:15.114Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-bde267190ebaa7dc91a6",
+          "file": "accounts.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "sign up, stay signed in after a reload, then sign out",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "status": "passed",
+                  "duration": 942,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:15.299Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-2a33317a581c03a3d211",
+          "file": "accounts.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "signing in on a second device opens the same account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "status": "passed",
+                  "duration": 1377,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:15.507Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-f9c82d73f32359278687",
+          "file": "accounts.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "opening the app while signed out leads to sign-in",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "status": "passed",
+                  "duration": 251,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:15.516Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-14a8cbcb28389b0f737b",
+          "file": "accounts.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "a wrong password is refused without revealing account details",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "status": "passed",
+                  "duration": 889,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:15.578Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-0c21be68e24a1ca8477a",
+          "file": "accounts.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "an unknown email gets the same message as a wrong password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "status": "passed",
+                  "duration": 1249,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:15.714Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-fde68c289c36052103f4",
+          "file": "accounts.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "signing up with an email that is already used is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "status": "passed",
+                  "duration": 832,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:15.766Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-f68fdd3719e8d174ab1e",
+          "file": "accounts.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "a password shorter than 8 characters is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "status": "passed",
+                  "duration": 343,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:15.833Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-d484474bc44b88566e8a",
+          "file": "accounts.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "after a refused attempt, the form works again",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 24,
+                  "status": "passed",
+                  "duration": 1289,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:15.910Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-478ba8a84e48bba84c40",
+          "file": "accounts.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "sign up, stay signed in after a reload, then sign out",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 26,
+                  "status": "passed",
+                  "duration": 879,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:16.605Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-47823649187e6abd3a7f",
+          "file": "accounts.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "signing in on a second device opens the same account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 27,
+                  "status": "passed",
+                  "duration": 1339,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:16.701Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-b89bed3c4cdc02c64485",
+          "file": "accounts.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "opening the app while signed out leads to sign-in",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 28,
+                  "status": "passed",
+                  "duration": 252,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:16.685Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-bb31ae3a553798e2e429",
+          "file": "accounts.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "a wrong password is refused without revealing account details",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 29,
+                  "status": "passed",
+                  "duration": 918,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:16.731Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-d8065030f110c7ba718e",
+          "file": "accounts.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "an unknown email gets the same message as a wrong password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 30,
+                  "status": "passed",
+                  "duration": 1210,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:16.888Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-daddad677b16c9037206",
+          "file": "accounts.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "signing up with an email that is already used is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 31,
+                  "status": "passed",
+                  "duration": 853,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:16.961Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-8419cfcf93e7a5eddabe",
+          "file": "accounts.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "a password shorter than 8 characters is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 32,
+                  "status": "passed",
+                  "duration": 291,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:17.123Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-18ca4f95424d09f87549",
+          "file": "accounts.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "after a refused attempt, the form works again",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 33,
+                  "status": "passed",
+                  "duration": 1311,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:17.183Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-a0bba6415ad4f690142e",
+          "file": "accounts.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "sign up, stay signed in after a reload, then sign out",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 35,
+                  "status": "passed",
+                  "duration": 919,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:17.497Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-afd5b08828023f42a1c0",
+          "file": "accounts.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "signing in on a second device opens the same account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 36,
+                  "status": "passed",
+                  "duration": 1336,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:17.726Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-5fb1f04d64e62e4e7b46",
+          "file": "accounts.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "opening the app while signed out leads to sign-in",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 37,
+                  "status": "passed",
+                  "duration": 265,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:17.878Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-3f61f576c3ba7c1e2660",
+          "file": "accounts.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "a wrong password is refused without revealing account details",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 38,
+                  "status": "passed",
+                  "duration": 935,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:17.960Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-7db071f84f461fe376d9",
+          "file": "accounts.spec.ts",
+          "line": 41,
+          "column": 1
+        },
+        {
+          "title": "an unknown email gets the same message as a wrong password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 39,
+                  "status": "passed",
+                  "duration": 2219,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:18.155Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-8158f1c09cfef027e068",
+          "file": "accounts.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "signing up with an email that is already used is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 40,
+                  "status": "passed",
+                  "duration": 804,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:18.371Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-e518a7db561249b0341d",
+          "file": "accounts.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "a password shorter than 8 characters is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 41,
+                  "status": "passed",
+                  "duration": 255,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:18.621Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-9632729899d3a9ae040f",
+          "file": "accounts.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "after a refused attempt, the form works again",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 42,
+                  "status": "passed",
+                  "duration": 1252,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:18.626Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cbe1475516a9f5b841ab-3b470a96103c1d16b392",
+          "file": "accounts.spec.ts",
+          "line": 65,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "google-sign-in.spec.ts",
+      "file": "google-sign-in.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "sign up with Google, then sign in with Google on another device",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "status": "passed",
+                  "duration": 1142,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:13.657Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-f9db92b50b9b46c69574",
+          "file": "google-sign-in.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "Google sign-in with the email of a password account links Google to that account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "status": "passed",
+                  "duration": 1559,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:13.610Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-b47edd42e2e7624eb828",
+          "file": "google-sign-in.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "sign up with Google, then sign in with Google on another device",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "status": "passed",
+                  "duration": 1129,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:15.125Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-ac6846101ea71b9558fd",
+          "file": "google-sign-in.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "Google sign-in with the email of a password account links Google to that account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "status": "passed",
+                  "duration": 1505,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:14.759Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-9713ee20a50929bdd161",
+          "file": "google-sign-in.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "sign up with Google, then sign in with Google on another device",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "status": "passed",
+                  "duration": 862,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:15.837Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-68ba82fa76d40bbc4e1e",
+          "file": "google-sign-in.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "Google sign-in with the email of a password account links Google to that account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 25,
+                  "status": "passed",
+                  "duration": 1496,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:16.516Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-204203fd1c1dd2984d9a",
+          "file": "google-sign-in.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "sign up with Google, then sign in with Google on another device",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 34,
+                  "status": "passed",
+                  "duration": 1023,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:17.435Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-5aa77ccd6180e2b8757e",
+          "file": "google-sign-in.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "Google sign-in with the email of a password account links Google to that account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 28,
+                  "status": "passed",
+                  "duration": 1521,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:16.999Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-0d5a7796f4739e1944dd",
+          "file": "google-sign-in.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "sign up with Google, then sign in with Google on another device",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 43,
+                  "status": "passed",
+                  "duration": 929,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:18.650Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-e3930846145e483dd940",
+          "file": "google-sign-in.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "Google sign-in with the email of a password account links Google to that account",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 37,
+                  "status": "passed",
+                  "duration": 1572,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T20:42:18.197Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cc837208043dac8a618b-e5f0325771c5f177e4cd",
+          "file": "google-sign-in.spec.ts",
+          "line": 17,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-16T20:42:13.252Z",
+    "duration": 7209.759999999999,
+    "expected": 50,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

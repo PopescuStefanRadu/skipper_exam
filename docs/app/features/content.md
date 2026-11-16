@@ -38,6 +38,8 @@ The app has three kinds of content. Each one can change independently and must b
 - **Every link has a status:** *suggested* (proposed, not yet checked), *verified* (a reviewer confirmed the passage supports the answer), or *stale* (the question or the source changed since it was verified). Unverified links are shown with a clear label, see [Explanations](explanations.md).
 - **Conflicts are flagged, not hidden.** If the official answer seems to contradict the source material, the question is flagged for review.
 - Every content update passes automated validation and the full e2e suite before it's published.
+- **The apps get the content as one package**, built by the server at start-up from the files in `content/`: the questions used by the available exam types, their subjects and equivalence groups, and each exam type with its question IDs. The package has a version derived from its content, so devices download it again only when it changed. Publishing a content update means deploying it and restarting the server. Exams already in progress keep their questions, since question IDs are stable.
+- **Exams only use questions with exactly one correct answer.** A question whose source marks no answer, or several, as correct stays in the pool with an issue, but no exam includes it. Validation checks that every available exam type has enough distinct questions for one exam, counting each equivalence group once.
 
 ## Updating content
 

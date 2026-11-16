@@ -1,0 +1,29 @@
+{
+  "started": "2026-11-16T21-03-42Z",
+  "branch": "task/exam-simulation",
+  "commit": "ca7f136ce80fae1ffb03c82d4fc1df1540f2a33f",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1407
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 123
+    },
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 11260
+    }
+  ],
+  "result": "passed"
+}

@@ -1,17 +1,23 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { getExamTypes, type ExamType } from "./api";
 import { AuthForm } from "./AuthForm";
+import { ContentProvider, useContent } from "./content";
+import { activeExam, examEvents, newExam } from "./exam";
+import { ExamPage } from "./ExamPage";
+import { EventsProvider, useEvents } from "./events";
 import { ExamTypePage } from "./ExamTypePage";
 import { signOut } from "./kratos";
 import { NewPassword, Recovery } from "./Recovery";
+import { ResultPage } from "./ResultPage";
 import { ServerStatus } from "./ServerStatus";
+import { uuid } from "./storage";
 import { SessionProvider, useSession } from "./session";
 import { strings } from "./strings";
 
 export function App() {
   return (
     <SessionProvider>
+      <ContentProvider>
       <main>
         <h1>{strings.appTitle}</h1>
         <p>{strings.appSubtitle}</p>
@@ -21,10 +27,13 @@ export function App() {
           <Route path="/recuperare" element={<Recovery />} />
           <Route path="/setari" element={<NewPassword />} />
           <Route path="/tip-examen" element={<RequireSession><ExamTypePage /></RequireSession>} />
+          <Route path="/examen" element={<RequireSession><RequireExamType><ExamPage /></RequireExamType></RequireSession>} />
+          <Route path="/examen/:examId/rezultat" element={<RequireSession><ResultPage /></RequireSession>} />
           <Route path="*" element={<RequireSession><RequireExamType><Home /></RequireExamType></RequireSession>} />
         </Routes>
         <ServerStatus />
       </main>
+      </ContentProvider>
     </SessionProvider>
   );
 }
@@ -35,10 +44,10 @@ function RequireSession({ children }: { children: ReactNode }) {
   if (me === undefined) return <p>{strings.loading}</p>;
   if (me === null) return <Navigate to="/autentificare" replace />;
   return (
-    <>
+    <EventsProvider key={me.id} userId={me.id}>
       <AccountBar />
       {children}
-    </>
+    </EventsProvider>
   );
 }
 
@@ -122,17 +131,65 @@ function SignUp() {
 
 function Home() {
   const { profile } = useSession();
-  const [types, setTypes] = useState<ExamType[]>([]);
+  const content = useContent();
+  const { events, record } = useEvents();
+  const navigate = useNavigate();
+  const [expired, setExpired] = useState<string>();
+  const active = activeExam(events);
+  const examType = content?.examTypes.find((t) => t.id === profile?.examType);
+  const format = examType?.format;
+
+  // An exam whose time ran out while the user was away is submitted as it was.
+  const activeExpired = active !== undefined && active.deadline <= Date.now();
   useEffect(() => {
-    getExamTypes().then(setTypes, () => setTypes([]));
-  }, []);
-  const examType = types.find((t) => t.id === profile?.examType);
+    if (!active || !activeExpired) return;
+    record(examEvents.submitted, { examId: active.id, reason: "timeout" }, new Date(active.deadline));
+    setExpired(active.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active?.id, activeExpired]);
+
+  function start() {
+    if (!content || !examType) return;
+    const id = uuid();
+    record(examEvents.started, newExam(content, examType.id, id));
+    navigate("/examen");
+  }
+
   return (
     <section>
       <p>
         {strings.home.preparingFor} <strong data-testid="exam-type">{examType?.name ?? profile?.examType}</strong>
       </p>
       <Link to="/tip-examen">{strings.home.changeExamType}</Link>
+      {content === null && <p role="alert">{strings.exam.contentUnavailable}</p>}
+      {format && (
+        <>
+          <p>{strings.exam.format(format.questions, format.minutes, format.passPercent)}</p>
+          {!format.confirmed && <p>{strings.exam.formatNotConfirmed}</p>}
+        </>
+      )}
+      {expired && (
+        <p>
+          {strings.exam.expiredWhileAway} <Link to={`/examen/${expired}/rezultat`}>{strings.exam.seeResult}</Link>
+        </p>
+      )}
+      {active && !activeExpired ? (
+        <div>
+          <p>{strings.exam.unfinished}</p>
+          <button type="button" onClick={() => navigate("/examen")}>
+            {strings.exam.resume}
+          </button>
+          <button type="button" onClick={() => record(examEvents.abandoned, { examId: active.id })}>
+            {strings.exam.abandon}
+          </button>
+        </div>
+      ) : (
+        format && (
+          <button type="button" onClick={start}>
+            {strings.exam.start}
+          </button>
+        )
+      )}
     </section>
   );
 }

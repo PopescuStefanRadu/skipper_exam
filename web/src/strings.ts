@@ -43,6 +43,38 @@ export const strings = {
     preparingFor: "Te pregătești pentru:",
     changeExamType: "Schimbă examenul",
   },
+  exam: {
+    format: (questions: number, minutes: number, passPercent: number) =>
+      `${questions} de întrebări, ${minutes} de minute, promovare de la ${passPercent}%`,
+    formatNotConfirmed: "Formatul examenului nu este confirmat oficial.",
+    start: "Începe examenul",
+    unfinished: "Ai un examen neterminat.",
+    resume: "Continuă examenul",
+    abandon: "Renunță la examen",
+    expiredWhileAway: "Timpul examenului neterminat a expirat.",
+    seeResult: "Vezi rezultatul",
+    questionOf: (n: number, total: number) => `Întrebarea ${n} din ${total}`,
+    timeLeft: "Timp rămas",
+    unanswered: (n: number) =>
+      `Ai ${n} ${n === 1 ? "întrebare" : n < 20 ? "întrebări" : "de întrebări"} fără răspuns. ${n === 1 ? "Aceasta va fi considerată greșită" : "Acestea vor fi considerate greșite"}.`,
+    passed: "Admis",
+    failed: "Respins",
+    score: (correct: number, total: number, percent: number, passPercent: number) =>
+      `${correct} din ${total} de răspunsuri corecte (${percent}%). Pragul de promovare este ${passPercent}%.`,
+    timedOut: "Timpul a expirat.",
+    wrongAnswers: "Răspunsuri greșite",
+    yourAnswer: "Răspunsul tău:",
+    correctAnswer: "Răspunsul corect:",
+    noAnswer: "Fără răspuns",
+    notFound: "Examenul nu a fost găsit.",
+    contentUnavailable: "Întrebările nu au putut fi încărcate. Verifică conexiunea și încearcă din nou.",
+  },
+  nav: {
+    next: "Next",
+    previous: "Previous",
+    submit: "Submit",
+    back: "Back",
+  },
   examType: {
     title: "Pentru ce examen te pregătești?",
     notAvailable: "Nu este disponibil încă.",

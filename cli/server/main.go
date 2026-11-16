@@ -15,6 +15,7 @@ import (
 
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/content"
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/db"
+	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/events"
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/profile"
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server"
 )
@@ -60,6 +61,11 @@ func run() error {
 		return fmt.Errorf("load content: %w", err)
 	}
 
+	pkg, err := c.Package()
+	if err != nil {
+		return fmt.Errorf("content package: %w", err)
+	}
+
 	kratos, err := server.NewKratos(os.Getenv("KRATOS_PUBLIC_URL"))
 	if err != nil || os.Getenv("KRATOS_PUBLIC_URL") == "" {
 		return errors.New("KRATOS_PUBLIC_URL is required")
@@ -69,7 +75,9 @@ func run() error {
 		Sessions:      kratos,
 		AccountsProxy: kratos.Proxy(),
 		Profiles:      &profile.Store{Pool: pool},
+		Events:        &events.Store{Pool: pool},
 		ExamTypes:     c.ExamTypes,
+		Content:       pkg,
 	}
 	if dir := os.Getenv("WEB_DIR"); dir != "" {
 		cfg.Web = os.DirFS(dir)

@@ -42,6 +42,11 @@ export const strings = {
     signOut: "Ieșire din cont",
     preparingFor: "Te pregătești pentru:",
     changeExamType: "Schimbă examenul",
+    examTitle: "Examen simulat",
+    learningTitle: "Învățare",
+    questionsSeen: "întrebări văzute",
+    toReview: "de recapitulat",
+    openLearning: "Învățare și progres",
   },
   exam: {
     format: (questions: number, minutes: number, passPercent: number) =>

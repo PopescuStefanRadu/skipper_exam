@@ -17,10 +17,17 @@ export function ServerStatus() {
     };
   }, []);
 
-  const label = { checking: strings.serverChecking, ok: strings.serverOk, unavailable: strings.serverUnavailable }[server];
+  const label = {
+    checking: strings.serverChecking,
+    ok: strings.serverOk,
+    unavailable: strings.serverUnavailable,
+  }[server];
   return (
     <p>
-      {strings.serverStatus}: <span data-testid="server-status" data-state={server}>{label}</span>
+      {strings.serverStatus}:{" "}
+      <span className="status-dot" data-testid="server-status" data-state={server}>
+        {label}
+      </span>
     </p>
   );
 }

@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-16T23-05-01Z",
+  "branch": "task/design",
+  "commit": "e774f214d8a1ade2c39e9b2659e9b508f9b3da61",
+  "ci": false,
+  "suites_requested": [
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 19440
+    }
+  ],
+  "result": "passed"
+}

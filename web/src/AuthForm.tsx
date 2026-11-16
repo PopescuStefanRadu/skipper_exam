@@ -39,7 +39,6 @@ export function AuthForm({ kind, title, submitLabel, passwordHint, onSuccess }: 
       .catch(() => createFlow(kind).then(setFlow, () => setErrors([strings.errors.generic])));
   }, [kind, flowId]);
 
-
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!flow) return;
@@ -78,7 +77,7 @@ export function AuthForm({ kind, title, submitLabel, passwordHint, onSuccess }: 
         </ul>
       )}
       {info.map((m) => (
-        <p key={m} role="status">
+        <p key={m} role="status" className="info">
           {m}
         </p>
       ))}
@@ -102,11 +101,11 @@ export function AuthForm({ kind, title, submitLabel, passwordHint, onSuccess }: 
           required
         />
       </label>
-      {passwordHint && <p>{passwordHint}</p>}
-      <button type="submit" disabled={!flow || busy}>
+      {passwordHint && <p className="hint">{passwordHint}</p>}
+      <button type="submit" className="primary" disabled={!flow || busy}>
         {submitLabel}
       </button>
-      <p>{strings.signIn.or}</p>
+      <p className="divider">{strings.signIn.or}</p>
       <button type="button" onClick={google} disabled={!flow}>
         {strings.signIn.google}
       </button>

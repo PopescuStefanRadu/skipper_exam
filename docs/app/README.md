@@ -19,6 +19,10 @@ Progress belongs to the user's account and is shared across both platforms.
 
 The interface is in Romanian, like the questions and the source material. The exception is short navigation words such as *Next*, *Previous*, *Back* and *Submit*, which stay in English because the Romanian versions read awkwardly. Interface text is kept in one place so wording can be changed without touching features.
 
+## Visual design
+
+One calm, nautical look on every screen, in light and dark mode (following the device's setting): a navy top bar with the app's name and the account, content in cards, one primary action per screen, and answers as large tappable cards. Pass and right answers are green, fail and wrong answers red, unverified and warnings amber. Colours are defined once as tokens in `web/src/index.css`, and fonts are the device's own, so nothing is downloaded and the app looks the same offline. On phones, every control is at least 44px high and nothing is wider than the screen. The screenshot tour covers light and dark mode.
+
 ## Features
 
 Each feature has its own document. It describes the expected behaviour and the end-to-end scenarios that prove it.

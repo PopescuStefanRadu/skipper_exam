@@ -24,17 +24,31 @@ export function QuestionPage() {
   const reviewer = me?.roles?.includes("reviewer") ?? false;
 
   return (
-    <section>
-      <h2 data-testid="question-text">{question.text}</h2>
-      {given !== undefined && (
-        <p>
-          {s.yourAnswer} <span data-testid="given">{given}</span>
+    <section className="stack">
+      <div className="card">
+        <h2 data-testid="question-text">{question.text}</h2>
+        {given !== undefined && (
+          <p className="answer-line given">
+            <span className="mark" aria-hidden="true">
+              ✗
+            </span>
+            <span>
+              {s.yourAnswer} <span data-testid="given">{given}</span>
+            </span>
+          </p>
+        )}
+        <p className="answer-line right">
+          <span className="mark" aria-hidden="true">
+            ✓
+          </span>
+          <span>
+            {s.correctAnswer} <strong data-testid="correct">{question.answers.find((a) => a.correct)?.text}</strong>
+          </span>
         </p>
-      )}
-      <p>
-        {s.correctAnswer} <strong data-testid="correct">{question.answers.find((a) => a.correct)?.text}</strong>
-      </p>
-      <Why e={e} />
+      </div>
+      <div className="card">
+        <Why e={e} />
+      </div>
       {reviewer && <ReviewPanel questionId={question.id} e={e} />}
     </section>
   );
@@ -46,7 +60,11 @@ export function Why({ e }: { e?: Explanation }) {
   return (
     <>
       <h3>{s.why}</h3>
-      {e?.flagged && <p role="status">{s.flagged}</p>}
+      {e?.flagged && (
+        <p role="status" className="notice">
+          {s.flagged}
+        </p>
+      )}
       {shown ? <ExplanationView e={shown} /> : <p>{s.none}</p>}
     </>
   );
@@ -57,7 +75,9 @@ function ExplanationView({ e }: { e: Explanation }) {
   return (
     <figure>
       <p>
-        <span className={`badge ${verified ? "badge-verified" : "badge-unverified"}`}>{verified ? s.verified : s.unverified}</span>
+        <span className={`badge ${verified ? "badge-verified" : "badge-unverified"}`}>
+          {verified ? s.verified : s.unverified}
+        </span>
         {!verified && ` ${s.unverifiedHint}`}
       </p>
       <blockquote data-testid="quote">{e.quote}</blockquote>
@@ -93,7 +113,7 @@ function ReviewPanel({ questionId, e }: { questionId: string; e?: Explanation })
   const sources = [...new Map((explanations ?? []).map((x) => [x.source, x.sourceTitle])).entries()];
 
   return (
-    <aside aria-label={r.title}>
+    <aside aria-label={r.title} className="card review-panel">
       <h3>{r.title}</h3>
       {e?.concern && (
         <p>
@@ -183,7 +203,9 @@ function CorrectionForm({
         {r.quote}
         <textarea value={quote} onChange={(ev) => setQuote(ev.target.value)} rows={5} required />
       </label>
-      <button type="submit">{r.saveCorrection}</button>
+      <button type="submit" className="primary">
+        {r.saveCorrection}
+      </button>
     </form>
   );
 }
@@ -201,7 +223,9 @@ function FlagForm({ onSend }: { onSend: (note: string) => void }) {
         {r.whatsWrong}
         <textarea value={note} onChange={(ev) => setNote(ev.target.value)} rows={3} required />
       </label>
-      <button type="submit">{r.sendFlag}</button>
+      <button type="submit" className="primary">
+        {r.sendFlag}
+      </button>
     </form>
   );
 }

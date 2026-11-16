@@ -193,3 +193,21 @@ test("learning", async ({ page }) => {
   await expect(page.getByTestId("session-score")).toBeVisible();
   await screenshot(page, "28-mistakes-done");
 });
+
+test("dark mode", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "dark" });
+  const pkg = await contentPackage(page);
+  await page.goto("/autentificare");
+  await expect(page.getByTestId("server-status")).toHaveAttribute("data-state", "ok");
+  await screenshot(page, "29-dark-sign-in");
+  await startExam(page, "C");
+  await answer(page, pkg, true);
+  await screenshot(page, "30-dark-exam-question");
+  await page.goto("/");
+  await expect(page.getByText("Ai un examen neterminat.")).toBeVisible();
+  await screenshot(page, "31-dark-home");
+  await page.goto("/invatare/colreg");
+  await answer(page, pkg, false);
+  await expect(page.getByTestId("feedback")).toBeVisible();
+  await screenshot(page, "32-dark-learning-wrong");
+});

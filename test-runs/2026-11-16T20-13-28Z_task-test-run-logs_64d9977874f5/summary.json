@@ -1,0 +1,29 @@
+{
+  "started": "2026-11-16T20-13-28Z",
+  "branch": "task/test-run-logs",
+  "commit": "64d9977874f5099f511961a49ad81ff9c32a4674",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1211
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 90
+    },
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 4676
+    }
+  ],
+  "result": "passed"
+}

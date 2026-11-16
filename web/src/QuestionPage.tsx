@@ -21,7 +21,6 @@ export function QuestionPage() {
   const question = content?.questions.find((q) => q.id === questionId);
   if (!question) return <p role="alert">{s.unknownQuestion}</p>;
   const e = explanations.find((x) => x.questionId === question.id);
-  const shown = e && e.status !== "rejected" ? e : undefined;
   const reviewer = me?.roles?.includes("reviewer") ?? false;
 
   return (
@@ -35,11 +34,21 @@ export function QuestionPage() {
       <p>
         {s.correctAnswer} <strong data-testid="correct">{question.answers.find((a) => a.correct)?.text}</strong>
       </p>
+      <Why e={e} />
+      {reviewer && <ReviewPanel questionId={question.id} e={e} />}
+    </section>
+  );
+}
+
+// Why the correct answer is correct: the explanation, unless rejected by a reviewer.
+export function Why({ e }: { e?: Explanation }) {
+  const shown = e && e.status !== "rejected" ? e : undefined;
+  return (
+    <>
       <h3>{s.why}</h3>
       {e?.flagged && <p role="status">{s.flagged}</p>}
       {shown ? <ExplanationView e={shown} /> : <p>{s.none}</p>}
-      {reviewer && <ReviewPanel questionId={question.id} e={e} />}
-    </section>
+    </>
   );
 }
 

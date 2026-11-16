@@ -18,10 +18,11 @@ type Events interface {
 
 // eventTypes are the event types the apps record.
 var eventTypes = map[string]bool{
-	"exam.started":   true,
-	"exam.answered":  true,
-	"exam.submitted": true,
-	"exam.abandoned": true,
+	"exam.started":      true,
+	"exam.answered":     true,
+	"exam.submitted":    true,
+	"exam.abandoned":    true,
+	"practice.answered": true,
 }
 
 const (

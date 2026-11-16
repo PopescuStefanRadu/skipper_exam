@@ -5,7 +5,7 @@
 - `docs/DEVELOPMENT.md`: the development practices, especially the e2e-first loop.
 - `docs/app/README.md`: the app overview (goal, platforms, technical direction, open points) and the index of feature documents. Each feature document in `docs/app/features/` holds that feature's behaviour and its e2e scenarios. `docs/app/features/content.md` describes how to update the question banks, the bibliography and the source links.
 
-Work **e2e-first**. Update the feature document and its e2e scenario before implementing, then iterate until the full e2e suite passes.
+Work **e2e-first**. Update the feature document and its e2e scenario before implementing, then iterate until the full e2e suite passes. Parallel tasks use one git worktree and branch each, with an isolated stack on free ports. Branches are integrated into `main` one at a time: rebase, run the full suite, then fast-forward. See `docs/DEVELOPMENT.md`.
 
 ## Project status
 

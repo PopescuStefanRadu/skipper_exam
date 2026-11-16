@@ -41,7 +41,23 @@ Each feature has its own document. It describes the expected behaviour and the e
 - **Hosting:** the backend initially runs on a home server. It's packaged so it runs the same way anywhere, and can move to a hosted server later. Because Android works offline, short outages at home only delay syncing. To be reachable from outside the home it needs a stable public address with HTTPS, which Google sign-in also requires. It also needs regular database backups.
 - **Android distribution:** development builds installed directly on the device at first, then Google Play.
 - **E2E tooling:** browser automation for web scenarios and a mobile UI testing tool for the Android emulator.
-See
+- **Progress as an append-only record:** answers are stored as a growing list, never overwritten. Offline use and syncing between devices then come down to merging lists.
+
+### Chosen tools
+
+| Area | Tool |
+|---|---|
+| Backend | Go, PostgreSQL |
+| App (web and Android) | TypeScript and React, installable in the browser and usable offline |
+| Android packaging | Capacitor, with on-device storage for offline content and progress |
+| Accounts | Ory Kratos (self-hosted): passwords, Google sign-in, password reset, account deletion |
+| Web e2e tests | Playwright |
+| Android e2e tests | Maestro, on an emulator |
+| Fake email in tests | Mailpit: captures the emails the app sends, so tests can read them |
+| Fake Google sign-in in tests | A mock sign-in server |
+| Content tools | Command-line importer for the RNA PDFs; Tesseract OCR (Romanian) for scanned documents |
+| Full stack, locally and in CI | Docker Compose, started through `make`; CI on GitHub Actions |
+
 ## Open points
 
 - The official exam format (questions per exam, time limit, pass mark) isn't in OMTI 427/2026. It's delegated to an unpublished ANR methodology (see [Exam types](features/exam-types.md)).

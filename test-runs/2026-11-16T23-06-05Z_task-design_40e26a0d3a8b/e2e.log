@@ -1,0 +1,269 @@
+ Image skipper-design-3eba0ed2-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 584B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 ...
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.4s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.5s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 69.83kB 0.0s done
+#7 DONE 0.0s
+
+#8 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#8 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#8 DONE 0.0s
+
+#9 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#9 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#9 DONE 0.0s
+
+#10 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#10 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#10 DONE 0.0s
+
+#11 [web 3/7] WORKDIR /web
+#11 CACHED
+
+#12 [web 2/7] RUN corepack enable
+#12 CACHED
+
+#13 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#13 CACHED
+
+#14 [web 5/7] RUN pnpm install --frozen-lockfile
+#14 CACHED
+
+#15 [web 6/7] COPY web/ ./
+#15 DONE 0.0s
+
+#16 [web 7/7] RUN pnpm build
+#16 0.171 $ tsc -b && vite build
+#16 1.575 vite v6.0.7 building for production...
+#16 1.618 transforming...
+#16 2.116 ✓ 49 modules transformed.
+#16 2.184 rendering chunks...
+#16 2.189 computing gzip size...
+#16 2.194 dist/index.html                   0.40 kB │ gzip:  0.27 kB
+#16 2.194 dist/assets/index-CJW3_map.css   10.45 kB │ gzip:  2.91 kB
+#16 2.194 dist/assets/index-BrbsFk3s.js   207.53 kB │ gzip: 66.20 kB
+#16 2.194 ✓ built in 600ms
+#16 DONE 3.3s
+
+#17 [backend 4/7] RUN go mod download
+#17 CACHED
+
+#18 [backend 6/7] COPY pkg pkg
+#18 CACHED
+
+#19 [backend 2/7] WORKDIR /src
+#19 CACHED
+
+#20 [backend 5/7] COPY cli cli
+#20 CACHED
+
+#21 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#21 CACHED
+
+#22 [backend 3/7] COPY go.mod go.sum ./
+#22 CACHED
+
+#23 [stage-2 2/4] COPY --from=backend /server /server
+#23 CACHED
+
+#24 [stage-2 3/4] COPY --from=web /web/dist /web
+#24 DONE 0.0s
+
+#25 [stage-2 4/4] COPY content /content
+#25 DONE 0.0s
+
+#26 exporting to image
+#26 exporting layers
+#26 exporting layers 0.8s done
+#26 exporting manifest sha256:635d2c7825ed75c9a9449daf8f873c5585434c2e22c44517e3e21b1e2c5a43a5 done
+#26 exporting config sha256:a3154be99483e67e153b0bf341469a3c68bba99bd211a7dbc813dc80046966fd 0.0s done
+#26 exporting attestation manifest sha256:f82ddb42d28b0e6b49887ed241332cfc1d04f8e049324978ac4b36d204e6a878 done
+#26 exporting manifest list sha256:b1cc385726eb3dd56e827a5782bf3d8cbaab31556116de3649e1bab4ed4e1a25 done
+#26 naming to docker.io/library/skipper-design-3eba0ed2-app:latest done
+#26 unpacking to docker.io/library/skipper-design-3eba0ed2-app:latest 0.1s done
+#26 DONE 1.0s
+
+#27 resolving provenance for metadata file
+#27 DONE 0.0s
+ Image skipper-design-3eba0ed2-app Built 
+ Container skipper-design-3eba0ed2-db-1 Running 
+ Container skipper-design-3eba0ed2-kratos-1 Running 
+ Container skipper-design-3eba0ed2-mock-oidc-1 Running 
+ Container skipper-design-3eba0ed2-mailpit-1 Running 
+ Container skipper-design-3eba0ed2-app-1 Recreate 
+ Container skipper-design-3eba0ed2-app-1 Recreated 
+ Container skipper-design-3eba0ed2-db-1 Waiting 
+ Container skipper-design-3eba0ed2-db-1 Healthy 
+ Container skipper-design-3eba0ed2-kratos-migrate-1 Starting 
+ Container skipper-design-3eba0ed2-kratos-migrate-1 Started 
+ Container skipper-design-3eba0ed2-kratos-migrate-1 Waiting 
+ Container skipper-design-3eba0ed2-kratos-migrate-1 Exited 
+ Container skipper-design-3eba0ed2-kratos-1 Waiting 
+ Container skipper-design-3eba0ed2-db-1 Waiting 
+ Container skipper-design-3eba0ed2-kratos-1 Healthy 
+ Container skipper-design-3eba0ed2-db-1 Healthy 
+ Container skipper-design-3eba0ed2-app-1 Starting 
+ Container skipper-design-3eba0ed2-app-1 Started 
+ Container skipper-design-3eba0ed2-app-1 Waiting 
+ Container skipper-design-3eba0ed2-db-1 Waiting 
+ Container skipper-design-3eba0ed2-kratos-migrate-1 Waiting 
+ Container skipper-design-3eba0ed2-kratos-1 Waiting 
+ Container skipper-design-3eba0ed2-mock-oidc-1 Waiting 
+ Container skipper-design-3eba0ed2-mailpit-1 Waiting 
+ Container skipper-design-3eba0ed2-mock-oidc-1 Healthy 
+ Container skipper-design-3eba0ed2-mailpit-1 Healthy 
+ Container skipper-design-3eba0ed2-kratos-1 Healthy 
+ Container skipper-design-3eba0ed2-db-1 Healthy 
+ Container skipper-design-3eba0ed2-kratos-migrate-1 Exited 
+ Container skipper-design-3eba0ed2-app-1 Healthy 
+STACK_PROJECT=skipper-design-3eba0ed2
+APP_URL=http://127.0.0.1:54527
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32831/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32833
+MAILPIT_URL=http://127.0.0.1:32832
+MOCK_OIDC_URL=http://127.0.0.1:36895
+
+Running 112 tests using 12 workers
+
+  ✓  1 [web] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (454ms)
+  ✓  3 [web] › accounts.spec.ts:47:1 › an unknown email gets the same message as a wrong password (549ms)
+  ✓  4 [web] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (600ms)
+  ✓  8 [web] › accounts.spec.ts:34:1 › opening the app while signed out leads to sign-in (633ms)
+  ✓  11 [web] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (637ms)
+  ✓  12 [web] › accounts.spec.ts:59:1 › a password shorter than 8 characters is refused (818ms)
+  ✓  2 [web] › accounts.spec.ts:4:1 › sign up, stay signed in after a reload, then sign out (1.3s)
+  ✓  7 [web] › accounts.spec.ts:52:1 › signing up with an email that is already used is refused (1.3s)
+  ✓  14 [web] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (845ms)
+  ✓  10 [web] › accounts.spec.ts:40:1 › a wrong password is refused without revealing account details (1.3s)
+  ✓  13 [web] › exam-type.spec.ts:24:1 › changing the exam type later (1.2s)
+  ✓  15 [web] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (1.0s)
+  ✓  16 [web] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (962ms)
+  ✓  6 [web] › accounts.spec.ts:64:1 › after a refused attempt, the form works again (1.8s)
+  ✓  5 [web] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (2.0s)
+  ✓  9 [web] › accounts.spec.ts:18:1 › signing in on a second device opens the same account (2.0s)
+  ✓  20 [web] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (1.8s)
+  ✓  21 [web] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (1.8s)
+  ✓  22 [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.8s)
+  ✓  23 [web] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (1.8s)
+  ✓  24 [web] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (1.7s)
+  ✓  27 [web] › explanations.spec.ts:49:1 › a question without an explanation says so (1.3s)
+
+  ✓  28 [web] › explanations.spec.ts:39:1 › a suggested explanation is labelled unverified (1.3s)
+
+  ✓  26 [web] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page (2.2s)
+  ✓  25 [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (2.3s)
+  ✓  19 [web] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (3.2s)
+  ✓  33 [web] › explanations.spec.ts:146:1 › a normal user can't review, also through the API (1.5s)
+  ✓  31 [web] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused (2.2s)
+  ✓  34 [web] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (2.2s)
+  ✓  38 [web] › learning.spec.ts:95:1 › with no mistakes, practice my mistakes has nothing to review (1.4s)
+  ✓  37 [web] › learning.spec.ts:80:1 › a learning session continues from the first question not seen yet (1.9s)
+  ✓  36 [web] › learning.spec.ts:51:1 › learning mode gives immediate feedback and the explanation (2.0s)
+  ✓  29 [web] › explanations.spec.ts:66:3 › reviewing › a reviewer confirms an explanation, and it's verified for everyone (3.0s)
+  ✓  35 [web] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (2.5s)
+  ✓  30 [web] › explanations.spec.ts:84:3 › reviewing › a reviewer rejects an explanation, then undoes it (3.0s)
+  ✓  32 [web] › explanations.spec.ts:128:3 › reviewing › a reviewer flags a question, and everyone sees it's being checked (3.0s)
+  ✓  45 [web] › password-reset.spec.ts:46:1 › an unknown email gets the same confirmation, without revealing that no account exists (562ms)
+  ✓  48 [web] › screens.spec.ts:59:1 › server unavailable (480ms)
+  ✓  42 [web] › learning.spec.ts:187:1 › an unfinished exam's answers don't count yet (1.7s)
+  ✓  41 [web] › learning.spec.ts:177:1 › the learning page lists every subject of the exam type (1.6s)
+  ✓  46 [web] › screens.spec.ts:26:1 › signed-out screens (1.2s)
+  ✓  44 [web] › password-reset.spec.ts:37:1 › a wrong recovery code is refused (1.9s)
+  ✓  40 [web] › learning.spec.ts:159:1 › the learning page shows coverage and marks weak subjects (2.6s)
+  ✓  47 [web] › screens.spec.ts:45:1 › password recovery screens (1.9s)
+  ✓  49 [web] › screens.spec.ts:66:1 › exam type and home (1.5s)
+
+  ✓  39 [web] › learning.spec.ts:104:1 › practice my mistakes has exactly the questions answered wrong, in exams and in learning (3.9s)
+  ✓  53 [web] › screens.spec.ts:132:1 › explanations (1.8s)
+  ✓  17 [web] › exam.spec.ts:23:1 › answering everything correctly passes the exam (9.0s)
+  ✓  54 [web] › screens.spec.ts:148:1 › reviewer view (1.9s)
+  ✓  43 [web] › password-reset.spec.ts:16:1 › reset a forgotten password and sign in with the new one (4.0s)
+  ✓  51 [web] › screens.spec.ts:113:1 › time ran out (2.7s)
+  ✓  18 [web] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (9.6s)
+  ✓  50 [web] › screens.spec.ts:76:1 › exam screens and a failed result (3.4s)
+  ✓  56 [web] › screens.spec.ts:197:1 › dark mode (2.5s)
+  ✓  57 [android] › accounts.spec.ts:4:1 › sign up, stay signed in after a reload, then sign out (1.6s)
+  ✓  59 [android] › accounts.spec.ts:34:1 › opening the app while signed out leads to sign-in (653ms)
+  ✓  63 [android] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (329ms)
+  ✓  58 [android] › accounts.spec.ts:18:1 › signing in on a second device opens the same account (2.0s)
+  ✓  64 [android] › accounts.spec.ts:59:1 › a password shorter than 8 characters is refused (711ms)
+  ✓  67 [android] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (497ms)
+  ✓  55 [web] › screens.spec.ts:160:1 › learning (4.3s)
+  ✓  60 [android] › accounts.spec.ts:40:1 › a wrong password is refused without revealing account details (1.5s)
+  ✓  52 [web] › screens.spec.ts:99:1 › a passed result (5.0s)
+  ✓  69 [android] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (501ms)
+  ✓  62 [android] › accounts.spec.ts:52:1 › signing up with an email that is already used is refused (1.3s)
+  ✓  61 [android] › accounts.spec.ts:47:1 › an unknown email gets the same message as a wrong password (1.7s)
+  ✓  70 [android] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (737ms)
+  ✓  68 [android] › exam-type.spec.ts:24:1 › changing the exam type later (1.2s)
+  ✓  72 [android] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (1.0s)
+  ✓  71 [android] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (1.2s)
+  ✓  66 [android] › accounts.spec.ts:64:1 › after a refused attempt, the form works again (1.8s)
+  ✓  65 [android] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (1.8s)
+  ✓  75 [android] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (1.9s)
+  ✓  76 [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.9s)
+  ✓  78 [android] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (1.9s)
+  ✓  74 [android] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (2.2s)
+  ✓  83 [android] › explanations.spec.ts:39:1 › a suggested explanation is labelled unverified (1.3s)
+  ✓  77 [android] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (2.0s)
+
+  ✓  84 [android] › explanations.spec.ts:49:1 › a question without an explanation says so (1.4s)
+
+  ✓  81 [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (2.0s)
+  ✓  82 [android] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page (2.1s)
+  ✓  89 [android] › explanations.spec.ts:146:1 › a normal user can't review, also through the API (1.4s)
+  ✓  87 [android] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused (1.8s)
+  ✓  90 [android] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (1.6s)
+  ✓  80 [android] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (3.5s)
+  ✓  93 [android] › learning.spec.ts:80:1 › a learning session continues from the first question not seen yet (1.7s)
+  ✓  85 [android] › explanations.spec.ts:66:3 › reviewing › a reviewer confirms an explanation, and it's verified for everyone (2.7s)
+  ✓  91 [android] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (2.1s)
+  ✓  94 [android] › learning.spec.ts:95:1 › with no mistakes, practice my mistakes has nothing to review (1.2s)
+  ✓  92 [android] › learning.spec.ts:51:1 › learning mode gives immediate feedback and the explanation (1.9s)
+  ✓  86 [android] › explanations.spec.ts:84:3 › reviewing › a reviewer rejects an explanation, then undoes it (2.8s)
+  ✓  88 [android] › explanations.spec.ts:128:3 › reviewing › a reviewer flags a question, and everyone sees it's being checked (2.7s)
+  ✓  101 [android] › password-reset.spec.ts:46:1 › an unknown email gets the same confirmation, without revealing that no account exists (499ms)
+  ✓  104 [android] › screens.spec.ts:59:1 › server unavailable (531ms)
+  ✓  97 [android] › learning.spec.ts:177:1 › the learning page lists every subject of the exam type (1.6s)
+  ✓  102 [android] › screens.spec.ts:26:1 › signed-out screens (1.3s)
+  ✓  98 [android] › learning.spec.ts:187:1 › an unfinished exam's answers don't count yet (1.6s)
+  ✓  100 [android] › password-reset.spec.ts:37:1 › a wrong recovery code is refused (1.4s)
+  ✓  103 [android] › screens.spec.ts:45:1 › password recovery screens (1.6s)
+
+  ✓  96 [android] › learning.spec.ts:159:1 › the learning page shows coverage and marks weak subjects (2.5s)
+  ✓  105 [android] › screens.spec.ts:66:1 › exam type and home (1.6s)
+  ✓  95 [android] › learning.spec.ts:104:1 › practice my mistakes has exactly the questions answered wrong, in exams and in learning (3.2s)
+  ✓  109 [android] › screens.spec.ts:132:1 › explanations (1.5s)
+  ✓  73 [android] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (8.3s)
+  ✓  99 [android] › password-reset.spec.ts:16:1 › reset a forgotten password and sign in with the new one (3.4s)
+  ✓  110 [android] › screens.spec.ts:148:1 › reviewer view (1.9s)
+  ✓  79 [android] › exam.spec.ts:23:1 › answering everything correctly passes the exam (7.7s)
+  ✓  108 [android] › screens.spec.ts:113:1 › time ran out (2.5s)
+  ✓  112 [android] › screens.spec.ts:197:1 › dark mode (2.1s)
+  ✓  106 [android] › screens.spec.ts:76:1 › exam screens and a failed result (3.5s)
+  ✓  107 [android] › screens.spec.ts:99:1 › a passed result (3.3s)
+  ✓  111 [android] › screens.spec.ts:160:1 › learning (3.0s)
+
+  112 passed (23.0s)

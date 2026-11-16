@@ -27,13 +27,13 @@ export function ExamTypePage() {
   }
 
   return (
-    <form onSubmit={submit}>
+    <form onSubmit={submit} className="card">
       <h2>{strings.examType.title}</h2>
       {error && <p role="alert">{error}</p>}
-      <fieldset>
+      <fieldset className="options">
         {types.map((t) => (
-          <div key={t.id}>
-            <label>
+          <div key={t.id} className="option-card">
+            <label className="option">
               <input
                 type="radio"
                 name="examType"
@@ -51,7 +51,7 @@ export function ExamTypePage() {
           </div>
         ))}
       </fieldset>
-      <button type="submit" disabled={!selected}>
+      <button type="submit" className="primary" disabled={!selected}>
         {strings.examType.save}
       </button>
     </form>

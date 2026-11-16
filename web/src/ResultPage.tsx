@@ -16,22 +16,34 @@ export function ResultPage() {
   if (!exam || exam.status !== "submitted") return <p role="alert">{s.notFound}</p>;
   const r = score(exam, content);
   return (
-    <section>
-      {exam.timedOut && <p>{s.timedOut}</p>}
-      <h2>{r.passed ? s.passed : s.failed}</h2>
-      <p>{s.score(r.correct, r.total, r.percent, exam.passPercent)}</p>
+    <section className="stack">
+      {exam.timedOut && <p className="notice">{s.timedOut}</p>}
+      <div className={r.passed ? "verdict pass" : "verdict fail"}>
+        <h2>{r.passed ? s.passed : s.failed}</h2>
+        <p>{s.score(r.correct, r.total, r.percent, exam.passPercent)}</p>
+      </div>
       {r.wrong.length > 0 && (
-        <>
+        <div>
           <h3>{s.wrongAnswers}</h3>
-          <ol>
+          <ol className="wrong-list">
             {r.wrong.map((w) => (
               <li key={w.question.id} data-testid="wrong-answer" data-question-id={w.question.id}>
-                <p>{w.question.text}</p>
-                <p>
-                  {s.yourAnswer} <span data-testid="given">{w.given?.text ?? s.noAnswer}</span>
+                <p className="q">{w.question.text}</p>
+                <p className="answer-line given">
+                  <span className="mark" aria-hidden="true">
+                    ✗
+                  </span>
+                  <span>
+                    {s.yourAnswer} <span data-testid="given">{w.given?.text ?? s.noAnswer}</span>
+                  </span>
                 </p>
-                <p>
-                  {s.correctAnswer} <strong data-testid="correct">{w.correct.text}</strong>
+                <p className="answer-line right">
+                  <span className="mark" aria-hidden="true">
+                    ✓
+                  </span>
+                  <span>
+                    {s.correctAnswer} <strong data-testid="correct">{w.correct.text}</strong>
+                  </span>
                 </p>
                 <Link to={`/intrebare/${w.question.id}`} state={{ given: w.given?.text ?? s.noAnswer }}>
                   {strings.explanation.seeExplanation}
@@ -39,9 +51,11 @@ export function ResultPage() {
               </li>
             ))}
           </ol>
-        </>
+        </div>
       )}
-      <Link to="/">{strings.nav.back}</Link>
+      <Link to="/" className="button">
+        {strings.nav.back}
+      </Link>
     </section>
   );
 }

@@ -51,12 +51,14 @@ export function Recovery() {
       <Errors errors={errors} />
       {codeSent ? (
         <>
-          <p>{strings.recovery.codeSent}</p>
+          <p className="info">{strings.recovery.codeSent}</p>
           <label>
             {strings.recovery.code}
             <input name="code" inputMode="numeric" autoComplete="one-time-code" required />
           </label>
-          <button type="submit">{strings.recovery.confirmCode}</button>
+          <button type="submit" className="primary">
+            {strings.recovery.confirmCode}
+          </button>
         </>
       ) : (
         <>
@@ -64,7 +66,7 @@ export function Recovery() {
             {strings.email}
             <input name="email" type="email" autoComplete="email" required />
           </label>
-          <button type="submit" disabled={!flow}>
+          <button type="submit" className="primary" disabled={!flow}>
             {strings.recovery.sendCode}
           </button>
         </>
@@ -115,8 +117,8 @@ export function NewPassword() {
         {strings.recovery.newPassword}
         <input name="password" type="password" autoComplete="new-password" required />
       </label>
-      <p>{strings.signUp.passwordHint}</p>
-      <button type="submit" disabled={!flow}>
+      <p className="hint">{strings.signUp.passwordHint}</p>
+      <button type="submit" className="primary" disabled={!flow}>
         {strings.recovery.save}
       </button>
     </form>

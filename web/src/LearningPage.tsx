@@ -4,7 +4,15 @@ import type { ContentPackage, Question } from "./api";
 import { useContent } from "./content";
 import { useEvents } from "./events";
 import { useExplanations } from "./explanations";
-import { histories, learningStart, mistakes, practiceEvents, progress, questionsOf, type PracticeMode } from "./learning";
+import {
+  histories,
+  learningStart,
+  mistakes,
+  practiceEvents,
+  progress,
+  questionsOf,
+  type PracticeMode,
+} from "./learning";
 import { Why } from "./QuestionPage";
 import { useSession } from "./session";
 import { strings } from "./strings";
@@ -30,49 +38,75 @@ export function LearningPage() {
   const toReview = mistakes(content, examType, h).length;
 
   return (
-    <section>
+    <section className="stack">
       <h2>{s.title}</h2>
-      <p>
-        {s.mistakesToReview} <strong data-testid="mistakes-count">{toReview}</strong>
-      </p>
-      <p className="actions">
-        <Link to="/invatare/greseli">{s.practiseMistakes}</Link>
-        {rows.length > 1 && <Link to="/invatare/toate">{s.learnAll}</Link>}
-      </p>
-      <table className="progress">
-        <thead>
-          <tr>
-            <th scope="col">{s.subject}</th>
-            <th scope="col">{s.seen}</th>
-            <th scope="col">{s.mastered}</th>
-            <th scope="col">{s.mistakes}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((r) => (
-            <tr key={r.subject.id} data-testid="subject" data-subject={r.subject.id}>
-              <th scope="row">
-                {r.subject.name}
-                {r.weak && (
-                  <>
-                    {" "}
-                    <span className="badge badge-weak" title={s.weakHint(passPercent)}>
-                      {s.weak}
-                    </span>
-                  </>
-                )}
-                <br />
-                <Link to={`/invatare/${r.subject.id}`}>{s.learn}</Link>
+      <div className="card">
+        <p>
+          {s.mistakesToReview} <strong data-testid="mistakes-count">{toReview}</strong>
+        </p>
+        <div className="actions">
+          <Link to="/invatare/greseli" className="button primary">
+            {s.practiseMistakes}
+          </Link>
+          {rows.length > 1 && (
+            <Link to="/invatare/toate" className="button">
+              {s.learnAll}
+            </Link>
+          )}
+        </div>
+      </div>
+      <div className="card">
+        <table className="progress">
+          <thead>
+            <tr>
+              <th scope="col">{s.subject}</th>
+              <th scope="col" className="num">
+                {s.seen}
               </th>
-              <td data-testid="seen">{s.of(r.seen, r.total)}</td>
-              <td data-testid="mastered">{r.mastered}</td>
-              <td data-testid="mistakes">{r.mistakes}</td>
+              <th scope="col" className="num">
+                {s.mastered}
+              </th>
+              <th scope="col" className="num">
+                {s.mistakes}
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      <p>{s.history}</p>
-      <Link to="/">{strings.nav.back}</Link>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr key={r.subject.id} data-testid="subject" data-subject={r.subject.id}>
+                <th scope="row" className="subject-cell">
+                  <span className="subject-name">{r.subject.name}</span>
+                  {r.weak && (
+                    <>
+                      {" "}
+                      <span className="badge badge-weak" title={s.weakHint(passPercent)}>
+                        {s.weak}
+                      </span>
+                    </>
+                  )}
+                  <div className="bar" aria-hidden="true">
+                    <span style={{ width: `${(r.mastered * 100) / r.total}%` }} />
+                  </div>
+                  <Link to={`/invatare/${r.subject.id}`}>{s.learn}</Link>
+                </th>
+                <td data-testid="seen" className="num">
+                  {s.of(r.seen, r.total)}
+                </td>
+                <td data-testid="mastered" className="num">
+                  {r.mastered}
+                </td>
+                <td data-testid="mistakes" className="num">
+                  {r.mistakes}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="hint">{s.history}</p>
+      <Link to="/" className="button">
+        {strings.nav.back}
+      </Link>
     </section>
   );
 }
@@ -94,6 +128,7 @@ export function PracticePage({ mode }: { mode: PracticeMode }) {
   if ((!all && !info) || qs.length === 0) return <p role="alert">{s.unknownSubject}</p>;
   return (
     <section>
+      <p className="eyebrow">{s.title}</p>
       <h2>{all ? s.allSubjects : info!.name}</h2>
       <Session key={subject} questions={qs} start={learningStart(qs, h)} mode="learn" />
     </section>
@@ -109,10 +144,12 @@ function Mistakes({ content, examType }: { content: ContentPackage; examType: st
     <section>
       <h2>{s.practiseMistakes}</h2>
       {qs.length === 0 ? (
-        <>
+        <div className="card">
           <p role="status">{s.noMistakes}</p>
-          <Link to="/invatare">{strings.nav.back}</Link>
-        </>
+          <Link to="/invatare" className="button">
+            {strings.nav.back}
+          </Link>
+        </div>
       ) : (
         <Session questions={qs} start={0} mode="mistakes" />
       )}
@@ -143,11 +180,15 @@ function Session({ questions: initial, start, mode }: { questions: Question[]; s
 
   if (!q) {
     return (
-      <>
+      <div className="card">
         <p>{s.sessionDone}</p>
-        <p data-testid="session-score">{s.sessionScore(right, questions.length)}</p>
-        <Link to="/invatare">{strings.nav.back}</Link>
-      </>
+        <p data-testid="session-score" className="big">
+          {s.sessionScore(right, questions.length)}
+        </p>
+        <Link to="/invatare" className="button primary">
+          {strings.nav.back}
+        </Link>
+      </div>
     );
   }
 
@@ -157,7 +198,12 @@ function Session({ questions: initial, start, mode }: { questions: Question[]; s
     const correct = q.answers[i].correct;
     setGiven(i);
     if (correct) setRight(right + 1);
-    record(practiceEvents.answered, { questionId: q.id, answer: i, correct, mode });
+    record(practiceEvents.answered, {
+      questionId: q.id,
+      answer: i,
+      correct,
+      mode,
+    });
   }
   function next() {
     setGiven(undefined);
@@ -165,46 +211,60 @@ function Session({ questions: initial, start, mode }: { questions: Question[]; s
   }
 
   return (
-    <>
-      <p>{s.questionOf(index + 1, questions.length)}</p>
+    <div className="card">
+      <p className="muted">{s.questionOf(index + 1, questions.length)}</p>
       <fieldset data-testid="question" data-question-id={q.id}>
-        <legend>{q.text}</legend>
-        {order.map((i) => {
-          const a = q.answers[i];
-          const mark = !answered ? "" : a.correct ? "answer-correct" : i === given ? "answer-wrong" : "";
-          return (
-            <div key={i} className={mark}>
-              <label>
-                <input type="radio" name={`answer-${q.id}`} checked={given === i} disabled={answered} onChange={() => choose(i)} />
-                {a.text}
+        <legend className="question-text">{q.text}</legend>
+        <div className="options">
+          {order.map((i) => {
+            const a = q.answers[i];
+            const mark = !answered ? "" : a.correct ? " answer-correct" : i === given ? " answer-wrong" : "";
+            return (
+              <label key={i} className={`option${mark}`}>
+                <input
+                  type="radio"
+                  name={`answer-${q.id}`}
+                  checked={given === i}
+                  disabled={answered}
+                  onChange={() => choose(i)}
+                />
+                <span>{a.text}</span>
               </label>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </fieldset>
       {answered && (
         <div aria-live="polite">
           <p className={q.answers[given].correct ? "feedback-right" : "feedback-wrong"} data-testid="feedback">
             {q.answers[given].correct ? s.right : s.wrong}
           </p>
-          <p>
-            {strings.explanation.correctAnswer} <strong data-testid="correct">{q.answers.find((a) => a.correct)?.text}</strong>
+          <p className="answer-line right">
+            <span className="mark" aria-hidden="true">
+              ✓
+            </span>
+            <span>
+              {strings.explanation.correctAnswer}{" "}
+              <strong data-testid="correct">{q.answers.find((a) => a.correct)?.text}</strong>
+            </span>
           </p>
           {explanations === undefined ? (
             <p>{strings.loading}</p>
           ) : (
             <Why e={explanations.find((x) => x.questionId === q.id)} />
           )}
-          <nav>
-            <button type="button" onClick={next}>
-              {strings.nav.next}
-            </button>
-          </nav>
         </div>
       )}
-      <p>
-        <Link to="/invatare">{strings.nav.back}</Link>
-      </p>
-    </>
+      <nav className="exam-nav">
+        <Link to="/invatare" className="button">
+          {strings.nav.back}
+        </Link>
+        {answered && (
+          <button type="button" className="primary push" onClick={next}>
+            {strings.nav.next}
+          </button>
+        )}
+      </nav>
+    </div>
   );
 }

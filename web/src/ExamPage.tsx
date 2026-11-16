@@ -40,7 +40,11 @@ function ExamScreen({ exam }: { exam: Exam }) {
   const left = exam.deadline - now;
 
   function submit(reason: "user" | "timeout") {
-    record(examEvents.submitted, { examId: exam.id, reason }, reason === "timeout" ? new Date(exam.deadline) : new Date());
+    record(
+      examEvents.submitted,
+      { examId: exam.id, reason },
+      reason === "timeout" ? new Date(exam.deadline) : new Date(),
+    );
     navigate(`/examen/${exam.id}/rezultat`, { replace: true });
   }
 
@@ -58,50 +62,71 @@ function ExamScreen({ exam }: { exam: Exam }) {
   const unanswered = exam.questions.filter((q) => exam.answers[q.id] === undefined).length;
 
   return (
-    <section>
-      {type?.format && !type.format.confirmed && <p>{s.formatNotConfirmed}</p>}
-      <p>
-        {s.timeLeft} <strong data-testid="time-left">{formatTime(left)}</strong>
-      </p>
-      <h2>{s.questionOf(index + 1, total)}</h2>
-      {question && (
-        <fieldset data-testid="question" data-question-id={question.id}>
-          <legend>{question.text}</legend>
-          {item.order.map((i) => (
-            <div key={i}>
-              <label>
-                <input
-                  type="radio"
-                  name={`answer-${question.id}`}
-                  checked={exam.answers[question.id] === i}
-                  onChange={() => record(examEvents.answered, { examId: exam.id, questionId: question.id, answer: i })}
-                />
-                {question.answers[i].text}
-              </label>
+    <section className="exam">
+      {type?.format && !type.format.confirmed && <p className="hint">{s.formatNotConfirmed}</p>}
+      <div className="card">
+        <div className="exam-bar">
+          <h2>{s.questionOf(index + 1, total)}</h2>
+          <span className={left < 5 * 60_000 ? "timer low" : "timer"}>
+            {s.timeLeft} <strong data-testid="time-left">{formatTime(left)}</strong>
+          </span>
+        </div>
+        <div className="bar" aria-hidden="true">
+          <span style={{ width: `${((total - unanswered) * 100) / total}%` }} />
+        </div>
+        {question && (
+          <fieldset data-testid="question" data-question-id={question.id}>
+            <legend className="question-text">{question.text}</legend>
+            <div className="options">
+              {item.order.map((i) => (
+                <label key={i} className="option">
+                  <input
+                    type="radio"
+                    name={`answer-${question.id}`}
+                    checked={exam.answers[question.id] === i}
+                    onChange={() =>
+                      record(examEvents.answered, {
+                        examId: exam.id,
+                        questionId: question.id,
+                        answer: i,
+                      })
+                    }
+                  />
+                  <span>{question.answers[i].text}</span>
+                </label>
+              ))}
             </div>
-          ))}
-        </fieldset>
-      )}
-      <nav>
-        <button type="button" disabled={index === 0} onClick={() => setIndex(index - 1)}>
-          {strings.nav.previous}
-        </button>
-        <button type="button" disabled={index === total - 1} onClick={() => setIndex(index + 1)}>
-          {strings.nav.next}
-        </button>
-        <button type="button" onClick={() => (unanswered > 0 ? setConfirming(true) : submit("user"))}>
-          {strings.nav.submit}
-        </button>
-      </nav>
-      {confirming && (
-        <div role="dialog" aria-modal="true" aria-labelledby="confirm-submit">
-          <p id="confirm-submit">{s.unanswered(unanswered)}</p>
-          <button type="button" onClick={() => setConfirming(false)}>
-            {strings.nav.back}
+          </fieldset>
+        )}
+        <nav className="exam-nav">
+          <button type="button" disabled={index === 0} onClick={() => setIndex(index - 1)}>
+            {strings.nav.previous}
           </button>
-          <button type="button" onClick={() => submit("user")}>
+          <button type="button" disabled={index === total - 1} onClick={() => setIndex(index + 1)}>
+            {strings.nav.next}
+          </button>
+          <button
+            type="button"
+            className="primary push"
+            onClick={() => (unanswered > 0 ? setConfirming(true) : submit("user"))}
+          >
             {strings.nav.submit}
           </button>
+        </nav>
+      </div>
+      {confirming && (
+        <div className="modal-backdrop">
+          <div className="modal" role="dialog" aria-modal="true" aria-labelledby="confirm-submit">
+            <p id="confirm-submit">{s.unanswered(unanswered)}</p>
+            <div className="actions actions-end">
+              <button type="button" onClick={() => setConfirming(false)}>
+                {strings.nav.back}
+              </button>
+              <button type="button" className="primary" onClick={() => submit("user")}>
+                {strings.nav.submit}
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </section>

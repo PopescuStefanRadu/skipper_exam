@@ -8,6 +8,7 @@ import { EventsProvider, useEvents } from "./events";
 import { ExplanationsProvider } from "./explanations";
 import { QuestionPage } from "./QuestionPage";
 import { ExamTypePage } from "./ExamTypePage";
+import { histories, mistakes, progress } from "./learning";
 import { LearningPage, PracticePage } from "./LearningPage";
 import { signOut } from "./kratos";
 import { NewPassword, Recovery } from "./Recovery";
@@ -21,27 +22,128 @@ export function App() {
   return (
     <SessionProvider>
       <ContentProvider>
-      <main>
-        <h1>{strings.appTitle}</h1>
-        <p>{strings.appSubtitle}</p>
-        <Routes>
-          <Route path="/autentificare" element={<SignIn />} />
-          <Route path="/inregistrare" element={<SignUp />} />
-          <Route path="/recuperare" element={<Recovery />} />
-          <Route path="/setari" element={<NewPassword />} />
-          <Route path="/tip-examen" element={<RequireSession><ExamTypePage /></RequireSession>} />
-          <Route path="/examen" element={<RequireSession><RequireExamType><ExamPage /></RequireExamType></RequireSession>} />
-          <Route path="/examen/:examId/rezultat" element={<RequireSession><ResultPage /></RequireSession>} />
-          <Route path="/invatare" element={<RequireSession><RequireExamType><LearningPage /></RequireExamType></RequireSession>} />
-          <Route path="/invatare/greseli" element={<RequireSession><RequireExamType><PracticePage mode="mistakes" /></RequireExamType></RequireSession>} />
-          <Route path="/invatare/:subject" element={<RequireSession><RequireExamType><PracticePage mode="learn" /></RequireExamType></RequireSession>} />
-          <Route path="/intrebare/:questionId" element={<RequireSession><QuestionPage /></RequireSession>} />
-          <Route path="*" element={<RequireSession><RequireExamType><Home /></RequireExamType></RequireSession>} />
-        </Routes>
-        <ServerStatus />
-      </main>
+        <header className="topbar">
+          <div className="topbar-inner">
+            <Link to="/" className="brand">
+              <span className="brand-mark" aria-hidden="true">
+                ⚓
+              </span>
+              <h1>{strings.appTitle}</h1>
+            </Link>
+            <AccountBar />
+          </div>
+        </header>
+        <main className="page">
+          <Routes>
+            <Route path="/autentificare" element={<SignIn />} />
+            <Route path="/inregistrare" element={<SignUp />} />
+            <Route
+              path="/recuperare"
+              element={
+                <AuthPage>
+                  <Recovery />
+                </AuthPage>
+              }
+            />
+            <Route
+              path="/setari"
+              element={
+                <AuthPage>
+                  <NewPassword />
+                </AuthPage>
+              }
+            />
+            <Route
+              path="/tip-examen"
+              element={
+                <RequireSession>
+                  <ExamTypePage />
+                </RequireSession>
+              }
+            />
+            <Route
+              path="/examen"
+              element={
+                <RequireSession>
+                  <RequireExamType>
+                    <ExamPage />
+                  </RequireExamType>
+                </RequireSession>
+              }
+            />
+            <Route
+              path="/examen/:examId/rezultat"
+              element={
+                <RequireSession>
+                  <ResultPage />
+                </RequireSession>
+              }
+            />
+            <Route
+              path="/invatare"
+              element={
+                <RequireSession>
+                  <RequireExamType>
+                    <LearningPage />
+                  </RequireExamType>
+                </RequireSession>
+              }
+            />
+            <Route
+              path="/invatare/greseli"
+              element={
+                <RequireSession>
+                  <RequireExamType>
+                    <PracticePage mode="mistakes" />
+                  </RequireExamType>
+                </RequireSession>
+              }
+            />
+            <Route
+              path="/invatare/:subject"
+              element={
+                <RequireSession>
+                  <RequireExamType>
+                    <PracticePage mode="learn" />
+                  </RequireExamType>
+                </RequireSession>
+              }
+            />
+            <Route
+              path="/intrebare/:questionId"
+              element={
+                <RequireSession>
+                  <QuestionPage />
+                </RequireSession>
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <RequireSession>
+                  <RequireExamType>
+                    <Home />
+                  </RequireExamType>
+                </RequireSession>
+              }
+            />
+          </Routes>
+        </main>
+        <footer className="footer">
+          <ServerStatus />
+        </footer>
       </ContentProvider>
     </SessionProvider>
+  );
+}
+
+// Signed-out pages: the app's purpose and one form in a card.
+function AuthPage({ children }: { children: ReactNode }) {
+  return (
+    <div className="auth">
+      <p className="lead">{strings.appSubtitle}</p>
+      <div className="card">{children}</div>
+    </div>
   );
 }
 
@@ -52,10 +154,7 @@ function RequireSession({ children }: { children: ReactNode }) {
   if (me === null) return <Navigate to="/autentificare" replace />;
   return (
     <EventsProvider key={me.id} userId={me.id}>
-      <ExplanationsProvider>
-        <AccountBar />
-        {children}
-      </ExplanationsProvider>
+      <ExplanationsProvider>{children}</ExplanationsProvider>
     </EventsProvider>
   );
 }
@@ -71,11 +170,13 @@ function RequireExamType({ children }: { children: ReactNode }) {
 function AccountBar() {
   const { me, refresh } = useSession();
   const navigate = useNavigate();
+  if (!me) return null;
   return (
-    <header>
-      <p>
-        {strings.home.signedInAs} <strong data-testid="signed-in-email">{me?.email}</strong>
-      </p>
+    <div className="account">
+      <span className="account-label">{strings.home.signedInAs}</span>
+      <span className="account-email" data-testid="signed-in-email" title={me.email}>
+        {me.email}
+      </span>
       <button
         type="button"
         onClick={async () => {
@@ -86,7 +187,7 @@ function AccountBar() {
       >
         {strings.home.signOut}
       </button>
-    </header>
+    </div>
   );
 }
 
@@ -95,7 +196,7 @@ function SignIn() {
   const navigate = useNavigate();
   if (me) return <Navigate to="/" replace />;
   return (
-    <>
+    <AuthPage>
       <AuthForm
         kind="login"
         title={strings.signIn.title}
@@ -105,13 +206,15 @@ function SignIn() {
           navigate("/", { replace: true });
         }}
       />
-      <p>
-        <Link to="/recuperare">{strings.signIn.forgotPassword}</Link>
-      </p>
-      <p>
-        {strings.signIn.noAccount} <Link to="/inregistrare">{strings.signIn.toSignUp}</Link>
-      </p>
-    </>
+      <div className="auth-links">
+        <p>
+          <Link to="/recuperare">{strings.signIn.forgotPassword}</Link>
+        </p>
+        <p>
+          {strings.signIn.noAccount} <Link to="/inregistrare">{strings.signIn.toSignUp}</Link>
+        </p>
+      </div>
+    </AuthPage>
   );
 }
 
@@ -120,7 +223,7 @@ function SignUp() {
   const navigate = useNavigate();
   if (me) return <Navigate to="/" replace />;
   return (
-    <>
+    <AuthPage>
       <AuthForm
         kind="registration"
         title={strings.signUp.title}
@@ -131,10 +234,12 @@ function SignUp() {
           navigate("/", { replace: true });
         }}
       />
-      <p>
-        {strings.signUp.haveAccount} <Link to="/autentificare">{strings.signUp.toSignIn}</Link>
-      </p>
-    </>
+      <div className="auth-links">
+        <p>
+          {strings.signUp.haveAccount} <Link to="/autentificare">{strings.signUp.toSignIn}</Link>
+        </p>
+      </div>
+    </AuthPage>
   );
 }
 
@@ -164,44 +269,81 @@ function Home() {
     navigate("/examen");
   }
 
+  const h = content ? histories(events, content) : undefined;
+  const coverage = content && h && examType ? progress(content, examType.id, h) : [];
+  const seen = coverage.reduce((n, r) => n + r.seen, 0);
+  const total = coverage.reduce((n, r) => n + r.total, 0);
+  const toReview = content && h && examType ? mistakes(content, examType.id, h).length : 0;
+
   return (
-    <section>
-      <p>
-        {strings.home.preparingFor} <strong data-testid="exam-type">{examType?.name ?? profile?.examType}</strong>
-      </p>
-      <p className="actions">
-        <Link to="/invatare">{strings.learning.title}</Link>
-        <Link to="/tip-examen">{strings.home.changeExamType}</Link>
-      </p>
-      {content === null && <p role="alert">{strings.exam.contentUnavailable}</p>}
-      {format && (
-        <>
-          <p>{strings.exam.format(format.questions, format.minutes, format.passPercent)}</p>
-          {!format.confirmed && <p>{strings.exam.formatNotConfirmed}</p>}
-        </>
-      )}
-      {expired && (
-        <p>
-          {strings.exam.expiredWhileAway} <Link to={`/examen/${expired}/rezultat`}>{strings.exam.seeResult}</Link>
-        </p>
-      )}
-      {active && !activeExpired ? (
-        <div>
-          <p>{strings.exam.unfinished}</p>
-          <button type="button" onClick={() => navigate("/examen")}>
-            {strings.exam.resume}
-          </button>
-          <button type="button" onClick={() => record(examEvents.abandoned, { examId: active.id })}>
-            {strings.exam.abandon}
-          </button>
+    <section className="stack">
+      <div className="card">
+        <p className="eyebrow">{strings.home.preparingFor}</p>
+        <div className="actions split">
+          <strong data-testid="exam-type" className="big">
+            {examType?.name ?? profile?.examType}
+          </strong>
+          <Link to="/tip-examen">{strings.home.changeExamType}</Link>
         </div>
-      ) : (
-        format && (
-          <button type="button" onClick={start}>
-            {strings.exam.start}
-          </button>
-        )
-      )}
+      </div>
+      {content === null && <p role="alert">{strings.exam.contentUnavailable}</p>}
+
+      <div className="card">
+        <h2>{strings.home.examTitle}</h2>
+        {format && (
+          <>
+            <p>{strings.exam.format(format.questions, format.minutes, format.passPercent)}</p>
+            {!format.confirmed && <p className="hint">{strings.exam.formatNotConfirmed}</p>}
+          </>
+        )}
+        {expired && (
+          <p className="notice">
+            {strings.exam.expiredWhileAway} <Link to={`/examen/${expired}/rezultat`}>{strings.exam.seeResult}</Link>
+          </p>
+        )}
+        {active && !activeExpired ? (
+          <>
+            <p className="info">{strings.exam.unfinished}</p>
+            <div className="actions">
+              <button type="button" className="primary" onClick={() => navigate("/examen")}>
+                {strings.exam.resume}
+              </button>
+              <button
+                type="button"
+                className="danger"
+                onClick={() => record(examEvents.abandoned, { examId: active.id })}
+              >
+                {strings.exam.abandon}
+              </button>
+            </div>
+          </>
+        ) : (
+          format && (
+            <button type="button" className="primary" onClick={start}>
+              {strings.exam.start}
+            </button>
+          )
+        )}
+      </div>
+
+      <div className="card">
+        <h2>{strings.home.learningTitle}</h2>
+        {total > 0 && (
+          <div className="stat-row">
+            <div className="stat">
+              <strong>{strings.learning.of(seen, total)}</strong>
+              <span>{strings.home.questionsSeen}</span>
+            </div>
+            <div className="stat">
+              <strong>{toReview}</strong>
+              <span>{strings.home.toReview}</span>
+            </div>
+          </div>
+        )}
+        <Link to="/invatare" className="button primary">
+          {strings.home.openLearning}
+        </Link>
+      </div>
     </section>
   );
 }

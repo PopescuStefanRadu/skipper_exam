@@ -10,7 +10,7 @@ Work **e2e-first**. Update the feature document and its e2e scenario before impl
 
 ## Project status
 
-Milestone 0 (foundations) is in place: the backend, the web app shell, the full stack on free ports, parallel e2e tests, the worktree tooling and CI. Milestone 1 imported both RNA question lists into `content/` (737 unique questions). Milestone 2 added accounts (password, password reset, Google) and the exam type choice. Milestone 3 added exam simulation on the web. E2E tests run on web and on an Android-like phone browser, with a screenshot tour for visual inspection. Milestone 4 added the bibliography (COLREG, R.N.D. and the OCR'd motorboat manual), explanations proposed by agents and checked against the source text, the explanation page, and the reviewer role. Milestone 5 added learning mode, "practice my mistakes" and coverage per subject.
+Milestone 0 (foundations) is in place: the backend, the web app shell, the full stack on free ports, parallel e2e tests, the worktree tooling and CI. Milestone 1 imported both RNA question lists into `content/` (737 unique questions). Milestone 2 added accounts (password, password reset, Google) and the exam type choice. Milestone 3 added exam simulation on the web. E2E tests run on web and on an Android-like phone browser, with a screenshot tour for visual inspection. Milestone 4 added the bibliography (COLREG, R.N.D. and the OCR'd motorboat manual), explanations proposed by agents and checked against the source text, the explanation page, and the reviewer role. The interface has its visual design (light and dark, tokens in `web/src/index.css`). Milestone 5 added learning mode, "practice my mistakes" and coverage per subject.
 
 ## Commands
 

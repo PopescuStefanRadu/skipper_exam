@@ -1,0 +1,2009 @@
+{
+  "config": {
+    "configFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/browser-platforms/e2e/playwright.config.ts",
+    "rootDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/browser-platforms/e2e/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 12
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/home/popescustefanradu/p/skipper_exam/.worktrees/browser-platforms/test-runs/2026-11-16T21-16-51Z_task-browser-platforms_4fb3bd9064e5/e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/browser-platforms/e2e/test-results",
+        "repeatEach": 15,
+        "retries": 0,
+        "metadata": {},
+        "id": "web",
+        "name": "web",
+        "testDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/browser-platforms/e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/browser-platforms/e2e/test-results",
+        "repeatEach": 15,
+        "retries": 0,
+        "metadata": {},
+        "id": "android",
+        "name": "android",
+        "testDir": "/home/popescustefanradu/p/skipper_exam/.worktrees/browser-platforms/e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.49.1",
+    "workers": 12,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "exam.spec.ts",
+      "file": "exam.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 1433,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:16:58.545Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-663893ce40f34eeaaecf",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "passed",
+                  "duration": 1516,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:16:58.684Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-c829ccba7bb7f3f07bf6",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "status": "passed",
+                  "duration": 1365,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:16:58.553Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-a1f4e4cc9734b8e74411",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "status": "passed",
+                  "duration": 1397,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:16:58.581Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-d33640aac14ff6ff7dc3",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "status": "passed",
+                  "duration": 1428,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:16:58.568Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-5a79ea00645bf421aa8b",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "status": "passed",
+                  "duration": 1481,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:16:58.673Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-3b25c5611095275558ea",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "status": "passed",
+                  "duration": 1418,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:16:58.649Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-14cf3d00533fccb1620a",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "status": "passed",
+                  "duration": 1443,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:16:58.571Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-74f9b46a88656950b35a",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "status": "passed",
+                  "duration": 1401,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:16:58.673Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-b58d4d9b1ff2e03f6a30",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "status": "passed",
+                  "duration": 1508,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:16:58.702Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-b40d50409718fe9191ad",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "status": "passed",
+                  "duration": 1478,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:16:58.595Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-c8a115b48bb346e38b7a",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "status": "passed",
+                  "duration": 1293,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:16:58.555Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-506090cc2d1da4ec3374",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "status": "passed",
+                  "duration": 1398,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:00.428Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-85f3e9d3611863683243",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 13,
+                  "status": "passed",
+                  "duration": 1436,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:00.395Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-4dce1ec924cacb58088b",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 14,
+                  "status": "passed",
+                  "duration": 1403,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:00.465Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-81ff626f7d8596ca99f5",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 15,
+                  "status": "passed",
+                  "duration": 1468,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:00.455Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-a20c02f3608e82dff204",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 16,
+                  "status": "passed",
+                  "duration": 1410,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:00.547Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-924105e48ee4950e25c9",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 17,
+                  "status": "passed",
+                  "duration": 1527,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:00.547Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-479c7fa8ba5b87e9bbee",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 19,
+                  "status": "passed",
+                  "duration": 1389,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:00.550Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-a7a591113bb7c3290fc8",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 18,
+                  "status": "passed",
+                  "duration": 1490,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:00.543Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-0dbdabf05771682af23a",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 20,
+                  "status": "passed",
+                  "duration": 1343,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:00.615Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-1e322f07382c1b01b537",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 21,
+                  "status": "passed",
+                  "duration": 1474,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:00.702Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-6e0c62989288c3ab9a7a",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 22,
+                  "status": "passed",
+                  "duration": 1262,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:00.783Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-2138934c50d059cb5607",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 23,
+                  "status": "passed",
+                  "duration": 1405,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:00.759Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-36e1c2b091eba28c9378",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 24,
+                  "status": "passed",
+                  "duration": 1356,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:02.309Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-33500d5a59295fddf076",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 25,
+                  "status": "passed",
+                  "duration": 1407,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:02.325Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-9e6cc4d8e9df31c23225",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 26,
+                  "status": "passed",
+                  "duration": 1327,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:02.345Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-ad49a72d00152c752def",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 27,
+                  "status": "passed",
+                  "duration": 1406,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:02.404Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-4ef023fddcfdf0b32913",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 29,
+                  "status": "passed",
+                  "duration": 1296,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:02.420Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-d75c7b2409cbec96c4c2",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "web",
+              "projectName": "web",
+              "results": [
+                {
+                  "workerIndex": 28,
+                  "status": "passed",
+                  "duration": 1518,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:02.476Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-fe880a05c1c334bff7a1",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 30,
+                  "status": "passed",
+                  "duration": 1252,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:02.486Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-6a43717f72a723a10e96",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 31,
+                  "status": "passed",
+                  "duration": 1449,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:02.503Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-11a09a2db440c6cba0d3",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 32,
+                  "status": "passed",
+                  "duration": 1318,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:02.610Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-c4f6234372b0d62e2eb5",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 33,
+                  "status": "passed",
+                  "duration": 1461,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:02.648Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-ec1ce99fc5782e53ba1b",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 34,
+                  "status": "passed",
+                  "duration": 1222,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:02.676Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-1675aa9c5db20fc9aa38",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 35,
+                  "status": "passed",
+                  "duration": 1452,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:02.690Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-ceb05d19e56773fa5d89",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 36,
+                  "status": "passed",
+                  "duration": 1241,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:04.153Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-4bdf9eb3b6dc7159bc52",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 37,
+                  "status": "passed",
+                  "duration": 1385,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:04.160Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-a190439efc20aaca159e",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 38,
+                  "status": "passed",
+                  "duration": 1238,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:04.174Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-7fa1d4e77ff6ea17597f",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 39,
+                  "status": "passed",
+                  "duration": 1401,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:04.202Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-9ee01990a05670a0d3c9",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 40,
+                  "status": "passed",
+                  "duration": 1235,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:04.188Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-06a03ff123bd2a2b95ad",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 41,
+                  "status": "passed",
+                  "duration": 1460,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:04.316Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-3e7294e4c818a7aff11a",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 42,
+                  "status": "passed",
+                  "duration": 1190,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:04.394Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-2af92856a7083a16fe19",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 43,
+                  "status": "passed",
+                  "duration": 1387,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:04.404Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-8cc5cb5c3d76ef2d2c82",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 44,
+                  "status": "passed",
+                  "duration": 1171,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:04.464Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-c67d3ca73c4bdfa4efc9",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 45,
+                  "status": "passed",
+                  "duration": 1347,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:04.550Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-4a1d9ca71dc725aae750",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 46,
+                  "status": "passed",
+                  "duration": 1146,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:04.650Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-33f20d73f7c9b11e92f3",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 47,
+                  "status": "passed",
+                  "duration": 1384,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:04.736Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-e267fbcf2959186a03e7",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 48,
+                  "status": "passed",
+                  "duration": 1209,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:05.890Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-768c1696dd0a0e9ba788",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 49,
+                  "status": "passed",
+                  "duration": 1386,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:05.940Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-fc94356ea3f97c8b65fe",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 50,
+                  "status": "passed",
+                  "duration": 1210,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:05.929Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-93ec34c0dc569eca3289",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 51,
+                  "status": "passed",
+                  "duration": 1331,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:06.061Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-ff11f81d1571e23e580e",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 52,
+                  "status": "passed",
+                  "duration": 1192,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:06.059Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-0b50372041994f238648",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 53,
+                  "status": "passed",
+                  "duration": 1329,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:06.076Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-34f1e16df57f1005b587",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 54,
+                  "status": "passed",
+                  "duration": 1169,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:06.183Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-748901d44ec339a727bf",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 55,
+                  "status": "passed",
+                  "duration": 1351,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:06.289Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-7b11743b43ad60c0c938",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 56,
+                  "status": "passed",
+                  "duration": 1133,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:06.316Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-c80c3475619e46f48543",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 57,
+                  "status": "passed",
+                  "duration": 1246,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:06.311Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-48455c6f22691932514d",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        },
+        {
+          "title": "an exam left halfway can be resumed with its answers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 58,
+                  "status": "passed",
+                  "duration": 1139,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:06.529Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-47a40e075adbb8e4eab8",
+          "file": "exam.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "an exam started on one device can be resumed on another",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "android",
+              "projectName": "android",
+              "results": [
+                {
+                  "workerIndex": 59,
+                  "status": "passed",
+                  "duration": 1290,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-16T21:17:06.632Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "46d8cae799e7c46dfe7f-ffb6de662c8cd95779c0",
+          "file": "exam.spec.ts",
+          "line": 169,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-16T21:16:58.216Z",
+    "duration": 9802.318,
+    "expected": 60,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

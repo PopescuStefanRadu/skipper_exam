@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: content-validate content-tag content-import-rna help setup build test e2e test-all check vet fmt tidy up down status dev task-new task-done integrate
+.PHONY: content-validate content-tag content-import-rna help setup build test e2e test-all check vet fmt tidy up down status screenshots dev task-new task-done integrate
 
 help: ## List available targets
 	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  %-10s %s\n", $$1, $$2}'
@@ -19,6 +19,10 @@ test: ## Go tests (single test: make test RUN=TestName PKG=./pkg/skipperexam/ser
 
 e2e: ## E2E tests against this worktree's stack, started if needed (filter: make e2e ARGS="tests/accounts" or ARGS="-g 'deep link'"; file filters match the whole path)
 	E2E_ARGS="$(ARGS)" scripts/test-run.sh e2e
+
+screenshots: ## Screenshots of every screen on both platforms, saved in the test run's folder
+	E2E_ARGS="tests/screens" scripts/test-run.sh e2e
+	@echo "screenshots: $$(ls -td test-runs/*/screenshots | head -1)"
 
 check: ## Lint (gofmt check, vet, type checks) and Go tests
 	scripts/test-run.sh lint go

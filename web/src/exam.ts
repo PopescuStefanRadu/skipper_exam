@@ -64,7 +64,9 @@ export function newExam(content: ContentPackage, examTypeId: string, examId: str
   };
 }
 
-// Rebuilds the user's exams from their events, oldest first.
+// Rebuilds the user's exams from their events, oldest first. Exams are created from
+// their "started" events first, so an event recorded in the same millisecond as the
+// start still applies, whatever order equal times come in.
 export function exams(events: AppEvent[]): Exam[] {
   const byId = new Map<string, Exam>();
   for (const e of events) {
@@ -83,10 +85,13 @@ export function exams(events: AppEvent[]): Exam[] {
         status: "active",
         timedOut: false,
       });
-      continue;
     }
+  }
+  for (const e of events) {
+    const d = e.data as Record<string, any>;
+    const at = Date.parse(e.at);
     const exam = byId.get(d.examId);
-    if (!exam || exam.status !== "active") continue;
+    if (e.type === examEvents.started || !exam || exam.status !== "active") continue;
     if (e.type === examEvents.answered && at <= exam.deadline) {
       exam.answers[d.questionId] = d.answer;
     } else if (e.type === examEvents.submitted) {

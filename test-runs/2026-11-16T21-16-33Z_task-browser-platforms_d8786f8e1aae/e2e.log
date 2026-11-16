@@ -1,0 +1,349 @@
+ Image skipper-browser-platforms-d2a2e89b-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 628B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 ...
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.5s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.5s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 11.11kB 0.0s done
+#7 DONE 0.0s
+
+#8 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#8 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#8 DONE 0.0s
+
+#9 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#9 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#9 DONE 0.0s
+
+#10 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#10 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#10 DONE 0.0s
+
+#11 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#11 CACHED
+
+#12 [web 5/7] RUN pnpm install --frozen-lockfile
+#12 CACHED
+
+#13 [web 3/7] WORKDIR /web
+#13 CACHED
+
+#14 [web 6/7] COPY web/ ./
+#14 CACHED
+
+#15 [backend 5/7] COPY cli cli
+#15 CACHED
+
+#16 [stage-2 2/4] COPY --from=backend /server /server
+#16 CACHED
+
+#17 [stage-2 3/4] COPY --from=web /web/dist /web
+#17 CACHED
+
+#18 [backend 2/7] WORKDIR /src
+#18 CACHED
+
+#19 [backend 6/7] COPY pkg pkg
+#19 CACHED
+
+#20 [web 2/7] RUN corepack enable
+#20 CACHED
+
+#21 [backend 3/7] COPY go.mod go.sum ./
+#21 CACHED
+
+#22 [web 7/7] RUN pnpm build
+#22 CACHED
+
+#23 [backend 4/7] RUN go mod download
+#23 CACHED
+
+#24 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#24 CACHED
+
+#25 [stage-2 4/4] COPY content /content
+#25 CACHED
+
+#26 exporting to image
+#26 exporting layers done
+#26 exporting manifest sha256:f07521b3375c861aea7ffbd41680d1397df3fed54cd5c34c96a280af98d1eb1d done
+#26 exporting config sha256:5539b69960a4ecd80207d944c29062459e584997e01cd01af97840e7add77f41 done
+#26 exporting attestation manifest sha256:41e1200edbe7125e26f1e7944f465ab0a145500185285d743b9926d35d73ace3 done
+#26 exporting manifest list sha256:0e0b946d3182e0c414fade68fd35fa3164c64decff5b6dc3a34e89400002bc5e
+#26 exporting manifest list sha256:0e0b946d3182e0c414fade68fd35fa3164c64decff5b6dc3a34e89400002bc5e done
+#26 naming to docker.io/library/skipper-browser-platforms-d2a2e89b-app:latest done
+#26 unpacking to docker.io/library/skipper-browser-platforms-d2a2e89b-app:latest done
+#26 DONE 0.1s
+
+#27 resolving provenance for metadata file
+#27 DONE 0.0s
+ Image skipper-browser-platforms-d2a2e89b-app Built 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Running 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Running 
+ Container skipper-browser-platforms-d2a2e89b-mock-oidc-1 Running 
+ Container skipper-browser-platforms-d2a2e89b-mailpit-1 Running 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Recreate 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Recreated 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Starting 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Started 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Exited 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Starting 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Started 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-mock-oidc-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-mailpit-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Waiting 
+ Container skipper-browser-platforms-d2a2e89b-mock-oidc-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-kratos-migrate-1 Exited 
+ Container skipper-browser-platforms-d2a2e89b-db-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-kratos-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-mailpit-1 Healthy 
+ Container skipper-browser-platforms-d2a2e89b-app-1 Healthy 
+STACK_PROJECT=skipper-browser-platforms-d2a2e89b
+APP_URL=http://127.0.0.1:33729
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32817/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32818
+MAILPIT_URL=http://127.0.0.1:32816
+MOCK_OIDC_URL=http://127.0.0.1:51417
+
+Running 20 tests using 12 workers
+
+  ✓  2 [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.4s)
+  ✓  3 [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.4s)
+  ✓  6 [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.4s)
+  ✓  11 [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.4s)
+  ✓  10 [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.4s)
+  ✓  9 [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.4s)
+  ✓  5 [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.6s)
+  ✓  7 [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.6s)
+  ✓  12 [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.5s)
+  ✓  13 [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.1s)
+  ✓  17 [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.1s)
+  ✓  16 [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.1s)
+  ✓  19 [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.1s)
+  ✓  18 [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.2s)
+  ✘  1 [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (6.5s)
+  ✘  4 [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (6.5s)
+  ✘  8 [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (6.6s)
+  ✘  14 [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (6.3s)
+  ✘  15 [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (6.3s)
+  ✘  20 [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (6.3s)
+
+
+  1) [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ──────────
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeChecked[2m()[22m
+
+    Locator: getByRole('radio', { name: 'va reduce viteza în întâmpinarea valurilor provocate de nava ce vine din sens opus și va adopta o viteză corespunzătoare evitării răsturnării', exact: true })
+    Expected: checked
+    Received: unchecked
+    Call log:
+    [2m  - expect.toBeChecked with timeout 5000ms[22m
+    [2m  - waiting for getByRole('radio', { name: 'va reduce viteza în întâmpinarea valurilor provocate de nava ce vine din sens opus și va adopta o viteză corespunzătoare evitării răsturnării', exact: true })[22m
+    [2m    9 × locator resolved to <input type="radio" name="answer-q0433"/>[22m
+    [2m      - unexpected value "unchecked"[22m
+
+
+      193 |   await expectQuestionNumber(other, 1, 40);
+      194 |   await expect(other.getByTestId("question")).toHaveAttribute("data-question-id", id!);
+    > 195 |   await expect(other.getByRole("radio", { name: chosen, exact: true })).toBeChecked();
+          |                                                                         ^
+      196 | });
+      197 |
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/browser-platforms/e2e/tests/exam.spec.ts:195:73
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ──────────
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeChecked[2m()[22m
+
+    Locator: getByRole('radio', { name: 'de legătură', exact: true })
+    Expected: checked
+    Received: unchecked
+    Call log:
+    [2m  - expect.toBeChecked with timeout 5000ms[22m
+    [2m  - waiting for getByRole('radio', { name: 'de legătură', exact: true })[22m
+    [2m    9 × locator resolved to <input type="radio" name="answer-q0322"/>[22m
+    [2m      - unexpected value "unchecked"[22m
+
+
+      193 |   await expectQuestionNumber(other, 1, 40);
+      194 |   await expect(other.getByTestId("question")).toHaveAttribute("data-question-id", id!);
+    > 195 |   await expect(other.getByRole("radio", { name: chosen, exact: true })).toBeChecked();
+          |                                                                         ^
+      196 | });
+      197 |
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/browser-platforms/e2e/tests/exam.spec.ts:195:73
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-web-repeat2/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-web-repeat2/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ──────
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeChecked[2m()[22m
+
+    Locator: getByRole('radio', { name: 'o lanƫanã cu circumferința de 25-120mm cusuta pe marginea unei vele sau tenzi pentru a o întări.', exact: true })
+    Expected: checked
+    Received: unchecked
+    Call log:
+    [2m  - expect.toBeChecked with timeout 5000ms[22m
+    [2m  - waiting for getByRole('radio', { name: 'o lanƫanã cu circumferința de 25-120mm cusuta pe marginea unei vele sau tenzi pentru a o întări.', exact: true })[22m
+    [2m    9 × locator resolved to <input type="radio" name="answer-q0255"/>[22m
+    [2m      - unexpected value "unchecked"[22m
+
+
+      193 |   await expectQuestionNumber(other, 1, 40);
+      194 |   await expect(other.getByTestId("question")).toHaveAttribute("data-question-id", id!);
+    > 195 |   await expect(other.getByRole("radio", { name: chosen, exact: true })).toBeChecked();
+          |                                                                         ^
+      196 | });
+      197 |
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/browser-platforms/e2e/tests/exam.spec.ts:195:73
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ──────
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeChecked[2m()[22m
+
+    Locator: getByRole('radio', { name: 'inel de parâmă confecționat prin matisire care servește la prinderea unui palanc pe o parâmă sau pe un scondru', exact: true })
+    Expected: checked
+    Received: unchecked
+    Call log:
+    [2m  - expect.toBeChecked with timeout 5000ms[22m
+    [2m  - waiting for getByRole('radio', { name: 'inel de parâmă confecționat prin matisire care servește la prinderea unui palanc pe o parâmă sau pe un scondru', exact: true })[22m
+    [2m    9 × locator resolved to <input type="radio" name="answer-q0256"/>[22m
+    [2m      - unexpected value "unchecked"[22m
+
+
+      193 |   await expectQuestionNumber(other, 1, 40);
+      194 |   await expect(other.getByTestId("question")).toHaveAttribute("data-question-id", id!);
+    > 195 |   await expect(other.getByRole("radio", { name: chosen, exact: true })).toBeChecked();
+          |                                                                         ^
+      196 | });
+      197 |
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/browser-platforms/e2e/tests/exam.spec.ts:195:73
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-android-repeat1/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-android-repeat1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ──────
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeChecked[2m()[22m
+
+    Locator: getByRole('radio', { name: 'punerea cârmei într-un bord sau altul și este determinată de forța curentului care apasă asupra penei cârmei, sau orientarea propulsorului în cazul propulsiei în,,Z’’', exact: true })
+    Expected: checked
+    Received: unchecked
+    Call log:
+    [2m  - expect.toBeChecked with timeout 5000ms[22m
+    [2m  - waiting for getByRole('radio', { name: 'punerea cârmei într-un bord sau altul și este determinată de forța curentului care apasă asupra penei cârmei, sau orientarea propulsorului în cazul propulsiei în,,Z’’', exact: true })[22m
+    [2m    9 × locator resolved to <input type="radio" name="answer-q0413"/>[22m
+    [2m      - unexpected value "unchecked"[22m
+
+
+      193 |   await expectQuestionNumber(other, 1, 40);
+      194 |   await expect(other.getByTestId("question")).toHaveAttribute("data-question-id", id!);
+    > 195 |   await expect(other.getByRole("radio", { name: chosen, exact: true })).toBeChecked();
+          |                                                                         ^
+      196 | });
+      197 |
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/browser-platforms/e2e/tests/exam.spec.ts:195:73
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-android-repeat2/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-android-repeat2/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ──────
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeChecked[2m()[22m
+
+    Locator: getByRole('radio', { name: 'pene, cuie, câlți', exact: true })
+    Expected: checked
+    Received: unchecked
+    Call log:
+    [2m  - expect.toBeChecked with timeout 5000ms[22m
+    [2m  - waiting for getByRole('radio', { name: 'pene, cuie, câlți', exact: true })[22m
+    [2m    9 × locator resolved to <input type="radio" name="answer-q0312"/>[22m
+    [2m      - unexpected value "unchecked"[22m
+
+
+      193 |   await expectQuestionNumber(other, 1, 40);
+      194 |   await expect(other.getByTestId("question")).toHaveAttribute("data-question-id", id!);
+    > 195 |   await expect(other.getByRole("radio", { name: chosen, exact: true })).toBeChecked();
+          |                                                                         ^
+      196 | });
+      197 |
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/browser-platforms/e2e/tests/exam.spec.ts:195:73
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-android-repeat4/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-android-repeat4/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6 failed
+    [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ───────────
+    [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ───────────
+    [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ───────
+    [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ───────
+    [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ───────
+    [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ───────
+  14 passed (8.9s)

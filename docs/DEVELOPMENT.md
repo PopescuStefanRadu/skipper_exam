@@ -23,6 +23,12 @@ Rules:
 - E2E tests use the **real content**, read through the same API as the app (`contentPackage()` in `e2e/tests/helpers.ts`), so a test knows the correct answer to whatever question is on the screen. Tests don't depend on which random questions are chosen. Timers are controlled with Playwright's clock (`page.clock`), email goes to a fake inbox, and Google sign-in goes to a fake provider.
 - A separate **content validation** checks the real question banks, the bibliography and the links. It runs on every content update.
 
+## Platforms and screenshots
+
+- **Every e2e test runs on both platforms:** `web` (a desktop browser) and `android` (a phone screen with touch, in Chromium, the engine of the Android WebView the app is packaged in). A scenario only passes when it works on both. Once the Android app exists, its own tests run on an emulator too.
+- **A screenshot tour** (`e2e/tests/screens.spec.ts`) goes through every screen and state on both platforms and saves full-page screenshots in the test run's folder, under `screenshots/<platform>/`. `make screenshots` runs only the tour. Look through the screenshots after changing the interface, to catch layout problems no assertion checks: overflow, overlapping or cut-off text, unreadable contrast, controls too small to tap. A new screen or state gets a step in the tour.
+- Screenshots aren't committed, to keep the repository small. CI keeps them in its `test-runs` artifact.
+
 ## Parallel work: one worktree per task
 
 Several tasks can be developed at the same time, by people or by parallel agents. Each task lives in its own git worktree on its own branch.
@@ -63,7 +69,7 @@ Every worktree runs its own complete stack (database, backend, accounts, fake ma
 The suite is built to run with many workers at once:
 
 - **No shared mutable state:** every test creates its own user, with a unique email, and its own data. Tests never depend on each other's order and never reset the whole database.
-- **Read-only shared content:** the fixed test content set is loaded once per stack and never modified by tests. A test that needs different content uses its own copy.
+- **Read-only shared content:** the content is loaded once per stack and never modified by tests. A test that needs different content uses its own copy.
 - **Per-test control of time and randomness:** timers and random seeds are controlled inside each test, never globally.
 - **Isolated helpers:** each test reads only its own messages from the fake inbox (filtered by its unique email address) and uses its own fake Google identity.
 - **Lower-level tests** run in parallel too. Database tests each get their own fresh database, cloned quickly from a prepared template.

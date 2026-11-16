@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-16T21-15-06Z",
+  "branch": "task/browser-platforms",
+  "commit": "1c59f8dd3ffba19f6e154ded81a0631b4cef43b7",
+  "ci": false,
+  "suites_requested": [
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "e2e",
+      "status": "failed",
+      "ms": 5580
+    }
+  ],
+  "result": "failed"
+}

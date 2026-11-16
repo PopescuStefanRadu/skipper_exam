@@ -24,8 +24,10 @@ const EventsContext = createContext<EventsState>({
 function merge(a: AppEvent[], b: AppEvent[]): AppEvent[] {
   const byId = new Map(a.map((e) => [e.id, e]));
   for (const e of b) if (!byId.has(e.id)) byId.set(e.id, e);
+  // Compare times, not texts: the server writes them in a shorter form (no trailing
+  // zeros), so "…:45Z" and "…:45.700Z" would sort the wrong way round as text.
   // Array.sort is stable, so events with the same time keep the order they were recorded in.
-  return [...byId.values()].sort((x, y) => x.at.localeCompare(y.at));
+  return [...byId.values()].sort((x, y) => Date.parse(x.at) - Date.parse(y.at));
 }
 
 // Keeps the signed-in user's events: on the device first, then synced with the

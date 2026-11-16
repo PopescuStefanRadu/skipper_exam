@@ -2,10 +2,10 @@
 
 ## Read first
 
-- `docs/PRODUCT.md`: the app's goal, its features (exam simulation, answer explanations linked to the bibliography, learning mode, progress), and the content and versioning rules for question banks, bibliography and source links.
-- `docs/DEVELOPMENT.md`: the development flow, the list of e2e scenarios, and how to update content when RNA changes the questions or the bibliography.
+- `docs/DEVELOPMENT.md`: the development practices, especially the e2e-first loop.
+- `docs/app/README.md`: the app overview (goal, platforms, technical direction, open points) and the index of feature documents. Each feature document in `docs/app/features/` holds that feature's behaviour and its e2e scenarios. `docs/app/features/content.md` describes how to update the question banks, the bibliography and the source links.
 
-Work **e2e-first**. Write or update the end-to-end scenario before implementing, then iterate until the full e2e suite passes. Keep both docs current when features or the content flow change.
+Work **e2e-first**. Update the feature document and its e2e scenario before implementing, then iterate until the full e2e suite passes.
 
 ## Project status
 

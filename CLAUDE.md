@@ -4,6 +4,7 @@
 
 - `docs/DEVELOPMENT.md`: the development practices, especially the e2e-first loop.
 - `docs/app/README.md`: the app overview (goal, platforms, technical direction, open points) and the index of feature documents. Each feature document in `docs/app/features/` holds that feature's behaviour and its e2e scenarios. `docs/app/features/content.md` describes how to update the question banks, the bibliography and the source links.
+- `docs/TODO.md`: open items that need a person, such as questions whose official answer seems to contradict the source.
 
 Work **e2e-first**. Update the feature document and its e2e scenario before implementing, then iterate until the full e2e suite passes. Parallel tasks use one git worktree and branch each, with an isolated stack on free ports. Every test target records its run in `test-runs/<date>_<branch>_<sha>/` and refuses to run with uncommitted changes, so commit (a `wip:` commit is fine) before running tests. Commit the records along with your work. Changes reach `main` only through a pull request, using `make integrate`, which squashes the branch into one commit listing the original commit shas. Never push to `main` directly; GitHub blocks it. Pull-request descriptions and commit messages must not mention any AI tool. See `docs/DEVELOPMENT.md`.
 

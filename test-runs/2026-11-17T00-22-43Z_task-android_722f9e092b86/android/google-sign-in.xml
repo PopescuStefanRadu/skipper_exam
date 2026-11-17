@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Test Suite" device="test" tests="1" failures="0" time="25.197" timestamp="2026-11-17T00:25:48">
+    <testcase id="google-sign-in" name="google-sign-in" classname="google-sign-in" file="flows/google-sign-in.yaml" time="25.19" timestamp="2026-11-17T00:25:48" status="SUCCESS"/>
+  </testsuite>
+</testsuites>

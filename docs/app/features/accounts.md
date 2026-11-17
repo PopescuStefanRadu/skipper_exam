@@ -10,7 +10,8 @@
 - Some accounts have the **reviewer** role, which unlocks reviewing explanations (see [Explanations](explanations.md)). Roles are assigned by an administrator, not chosen by the user: `make grant-reviewer EMAIL=...` in a stack, or the server's `grant-role` command in production.
 - At sign-up you choose your [exam type](exam-types.md).
 - Users are in the EU, so you can export your data and delete your account along with all your progress.
-- For signing in on Android and working offline, see [Offline and sync](offline-and-sync.md).
+- **On Android** the app signs in the way Kratos recommends for native apps: it keeps a session token on the device and sends it with every request, since it can't share the website's cookies. Email and password work in the app. Google opens in the phone's browser and returns to the app when done (through the `ro.skipperexam.app://auth` link). A forgotten password is reset on the website, opened in the browser; then you sign in to the app with the new password. Signing out ends the session on the server too.
+- For working offline, see [Offline and sync](offline-and-sync.md).
 
 ## E2E scenarios
 

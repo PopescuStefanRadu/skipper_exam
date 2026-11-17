@@ -1,0 +1,10 @@
+appId: ro.skipperexam.app
+---
+- scrollUntilVisible:
+    element: "Ieșire din cont"
+    direction: UP
+- tapOn: "Ieșire din cont"
+- extendedWaitUntil:
+    visible: "Autentificare"
+    timeout: 20000
+- takeScreenshot: 07-signed-out

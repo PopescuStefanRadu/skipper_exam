@@ -36,6 +36,9 @@ type Config struct {
 	AccountsProxy http.Handler
 	// Web holds the built web app. If nil, only the API is served.
 	Web fs.FS
+	// AppOrigins are the origins of installed apps (the Android app's web view),
+	// which may call the API and the account service from another origin.
+	AppOrigins []string
 }
 
 // New returns the backend's HTTP handler.
@@ -67,7 +70,40 @@ func New(cfg Config) http.Handler {
 	if cfg.Web != nil {
 		mux.Handle("/", spa(cfg.Web))
 	}
-	return mux
+	return cors(cfg.AppOrigins, mux)
+}
+
+// cors lets the installed apps call the API and the account service. They
+// authenticate with a session token header, never with cookies, so credentials
+// are not allowed across origins.
+func cors(origins []string, next http.Handler) http.Handler {
+	allowed := map[string]bool{}
+	for _, o := range origins {
+		allowed[o] = true
+	}
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		origin := r.Header.Get("Origin")
+		w.Header().Add("Vary", "Origin")
+		if !allowed[origin] {
+			next.ServeHTTP(w, r)
+			return
+		}
+		h := w.Header()
+		h.Set("Access-Control-Allow-Origin", origin)
+		h.Set("Access-Control-Expose-Headers", "ETag")
+		if r.Method == http.MethodOptions && r.Header.Get("Access-Control-Request-Method") != "" {
+			h.Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")
+			h.Set("Access-Control-Allow-Headers", "Accept, Content-Type, If-None-Match, "+SessionTokenHeader)
+			h.Set("Access-Control-Max-Age", "600")
+			w.WriteHeader(http.StatusNoContent)
+			return
+		}
+		// The app's web view adds Origin like a browser page would, but the app uses
+		// Kratos's flows for native apps, which refuse requests that look like a
+		// browser's. Past this check the request is the app's, so Origin goes.
+		r.Header.Del("Origin")
+		next.ServeHTTP(w, r)
+	})
 }
 
 type healthResponse struct {

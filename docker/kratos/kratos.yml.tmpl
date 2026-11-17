@@ -16,6 +16,8 @@ selfservice:
   default_browser_return_url: __APP_URL__/
   allowed_return_urls:
     - __APP_URL__/
+    # The Android app: Google sign-in returns to it through this link.
+    - ro.skipperexam.app://auth
   methods:
     password:
       enabled: true

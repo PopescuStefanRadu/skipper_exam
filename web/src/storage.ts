@@ -17,6 +17,14 @@ export function save(key: string, value: unknown) {
   }
 }
 
+export function remove(key: string) {
+  try {
+    localStorage.removeItem(key);
+  } catch {
+    // Nothing stored.
+  }
+}
+
 // A random UUID; crypto.randomUUID needs a secure context, which a home server on
 // plain HTTP isn't.
 export function uuid(): string {

@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-17T00-18-38Z",
+  "branch": "task/android",
+  "commit": "1796cb9215308537637779b5eba4c0383813e6d3",
+  "ci": false,
+  "suites_requested": [
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 26824
+    }
+  ],
+  "result": "passed"
+}

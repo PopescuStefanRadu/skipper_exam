@@ -1,0 +1,30 @@
+# Sign in with email and password, choose the exam type, reach the home screen.
+appId: ro.skipperexam.app
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Autentificare"
+    timeout: 30000
+- takeScreenshot: 01-sign-in
+- tapOn: "Email"
+- inputText: ${EMAIL}
+- tapOn: "Parolă"
+- inputText: ${PASSWORD}
+- hideKeyboard
+- tapOn: "Intră în cont"
+- extendedWaitUntil:
+    visible: "Pentru ce examen te pregătești?"
+    timeout: 20000
+- tapOn: "Clasa C"
+- scrollUntilVisible:
+    element: "Salvează"
+    direction: DOWN
+- tapOn: "Salvează"
+- extendedWaitUntil:
+    visible: "Examen simulat"
+    timeout: 20000
+- scrollUntilVisible:
+    element: "Toate datele sunt salvate pe server."
+    direction: DOWN
+- takeScreenshot: 02-home

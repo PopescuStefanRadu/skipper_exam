@@ -130,7 +130,13 @@ export const strings = {
     wrong: "Greșit.",
     sessionScore: (correct: number, total: number) => `Ai răspuns corect la ${correct} din ${total}.`,
     sessionDone: "Ai terminat recapitularea.",
-    history: "Toate răspunsurile, din examene și din învățare, contează. Întrebările echivalente sunt numărate o singură dată.",
+    history:
+      "Toate răspunsurile, din examene și din învățare, contează. Întrebările echivalente sunt numărate o singură dată.",
+  },
+  sync: {
+    done: "Toate datele sunt salvate pe server.",
+    pending: (n: number) =>
+      `${n} ${n === 1 ? "modificare așteaptă" : n < 20 ? "modificări așteaptă" : "de modificări așteaptă"} conexiunea cu serverul.`,
   },
   nav: {
     next: "Next",

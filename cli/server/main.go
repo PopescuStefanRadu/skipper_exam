@@ -11,6 +11,7 @@ import (
 	"net/url"
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 	"time"
 
@@ -104,6 +105,11 @@ func run() error {
 	}
 	if dir := os.Getenv("WEB_DIR"); dir != "" {
 		cfg.Web = os.DirFS(dir)
+	}
+	// The Android app's web view runs on its own origin (Capacitor's default).
+	cfg.AppOrigins = []string{"https://localhost"}
+	if origins := os.Getenv("APP_ORIGINS"); origins != "" {
+		cfg.AppOrigins = strings.Split(origins, ",")
 	}
 
 	addr := os.Getenv("LISTEN_ADDR")

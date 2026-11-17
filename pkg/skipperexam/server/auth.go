@@ -16,6 +16,9 @@ import (
 // origin under kratosPrefix, so sign-in cookies belong to the app's origin.
 const kratosPrefix = "/.ory"
 
+// SessionTokenHeader carries the session token of apps that don't use cookies.
+const SessionTokenHeader = "X-Session-Token"
+
 // Identity is the signed-in account.
 type Identity struct {
 	ID    string `json:"id"`
@@ -47,13 +50,19 @@ func NewKratos(publicURL string) (*Kratos, error) {
 	return &Kratos{PublicURL: u, Client: &http.Client{Timeout: 5 * time.Second}}, nil
 }
 
-// Identity asks Kratos who the session cookie in r belongs to.
+// Identity asks Kratos who the session in r belongs to: the session cookie (web) or
+// the session token header (the Android app, which signs in through Kratos's flows
+// for native apps).
 func (k *Kratos) Identity(ctx context.Context, r *http.Request) (Identity, error) {
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, k.PublicURL.JoinPath("sessions/whoami").String(), nil)
 	if err != nil {
 		return Identity{}, err
 	}
-	req.Header.Set("Cookie", r.Header.Get("Cookie"))
+	if token := r.Header.Get(SessionTokenHeader); token != "" {
+		req.Header.Set(SessionTokenHeader, token)
+	} else {
+		req.Header.Set("Cookie", r.Header.Get("Cookie"))
+	}
 	req.Header.Set("Accept", "application/json")
 	res, err := k.Client.Do(req)
 	if err != nil {

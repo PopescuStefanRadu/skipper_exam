@@ -1,5 +1,10 @@
-// Client for the Kratos self-service flows. Kratos is served on the app's own
-// origin under /.ory, so its cookies belong to the app.
+// Client for the Kratos self-service flows. Kratos is served on the backend's
+// origin under /.ory. The website uses its browser flows, so its cookies belong to
+// the website; the Android app uses its flows for native apps, which return a
+// session token (see platform.ts).
+import { Browser } from "@capacitor/browser";
+import { appReturnUrl, apiFetch, isApp, sessionToken, setSessionToken } from "./platform";
+import { load, remove, save } from "./storage";
 import { strings } from "./strings";
 
 const base = "/.ory";
@@ -20,6 +25,8 @@ interface UiMessage {
 export interface Flow {
   id: string;
   state?: string;
+  // Native flows started for a Google sign-in: exchanged for a session token later.
+  session_token_exchange_code?: string;
   ui: { action: string; nodes: UiNode[]; messages?: UiMessage[] };
 }
 
@@ -28,9 +35,8 @@ export type SubmitResult = { ok: true } | { ok: false; errors: string[] };
 // Loads a flow Kratos redirected the browser to, e.g. after a Google sign-in that
 // needs the user to confirm with their password.
 export async function getFlow(kind: FlowKind, id: string): Promise<Flow> {
-  const res = await fetch(`${base}/self-service/${kind}/flows?id=${encodeURIComponent(id)}`, {
+  const res = await apiFetch(`${base}/self-service/${kind}/flows?id=${encodeURIComponent(id)}`, {
     headers: { Accept: "application/json" },
-    credentials: "include",
   });
   if (!res.ok) throw new Error(`could not load ${kind} flow: ${res.status}`);
   return res.json();
@@ -48,27 +54,59 @@ export function flowMessages(flow: Flow): { errors: string[]; info: string[] } {
 // Starts a sign-in with an external provider: Kratos answers with the provider's
 // address, which the browser then opens.
 export async function startProviderSignIn(flow: Flow, provider: string): Promise<SubmitResult> {
-  const res = await fetch(flow.ui.action, {
+  const res = await apiFetch(flow.ui.action, {
     method: "POST",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
-    credentials: "include",
-    body: JSON.stringify({ method: "oidc", provider, csrf_token: csrfToken(flow) }),
+    body: JSON.stringify({ method: "oidc", provider, ...csrf(flow) }),
   });
   const json = await res.json().catch(() => null);
   if (res.status === 422 && json?.redirect_browser_to) {
-    window.location.assign(json.redirect_browser_to);
+    if (isApp) {
+      // The sign-in continues in the browser and comes back to the app through
+      // appReturnUrl; the app may be stopped meanwhile, so the code is stored.
+      save(exchangeKey, flow.session_token_exchange_code);
+      await Browser.open({ url: json.redirect_browser_to });
+    } else {
+      window.location.assign(json.redirect_browser_to);
+    }
     return { ok: true };
   }
   return { ok: false, errors: [strings.errors.generic] };
 }
 
+const exchangeKey = "session-token-exchange";
+
+// The app was opened through appReturnUrl after a Google sign-in: trade the codes
+// for a session token. Returns whether the app is now signed in.
+export async function finishProviderSignIn(returnedUrl: string): Promise<boolean> {
+  const code = new URL(returnedUrl).searchParams.get("code");
+  const initCode = load<string>(exchangeKey);
+  remove(exchangeKey);
+  if (!code || !initCode) return false;
+  const res = await apiFetch(
+    `${base}/sessions/token-exchange?init_code=${encodeURIComponent(initCode)}&return_to_code=${encodeURIComponent(code)}`,
+    { headers: { Accept: "application/json" } },
+  );
+  if (!res.ok) return false;
+  const { session_token } = (await res.json()) as { session_token?: string };
+  setSessionToken(session_token);
+  return Boolean(session_token);
+}
+
 export async function createFlow(kind: FlowKind): Promise<Flow> {
-  const res = await fetch(`${base}/self-service/${kind}/browser`, {
+  const path = isApp
+    ? `${kind}/api?return_session_token_exchange_code=true&return_to=${encodeURIComponent(appReturnUrl)}`
+    : `${kind}/browser`;
+  const res = await apiFetch(`${base}/self-service/${path}`, {
     headers: { Accept: "application/json" },
-    credentials: "include",
   });
   if (!res.ok) throw new Error(`could not start ${kind}: ${res.status}`);
   return res.json();
+}
+
+// Browser flows need their CSRF token; native flows reject the field.
+function csrf(flow: Flow): { csrf_token?: string } {
+  return isApp ? {} : { csrf_token: csrfToken(flow) };
 }
 
 function csrfToken(flow: Flow): string {
@@ -77,13 +115,18 @@ function csrfToken(flow: Flow): string {
 }
 
 export async function submitFlow(flow: Flow, body: Record<string, unknown>): Promise<SubmitResult> {
-  const res = await fetch(flow.ui.action, {
+  const res = await apiFetch(flow.ui.action, {
     method: "POST",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
-    credentials: "include",
-    body: JSON.stringify({ ...body, csrf_token: csrfToken(flow) }),
+    body: JSON.stringify({ ...body, ...csrf(flow) }),
   });
-  if (res.ok) return { ok: true };
+  if (res.ok) {
+    if (isApp) {
+      const { session_token } = (await res.json()) as { session_token?: string };
+      setSessionToken(session_token);
+    }
+    return { ok: true };
+  }
   // An expired flow or a stale CSRF token: the caller starts a new flow.
   if (res.status === 403 || res.status === 410) return { ok: false, errors: [strings.errors.expired] };
   if (res.status === 400) {
@@ -97,11 +140,10 @@ export async function submitFlow(flow: Flow, body: Record<string, unknown>): Pro
 type FlowResult = { flow: Flow; errors: string[] } | { redirectTo: string } | { errors: string[] };
 
 async function postFlow(flow: Flow, body: Record<string, unknown>): Promise<FlowResult> {
-  const res = await fetch(flow.ui.action, {
+  const res = await apiFetch(flow.ui.action, {
     method: "POST",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
-    credentials: "include",
-    body: JSON.stringify({ ...body, csrf_token: csrfToken(flow) }),
+    body: JSON.stringify({ ...body, ...csrf(flow) }),
   });
   if (res.status === 403 || res.status === 410) return { errors: [strings.errors.expired] };
   const json = await res.json().catch(() => null);
@@ -127,9 +169,8 @@ export const sendRecoveryCode = (flow: Flow, email: string) => postFlow(flow, { 
 export const submitRecoveryCode = (flow: Flow, code: string) => postFlow(flow, { method: "code", code });
 
 export async function getSettingsFlow(id: string): Promise<Flow> {
-  const res = await fetch(`${base}/self-service/settings/flows?id=${encodeURIComponent(id)}`, {
+  const res = await apiFetch(`${base}/self-service/settings/flows?id=${encodeURIComponent(id)}`, {
     headers: { Accept: "application/json" },
-    credentials: "include",
   });
   if (!res.ok) throw new Error(`settings flow: ${res.status}`);
   return res.json();
@@ -138,15 +179,24 @@ export async function getSettingsFlow(id: string): Promise<Flow> {
 export const setNewPassword = (flow: Flow, password: string) => postFlow(flow, { method: "password", password });
 
 export async function signOut(): Promise<void> {
-  const res = await fetch(`${base}/self-service/logout/browser`, {
+  if (isApp) {
+    const token = sessionToken();
+    setSessionToken(undefined);
+    if (!token) return;
+    await apiFetch(`${base}/self-service/logout/api`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ session_token: token }),
+    }).catch(() => undefined);
+    return;
+  }
+  const res = await apiFetch(`${base}/self-service/logout/browser`, {
     headers: { Accept: "application/json" },
-    credentials: "include",
   });
   if (!res.ok) return; // already signed out
   const { logout_token } = (await res.json()) as { logout_token: string };
-  await fetch(`${base}/self-service/logout?token=${encodeURIComponent(logout_token)}`, {
+  await apiFetch(`${base}/self-service/logout?token=${encodeURIComponent(logout_token)}`, {
     headers: { Accept: "application/json" },
-    credentials: "include",
   });
 }
 

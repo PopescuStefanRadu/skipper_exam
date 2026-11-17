@@ -3,6 +3,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { postReview, ReviewError, type Explanation, type ReviewAction, type Passage } from "./api";
 import { useContent } from "./content";
 import { useExplanations } from "./explanations";
+import { isApp, openExternal } from "./platform";
 import { useSession } from "./session";
 import { uuid } from "./storage";
 import { strings } from "./strings";
@@ -84,7 +85,16 @@ function ExplanationView({ e }: { e: Explanation }) {
       <figcaption data-testid="reference">
         {e.sourceTitle}, {e.reference}, {s.page(e.page)}
       </figcaption>
-      <a href={`/api/sources/${e.source}#page=${e.page}`} target="_blank" rel="noreferrer">
+      <a
+        href={`/api/sources/${e.source}#page=${e.page}`}
+        target="_blank"
+        rel="noreferrer"
+        onClick={(ev) => {
+          if (!isApp) return;
+          ev.preventDefault();
+          openExternal(`/api/sources/${e.source}#page=${e.page}`);
+        }}
+      >
         {s.openSource} {s.atPage(e.page)}
       </a>
     </figure>

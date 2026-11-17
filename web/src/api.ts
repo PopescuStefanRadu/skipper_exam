@@ -1,4 +1,5 @@
 // Backend API on the same origin.
+import { apiFetch } from "./platform";
 export interface Me {
   id: string;
   email: string;
@@ -68,43 +69,45 @@ async function json<T>(res: Response, what: string): Promise<T> {
 }
 
 // Returns the signed-in account, or null when signed out.
+// Session checks give up after a few seconds, so a server that doesn't answer
+// counts as offline instead of keeping the app on its loading screen.
+const sessionTimeoutMs = 5000;
+
 export async function getMe(): Promise<Me | null> {
-  const res = await fetch("/api/me", { credentials: "include" });
+  const res = await apiFetch("/api/me", { signal: AbortSignal.timeout(sessionTimeoutMs) });
   if (res.status === 401) return null;
   return json(res, "/api/me");
 }
 
 export async function getExamTypes(): Promise<ExamType[]> {
-  return json(await fetch("/api/exam-types"), "/api/exam-types");
+  return json(await apiFetch("/api/exam-types"), "/api/exam-types");
 }
 
 export async function getProfile(): Promise<Profile> {
-  return json(await fetch("/api/profile", { credentials: "include" }), "/api/profile");
+  return json(await apiFetch("/api/profile", { signal: AbortSignal.timeout(sessionTimeoutMs) }), "/api/profile");
 }
 
 export async function setExamType(examType: string): Promise<Profile> {
-  const res = await fetch("/api/profile", {
+  const res = await apiFetch("/api/profile", {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    credentials: "include",
     body: JSON.stringify({ examType }),
   });
   return json(res, "/api/profile");
 }
 
 export async function getContent(): Promise<ContentPackage> {
-  return json(await fetch("/api/content"), "/api/content");
+  return json(await apiFetch("/api/content"), "/api/content");
 }
 
 export async function getEvents(): Promise<AppEvent[]> {
-  return json(await fetch("/api/events", { credentials: "include" }), "/api/events");
+  return json(await apiFetch("/api/events"), "/api/events");
 }
 
 export async function postEvents(events: AppEvent[]): Promise<void> {
-  const res = await fetch("/api/events", {
+  const res = await apiFetch("/api/events", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    credentials: "include",
     body: JSON.stringify({ events }),
   });
   await json(res, "/api/events");
@@ -131,7 +134,7 @@ export interface Explanation extends Passage {
 }
 
 export async function getExplanations(): Promise<Explanation[]> {
-  return json(await fetch("/api/explanations", { credentials: "include" }), "/api/explanations");
+  return json(await apiFetch("/api/explanations"), "/api/explanations");
 }
 
 export type ReviewAction = "confirm" | "reject" | "correct" | "flag" | "reset";
@@ -149,10 +152,9 @@ export async function postReview(review: {
   note?: string;
   correction?: Passage;
 }): Promise<Explanation> {
-  const res = await fetch("/api/reviews", {
+  const res = await apiFetch("/api/reviews", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    credentials: "include",
     body: JSON.stringify(review),
   });
   if (!res.ok) throw new ReviewError(res.status);

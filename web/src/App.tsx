@@ -10,18 +10,22 @@ import { QuestionPage } from "./QuestionPage";
 import { ExamTypePage } from "./ExamTypePage";
 import { histories, mistakes, progress } from "./learning";
 import { LearningPage, PracticePage } from "./LearningPage";
-import { signOut } from "./kratos";
+import { App as NativeApp } from "@capacitor/app";
+import { Browser } from "@capacitor/browser";
+import { finishProviderSignIn, signOut } from "./kratos";
+import { appReturnUrl, isApp, openExternal } from "./platform";
 import { NewPassword, Recovery } from "./Recovery";
 import { ResultPage } from "./ResultPage";
 import { ServerStatus } from "./ServerStatus";
 import { uuid } from "./storage";
-import { SessionProvider, useSession } from "./session";
+import { forgetSession, SessionProvider, useSession } from "./session";
 import { strings } from "./strings";
 
 export function App() {
   return (
     <SessionProvider>
       <ContentProvider>
+        {isApp && <AppLinks />}
         <header className="topbar">
           <div className="topbar-inner">
             <Link to="/" className="brand">
@@ -137,6 +141,27 @@ export function App() {
   );
 }
 
+// Android: the app is opened through appReturnUrl at the end of a Google sign-in
+// in the browser.
+function AppLinks() {
+  const { refresh } = useSession();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const listener = NativeApp.addListener("appUrlOpen", async ({ url }) => {
+      if (!url.startsWith(appReturnUrl)) return;
+      await Browser.close().catch(() => undefined);
+      if (await finishProviderSignIn(url)) {
+        await refresh();
+        navigate("/", { replace: true });
+      }
+    });
+    return () => {
+      void listener.then((l) => l.remove());
+    };
+  }, [refresh, navigate]);
+  return null;
+}
+
 // Signed-out pages: the app's purpose and one form in a card.
 function AuthPage({ children }: { children: ReactNode }) {
   return (
@@ -154,8 +179,21 @@ function RequireSession({ children }: { children: ReactNode }) {
   if (me === null) return <Navigate to="/autentificare" replace />;
   return (
     <EventsProvider key={me.id} userId={me.id}>
-      <ExplanationsProvider>{children}</ExplanationsProvider>
+      <ExplanationsProvider>
+        {children}
+        <SyncStatus />
+      </ExplanationsProvider>
     </EventsProvider>
+  );
+}
+
+// Whether everything done on this device has reached the server.
+function SyncStatus() {
+  const { pending } = useEvents();
+  return (
+    <p className="hint sync-status" data-testid="sync-status" data-pending={pending}>
+      {pending === 0 ? strings.sync.done : strings.sync.pending(pending)}
+    </p>
   );
 }
 
@@ -181,6 +219,7 @@ function AccountBar() {
         type="button"
         onClick={async () => {
           await signOut();
+          forgetSession();
           await refresh();
           navigate("/autentificare", { replace: true });
         }}
@@ -208,7 +247,14 @@ function SignIn() {
       />
       <div className="auth-links">
         <p>
-          <Link to="/recuperare">{strings.signIn.forgotPassword}</Link>
+          {isApp ? (
+            // Password reset happens on the website; then sign in here with the new password.
+            <a href="#" onClick={(e) => (e.preventDefault(), openExternal("/recuperare"))}>
+              {strings.signIn.forgotPassword}
+            </a>
+          ) : (
+            <Link to="/recuperare">{strings.signIn.forgotPassword}</Link>
+          )}
         </p>
         <p>
           {strings.signIn.noAccount} <Link to="/inregistrare">{strings.signIn.toSignUp}</Link>

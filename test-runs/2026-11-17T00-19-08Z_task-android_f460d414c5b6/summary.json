@@ -1,0 +1,35 @@
+{
+  "started": "2026-11-17T00-19-08Z",
+  "branch": "task/android",
+  "commit": "f460d414c5b6c13c3c4294049f94a10dddcc4fbd",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e",
+    "android"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1890
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 181
+    },
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 25940
+    },
+    {
+      "name": "android",
+      "status": "passed",
+      "ms": 179839
+    }
+  ],
+  "result": "passed"
+}

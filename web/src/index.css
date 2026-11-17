@@ -742,3 +742,7 @@ table.progress thead th.num {
 * + h3 {
   margin-top: 1.25rem;
 }
+.sync-status {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}

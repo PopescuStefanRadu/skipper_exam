@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: grant-reviewer content-extract content-validate content-tag content-import-rna help setup build test e2e test-all check vet fmt tidy up down status screenshots dev task-new task-done integrate
+.PHONY: android-e2e android-build android-image grant-reviewer content-extract content-validate content-tag content-import-rna help setup build test e2e test-all check vet fmt tidy up down status screenshots dev task-new task-done integrate
 
 help: ## List available targets
 	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  %-10s %s\n", $$1, $$2}'
@@ -27,8 +27,17 @@ screenshots: ## Screenshots of every screen on both platforms, saved in the test
 check: ## Lint (gofmt check, vet, type checks) and Go tests
 	scripts/test-run.sh lint go
 
-test-all: ## Everything: lint, Go tests, e2e
-	scripts/test-run.sh lint go e2e
+test-all: ## Everything: lint, Go tests, e2e, Android e2e
+	scripts/test-run.sh lint go e2e android
+
+android-e2e: ## Build the Android app and run its flows on an emulator (in Docker; needs /dev/kvm)
+	scripts/test-run.sh android
+
+android-build: ## Build a debug APK (web/android/app/build/outputs/apk/debug/) for SERVER_URL (default: this worktree's stack)
+	SERVER_URL="$(SERVER_URL)" scripts/android.sh build
+
+android-image: ## Build the Android toolchain image (SDK, emulator, Maestro); done automatically on first use
+	scripts/android.sh image
 
 vet: ## Run go vet
 	go vet ./...

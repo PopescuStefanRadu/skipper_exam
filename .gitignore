@@ -9,3 +9,6 @@ e2e/playwright-report/
 .pr-body
 .stack/
 test-runs/*/screenshots/
+# Android test runs: keep the flows' JUnit results, not the device logs and screenshots.
+test-runs/*/android/*
+!test-runs/*/android/*.xml

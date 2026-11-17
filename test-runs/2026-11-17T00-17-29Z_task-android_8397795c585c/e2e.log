@@ -1,0 +1,1620 @@
+ Image skipper-android-61f628a9-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 588B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.1s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 ...
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.5s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.7s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#7 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#7 DONE 0.0s
+
+#8 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#8 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#8 DONE 0.0s
+
+#9 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#9 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#9 DONE 0.0s
+
+#10 [internal] load build context
+#10 transferring context: 7.21MB 0.1s done
+#10 DONE 0.1s
+
+#11 [web 2/7] RUN corepack enable
+#11 CACHED
+
+#12 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#12 CACHED
+
+#13 [web 3/7] WORKDIR /web
+#13 CACHED
+
+#14 [web 5/7] RUN pnpm install --frozen-lockfile
+#14 CACHED
+
+#15 [web 6/7] COPY web/ ./
+#15 DONE 0.1s
+
+#16 [web 7/7] RUN pnpm build
+#16 0.182 $ tsc -b && vite build
+#16 1.633 vite v6.0.7 building for production...
+#16 1.676 transforming...
+#16 2.170 ✓ 58 modules transformed.
+#16 2.218 rendering chunks...
+#16 2.266 computing gzip size...
+#16 2.272 dist/index.html                   0.40 kB │ gzip:  0.27 kB
+#16 2.272 dist/assets/index-Dqf10uji.css   10.50 kB │ gzip:  2.92 kB
+#16 2.272 dist/assets/web-1QcNHGB8.js       0.38 kB │ gzip:  0.25 kB
+#16 2.272 dist/assets/web-DUZ4fGzA.js       0.84 kB │ gzip:  0.40 kB
+#16 2.272 dist/assets/index-DYQh8hZW.js   219.33 kB │ gzip: 70.65 kB
+#16 2.273 ✓ built in 621ms
+#16 DONE 2.3s
+
+#17 [backend 5/7] COPY cli cli
+#17 CACHED
+
+#18 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#18 CACHED
+
+#19 [stage-2 2/4] COPY --from=backend /server /server
+#19 CACHED
+
+#20 [backend 4/7] RUN go mod download
+#20 CACHED
+
+#21 [stage-2 3/4] COPY --from=web /web/dist /web
+#21 CACHED
+
+#22 [backend 6/7] COPY pkg pkg
+#22 CACHED
+
+#23 [backend 3/7] COPY go.mod go.sum ./
+#23 CACHED
+
+#24 [backend 2/7] WORKDIR /src
+#24 CACHED
+
+#25 [stage-2 4/4] COPY content /content
+#25 CACHED
+
+#26 exporting to image
+#26 exporting layers done
+#26 exporting manifest sha256:cb2e20b6f6aa8e0dd6de63d8853b5eab0a61f993a5c61e59cc106b13bbca5a62 done
+#26 exporting config sha256:da9170d947f94eef878a2df6337f6355004baac87c328e72c416b1272f601b24 done
+#26 exporting attestation manifest sha256:d820e746aa0114c48690921705f53f63a9e4cbbe99eb9ca8a5737791df2ddb47 done
+#26 exporting manifest list sha256:22b9e2cb01a2033dc7d53adc2b09e12f227a8314b13ba1d077786c61bc72d1d4 done
+#26 naming to docker.io/library/skipper-android-61f628a9-app:latest done
+#26 unpacking to docker.io/library/skipper-android-61f628a9-app:latest done
+#26 DONE 0.1s
+
+#27 resolving provenance for metadata file
+#27 DONE 0.0s
+ Image skipper-android-61f628a9-app Built 
+ Container skipper-android-61f628a9-kratos-1 Running 
+ Container skipper-android-61f628a9-mock-oidc-1 Running 
+ Container skipper-android-61f628a9-mailpit-1 Running 
+ Container skipper-android-61f628a9-db-1 Running 
+ Container skipper-android-61f628a9-app-1 Recreate 
+ Container skipper-android-61f628a9-app-1 Recreated 
+ Container skipper-android-61f628a9-db-1 Waiting 
+ Container skipper-android-61f628a9-db-1 Healthy 
+ Container skipper-android-61f628a9-kratos-migrate-1 Starting 
+ Container skipper-android-61f628a9-kratos-migrate-1 Started 
+ Container skipper-android-61f628a9-kratos-migrate-1 Waiting 
+ Container skipper-android-61f628a9-kratos-migrate-1 Exited 
+ Container skipper-android-61f628a9-db-1 Waiting 
+ Container skipper-android-61f628a9-kratos-1 Waiting 
+ Container skipper-android-61f628a9-db-1 Healthy 
+ Container skipper-android-61f628a9-kratos-1 Healthy 
+ Container skipper-android-61f628a9-app-1 Starting 
+ Container skipper-android-61f628a9-app-1 Started 
+ Container skipper-android-61f628a9-db-1 Waiting 
+ Container skipper-android-61f628a9-kratos-migrate-1 Waiting 
+ Container skipper-android-61f628a9-kratos-1 Waiting 
+ Container skipper-android-61f628a9-mock-oidc-1 Waiting 
+ Container skipper-android-61f628a9-mailpit-1 Waiting 
+ Container skipper-android-61f628a9-app-1 Waiting 
+ Container skipper-android-61f628a9-mock-oidc-1 Healthy 
+ Container skipper-android-61f628a9-mailpit-1 Healthy 
+ Container skipper-android-61f628a9-kratos-1 Healthy 
+ Container skipper-android-61f628a9-kratos-migrate-1 Exited 
+ Container skipper-android-61f628a9-db-1 Healthy 
+ Container skipper-android-61f628a9-app-1 Healthy 
+STACK_PROJECT=skipper-android-61f628a9
+APP_URL=http://127.0.0.1:58709
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32834/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32837
+MAILPIT_URL=http://127.0.0.1:32835
+MOCK_OIDC_URL=http://127.0.0.1:47347
+
+Running 116 tests using 12 workers
+
+  ✓  1 [web] › accounts.spec.ts:47:1 › an unknown email gets the same message as a wrong password (626ms)
+  ✓  4 [web] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (655ms)
+  ✓  5 [web] › accounts.spec.ts:59:1 › a password shorter than 8 characters is refused (695ms)
+  ✓  8 [web] › accounts.spec.ts:34:1 › opening the app while signed out leads to sign-in (632ms)
+  ✓  12 [web] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (574ms)
+  ✓  11 [web] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (628ms)
+  ✓  3 [web] › accounts.spec.ts:4:1 › sign up, stay signed in after a reload, then sign out (1.3s)
+  ✓  9 [web] › accounts.spec.ts:52:1 › signing up with an email that is already used is refused (1.3s)
+  ✓  10 [web] › accounts.spec.ts:40:1 › a wrong password is refused without revealing account details (1.3s)
+  ✓  14 [web] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (793ms)
+  ✓  16 [web] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (909ms)
+  ✓  15 [web] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (924ms)
+  ✓  13 [web] › exam-type.spec.ts:24:1 › changing the exam type later (1.1s)
+  ✓  2 [web] › accounts.spec.ts:18:1 › signing in on a second device opens the same account (1.7s)
+  ✓  7 [web] › accounts.spec.ts:64:1 › after a refused attempt, the form works again (1.9s)
+  ✓  6 [web] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (2.1s)
+  ✓  27 [web] › explanations.spec.ts:39:1 › a suggested explanation is labelled unverified (850ms)
+
+  ✓  28 [web] › explanations.spec.ts:49:1 › a question without an explanation says so (833ms)
+
+  ✓  29 [web] › explanations.spec.ts:66:3 › reviewing › a reviewer confirms an explanation, and it's verified for everyone (1.6s)
+
+  ✓  30 [web] › explanations.spec.ts:84:3 › reviewing › a reviewer rejects an explanation, then undoes it (1.8s)
+
+  ✓  31 [web] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused (985ms)
+  ✓  33 [web] › explanations.spec.ts:146:1 › a normal user can't review, also through the API (782ms)
+  ✓  32 [web] › explanations.spec.ts:128:3 › reviewing › a reviewer flags a question, and everyone sees it's being checked (1.8s)
+  ✘  17 [web] › exam.spec.ts:23:1 › answering everything correctly passes the exam (6.0s)
+  ✘  18 [web] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (6.0s)
+  ✓  34 [web] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (846ms)
+  ✘  19 [web] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (6.0s)
+  ✘  21 [web] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (5.9s)
+  ✘  20 [web] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (6.0s)
+  ✘  22 [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (5.9s)
+  ✘  23 [web] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (5.8s)
+  ✘  24 [web] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (5.9s)
+  ✘  25 [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (5.9s)
+  ✘  26 [web] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page (5.9s)
+  ✓  35 [web] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (1.7s)
+  ✓  45 [web] › password-reset.spec.ts:46:1 › an unknown email gets the same confirmation, without revealing that no account exists (564ms)
+  ✓  48 [web] › screens.spec.ts:59:1 › server unavailable (234ms)
+  ✓  46 [web] › screens.spec.ts:26:1 › signed-out screens (825ms)
+  ✓  44 [web] › password-reset.spec.ts:37:1 › a wrong recovery code is refused (1.1s)
+  ✓  47 [web] › screens.spec.ts:45:1 › password recovery screens (976ms)
+  ✓  49 [web] › screens.spec.ts:66:1 › exam type and home (839ms)
+  ✓  43 [web] › password-reset.spec.ts:16:1 › reset a forgotten password and sign in with the new one (2.6s)
+  ✓  53 [web] › screens.spec.ts:132:1 › explanations (995ms)
+
+  ✓  54 [web] › screens.spec.ts:148:1 › reviewer view (1.0s)
+  ✘  36 [web] › learning.spec.ts:95:1 › with no mistakes, practice my mistakes has nothing to review (5.8s)
+  ✘  37 [web] › learning.spec.ts:51:1 › learning mode gives immediate feedback and the explanation (6.0s)
+  ✘  38 [web] › learning.spec.ts:80:1 › a learning session continues from the first question not seen yet (6.1s)
+  ✘  39 [web] › learning.spec.ts:104:1 › practice my mistakes has exactly the questions answered wrong, in exams and in learning (6.1s)
+  ✘  40 [web] › learning.spec.ts:159:1 › the learning page shows coverage and marks weak subjects (6.0s)
+  ✘  41 [web] › learning.spec.ts:177:1 › the learning page lists every subject of the exam type (6.1s)
+  ✘  42 [web] › learning.spec.ts:187:1 › an unfinished exam's answers don't count yet (6.1s)
+  ✓  59 [android] › accounts.spec.ts:4:1 › sign up, stay signed in after a reload, then sign out (774ms)
+  ✓  62 [android] › accounts.spec.ts:34:1 › opening the app while signed out leads to sign-in (246ms)
+  ✓  65 [android] › accounts.spec.ts:59:1 › a password shorter than 8 characters is refused (176ms)
+  ✘  50 [web] › screens.spec.ts:76:1 › exam screens and a failed result (5.8s)
+  ✓  64 [android] › accounts.spec.ts:47:1 › an unknown email gets the same message as a wrong password (300ms)
+  ✘  51 [web] › screens.spec.ts:99:1 › a passed result (5.8s)
+  ✓  67 [android] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (135ms)
+  ✓  61 [android] › accounts.spec.ts:52:1 › signing up with an email that is already used is refused (771ms)
+  ✘  52 [web] › screens.spec.ts:113:1 › time ran out (5.7s)
+  ✓  63 [android] › accounts.spec.ts:40:1 › a wrong password is refused without revealing account details (874ms)
+  ✓  60 [android] › accounts.spec.ts:18:1 › signing in on a second device opens the same account (1.4s)
+  ✓  70 [android] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (325ms)
+  ✓  72 [android] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (312ms)
+  ✓  69 [android] › exam-type.spec.ts:24:1 › changing the exam type later (834ms)
+  ✓  66 [android] › accounts.spec.ts:64:1 › after a refused attempt, the form works again (1.2s)
+  ✓  71 [android] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (829ms)
+  ✓  73 [android] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (748ms)
+  ✓  68 [android] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (1.3s)
+  ✓  74 [android] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (754ms)
+  ✘  55 [web] › screens.spec.ts:160:1 › learning (5.7s)
+  ✘  56 [web] › screens.spec.ts:197:1 › dark mode (5.9s)
+  ✘  57 [web] › sync.spec.ts:6:1 › answers made while the server is unreachable wait on the device, then sync (5.9s)
+  ✘  58 [web] › sync.spec.ts:27:1 › a signed-in user's app opens while the server is unreachable (5.9s)
+  ✓  85 [android] › explanations.spec.ts:39:1 › a suggested explanation is labelled unverified (878ms)
+  ✓  86 [android] › explanations.spec.ts:49:1 › a question without an explanation says so (864ms)
+
+  ✘  75 [android] › exam.spec.ts:23:1 › answering everything correctly passes the exam (5.8s)
+  ✘  76 [android] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (5.8s)
+  ✘  77 [android] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (5.8s)
+  ✘  78 [android] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (5.8s)
+  ✘  79 [android] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (5.8s)
+  ✓  87 [android] › explanations.spec.ts:66:3 › reviewing › a reviewer confirms an explanation, and it's verified for everyone (1.7s)
+  ✓  88 [android] › explanations.spec.ts:84:3 › reviewing › a reviewer rejects an explanation, then undoes it (1.7s)
+  ✘  80 [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (5.8s)
+  ✘  81 [android] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (5.8s)
+  ✘  82 [android] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (5.8s)
+
+  ✘  83 [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (5.8s)
+  ✓  92 [android] › explanations.spec.ts:146:1 › a normal user can't review, also through the API (1.1s)
+  ✓  89 [android] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused (1.5s)
+  ✓  94 [android] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (1.2s)
+  ✘  84 [android] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page (5.9s)
+  ✓  90 [android] › explanations.spec.ts:128:3 › reviewing › a reviewer flags a question, and everyone sees it's being checked (2.1s)
+  ✓  95 [android] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (1.8s)
+  ✓  104 [android] › password-reset.spec.ts:46:1 › an unknown email gets the same confirmation, without revealing that no account exists (292ms)
+  ✓  106 [android] › screens.spec.ts:59:1 › server unavailable (189ms)
+  ✓  105 [android] › screens.spec.ts:45:1 › password recovery screens (766ms)
+  ✓  102 [android] › password-reset.spec.ts:37:1 › a wrong recovery code is refused (1.6s)
+  ✓  107 [android] › screens.spec.ts:66:1 › exam type and home (850ms)
+  ✓  100 [android] › password-reset.spec.ts:16:1 › reset a forgotten password and sign in with the new one (3.2s)
+  ✓  103 [android] › screens.spec.ts:26:1 › signed-out screens (2.5s)
+
+  ✓  111 [android] › screens.spec.ts:132:1 › explanations (996ms)
+  ✓  112 [android] › screens.spec.ts:148:1 › reviewer view (1.1s)
+  ✘  91 [android] › learning.spec.ts:51:1 › learning mode gives immediate feedback and the explanation (5.8s)
+  ✘  93 [android] › learning.spec.ts:80:1 › a learning session continues from the first question not seen yet (5.9s)
+  ✘  96 [android] › learning.spec.ts:95:1 › with no mistakes, practice my mistakes has nothing to review (6.0s)
+  ✘  97 [android] › learning.spec.ts:159:1 › the learning page shows coverage and marks weak subjects (6.1s)
+  ✘  98 [android] › learning.spec.ts:104:1 › practice my mistakes has exactly the questions answered wrong, in exams and in learning (6.0s)
+  ✘  99 [android] › learning.spec.ts:187:1 › an unfinished exam's answers don't count yet (5.8s)
+  ✘  101 [android] › learning.spec.ts:177:1 › the learning page lists every subject of the exam type (6.0s)
+  ✘  108 [android] › screens.spec.ts:76:1 › exam screens and a failed result (5.7s)
+  ✘  109 [android] › screens.spec.ts:99:1 › a passed result (5.8s)
+  ✘  110 [android] › screens.spec.ts:113:1 › time ran out (5.8s)
+  ✘  113 [android] › screens.spec.ts:160:1 › learning (5.8s)
+  ✘  114 [android] › screens.spec.ts:197:1 › dark mode (5.9s)
+  ✘  115 [android] › sync.spec.ts:6:1 › answers made while the server is unreachable wait on the device, then sync (5.9s)
+  ✘  116 [android] › sync.spec.ts:27:1 › a signed-in user's app opens while the server is unreachable (5.8s)
+
+
+  1) [web] › exam.spec.ts:23:1 › answering everything correctly passes the exam ────────────────────
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m()[22m
+
+    Locator: getByText('40 de întrebări, 45 de minute, promovare de la 80%')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+    [2m  - expect.toBeVisible with timeout 5000ms[22m
+    [2m  - waiting for getByText('40 de întrebări, 45 de minute, promovare de la 80%')[22m
+
+
+      27 |   await setExamType(page, "D");
+      28 |   await page.goto("/");
+    > 29 |   await expect(page.getByText("40 de întrebări, 45 de minute, promovare de la 80%")).toBeVisible();
+         |                                                                                      ^
+      30 |   await expect(page.getByText("Formatul examenului nu este confirmat oficial.")).toBeVisible();
+      31 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+      32 |
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:29:86
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-answering-everything-correctly-passes-the-exam-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-answering-everything-correctly-passes-the-exam-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [web] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:46:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-wrong-answers-fail-th-a2f97-ted-with-the-correct-answer-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-wrong-answers-fail-th-a2f97-ted-with-the-correct-answer-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [web] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:73:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-has-only-the--74fae-repeats-or-equivalent-pairs-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-has-only-the--74fae-repeats-or-equivalent-pairs-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [web] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:96:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-when-the-time-runs-ou-26cf5-questions-counting-as-wrong-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-when-the-time-runs-ou-26cf5-questions-counting-as-wrong-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [web] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation ───────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:113:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-submitting-with-unans-7aaed-tions-asks-for-confirmation-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-submitting-with-unans-7aaed-tions-asks-for-confirmation-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers ─────────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:128:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-left-halfway-can-be-resumed-with-its-answers-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-left-halfway-can-be-resumed-with-its-answers-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [web] › exam.spec.ts:141:1 › an exam left halfway can be abandoned ────────────────────────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:143:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-left-halfway-can-be-abandoned-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-left-halfway-can-be-abandoned-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [web] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result ───────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:157:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-coming-back-after-the-f6709-me-ran-out-shows-its-result-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-coming-back-after-the-f6709-me-ran-out-shows-its-result-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ──────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+      178 |   await setExamType(one, "C");
+      179 |   await one.goto("/");
+    > 180 |   await one.getByRole("button", { name: "Începe examenul" }).click();
+          |                                                              ^
+      181 |   const chosen = await answer(one, pkg, true);
+      182 |   const id = await one.getByTestId("question").getAttribute("data-question-id");
+      183 |   await expect
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:180:62
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  10) [web] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/explanations.spec.ts:9:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/explanations-the-explanati-a7e2b-ce-and-opens-it-at-the-page-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/explanations-the-explanati-a7e2b-ce-and-opens-it-at-the-page-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  11) [web] › learning.spec.ts:51:1 › learning mode gives immediate feedback and the explanation ───
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('link', { name: 'Învățare' })[22m
+
+
+      53 |   await signInWith(page, "C-diff");
+      54 |   await page.goto("/");
+    > 55 |   await page.getByRole("link", { name: "Învățare" }).click();
+         |                                                      ^
+      56 |   await expect(page).toHaveURL("/invatare");
+      57 |   await subjectRow(page, "colreg").getByRole("link", { name: "Învață" }).click();
+      58 |   await expect(page).toHaveURL("/invatare/colreg");
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:55:54
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-learning-mode-giv-2832b-eedback-and-the-explanation-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-learning-mode-giv-2832b-eedback-and-the-explanation-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  12) [web] › learning.spec.ts:80:1 › a learning session continues from the first question not seen yet 
+
+    TimeoutError: locator.getAttribute: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByTestId('question')[22m
+
+
+       at helpers.ts:94
+
+      92 | // The question currently on the exam screen.
+      93 | export async function currentQuestion(page: Page, pkg: ContentPackage): Promise<ContentQuestion> {
+    > 94 |   const id = await page.getByTestId("question").getAttribute("data-question-id");
+         |                                                 ^
+      95 |   const q = pkg.questions.find((q) => q.id === id);
+      96 |   if (!q) throw new Error(`question ${id} not in the content package`);
+      97 |   return q;
+        at currentQuestion (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:94:49)
+        at answer (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:102:19)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:85:9
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-a-learning-sessio-8b2da-first-question-not-seen-yet-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-a-learning-sessio-8b2da-first-question-not-seen-yet-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  13) [web] › learning.spec.ts:95:1 › with no mistakes, practice my mistakes has nothing to review ─
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('link', { name: 'Practică greșelile' })[22m
+
+
+       96 |   await signInWith(page, "C-diff");
+       97 |   await page.goto("/invatare");
+    >  98 |   await page.getByRole("link", { name: "Practică greșelile" }).click();
+          |                                                                ^
+       99 |   await expect(page).toHaveURL("/invatare/greseli");
+      100 |   await expect(page.getByText("Nu ai greșeli de recapitulat.")).toBeVisible();
+      101 |   await expect(page.getByTestId("question")).toHaveCount(0);
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:98:64
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-with-no-mistakes--1991c-takes-has-nothing-to-review-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-with-no-mistakes--1991c-takes-has-nothing-to-review-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  14) [web] › learning.spec.ts:104:1 › practice my mistakes has exactly the questions answered wrong, in exams and in learning 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:106:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-practice-my-mista-b943e-ng-in-exams-and-in-learning-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-practice-my-mista-b943e-ng-in-exams-and-in-learning-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) [web] › learning.spec.ts:159:1 › the learning page shows coverage and marks weak subjects ────
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoHaveText[2m([22m[32mexpected[39m[2m)[22m
+
+    Locator: locator('[data-testid="subject"][data-subject="colreg"]').getByTestId('seen')
+    Expected string: [32m"0 din 142"[39m
+    Received: <element(s) not found>
+    Call log:
+    [2m  - expect.toHaveText with timeout 5000ms[22m
+    [2m  - waiting for locator('[data-testid="subject"][data-subject="colreg"]').getByTestId('seen')[22m
+
+
+      44 | async function expectCounts(page: Page, subject: string, seen: string, mastered: number, mistakes: number) {
+      45 |   const row = subjectRow(page, subject);
+    > 46 |   await expect(row.getByTestId("seen")).toHaveText(seen);
+         |                                         ^
+      47 |   await expect(row.getByTestId("mastered")).toHaveText(String(mastered));
+      48 |   await expect(row.getByTestId("mistakes")).toHaveText(String(mistakes));
+      49 | }
+        at expectCounts (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:46:41)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:164:9
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-the-learning-page-44d59-age-and-marks-weak-subjects-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-the-learning-page-44d59-age-and-marks-weak-subjects-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16) [web] › learning.spec.ts:177:1 › the learning page lists every subject of the exam type ──────
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m
+
+    Locator: getByTestId('subject')
+    Expected: [32m6[39m
+    Received: [31m0[39m
+    Call log:
+    [2m  - expect.toHaveCount with timeout 5000ms[22m
+    [2m  - waiting for getByTestId('subject')[22m
+    [2m    9 × locator resolved to 0 elements[22m
+    [2m      - unexpected value "0"[22m
+
+
+      181 |   const subjects = new Set(pkg.questions.filter((q) => ids.has(q.id)).map((q) => q.subject));
+      182 |   await page.goto("/invatare");
+    > 183 |   await expect(page.getByTestId("subject")).toHaveCount(subjects.size);
+          |                                             ^
+      184 |   for (const s of subjects) await expectCounts(page, s, `0 din ${subjectOrder(pkg, "C", s).length}`, 0, 0);
+      185 | });
+      186 |
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:183:45
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-the-learning-page-58146-ry-subject-of-the-exam-type-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-the-learning-page-58146-ry-subject-of-the-exam-type-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17) [web] › learning.spec.ts:187:1 › an unfinished exam's answers don't count yet ────────────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:189:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-an-unfinished-exam-s-answers-don-t-count-yet-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-an-unfinished-exam-s-answers-don-t-count-yet-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  18) [web] › screens.spec.ts:76:1 › exam screens and a failed result ──────────────────────────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/screens.spec.ts:78:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/screens-exam-screens-and-a-failed-result-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/screens-exam-screens-and-a-failed-result-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  19) [web] › screens.spec.ts:99:1 › a passed result ───────────────────────────────────────────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/screens.spec.ts:101:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/screens-a-passed-result-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/screens-a-passed-result-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  20) [web] › screens.spec.ts:113:1 › time ran out ─────────────────────────────────────────────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+      118 |   await setExamType(page, "D-diff");
+      119 |   await page.goto("/");
+    > 120 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+          |                                                               ^
+      121 |   await answer(page, pkg, true);
+      122 |   await page.goto("about:blank");
+      123 |   await page.clock.fastForward("31:00");
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/screens.spec.ts:120:63
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/screens-time-ran-out-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/screens-time-ran-out-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  21) [web] › screens.spec.ts:160:1 › learning ─────────────────────────────────────────────────────
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m()[22m
+
+    Locator: getByText('Nu ai greșeli de recapitulat.')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+    [2m  - expect.toBeVisible with timeout 5000ms[22m
+    [2m  - waiting for getByText('Nu ai greșeli de recapitulat.')[22m
+
+
+      164 |   await setExamType(page, "C");
+      165 |   await page.goto("/invatare/greseli");
+    > 166 |   await expect(page.getByText("Nu ai greșeli de recapitulat.")).toBeVisible();
+          |                                                                 ^
+      167 |   await screenshot(page, "23-no-mistakes");
+      168 |
+      169 |   await page.goto("/invatare/colreg");
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/screens.spec.ts:166:65
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/screens-learning-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/screens-learning-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  22) [web] › screens.spec.ts:197:1 › dark mode ────────────────────────────────────────────────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/screens.spec.ts:203:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/screens-dark-mode-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/screens-dark-mode-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  23) [web] › sync.spec.ts:6:1 › answers made while the server is unreachable wait on the device, then sync 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+      13 |   await page.route("**/api/events", (route) => route.abort("connectionrefused"));
+      14 |   await page.goto("/");
+    > 15 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      16 |   await answer(page, pkg, true);
+      17 |   await expect(page.getByTestId("sync-status")).toHaveText("2 modificări așteaptă conexiunea cu serverul.");
+      18 |
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/sync.spec.ts:15:63
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sync-answers-made-while-th-61c91-ait-on-the-device-then-sync-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/sync-answers-made-while-th-61c91-ait-on-the-device-then-sync-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  24) [web] › sync.spec.ts:27:1 › a signed-in user's app opens while the server is unreachable ─────
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m()[22m
+
+    Locator: getByRole('button', { name: 'Începe examenul' })
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+    [2m  - expect.toBeVisible with timeout 5000ms[22m
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+      30 |   await setExamType(page, "C");
+      31 |   await page.goto("/");
+    > 32 |   await expect(page.getByRole("button", { name: "Începe examenul" })).toBeVisible();
+         |                                                                       ^
+      33 |
+      34 |   await page.route("**/api/**", (route) => route.abort("connectionrefused"));
+      35 |   await page.route("**/.ory/**", (route) => route.abort("connectionrefused"));
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/sync.spec.ts:32:71
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sync-a-signed-in-user-s-ap-b24c4-e-the-server-is-unreachable-web/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/sync-a-signed-in-user-s-ap-b24c4-e-the-server-is-unreachable-web/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  25) [android] › exam.spec.ts:23:1 › answering everything correctly passes the exam ───────────────
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m()[22m
+
+    Locator: getByText('40 de întrebări, 45 de minute, promovare de la 80%')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+    [2m  - expect.toBeVisible with timeout 5000ms[22m
+    [2m  - waiting for getByText('40 de întrebări, 45 de minute, promovare de la 80%')[22m
+
+
+      27 |   await setExamType(page, "D");
+      28 |   await page.goto("/");
+    > 29 |   await expect(page.getByText("40 de întrebări, 45 de minute, promovare de la 80%")).toBeVisible();
+         |                                                                                      ^
+      30 |   await expect(page.getByText("Formatul examenului nu este confirmat oficial.")).toBeVisible();
+      31 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+      32 |
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:29:86
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-answering-everything-correctly-passes-the-exam-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-answering-everything-correctly-passes-the-exam-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  26) [android] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:46:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-wrong-answers-fail-th-a2f97-ted-with-the-correct-answer-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-wrong-answers-fail-th-a2f97-ted-with-the-correct-answer-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  27) [android] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:73:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-has-only-the--74fae-repeats-or-equivalent-pairs-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-has-only-the--74fae-repeats-or-equivalent-pairs-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  28) [android] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:96:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-when-the-time-runs-ou-26cf5-questions-counting-as-wrong-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-when-the-time-runs-ou-26cf5-questions-counting-as-wrong-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  29) [android] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation ──
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:113:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-submitting-with-unans-7aaed-tions-asks-for-confirmation-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-submitting-with-unans-7aaed-tions-asks-for-confirmation-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  30) [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers ────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:128:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-left-halfway-can-be-resumed-with-its-answers-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-left-halfway-can-be-resumed-with-its-answers-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  31) [android] › exam.spec.ts:141:1 › an exam left halfway can be abandoned ───────────────────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:143:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-left-halfway-can-be-abandoned-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-left-halfway-can-be-abandoned-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  32) [android] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result ──
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:157:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-coming-back-after-the-f6709-me-ran-out-shows-its-result-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-coming-back-after-the-f6709-me-ran-out-shows-its-result-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  33) [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ─────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+      178 |   await setExamType(one, "C");
+      179 |   await one.goto("/");
+    > 180 |   await one.getByRole("button", { name: "Începe examenul" }).click();
+          |                                                              ^
+      181 |   const chosen = await answer(one, pkg, true);
+      182 |   const id = await one.getByTestId("question").getAttribute("data-question-id");
+      183 |   await expect
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/exam.spec.ts:180:62
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/exam-an-exam-started-on-one-device-can-be-resumed-on-another-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  34) [android] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/explanations.spec.ts:9:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/explanations-the-explanati-a7e2b-ce-and-opens-it-at-the-page-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/explanations-the-explanati-a7e2b-ce-and-opens-it-at-the-page-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  35) [android] › learning.spec.ts:51:1 › learning mode gives immediate feedback and the explanation 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('link', { name: 'Învățare' })[22m
+
+
+      53 |   await signInWith(page, "C-diff");
+      54 |   await page.goto("/");
+    > 55 |   await page.getByRole("link", { name: "Învățare" }).click();
+         |                                                      ^
+      56 |   await expect(page).toHaveURL("/invatare");
+      57 |   await subjectRow(page, "colreg").getByRole("link", { name: "Învață" }).click();
+      58 |   await expect(page).toHaveURL("/invatare/colreg");
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:55:54
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-learning-mode-giv-2832b-eedback-and-the-explanation-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-learning-mode-giv-2832b-eedback-and-the-explanation-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  36) [android] › learning.spec.ts:80:1 › a learning session continues from the first question not seen yet 
+
+    TimeoutError: locator.getAttribute: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByTestId('question')[22m
+
+
+       at helpers.ts:94
+
+      92 | // The question currently on the exam screen.
+      93 | export async function currentQuestion(page: Page, pkg: ContentPackage): Promise<ContentQuestion> {
+    > 94 |   const id = await page.getByTestId("question").getAttribute("data-question-id");
+         |                                                 ^
+      95 |   const q = pkg.questions.find((q) => q.id === id);
+      96 |   if (!q) throw new Error(`question ${id} not in the content package`);
+      97 |   return q;
+        at currentQuestion (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:94:49)
+        at answer (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:102:19)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:85:9
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-a-learning-sessio-8b2da-first-question-not-seen-yet-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-a-learning-sessio-8b2da-first-question-not-seen-yet-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  37) [android] › learning.spec.ts:95:1 › with no mistakes, practice my mistakes has nothing to review 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('link', { name: 'Practică greșelile' })[22m
+
+
+       96 |   await signInWith(page, "C-diff");
+       97 |   await page.goto("/invatare");
+    >  98 |   await page.getByRole("link", { name: "Practică greșelile" }).click();
+          |                                                                ^
+       99 |   await expect(page).toHaveURL("/invatare/greseli");
+      100 |   await expect(page.getByText("Nu ai greșeli de recapitulat.")).toBeVisible();
+      101 |   await expect(page.getByTestId("question")).toHaveCount(0);
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:98:64
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-with-no-mistakes--1991c-takes-has-nothing-to-review-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-with-no-mistakes--1991c-takes-has-nothing-to-review-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  38) [android] › learning.spec.ts:104:1 › practice my mistakes has exactly the questions answered wrong, in exams and in learning 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:106:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-practice-my-mista-b943e-ng-in-exams-and-in-learning-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-practice-my-mista-b943e-ng-in-exams-and-in-learning-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  39) [android] › learning.spec.ts:159:1 › the learning page shows coverage and marks weak subjects 
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoHaveText[2m([22m[32mexpected[39m[2m)[22m
+
+    Locator: locator('[data-testid="subject"][data-subject="colreg"]').getByTestId('seen')
+    Expected string: [32m"0 din 142"[39m
+    Received: <element(s) not found>
+    Call log:
+    [2m  - expect.toHaveText with timeout 5000ms[22m
+    [2m  - waiting for locator('[data-testid="subject"][data-subject="colreg"]').getByTestId('seen')[22m
+
+
+      44 | async function expectCounts(page: Page, subject: string, seen: string, mastered: number, mistakes: number) {
+      45 |   const row = subjectRow(page, subject);
+    > 46 |   await expect(row.getByTestId("seen")).toHaveText(seen);
+         |                                         ^
+      47 |   await expect(row.getByTestId("mastered")).toHaveText(String(mastered));
+      48 |   await expect(row.getByTestId("mistakes")).toHaveText(String(mistakes));
+      49 | }
+        at expectCounts (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:46:41)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:164:9
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-the-learning-page-44d59-age-and-marks-weak-subjects-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-the-learning-page-44d59-age-and-marks-weak-subjects-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  40) [android] › learning.spec.ts:177:1 › the learning page lists every subject of the exam type ──
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m
+
+    Locator: getByTestId('subject')
+    Expected: [32m6[39m
+    Received: [31m0[39m
+    Call log:
+    [2m  - expect.toHaveCount with timeout 5000ms[22m
+    [2m  - waiting for getByTestId('subject')[22m
+    [2m    9 × locator resolved to 0 elements[22m
+    [2m      - unexpected value "0"[22m
+
+
+      181 |   const subjects = new Set(pkg.questions.filter((q) => ids.has(q.id)).map((q) => q.subject));
+      182 |   await page.goto("/invatare");
+    > 183 |   await expect(page.getByTestId("subject")).toHaveCount(subjects.size);
+          |                                             ^
+      184 |   for (const s of subjects) await expectCounts(page, s, `0 din ${subjectOrder(pkg, "C", s).length}`, 0, 0);
+      185 | });
+      186 |
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:183:45
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-the-learning-page-58146-ry-subject-of-the-exam-type-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-the-learning-page-58146-ry-subject-of-the-exam-type-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  41) [android] › learning.spec.ts:187:1 › an unfinished exam's answers don't count yet ────────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/learning.spec.ts:189:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-an-unfinished-exam-s-answers-don-t-count-yet-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/learning-an-unfinished-exam-s-answers-don-t-count-yet-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  42) [android] › screens.spec.ts:76:1 › exam screens and a failed result ──────────────────────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/screens.spec.ts:78:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/screens-exam-screens-and-a-failed-result-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/screens-exam-screens-and-a-failed-result-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  43) [android] › screens.spec.ts:99:1 › a passed result ───────────────────────────────────────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/screens.spec.ts:101:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/screens-a-passed-result-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/screens-a-passed-result-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  44) [android] › screens.spec.ts:113:1 › time ran out ─────────────────────────────────────────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+      118 |   await setExamType(page, "D-diff");
+      119 |   await page.goto("/");
+    > 120 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+          |                                                               ^
+      121 |   await answer(page, pkg, true);
+      122 |   await page.goto("about:blank");
+      123 |   await page.clock.fastForward("31:00");
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/screens.spec.ts:120:63
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/screens-time-ran-out-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/screens-time-ran-out-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  45) [android] › screens.spec.ts:160:1 › learning ─────────────────────────────────────────────────
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m()[22m
+
+    Locator: getByText('Nu ai greșeli de recapitulat.')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+    [2m  - expect.toBeVisible with timeout 5000ms[22m
+    [2m  - waiting for getByText('Nu ai greșeli de recapitulat.')[22m
+
+
+      164 |   await setExamType(page, "C");
+      165 |   await page.goto("/invatare/greseli");
+    > 166 |   await expect(page.getByText("Nu ai greșeli de recapitulat.")).toBeVisible();
+          |                                                                 ^
+      167 |   await screenshot(page, "23-no-mistakes");
+      168 |
+      169 |   await page.goto("/invatare/colreg");
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/screens.spec.ts:166:65
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/screens-learning-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/screens-learning-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  46) [android] › screens.spec.ts:197:1 › dark mode ────────────────────────────────────────────────
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+       at helpers.ts:88
+
+      86 |   await setExamType(page, examType);
+      87 |   await page.goto("/");
+    > 88 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      89 |   await expect(page).toHaveURL("/examen");
+      90 | }
+      91 |
+        at startExam (/home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/helpers.ts:88:63)
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/screens.spec.ts:203:3
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/screens-dark-mode-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/screens-dark-mode-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  47) [android] › sync.spec.ts:6:1 › answers made while the server is unreachable wait on the device, then sync 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+      13 |   await page.route("**/api/events", (route) => route.abort("connectionrefused"));
+      14 |   await page.goto("/");
+    > 15 |   await page.getByRole("button", { name: "Începe examenul" }).click();
+         |                                                               ^
+      16 |   await answer(page, pkg, true);
+      17 |   await expect(page.getByTestId("sync-status")).toHaveText("2 modificări așteaptă conexiunea cu serverul.");
+      18 |
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/sync.spec.ts:15:63
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sync-answers-made-while-th-61c91-ait-on-the-device-then-sync-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/sync-answers-made-while-th-61c91-ait-on-the-device-then-sync-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  48) [android] › sync.spec.ts:27:1 › a signed-in user's app opens while the server is unreachable ─
+
+    Error: [31mTimed out 5000ms waiting for [39m[2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m()[22m
+
+    Locator: getByRole('button', { name: 'Începe examenul' })
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+    [2m  - expect.toBeVisible with timeout 5000ms[22m
+    [2m  - waiting for getByRole('button', { name: 'Începe examenul' })[22m
+
+
+      30 |   await setExamType(page, "C");
+      31 |   await page.goto("/");
+    > 32 |   await expect(page.getByRole("button", { name: "Începe examenul" })).toBeVisible();
+         |                                                                       ^
+      33 |
+      34 |   await page.route("**/api/**", (route) => route.abort("connectionrefused"));
+      35 |   await page.route("**/.ory/**", (route) => route.abort("connectionrefused"));
+        at /home/popescustefanradu/p/skipper_exam/.worktrees/android/e2e/tests/sync.spec.ts:32:71
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/sync-a-signed-in-user-s-ap-b24c4-e-the-server-is-unreachable-android/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/sync-a-signed-in-user-s-ap-b24c4-e-the-server-is-unreachable-android/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  48 failed
+    [web] › exam.spec.ts:23:1 › answering everything correctly passes the exam ─────────────────────
+    [web] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer ─
+    [web] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs 
+    [web] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong 
+    [web] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation ────────
+    [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers ──────────────
+    [web] › exam.spec.ts:141:1 › an exam left halfway can be abandoned ─────────────────────────────
+    [web] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result ────────
+    [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ───────────
+    [web] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page 
+    [web] › learning.spec.ts:51:1 › learning mode gives immediate feedback and the explanation ─────
+    [web] › learning.spec.ts:80:1 › a learning session continues from the first question not seen yet 
+    [web] › learning.spec.ts:95:1 › with no mistakes, practice my mistakes has nothing to review ───
+    [web] › learning.spec.ts:104:1 › practice my mistakes has exactly the questions answered wrong, in exams and in learning 
+    [web] › learning.spec.ts:159:1 › the learning page shows coverage and marks weak subjects ──────
+    [web] › learning.spec.ts:177:1 › the learning page lists every subject of the exam type ────────
+    [web] › learning.spec.ts:187:1 › an unfinished exam's answers don't count yet ──────────────────
+    [web] › screens.spec.ts:76:1 › exam screens and a failed result ────────────────────────────────
+    [web] › screens.spec.ts:99:1 › a passed result ─────────────────────────────────────────────────
+    [web] › screens.spec.ts:113:1 › time ran out ───────────────────────────────────────────────────
+    [web] › screens.spec.ts:160:1 › learning ───────────────────────────────────────────────────────
+    [web] › screens.spec.ts:197:1 › dark mode ──────────────────────────────────────────────────────
+    [web] › sync.spec.ts:6:1 › answers made while the server is unreachable wait on the device, then sync 
+    [web] › sync.spec.ts:27:1 › a signed-in user's app opens while the server is unreachable ───────
+    [android] › exam.spec.ts:23:1 › answering everything correctly passes the exam ─────────────────
+    [android] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer 
+    [android] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs 
+    [android] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong 
+    [android] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation ────
+    [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers ──────────
+    [android] › exam.spec.ts:141:1 › an exam left halfway can be abandoned ─────────────────────────
+    [android] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result ────
+    [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another ───────
+    [android] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page 
+    [android] › learning.spec.ts:51:1 › learning mode gives immediate feedback and the explanation ─
+    [android] › learning.spec.ts:80:1 › a learning session continues from the first question not seen yet 
+    [android] › learning.spec.ts:95:1 › with no mistakes, practice my mistakes has nothing to review 
+    [android] › learning.spec.ts:104:1 › practice my mistakes has exactly the questions answered wrong, in exams and in learning 
+    [android] › learning.spec.ts:159:1 › the learning page shows coverage and marks weak subjects ──
+    [android] › learning.spec.ts:177:1 › the learning page lists every subject of the exam type ────
+    [android] › learning.spec.ts:187:1 › an unfinished exam's answers don't count yet ──────────────
+    [android] › screens.spec.ts:76:1 › exam screens and a failed result ────────────────────────────
+    [android] › screens.spec.ts:99:1 › a passed result ─────────────────────────────────────────────
+    [android] › screens.spec.ts:113:1 › time ran out ───────────────────────────────────────────────
+    [android] › screens.spec.ts:160:1 › learning ───────────────────────────────────────────────────
+    [android] › screens.spec.ts:197:1 › dark mode ──────────────────────────────────────────────────
+    [android] › sync.spec.ts:6:1 › answers made while the server is unreachable wait on the device, then sync 
+    [android] › sync.spec.ts:27:1 › a signed-in user's app opens while the server is unreachable ───
+  68 passed (35.3s)

@@ -1,0 +1,20 @@
+# Back online: the waiting events reach the server, and the exam counts in learning.
+appId: ro.skipperexam.app
+---
+- stopApp
+- launchApp
+- extendedWaitUntil:
+    visible: "Examen simulat"
+    timeout: 30000
+- scrollUntilVisible:
+    element: "Toate datele sunt salvate pe server."
+    direction: DOWN
+    timeout: 60000
+- scrollUntilVisible:
+    element: "Învățare și progres"
+    direction: DOWN
+- tapOn: "Învățare și progres"
+- extendedWaitUntil:
+    visible: "Practică greșelile"
+    timeout: 10000
+- takeScreenshot: 06-learning

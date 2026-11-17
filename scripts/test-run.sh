@@ -2,11 +2,12 @@
 # Runs test suites and records the run in test-runs/<date>_<branch>_<commit>/
 # (see "Test run records" in docs/DEVELOPMENT.md).
 #
-#   test-run.sh <suite>...     suites: lint, go, e2e
+#   test-run.sh <suite>...     suites: lint, go, e2e, android
 #
 #   lint  gofmt check, go vet, web and e2e type checks
 #   go    Go tests (GO_TEST_ARGS: extra arguments, e.g. "-run TestX ./pkg/...")
 #   e2e   start this worktree's stack, then the Playwright suite (E2E_ARGS: extra arguments)
+#   android  build the Android app and run its Maestro flows on an emulator (scripts/android.sh)
 #
 # Every run must belong to a commit, so uncommitted changes (other than test
 # records) make it refuse to start. Suites run in the given order and the run
@@ -17,7 +18,7 @@ root=$(git -C "$(dirname "$0")" rev-parse --show-toplevel)
 cd "$root"
 
 if [[ $# -eq 0 ]]; then
-  echo "usage: $0 lint|go|e2e..." >&2
+  echo "usage: $0 lint|go|e2e|android..." >&2
   exit 2
 fi
 
@@ -67,6 +68,10 @@ run_e2e() {
   (cd e2e && pnpm --silent exec playwright test ${E2E_ARGS:-})
 }
 
+run_android() {
+  scripts/android.sh e2e
+}
+
 summary_suites=()
 overall=passed
 for suite in "$@"; do
@@ -75,7 +80,7 @@ for suite in "$@"; do
     continue
   fi
   case "$suite" in
-    lint | go | e2e) ;;
+    lint | go | e2e | android) ;;
     *) echo "unknown suite: $suite" >&2; exit 2 ;;
   esac
   echo "== $suite"

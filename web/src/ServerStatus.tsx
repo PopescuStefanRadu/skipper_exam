@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { apiFetch } from "./platform";
 import { strings } from "./strings";
 
 type ServerState = "checking" | "ok" | "unavailable";
@@ -8,7 +9,7 @@ export function ServerStatus() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/health")
+    apiFetch("/api/health")
       .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
       .then((body: { status: string }) => !cancelled && setServer(body.status === "ok" ? "ok" : "unavailable"))
       .catch(() => !cancelled && setServer("unavailable"));

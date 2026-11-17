@@ -1,0 +1,40 @@
+# Without a connection: the app starts signed in, an exam can be taken, and its
+# events wait on the device.
+appId: ro.skipperexam.app
+---
+- stopApp
+- launchApp
+- extendedWaitUntil:
+    visible: "Examen simulat"
+    timeout: 30000
+- scrollUntilVisible:
+    element: "Începe examenul"
+    direction: DOWN
+- tapOn: "Începe examenul"
+- extendedWaitUntil:
+    visible: "Întrebarea 1 din 40"
+    timeout: 10000
+# The first answer. Below the counter come the question's box (0), the question
+# (1), then the answers (2 is the first one's radio button).
+- tapOn:
+    text: ".+"
+    below: "Întrebarea 1 din 40"
+    index: 2
+# The exam's start and the answer wait on the device.
+- assertVisible: "2 modificări așteaptă conexiunea cu serverul."
+- takeScreenshot: 03-offline-exam
+- tapOn: "Submit"
+- extendedWaitUntil:
+    visible: "Back"
+    timeout: 5000
+- assertVisible: ".*Ai 39 de întrebări fără răspuns.*"
+- takeScreenshot: 04-offline-confirm
+# The dialog's Submit: the first one below the dialog's text.
+- tapOn:
+    text: "Submit"
+    below: ".*fără răspuns.*"
+    index: 0
+- extendedWaitUntil:
+    visible: "Respins"
+    timeout: 10000
+- takeScreenshot: 05-offline-result

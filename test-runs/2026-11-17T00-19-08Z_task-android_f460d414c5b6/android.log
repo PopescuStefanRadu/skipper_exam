@@ -1,0 +1,185 @@
+ Image skipper-android-61f628a9-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 588B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.2s
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.3s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#7 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#7 DONE 0.0s
+
+#8 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#8 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#8 DONE 0.0s
+
+#9 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#9 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#9 DONE 0.0s
+
+#10 [internal] load build context
+#10 transferring context: 151.12kB 0.1s done
+#10 DONE 0.1s
+
+#11 [web 3/7] WORKDIR /web
+#11 CACHED
+
+#12 [stage-2 3/4] COPY --from=web /web/dist /web
+#12 CACHED
+
+#13 [backend 2/7] WORKDIR /src
+#13 CACHED
+
+#14 [backend 4/7] RUN go mod download
+#14 CACHED
+
+#15 [stage-2 2/4] COPY --from=backend /server /server
+#15 CACHED
+
+#16 [backend 3/7] COPY go.mod go.sum ./
+#16 CACHED
+
+#17 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#17 CACHED
+
+#18 [web 7/7] RUN pnpm build
+#18 CACHED
+
+#19 [web 2/7] RUN corepack enable
+#19 CACHED
+
+#20 [backend 6/7] COPY pkg pkg
+#20 CACHED
+
+#21 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#21 CACHED
+
+#22 [backend 5/7] COPY cli cli
+#22 CACHED
+
+#23 [web 5/7] RUN pnpm install --frozen-lockfile
+#23 CACHED
+
+#24 [web 6/7] COPY web/ ./
+#24 CACHED
+
+#25 [stage-2 4/4] COPY content /content
+#25 CACHED
+
+#26 exporting to image
+#26 exporting layers done
+#26 exporting manifest sha256:0fe3d74376332edba166526b51117d166c617b2511c02c3fcd3805b2fdcf294e done
+#26 exporting config sha256:511420c152fb9b7293ce934ce0a031e55ba2bb7b45767d260619891b23cfb9a6 done
+#26 exporting attestation manifest sha256:8226fde864efbd06b95041ce1e8403e02727544a602437eeaa2a1c1409c9565a done
+#26 exporting manifest list sha256:c2d5ad17b9ed1cab14234f53ab5a02fda2568f0f90b2b0e19044ff71943ccf67 done
+#26 naming to docker.io/library/skipper-android-61f628a9-app:latest done
+#26 unpacking to docker.io/library/skipper-android-61f628a9-app:latest done
+#26 DONE 0.1s
+
+#27 resolving provenance for metadata file
+#27 DONE 0.0s
+ Image skipper-android-61f628a9-app Built 
+ Container skipper-android-61f628a9-db-1 Running 
+ Container skipper-android-61f628a9-kratos-1 Running 
+ Container skipper-android-61f628a9-mock-oidc-1 Running 
+ Container skipper-android-61f628a9-mailpit-1 Running 
+ Container skipper-android-61f628a9-app-1 Recreate 
+ Container skipper-android-61f628a9-app-1 Recreated 
+ Container skipper-android-61f628a9-db-1 Waiting 
+ Container skipper-android-61f628a9-db-1 Healthy 
+ Container skipper-android-61f628a9-kratos-migrate-1 Starting 
+ Container skipper-android-61f628a9-kratos-migrate-1 Started 
+ Container skipper-android-61f628a9-kratos-migrate-1 Waiting 
+ Container skipper-android-61f628a9-kratos-migrate-1 Exited 
+ Container skipper-android-61f628a9-db-1 Waiting 
+ Container skipper-android-61f628a9-kratos-1 Waiting 
+ Container skipper-android-61f628a9-db-1 Healthy 
+ Container skipper-android-61f628a9-kratos-1 Healthy 
+ Container skipper-android-61f628a9-app-1 Starting 
+ Container skipper-android-61f628a9-app-1 Started 
+ Container skipper-android-61f628a9-kratos-migrate-1 Waiting 
+ Container skipper-android-61f628a9-kratos-1 Waiting 
+ Container skipper-android-61f628a9-mock-oidc-1 Waiting 
+ Container skipper-android-61f628a9-mailpit-1 Waiting 
+ Container skipper-android-61f628a9-app-1 Waiting 
+ Container skipper-android-61f628a9-db-1 Waiting 
+ Container skipper-android-61f628a9-mock-oidc-1 Healthy 
+ Container skipper-android-61f628a9-mailpit-1 Healthy 
+ Container skipper-android-61f628a9-kratos-1 Healthy 
+ Container skipper-android-61f628a9-kratos-migrate-1 Exited 
+ Container skipper-android-61f628a9-db-1 Healthy 
+ Container skipper-android-61f628a9-app-1 Healthy 
+STACK_PROJECT=skipper-android-61f628a9
+APP_URL=http://127.0.0.1:58709
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32834/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32837
+MAILPIT_URL=http://127.0.0.1:32835
+MOCK_OIDC_URL=http://127.0.0.1:47347
+building the app for http://127.0.0.1:58709
+vite v6.0.7 building for production...
+transforming...
+✓ 58 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.40 kB │ gzip:  0.26 kB
+dist/assets/index-Dqf10uji.css   10.50 kB │ gzip:  2.92 kB
+dist/assets/web-D6d99duq.js       0.38 kB │ gzip:  0.25 kB
+dist/assets/web-xtvI1qTL.js       0.84 kB │ gzip:  0.40 kB
+dist/assets/index-Btv7pfvS.js   219.42 kB │ gzip: 70.69 kB
+✓ built in 481ms
+built web/android/app/build/outputs/apk/debug/app-debug.apk
+starting the emulator
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+== flow sign-in
+
+Waiting for flows to complete...
+[Passed] sign-in (28s)
+
+1/1 Flow Passed in 28s
+
+== flow offline-exam
+
+Waiting for flows to complete...
+[Passed] offline-exam (14s)
+
+1/1 Flow Passed in 14s
+
+== flow back-online
+
+Waiting for flows to complete...
+[Passed] back-online (5s)
+
+1/1 Flow Passed in 5s
+
+== checking the server received the offline exam
+server has 1 submitted exam(s)
+== flow sign-out
+
+Waiting for flows to complete...
+[Passed] sign-out (4s)
+
+1/1 Flow Passed in 4s
+
+== flow google-sign-in
+
+Waiting for flows to complete...
+[Passed] google-sign-in (27s)
+
+1/1 Flow Passed in 27s
+

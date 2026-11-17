@@ -10,16 +10,21 @@ interface Log {
 
 interface EventsState {
   events: AppEvent[];
+  // How many events are on the device only, waiting to be sent to the server.
+  pending: number;
   // Records an event on the device and syncs it.
   record: (type: string, data: Record<string, unknown>, at?: Date) => AppEvent;
 }
 
 const EventsContext = createContext<EventsState>({
   events: [],
+  pending: 0,
   record: () => {
     throw new Error("no EventsProvider");
   },
 });
+
+const retryMs = 15_000;
 
 function merge(a: AppEvent[], b: AppEvent[]): AppEvent[] {
   const byId = new Map(a.map((e) => [e.id, e]));
@@ -36,6 +41,7 @@ export function EventsProvider({ userId, children }: { userId: string; children:
   const key = `events:${userId}`;
   const log = useRef<Log>(load<Log>(key) ?? { events: [], pending: [] });
   const [events, setEvents] = useState(log.current.events);
+  const [pending, setPending] = useState(log.current.pending.length);
   const syncing = useRef<Promise<void>>(Promise.resolve());
 
   const update = useCallback(
@@ -43,6 +49,7 @@ export function EventsProvider({ userId, children }: { userId: string; children:
       log.current = next;
       save(key, next);
       setEvents(next.events);
+      setPending(next.pending.length);
     },
     [key],
   );
@@ -68,7 +75,15 @@ export function EventsProvider({ userId, children }: { userId: string; children:
     void sync();
     const onOnline = () => void sync();
     window.addEventListener("online", onOnline);
-    return () => window.removeEventListener("online", onOnline);
+    // The browser only reports a lost connection, not a server that's back, so
+    // waiting events are retried regularly too.
+    const retry = setInterval(() => {
+      if (log.current.pending.length > 0) void sync();
+    }, retryMs);
+    return () => {
+      window.removeEventListener("online", onOnline);
+      clearInterval(retry);
+    };
   }, [sync]);
 
   const record = useCallback(
@@ -81,7 +96,7 @@ export function EventsProvider({ userId, children }: { userId: string; children:
     [update, sync],
   );
 
-  return <EventsContext.Provider value={{ events, record }}>{children}</EventsContext.Provider>;
+  return <EventsContext.Provider value={{ events, pending, record }}>{children}</EventsContext.Provider>;
 }
 
 export const useEvents = () => useContext(EventsContext);

@@ -1,5 +1,6 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { AccountPage } from "./AccountPage";
 import { AuthForm } from "./AuthForm";
 import { ContentProvider, useContent } from "./content";
 import { activeExam, examEvents, newExam } from "./exam";
@@ -55,6 +56,14 @@ export function App() {
                 <AuthPage>
                   <NewPassword />
                 </AuthPage>
+              }
+            />
+            <Route
+              path="/cont"
+              element={
+                <RequireSession>
+                  <AccountPage />
+                </RequireSession>
               }
             />
             <Route
@@ -212,9 +221,9 @@ function AccountBar() {
   return (
     <div className="account">
       <span className="account-label">{strings.home.signedInAs}</span>
-      <span className="account-email" data-testid="signed-in-email" title={me.email}>
-        {me.email}
-      </span>
+      <Link to="/cont" className="account-email" title={strings.home.myAccount} aria-label={strings.home.myAccount}>
+        <span data-testid="signed-in-email">{me.email}</span>
+      </Link>
       <button
         type="button"
         onClick={async () => {
@@ -233,9 +242,11 @@ function AccountBar() {
 function SignIn() {
   const { me, refresh } = useSession();
   const navigate = useNavigate();
+  const notice = (useLocation().state as { notice?: string } | null)?.notice;
   if (me) return <Navigate to="/" replace />;
   return (
     <AuthPage>
+      {notice && <p className="notice">{notice}</p>}
       <AuthForm
         kind="login"
         title={strings.signIn.title}

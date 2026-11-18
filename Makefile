@@ -27,8 +27,11 @@ screenshots: ## Screenshots of every screen on both platforms, saved in the test
 check: ## Lint (gofmt check, vet, type checks) and Go tests
 	scripts/test-run.sh lint go
 
-test-all: ## Everything: lint, Go tests, e2e, Android e2e
-	scripts/test-run.sh lint go e2e android
+test-all: ## Everything: lint, Go tests, e2e, deployment test, Android e2e
+	scripts/test-run.sh lint go e2e deploy android
+
+deploy-test: ## Test the production setup (deploy/compose.yaml): start, sign up, back up, wipe, restore
+	scripts/test-run.sh deploy
 
 android-e2e: ## Build the Android app and run its flows on an emulator (in Docker; needs /dev/kvm)
 	scripts/test-run.sh android

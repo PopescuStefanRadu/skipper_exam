@@ -21,7 +21,8 @@ test("answers made while the server is unreachable wait on the device, then sync
   await page.clock.fastForward(16_000);
   await expect(page.getByTestId("sync-status")).toHaveText("Toate datele sunt salvate pe server.");
   const events: { type: string }[] = await (await page.request.get("/api/events")).json();
-  expect(events.map((e) => e.type)).toEqual(["exam.started", "exam.answered"]);
+  // The page clock is frozen, so both events can have the same time; their order then isn't fixed.
+  expect(events.map((e) => e.type).sort()).toEqual(["exam.answered", "exam.started"]);
 });
 
 test("a signed-in user's app opens while the server is unreachable", async ({ page }) => {

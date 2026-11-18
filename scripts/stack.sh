@@ -10,9 +10,10 @@
 # share containers, networks or volumes. Host ports are assigned by Docker, except
 # the app's and the mock Google server's: Kratos needs both addresses in its
 # configuration before it starts, so free ports are reserved under the "ports"
-# lock (shared by all worktrees), which is held until Docker has bound them. The ports in use are written to .stack.env for
-# tests and dev tools to read. Generated files (Kratos configuration, secrets)
-# live in .stack/.
+# lock (shared by all worktrees), which is held until Docker has bound them. The
+# ports in use are written to .stack.env for tests and dev tools to read. Kratos's
+# configuration comes from the environment, as in production; the stack's
+# generated secrets live in .stack/.
 set -euo pipefail
 
 # The worktree is the one this script belongs to, wherever it is called from.
@@ -28,7 +29,7 @@ compose=(docker compose --project-name "$project" --file "$root/compose.yaml")
 
 # The reserved ports only matter when starting; other commands just need them set.
 host_port() {
-  APP_PORT=65535 MOCK_OIDC_PORT=65535 "${compose[@]}" port "$1" "$2" 2>/dev/null | sed 's/.*://'
+  APP_PORT=65535 MOCK_OIDC_PORT=65535 APP_URL=- COOKIE_SECRET=- CIPHER_SECRET=- "${compose[@]}" port "$1" "$2" 2>/dev/null | sed 's/.*://'
 }
 
 # The port a running service already uses, or a new free one.
@@ -67,15 +68,13 @@ up() {
     previous=$(cat .stack/ports)
   fi
   local app_url="http://127.0.0.1:$app_port" mock_url="http://127.0.0.1:$mock_port"
-  sed -e "s|__APP_URL__|$app_url|g" -e "s|__MOCK_OIDC_URL__|$mock_url|g" \
-    -e "s|__COOKIE_SECRET__|$COOKIE_SECRET|" -e "s|__CIPHER_SECRET__|$CIPHER_SECRET|" \
-    docker/kratos/kratos.yml.tmpl >.stack/kratos.yml
 
   # Kratos reads its configuration at start-up, so new addresses need new containers.
   if [[ "$previous" != "$app_port $mock_port" ]]; then
     recreate=(--force-recreate)
   fi
-  APP_PORT=$app_port MOCK_OIDC_PORT=$mock_port "${compose[@]}" up --detach --build --wait --quiet-pull "${recreate[@]}"
+  APP_PORT=$app_port MOCK_OIDC_PORT=$mock_port APP_URL=$app_url COOKIE_SECRET=$COOKIE_SECRET CIPHER_SECRET=$CIPHER_SECRET \
+    "${compose[@]}" up --detach --build --wait --quiet-pull "${recreate[@]}"
   echo "$app_port $mock_port" >.stack/ports
 
   {
@@ -97,14 +96,14 @@ case "${1:-}" in
     up
     ;;
   down)
-    APP_PORT=65535 MOCK_OIDC_PORT=65535 "${compose[@]}" down --volumes --remove-orphans
+    APP_PORT=65535 MOCK_OIDC_PORT=65535 APP_URL=- COOKIE_SECRET=- CIPHER_SECRET=- "${compose[@]}" down --volumes --remove-orphans
     rm -rf .stack.env .stack
     ;;
   name)
     echo "$project"
     ;;
   status)
-    APP_PORT=65535 MOCK_OIDC_PORT=65535 "${compose[@]}" ps
+    APP_PORT=65535 MOCK_OIDC_PORT=65535 APP_URL=- COOKIE_SECRET=- CIPHER_SECRET=- "${compose[@]}" ps
     ;;
   *)
     echo "usage: $0 up|down|name|status" >&2

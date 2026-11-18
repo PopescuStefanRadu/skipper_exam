@@ -32,6 +32,9 @@ type Config struct {
 	// Library and Reviews serve explanations, reviews and source documents.
 	Library *Library
 	Reviews Reviews
+	// Accounts and Identities export and delete accounts.
+	Accounts   Accounts
+	Identities Identities
 	// AccountsProxy serves the account service's public API under /.ory.
 	AccountsProxy http.Handler
 	// Web holds the built web app. If nil, only the API is served.
@@ -60,6 +63,10 @@ func New(cfg Config) http.Handler {
 		mux.HandleFunc("GET /api/explanations", withIdentity(cfg.Sessions, listExplanations(cfg.Library, cfg.Reviews)))
 		mux.HandleFunc("POST /api/reviews", withIdentity(cfg.Sessions, postReview(cfg.Library, cfg.Reviews)))
 		mux.HandleFunc("GET /api/sources/{id}", sourceDocument(cfg.Library))
+	}
+	if cfg.Accounts != nil && cfg.Identities != nil {
+		mux.HandleFunc("GET /api/account/export", withIdentity(cfg.Sessions, exportAccount(cfg.Accounts)))
+		mux.HandleFunc("DELETE /api/account", withIdentity(cfg.Sessions, deleteAccount(cfg.Accounts, cfg.Identities)))
 	}
 	if cfg.AccountsProxy != nil {
 		mux.Handle(kratosPrefix+"/", cfg.AccountsProxy)
@@ -90,7 +97,7 @@ func cors(origins []string, next http.Handler) http.Handler {
 		}
 		h := w.Header()
 		h.Set("Access-Control-Allow-Origin", origin)
-		h.Set("Access-Control-Expose-Headers", "ETag")
+		h.Set("Access-Control-Expose-Headers", "ETag, Content-Disposition")
 		if r.Method == http.MethodOptions && r.Header.Get("Access-Control-Request-Method") != "" {
 			h.Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")
 			h.Set("Access-Control-Allow-Headers", "Accept, Content-Type, If-None-Match, "+SessionTokenHeader)

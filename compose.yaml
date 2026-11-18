@@ -23,27 +23,32 @@ services:
       timeout: 3s
       retries: 30
 
+  # Kratos with this app's configuration (docker/kratos), set from the environment
+  # as in production; KRATOS_DEV allows plain http on 127.0.0.1.
   kratos-migrate:
-    image: oryd/kratos:v1.3.1
-    command: migrate sql -e --yes --config /etc/config/kratos/kratos.yml
-    environment:
+    build: docker/kratos
+    command: migrate
+    environment: &kratos-env
       DSN: postgres://skipper_exam:skipper_exam@db:5432/kratos?sslmode=disable
-    volumes:
-      - ./.stack/kratos.yml:/etc/config/kratos/kratos.yml:ro
-      - ./docker/kratos/identity.schema.json:/etc/config/kratos/identity.schema.json:ro
-      - ./docker/kratos/oidc.google.jsonnet:/etc/config/kratos/oidc.google.jsonnet:ro
+      APP_URL: "${APP_URL:?set by scripts/stack.sh}"
+      COOKIE_SECRET: "${COOKIE_SECRET:?set by scripts/stack.sh}"
+      CIPHER_SECRET: "${CIPHER_SECRET:?set by scripts/stack.sh}"
+      COURIER_SMTP_CONNECTION_URI: smtp://mailpit:1025/?disable_starttls=true
+      MAIL_FROM: no-reply@skipper-exam.local
+      # "Google" is the stack's mock OpenID Connect server. It shares Kratos's
+      # network, so Kratos and the browser both reach it at the same address.
+      OIDC_ISSUER_URL: "http://127.0.0.1:${MOCK_OIDC_PORT:?set by scripts/stack.sh}/default"
+      OIDC_CLIENT_ID: skipper-exam
+      OIDC_CLIENT_SECRET: skipper-exam-secret
+      KRATOS_DEV: "true"
     depends_on:
       db:
         condition: service_healthy
 
   kratos:
-    image: oryd/kratos:v1.3.1
-    # --dev allows plain http on 127.0.0.1; --watch-courier sends emails.
-    command: serve --dev --watch-courier --config /etc/config/kratos/kratos.yml
-    volumes:
-      - ./.stack/kratos.yml:/etc/config/kratos/kratos.yml:ro
-      - ./docker/kratos/identity.schema.json:/etc/config/kratos/identity.schema.json:ro
-      - ./docker/kratos/oidc.google.jsonnet:/etc/config/kratos/oidc.google.jsonnet:ro
+    build: docker/kratos
+    command: serve
+    environment: *kratos-env
     ports:
       - "127.0.0.1::4434"
       # The mock Google server listens in Kratos's network (see mock-oidc).

@@ -47,6 +47,24 @@ export const strings = {
     questionsSeen: "întrebări văzute",
     toReview: "de recapitulat",
     openLearning: "Învățare și progres",
+    myAccount: "Contul meu",
+  },
+  account: {
+    title: "Contul meu",
+    exportTitle: "Datele tale",
+    exportText:
+      "Descarcă un fișier cu tot ce păstrează aplicația despre tine: contul, examenul ales, răspunsurile și examenele date.",
+    export: "Descarcă datele mele",
+    exportOnWebsite: "Descarcă datele pe site",
+    exportFailed: "Datele nu au putut fi descărcate. Încearcă din nou când ai conexiune.",
+    deleteTitle: "Ștergerea contului",
+    deleteText: "Contul și tot progresul tău se șterg definitiv. Nu se pot recupera.",
+    delete: "Șterge contul",
+    confirmText: "Ștergi definitiv contul și tot progresul? Acțiunea nu poate fi anulată.",
+    confirmLabel: "Scrie emailul contului pentru confirmare",
+    confirmDelete: "Șterge definitiv",
+    deleteFailed: "Contul nu a putut fi șters. Încearcă din nou când ai conexiune.",
+    deleted: "Contul tău a fost șters.",
   },
   exam: {
     format: (questions: number, minutes: number, passPercent: number) =>

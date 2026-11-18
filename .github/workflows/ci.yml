@@ -40,3 +40,27 @@ jobs:
           path: e2e/playwright-report
       - if: always()
         run: make down
+
+  # After a merge to main passes, publish the images deploy/compose.yaml runs,
+  # tagged latest and with the commit sha.
+  publish:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and push images
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "$TOKEN" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+          prefix=ghcr.io/popescustefanradu/skipper-exam
+          for image in app:. kratos:docker/kratos backup:docker/backup; do
+            name=${image%%:*} context=${image#*:}
+            docker build --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
+              -t "$prefix-$name:${{ github.sha }}" -t "$prefix-$name:latest" "$context"
+            docker push --all-tags "$prefix-$name"
+          done

@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
-import { createAccount, signIn, signUp, uniqueEmail } from "./helpers";
+import { signIn, uniqueEmail } from "./helpers";
 
 test("a new user chooses the exam type right after signing up, and it follows the account", async ({ browser }) => {
   const email = uniqueEmail();
   const page = await (await browser.newContext()).newPage();
-  await signUp(page, email);
+  await signIn(page, email);
 
   await expect(page).toHaveURL("/tip-examen");
   await expect(page.getByRole("heading", { name: "Pentru ce examen te pregătești?" })).toBeVisible();
@@ -22,7 +22,7 @@ test("a new user chooses the exam type right after signing up, and it follows th
 });
 
 test("changing the exam type later", async ({ page }) => {
-  await signUp(page, uniqueEmail());
+  await signIn(page, uniqueEmail());
   await page.getByLabel("Clasa D", { exact: true }).check();
   await page.getByRole("button", { name: "Salvează" }).click();
 
@@ -34,7 +34,7 @@ test("changing the exam type later", async ({ page }) => {
 });
 
 test("class A and B are listed as not available yet and can't be chosen", async ({ page }) => {
-  await signUp(page, uniqueEmail());
+  await signIn(page, uniqueEmail());
   for (const name of ["Clasa A", "Clasa B"]) {
     await expect(page.getByLabel(name, { exact: true })).toBeDisabled();
   }
@@ -42,7 +42,7 @@ test("class A and B are listed as not available yet and can't be chosen", async 
 });
 
 test("a signed-in user without an exam type is asked to choose one first", async ({ page }) => {
-  const email = await createAccount();
+  const email = uniqueEmail();
   await signIn(page, email);
   await expect(page).toHaveURL("/tip-examen");
   await page.goto("/");
@@ -50,7 +50,7 @@ test("a signed-in user without an exam type is asked to choose one first", async
 });
 
 test("the server refuses an exam type that isn't available", async ({ page }) => {
-  await signIn(page, await createAccount());
+  await signIn(page);
   await expect(page).toHaveURL("/tip-examen");
   const res = await page.request.put("/api/profile", { data: { examType: "A" } });
   expect(res.status()).toBe(400);

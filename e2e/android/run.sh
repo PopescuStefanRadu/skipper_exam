@@ -35,17 +35,13 @@ adb shell am set-debug-app --persistent com.android.chrome
 adb install -r "$APK" >/dev/null
 online
 
-# A new account for this run, created through Kratos's admin API.
+# This run's user at the fake sign-in service; the first sign-in creates the account.
 email="android-$(date +%s%N)@example.test"
-password=o-parola-de-test-123
-curl -fsS -X POST "$KRATOS_ADMIN_URL/admin/identities" -H 'Content-Type: application/json' \
-  -d "{\"schema_id\":\"default\",\"traits\":{\"email\":\"$email\"},\"credentials\":{\"password\":{\"config\":{\"password\":\"$password\"}}}}" >/dev/null
 
 flow() {
   echo "== flow $1"
   maestro test --format junit --output "$OUT/android/$1.xml" --test-output-dir "$OUT/android/$1" \
-    -e EMAIL="$email" -e PASSWORD="$password" -e GOOGLE_EMAIL="google-$email" \
-    -e GOOGLE_CLAIMS="{\"email\":\"google-$email\",\"email_verified\":true}" "flows/$1.yaml"
+    -e EMAIL="$email" -e CLAIMS="{\"email\":\"$email\"}" "flows/$1.yaml"
 }
 
 # Screenshots for inspection, gathered from every flow's output folder.
@@ -63,12 +59,10 @@ flow back-online
 
 # The server has the exam taken offline.
 echo "== checking the server received the offline exam"
-action=$(curl -fsS "$APP_URL/.ory/self-service/login/api" | jq -r .ui.action)
-token=$(curl -fsS -X POST "$action" -H 'Content-Type: application/json' -H 'Accept: application/json' \
-  -d "{\"method\":\"password\",\"identifier\":\"$email\",\"password\":\"$password\"}" | jq -r .session_token)
+token=$(../sign-in.sh "$APP_URL" "$email")
 submitted=$(curl -fsS "$APP_URL/api/events" -H "X-Session-Token: $token" | jq '[.[] | select(.type == "exam.submitted")] | length')
 [[ "$submitted" -ge 1 ]] || { echo "no submitted exam on the server"; exit 1; }
 echo "server has $submitted submitted exam(s)"
 
 flow sign-out
-flow google-sign-in
+flow sign-in-again

@@ -85,9 +85,10 @@ func (s *Store) Export(ctx context.Context, info Info) (Export, error) {
 // Anonymous stands in for deleted accounts in the review decisions they made.
 const Anonymous = "00000000-0000-0000-0000-000000000000"
 
-// Delete removes the account's progress, profile and roles, and detaches its review
-// decisions, which explanations everyone sees depend on. deleteIdentity removes the
-// account itself; it runs inside the transaction, so if it fails nothing is deleted.
+// Delete removes the account with its progress, profile, roles and sessions, and
+// detaches its review decisions, which explanations everyone sees depend on.
+// deleteIdentity removes the user from the sign-in service where appropriate; it
+// runs inside the transaction, so if it fails nothing is deleted.
 func (s *Store) Delete(ctx context.Context, identityID string, deleteIdentity func(context.Context) error) error {
 	return pgx.BeginFunc(ctx, s.Pool, func(tx pgx.Tx) error {
 		for _, q := range []string{
@@ -95,6 +96,8 @@ func (s *Store) Delete(ctx context.Context, identityID string, deleteIdentity fu
 			`DELETE FROM profiles WHERE identity_id = $1`,
 			`DELETE FROM roles WHERE identity_id = $1`,
 			`UPDATE reviews SET identity_id = '` + Anonymous + `' WHERE identity_id = $1`,
+			// Its sessions and pending app codes go with it.
+			`DELETE FROM accounts WHERE id = $1`,
 		} {
 			if _, err := tx.Exec(ctx, q, identityID); err != nil {
 				return err

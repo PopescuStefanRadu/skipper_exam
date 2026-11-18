@@ -5,14 +5,11 @@ import { expect, test, type Page } from "@playwright/test";
 import {
   answer,
   contentPackage,
-  createAccount,
   setExamType,
   signIn,
-  signUp,
   startExam,
   uniqueEmail,
 } from "./helpers";
-import { recoveryCode } from "./mail";
 import { createReviewer, explanations } from "./review";
 
 async function screenshot(page: Page, name: string) {
@@ -28,32 +25,9 @@ test("signed-out screens", async ({ page }) => {
   await expect(page.getByTestId("server-status")).toHaveAttribute("data-state", "ok");
   await screenshot(page, "01-sign-in");
 
-  await page.getByLabel("Email").fill(uniqueEmail());
-  await page.getByLabel("Parolă").fill("o-parola-gresita-1");
-  await page.getByRole("button", { name: "Intră în cont" }).click();
+  await page.goto("/auth/callback?error=access_denied&state=x");
   await expect(page.getByRole("alert")).toBeVisible();
-  await screenshot(page, "02-sign-in-refused");
-
-  await page.goto("/inregistrare");
-  await page.getByLabel("Email").fill(uniqueEmail());
-  await page.getByLabel("Parolă").fill("scurt");
-  await page.getByRole("button", { name: "Creează contul" }).click();
-  await expect(page.getByRole("alert")).toBeVisible();
-  await screenshot(page, "03-sign-up-refused");
-});
-
-test("password recovery screens", async ({ page }) => {
-  const email = await createAccount();
-  await page.goto("/recuperare");
-  await screenshot(page, "04-recovery");
-  await page.getByLabel("Email").fill(email);
-  await page.getByRole("button", { name: "Trimite codul" }).click();
-  await expect(page.getByLabel("Cod")).toBeVisible();
-  await screenshot(page, "05-recovery-code");
-  await page.getByLabel("Cod").fill(await recoveryCode(email));
-  await page.getByRole("button", { name: "Confirmă codul" }).click();
-  await expect(page.getByRole("heading", { name: "Parolă nouă" })).toBeVisible();
-  await screenshot(page, "06-new-password");
+  await screenshot(page, "02-sign-in-failed");
 });
 
 test("server unavailable", async ({ page }) => {
@@ -64,7 +38,7 @@ test("server unavailable", async ({ page }) => {
 });
 
 test("exam type and home", async ({ page }) => {
-  await signUp(page, uniqueEmail());
+  await signIn(page, uniqueEmail());
   await expect(page.getByRole("heading", { name: "Pentru ce examen te pregătești?" })).toBeVisible();
   await screenshot(page, "08-exam-type");
   await page.getByLabel("Clasa D", { exact: true }).check();
@@ -113,7 +87,7 @@ test("a passed result", async ({ page }) => {
 test("time ran out", async ({ page }) => {
   await page.clock.install();
   const pkg = await contentPackage(page);
-  await signIn(page, await createAccount());
+  await signIn(page);
   await expect(page).toHaveURL("/tip-examen");
   await setExamType(page, "D-diff");
   await page.goto("/");
@@ -131,7 +105,7 @@ test("time ran out", async ({ page }) => {
 
 test("explanations", async ({ page }) => {
   const pkg = await contentPackage(page);
-  await signIn(page, await createAccount());
+  await signIn(page);
   await expect(page).toHaveURL("/tip-examen");
   const all = await explanations(page);
   const e = all.find((e) => e.status === "suggested" && e.source.startsWith("colreg"))!;
@@ -146,7 +120,7 @@ test("explanations", async ({ page }) => {
 });
 
 test("reviewer view", async ({ page }) => {
-  await signIn(page, await createReviewer());
+  await createReviewer(page);
   await expect(page).toHaveURL("/tip-examen");
   const e = (await explanations(page)).find((e) => e.status === "suggested" && e.source.startsWith("colreg"))!;
   await page.goto(`/intrebare/${e.questionId}`);
@@ -159,7 +133,7 @@ test("reviewer view", async ({ page }) => {
 
 test("learning", async ({ page }) => {
   const pkg = await contentPackage(page);
-  await signIn(page, await createAccount());
+  await signIn(page);
   await expect(page).toHaveURL("/tip-examen");
   await setExamType(page, "C");
   await page.goto("/invatare/greseli");
@@ -213,7 +187,7 @@ test("dark mode", async ({ page }) => {
 });
 
 test("account page", async ({ page }) => {
-  const email = await createAccount();
+  const email = uniqueEmail();
   await signIn(page, email);
   await expect(page).toHaveURL("/tip-examen");
   await setExamType(page, "C");

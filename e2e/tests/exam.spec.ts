@@ -6,9 +6,9 @@ import {
   expectQuestionNumber,
   signIn,
   startExam,
-  createAccount,
   setExamType,
   type ContentPackage,
+  uniqueEmail,
 } from "./helpers";
 
 // Answers questions from the current one up to the last one, moving on with Next.
@@ -22,7 +22,7 @@ async function answerAll(page: Page, pkg: ContentPackage, total: number, wrong =
 
 test("answering everything correctly passes the exam", async ({ page }) => {
   const pkg = await contentPackage(page);
-  await signIn(page, await createAccount());
+  await signIn(page);
   await expect(page).toHaveURL("/tip-examen");
   await setExamType(page, "D");
   await page.goto("/");
@@ -167,7 +167,7 @@ test("coming back after the exam's time ran out shows its result", async ({ page
 });
 
 test("an exam started on one device can be resumed on another", async ({ browser }) => {
-  const email = await createAccount();
+  const email = uniqueEmail();
   const one = await (await browser.newContext()).newPage();
   // A frozen clock on a whole second: the exam starts and is answered at the same
   // time, which the server writes as "…:00Z". Both devices must still order them.

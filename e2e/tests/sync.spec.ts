@@ -1,12 +1,12 @@
 // Offline and sync on the web (docs/app/features/offline-and-sync.md). The Android
 // app's offline scenarios run on an emulator (e2e/android/).
 import { expect, test } from "@playwright/test";
-import { answer, contentPackage, createAccount, setExamType, signIn } from "./helpers";
+import { answer, contentPackage, setExamType, signIn } from "./helpers";
 
 test("answers made while the server is unreachable wait on the device, then sync", async ({ page }) => {
   await page.clock.install();
   const pkg = await contentPackage(page);
-  await signIn(page, await createAccount());
+  await signIn(page);
   await expect(page).toHaveURL("/tip-examen");
   await setExamType(page, "C-diff");
 
@@ -26,7 +26,7 @@ test("answers made while the server is unreachable wait on the device, then sync
 });
 
 test("a signed-in user's app opens while the server is unreachable", async ({ page }) => {
-  await signIn(page, await createAccount());
+  await signIn(page);
   await expect(page).toHaveURL("/tip-examen");
   await setExamType(page, "C");
   await page.goto("/");

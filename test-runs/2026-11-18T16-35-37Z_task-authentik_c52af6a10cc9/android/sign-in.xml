@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Test Suite" device="test" tests="1" failures="1" time="55.91" timestamp="2026-11-18T16:38:08">
+    <testcase id="sign-in" name="sign-in" classname="sign-in" file="flows/sign-in.yaml" time="55.902" timestamp="2026-11-18T16:38:08" status="ERROR">
+      <failure>Assertion is false: "Pentru ce examen te pregătești?" is visible</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

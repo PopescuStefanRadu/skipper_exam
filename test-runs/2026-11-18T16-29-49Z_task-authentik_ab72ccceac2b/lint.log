@@ -1,0 +1,2 @@
+not gofmt-formatted (run make fmt):
+cli/mock-oidc/main.go

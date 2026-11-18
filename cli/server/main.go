@@ -2,13 +2,11 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"errors"
 	"flag"
 	"fmt"
 	"log/slog"
 	"net/http"
-	"net/url"
 	"os"
 	"os/signal"
 	"strings"
@@ -18,6 +16,7 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/account"
+	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/auth"
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/content"
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/db"
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/events"
@@ -89,30 +88,50 @@ func run() error {
 	}
 	reviews := &review.Store{Pool: pool}
 
-	kratos, err := server.NewKratos(os.Getenv("KRATOS_PUBLIC_URL"))
-	if err != nil || os.Getenv("KRATOS_PUBLIC_URL") == "" {
-		return errors.New("KRATOS_PUBLIC_URL is required")
+	appURL := strings.TrimSuffix(os.Getenv("APP_URL"), "/")
+	if appURL == "" {
+		return errors.New("APP_URL is required (the app's public address)")
 	}
-	adminURL := os.Getenv("KRATOS_ADMIN_URL")
-	if adminURL == "" {
-		return errors.New("KRATOS_ADMIN_URL is required")
+	for _, name := range []string{"OIDC_ISSUER_URL", "OIDC_CLIENT_ID", "OIDC_CLIENT_SECRET"} {
+		if os.Getenv(name) == "" {
+			return fmt.Errorf("%s is required (the sign-in service's client)", name)
+		}
 	}
-	admin, err := server.NewKratosAdmin(adminURL)
-	if err != nil {
-		return fmt.Errorf("KRATOS_ADMIN_URL: %w", err)
+	authStore := &auth.Store{Pool: pool}
+	signIn := &server.Auth{
+		Store: authStore,
+		Service: &auth.Provider{
+			IssuerURL:    os.Getenv("OIDC_ISSUER_URL"),
+			ClientID:     os.Getenv("OIDC_CLIENT_ID"),
+			ClientSecret: os.Getenv("OIDC_CLIENT_SECRET"),
+			RedirectURL:  appURL + "/auth/callback",
+		},
+		SecureCookies: strings.HasPrefix(appURL, "https://"),
 	}
 	cfg := server.Config{
-		DB:            pool,
-		Sessions:      kratos,
-		AccountsProxy: kratos.Proxy(),
-		Profiles:      &profile.Store{Pool: pool},
-		Events:        &events.Store{Pool: pool},
-		ExamTypes:     c.ExamTypes,
-		Content:       pkg,
-		Library:       lib,
-		Reviews:       reviews,
-		Accounts:      &account.Store{Pool: pool},
-		Identities:    admin,
+		DB:        pool,
+		Sessions:  signIn,
+		Auth:      signIn,
+		Profiles:  &profile.Store{Pool: pool},
+		Events:    &events.Store{Pool: pool},
+		ExamTypes: c.ExamTypes,
+		Content:   pkg,
+		Library:   lib,
+		Reviews:   reviews,
+		Accounts:  &account.Store{Pool: pool},
+	}
+	// Deleting an account also deletes its user in the sign-in service, if the user
+	// exists only for this app. Without these settings (the test stack) it doesn't.
+	if u := os.Getenv("AUTHENTIK_URL"); u != "" {
+		token, group := os.Getenv("AUTHENTIK_API_TOKEN"), os.Getenv("AUTHENTIK_APP_GROUP")
+		if token == "" || group == "" {
+			return errors.New("AUTHENTIK_URL needs AUTHENTIK_API_TOKEN and AUTHENTIK_APP_GROUP")
+		}
+		ak, err := auth.NewAuthentik(u, token, group)
+		if err != nil {
+			return fmt.Errorf("AUTHENTIK_URL: %w", err)
+		}
+		cfg.Identities = ak
 	}
 	if dir := os.Getenv("WEB_DIR"); dir != "" {
 		cfg.Web = os.DirFS(dir)
@@ -157,7 +176,7 @@ func healthcheck() error {
 }
 
 // grantRole gives the account with the given email a role, e.g. reviewer. It reads
-// DATABASE_URL and KRATOS_ADMIN_URL (Kratos's admin API) from the environment.
+// DATABASE_URL from the environment.
 func grantRole(args []string) error {
 	fs := flag.NewFlagSet("grant-role", flag.ExitOnError)
 	email := fs.String("email", "", "the account's email")
@@ -166,30 +185,19 @@ func grantRole(args []string) error {
 	if *email == "" || *role != server.RoleReviewer {
 		return fmt.Errorf("usage: server grant-role -email EMAIL -role %s", server.RoleReviewer)
 	}
-	admin := os.Getenv("KRATOS_ADMIN_URL")
-	if admin == "" {
-		return errors.New("KRATOS_ADMIN_URL is required")
-	}
 	ctx := context.Background()
-	res, err := http.Get(admin + "/admin/identities?credentials_identifier=" + url.QueryEscape(*email))
-	if err != nil {
-		return err
-	}
-	defer res.Body.Close()
-	var ids []struct {
-		ID string `json:"id"`
-	}
-	if err := json.NewDecoder(res.Body).Decode(&ids); err != nil {
-		return fmt.Errorf("find account: %w", err)
-	}
-	if len(ids) != 1 {
-		return fmt.Errorf("no account with email %s", *email)
-	}
 	pool, err := pgxpool.New(ctx, os.Getenv("DATABASE_URL"))
 	if err != nil {
 		return err
 	}
 	defer pool.Close()
+	ids, err := (&auth.Store{Pool: pool}).ByEmail(ctx, *email)
+	if err != nil {
+		return err
+	}
+	if len(ids) != 1 {
+		return fmt.Errorf("no single account with email %s (it exists after its first sign-in)", *email)
+	}
 	if err := (&review.Store{Pool: pool}).Grant(ctx, ids[0].ID, *role); err != nil {
 		return err
 	}

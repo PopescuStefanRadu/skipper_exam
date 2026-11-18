@@ -32,7 +32,7 @@ func (f *fakeProfiles) SetExamType(_ context.Context, id, t string) error {
 
 func TestPutProfile(t *testing.T) {
 	t.Parallel()
-	k := fakeKratos(t)
+	k := fakeSessions{}
 	profiles := &fakeProfiles{m: map[string]string{}}
 	h := New(Config{DB: fakeDB{}, Sessions: k, Profiles: profiles, ExamTypes: []content.ExamType{
 		{ID: "D", Available: true},

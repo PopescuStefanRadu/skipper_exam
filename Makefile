@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: android-e2e android-build android-image grant-reviewer content-extract content-validate content-tag content-import-rna help setup build test e2e test-all check vet fmt tidy up down status screenshots dev task-new task-done integrate
+.PHONY: android-e2e android-build android-image grant-reviewer content-extract content-validate content-tag content-import-rna help setup build test e2e test-all check vet fmt tidy up down status screenshots dev task-new task-done integrate publish deploy-test
 
 help: ## List available targets
 	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*## "}; {printf "  %-10s %s\n", $$1, $$2}'
@@ -83,8 +83,11 @@ dev: up ## Run the web app with hot reload against this worktree's backend (Vite
 task-new: ## Create a task worktree from the latest origin/main: make task-new NAME=<name>
 	scripts/task.sh new $(NAME)
 
+publish: ## Build the production images from origin/main and push them to ghcr.io (done by integrate; needs a ghcr.io login)
+	scripts/publish.sh
+
 task-done: ## After the PR is merged: stop the stack, remove the worktree and branch: make task-done NAME=<name>
 	scripts/task.sh done $(NAME)
 
-integrate: ## In a task worktree: squash, rebase on origin/main, test-all, push, PR, wait for CI, merge; repeats if main moves (TITLE="...")
-	TITLE="$(TITLE)" scripts/task.sh integrate
+integrate: ## In a task worktree: squash, rebase on origin/main, test-all, push, PR, merge, publish images; repeats if main moves (TITLE="...", NOTES=file for the PR description)
+	TITLE="$(TITLE)" NOTES="$(abspath $(NOTES))" scripts/task.sh integrate

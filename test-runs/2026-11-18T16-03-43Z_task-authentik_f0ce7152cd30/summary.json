@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-18T16-03-43Z",
+  "branch": "task/authentik",
+  "commit": "f0ce7152cd3030a40335355093e7e82d969d9fec",
+  "ci": false,
+  "suites_requested": [
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 9462
+    }
+  ],
+  "result": "passed"
+}

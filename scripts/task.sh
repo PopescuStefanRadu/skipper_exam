@@ -4,22 +4,21 @@
 #   task.sh new <name>    create .worktrees/<name> on branch task/<name> from the latest origin/main
 #   task.sh integrate     (inside a task worktree) get the branch into main through a pull request:
 #                         squash the branch into one commit, rebase on origin/main, run the full
-#                         suite, commit its test record, push, wait for CI, merge. If main moves
-#                         at any point, the whole loop starts again. TITLE sets the commit title.
+#                         suite, commit its test record, push, open the pull request, merge, then
+#                         publish the images (scripts/publish.sh). If main moves at any point, the
+#                         whole loop starts again. TITLE sets the commit title, NOTES a file with
+#                         text for the pull request's description.
 #   task.sh done <name>   stop the task's stack, remove its worktree and its merged branch
 #
-# main is protected on GitHub: a pull request can only be merged when CI passed and the
-# branch is up to date with main, so nothing untested can reach main.
+# main is protected on GitHub: changes reach it only through pull requests. There is no
+# CI; the full suite runs here, on the exact commit that is merged, on top of the
+# current main, and its record is committed with it.
 set -euo pipefail
 
 scripts=$(cd "$(dirname "$0")" && pwd)
 
 # The main checkout is the first entry of the worktree list.
 main_root=$(git worktree list --porcelain | awk '/^worktree /{print substr($0, 10); exit}')
-
-# CI job that must pass on the exact commit being merged.
-ci_check=test
-ci_timeout_seconds=${CI_TIMEOUT_SECONDS:-1800}
 
 # Keeps the main checkout equal to origin/main, when it's safe to update it.
 sync_main_checkout() {
@@ -38,26 +37,6 @@ new() {
   git -C "$dir" branch --quiet --unset-upstream 2>/dev/null || true
   make -C "$dir" setup
   echo "worktree ready: $dir"
-}
-
-# Waits for the CI check on one exact commit. Returns non-zero if it failed.
-wait_for_ci() {
-  local sha=$1 waited=0 state
-  echo "waiting for CI ($ci_check) on ${sha:0:7}..."
-  while true; do
-    state=$(gh api "repos/{owner}/{repo}/commits/$sha/check-runs" \
-      --jq "[.check_runs[] | select(.name == \"$ci_check\")] | sort_by(.started_at) | last | \"\(.status) \(.conclusion)\"")
-    case "$state" in
-      "completed success") echo "CI passed"; return 0 ;;
-      completed*) echo "CI failed: $state" >&2; return 1 ;;
-    esac
-    if ((waited >= ci_timeout_seconds)); then
-      echo "CI did not finish within ${ci_timeout_seconds}s" >&2
-      return 1
-    fi
-    sleep 15
-    waited=$((waited + 15))
-  done
 }
 
 # Squashes the branch's commits (since it left main) into one. The message lists
@@ -81,6 +60,11 @@ squash_branch() {
   msg=$(
     echo "$title"
     echo
+    # Notes for the pull request, e.g. .env changes the hosting project must make.
+    if [[ -n "${NOTES:-}" ]]; then
+      cat "$NOTES"
+      echo
+    fi
     echo "Original commits:"
     {
       for c in "${commits[@]}"; do
@@ -140,7 +124,6 @@ integrate() {
       gh pr create --base main --head "$branch" --title "$(git log -1 --format=%s "$tested")" --body-file "$root/.pr-body"
     fi
     rm -f "$root/.pr-body"
-    wait_for_ci "$head" || exit 1
 
     git fetch --quiet origin
     if [[ "$(git rev-parse origin/main)" != "$base" ]]; then
@@ -156,6 +139,7 @@ integrate() {
 
   sync_main_checkout
   echo "merged; main is now at $(git -C "$main_root" rev-parse --short origin/main)"
+  "$scripts/publish.sh"
 }
 
 done_task() {

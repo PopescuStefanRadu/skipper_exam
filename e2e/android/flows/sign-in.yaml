@@ -1,4 +1,6 @@
-# Sign in with email and password, choose the exam type, reach the home screen.
+# The first sign-in: "Continuă cu Google" opens the sign-in service in the browser
+# (the stack's fake one), which returns to the app signed in. The new account then
+# chooses its exam type and reaches the home screen.
 appId: ro.skipperexam.app
 ---
 - launchApp:
@@ -7,15 +9,12 @@ appId: ro.skipperexam.app
     visible: "Autentificare"
     timeout: 30000
 - takeScreenshot: 01-sign-in
-- tapOn: "Email"
-- inputText: ${EMAIL}
-- tapOn: "Parolă"
-- inputText: ${PASSWORD}
-- hideKeyboard
-- tapOn: "Intră în cont"
+- tapOn: "Continuă cu Google"
+- runFlow: sign-in-at-service.yaml
 - extendedWaitUntil:
     visible: "Pentru ce examen te pregătești?"
-    timeout: 20000
+    timeout: 30000
+- assertVisible: ${EMAIL}
 - tapOn: "Clasa C"
 - scrollUntilVisible:
     element: "Salvează"

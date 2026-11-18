@@ -6,15 +6,15 @@
 #                             backups (default 14) are kept
 #   backup.sh now             back up once, now
 #   backup.sh list            list the backups
-#   backup.sh restore <date>  restore both databases from /backups/<date> (stop app and kratos first)
+#   backup.sh restore <date>  restore the database from /backups/<date> (stop the app first)
 #
 # A backup is one folder per day, /backups/YYYY-MM-DD, with a custom-format pg_dump
-# of the app's database and of Kratos's (accounts), taken together.
+# of the app's database (accounts included).
 # Connection settings come from PGHOST, PGUSER and PGPASSWORD.
 set -eu
 
 dir=/backups
-databases="skipper_exam kratos"
+databases="skipper_exam"
 
 backup() {
   day=$(date +%F)

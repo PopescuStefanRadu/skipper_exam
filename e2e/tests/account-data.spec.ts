@@ -2,8 +2,7 @@
 import { expect, test, type Page } from "@playwright/test";
 import { randomUUID } from "node:crypto";
 import { readFile } from "node:fs/promises";
-import { stackEnv } from "../stack";
-import { createAccount, password, setExamType, signIn, signUp } from "./helpers";
+import { setExamType, signIn, uniqueEmail } from "./helpers";
 
 // Records a practice answer through the API, as the app would after a sync.
 async function recordAnswer(page: Page): Promise<string> {
@@ -25,7 +24,7 @@ async function recordAnswer(page: Page): Promise<string> {
 }
 
 async function signedInWithProgress(page: Page): Promise<{ email: string; eventId: string }> {
-  const email = await createAccount();
+  const email = uniqueEmail();
   await signIn(page, email);
   await expect(page).toHaveURL("/tip-examen");
   await setExamType(page, "C");
@@ -52,6 +51,7 @@ test("the export contains the account, the profile and all progress", async ({ p
 
 test("deleting the account removes it and all its progress", async ({ page }) => {
   const { email } = await signedInWithProgress(page);
+  const id = (await (await page.request.get("/api/me")).json()).id;
   await page.goto("/cont");
   await page.getByRole("button", { name: "Șterge contul" }).click();
   const dialog = page.getByRole("dialog");
@@ -64,17 +64,13 @@ test("deleting the account removes it and all its progress", async ({ page }) =>
 
   await expect(page).toHaveURL("/autentificare");
   await expect(page.getByText("Contul tău a fost șters.")).toBeVisible();
-  const ids = await (
-    await fetch(`${stackEnv().KRATOS_ADMIN_URL}/admin/identities?credentials_identifier=${encodeURIComponent(email)}`)
-  ).json();
-  expect(ids).toEqual([]);
+  expect((await page.request.get("/api/me")).status()).toBe(401);
+  const deletedId = id;
 
+  // Signing in again with the same identity starts from nothing.
   await signIn(page, email);
-  await expect(page.getByRole("alert")).toHaveText("Emailul sau parola nu sunt corecte.");
-
-  // A new account with the same email starts from nothing.
-  await signUp(page, email, password);
   await expect(page).toHaveURL("/tip-examen");
+  expect((await (await page.request.get("/api/me")).json()).id).not.toBe(deletedId);
   expect(await (await page.request.get("/api/events")).json()).toEqual([]);
   expect((await (await page.request.get("/api/profile")).json()).examType).toBe("");
 });

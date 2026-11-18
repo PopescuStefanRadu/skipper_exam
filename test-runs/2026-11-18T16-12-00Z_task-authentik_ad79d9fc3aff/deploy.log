@@ -1,0 +1,77 @@
+== building images
+== starting at http://127.0.0.1:40607
+ Network skipper-exam-deploytest-40703dbd_default Creating 
+ Network skipper-exam-deploytest-40703dbd_default Created 
+ Volume skipper-exam-deploytest-40703dbd_db Creating 
+ Volume skipper-exam-deploytest-40703dbd_db Created 
+ Container skipper-exam-deploytest-40703dbd-db-1 Creating 
+ Container skipper-exam-deploytest-40703dbd-db-1 Created 
+ Container skipper-exam-deploytest-40703dbd-app-1 Creating 
+ Container skipper-exam-deploytest-40703dbd-backup-1 Creating 
+ Container skipper-exam-deploytest-40703dbd-backup-1 Created 
+ Container skipper-exam-deploytest-40703dbd-app-1 Created 
+ Container skipper-exam-deploytest-40703dbd-mock-oidc-1 Creating 
+ Container skipper-exam-deploytest-40703dbd-mock-oidc-1 Created 
+ Container skipper-exam-deploytest-40703dbd-db-1 Starting 
+ Container skipper-exam-deploytest-40703dbd-db-1 Started 
+ Container skipper-exam-deploytest-40703dbd-db-1 Waiting 
+ Container skipper-exam-deploytest-40703dbd-db-1 Waiting 
+ Container skipper-exam-deploytest-40703dbd-db-1 Healthy 
+ Container skipper-exam-deploytest-40703dbd-app-1 Starting 
+ Container skipper-exam-deploytest-40703dbd-db-1 Healthy 
+ Container skipper-exam-deploytest-40703dbd-backup-1 Starting 
+ Container skipper-exam-deploytest-40703dbd-backup-1 Started 
+ Container skipper-exam-deploytest-40703dbd-app-1 Started 
+ Container skipper-exam-deploytest-40703dbd-mock-oidc-1 Starting 
+ Container skipper-exam-deploytest-40703dbd-mock-oidc-1 Started 
+ Container skipper-exam-deploytest-40703dbd-backup-1 Waiting 
+ Container skipper-exam-deploytest-40703dbd-db-1 Waiting 
+ Container skipper-exam-deploytest-40703dbd-app-1 Waiting 
+ Container skipper-exam-deploytest-40703dbd-mock-oidc-1 Waiting 
+ Container skipper-exam-deploytest-40703dbd-backup-1 Healthy 
+ Container skipper-exam-deploytest-40703dbd-mock-oidc-1 Healthy 
+ Container skipper-exam-deploytest-40703dbd-db-1 Healthy 
+ Container skipper-exam-deploytest-40703dbd-app-1 Healthy 
+== sign in and record progress (session token, as the Android app does)
+== backup
+backup: /backups/2026-11-18
+== wipe the data, then restore 2026-11-18
+ Volume skipper-exam-deploytest-40703dbd_db Creating 
+ Volume skipper-exam-deploytest-40703dbd_db Created 
+ Container skipper-exam-deploytest-40703dbd-db-1 Creating 
+ Container skipper-exam-deploytest-40703dbd-db-1 Created 
+ Container skipper-exam-deploytest-40703dbd-db-1 Starting 
+ Container skipper-exam-deploytest-40703dbd-db-1 Started 
+ Container skipper-exam-deploytest-40703dbd-db-1 Waiting 
+ Container skipper-exam-deploytest-40703dbd-db-1 Healthy 
+ Container skipper-exam-deploytest-40703dbd-backup-run-a6bd485797ff Creating 
+ Container skipper-exam-deploytest-40703dbd-backup-run-a6bd485797ff Created 
+restored /backups/2026-11-18
+ Container skipper-exam-deploytest-40703dbd-db-1 Running 
+ Container skipper-exam-deploytest-40703dbd-app-1 Creating 
+ Container skipper-exam-deploytest-40703dbd-backup-1 Creating 
+ Container skipper-exam-deploytest-40703dbd-app-1 Created 
+ Container skipper-exam-deploytest-40703dbd-mock-oidc-1 Creating 
+ Container skipper-exam-deploytest-40703dbd-backup-1 Created 
+ Container skipper-exam-deploytest-40703dbd-mock-oidc-1 Created 
+ Container skipper-exam-deploytest-40703dbd-db-1 Waiting 
+ Container skipper-exam-deploytest-40703dbd-db-1 Waiting 
+ Container skipper-exam-deploytest-40703dbd-db-1 Healthy 
+ Container skipper-exam-deploytest-40703dbd-backup-1 Starting 
+ Container skipper-exam-deploytest-40703dbd-db-1 Healthy 
+ Container skipper-exam-deploytest-40703dbd-app-1 Starting 
+ Container skipper-exam-deploytest-40703dbd-backup-1 Started 
+ Container skipper-exam-deploytest-40703dbd-app-1 Started 
+ Container skipper-exam-deploytest-40703dbd-mock-oidc-1 Starting 
+ Container skipper-exam-deploytest-40703dbd-mock-oidc-1 Started 
+ Container skipper-exam-deploytest-40703dbd-backup-1 Waiting 
+ Container skipper-exam-deploytest-40703dbd-mock-oidc-1 Waiting 
+ Container skipper-exam-deploytest-40703dbd-db-1 Waiting 
+ Container skipper-exam-deploytest-40703dbd-app-1 Waiting 
+ Container skipper-exam-deploytest-40703dbd-mock-oidc-1 Healthy 
+ Container skipper-exam-deploytest-40703dbd-db-1 Healthy 
+ Container skipper-exam-deploytest-40703dbd-backup-1 Healthy 
+ Container skipper-exam-deploytest-40703dbd-app-1 Healthy 
+== the account and its progress are back
+== account deletion
+deploy test passed

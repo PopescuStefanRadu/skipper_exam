@@ -1,8 +1,7 @@
 // What differs between the website and the Android app. The website talks to its
-// own origin and signs in with Kratos's browser flows (cookies). The Android app runs
-// in a web view on its own origin, talks to the server it was built for, and signs in
-// with Kratos's flows for native apps: a session token kept on the device and sent
-// in a header (see docs/app/features/accounts.md).
+// own origin and its session is a cookie. The Android app runs in a web view on its
+// own origin, talks to the server it was built for, and keeps a session token on the
+// device, sent in a header (see docs/app/features/accounts.md).
 import { Browser } from "@capacitor/browser";
 import { Capacitor } from "@capacitor/core";
 import { load, remove, save } from "./storage";
@@ -12,7 +11,7 @@ export const isApp = Capacitor.isNativePlatform();
 // The backend's address: "" (same origin) on the website.
 export const serverUrl: string = isApp ? (import.meta.env.VITE_SERVER_URL ?? "") : "";
 
-// Where Kratos sends the app back after signing in with Google in the browser.
+// Where the server sends the app back after a sign-in in the browser.
 export const appReturnUrl = "ro.skipperexam.app://auth";
 
 const tokenKey = "session-token";
@@ -24,8 +23,8 @@ export function setSessionToken(token: string | undefined) {
   else remove(tokenKey);
 }
 
-// fetch for the backend and the account service: a path on the backend or a full
-// URL Kratos gave us. The app sends its session token; the website its cookies.
+// fetch for the backend: a path on it, or a full URL. The app sends its session
+// token; the website its cookies.
 export function apiFetch(pathOrUrl: string, init: RequestInit = {}): Promise<Response> {
   const url = /^https?:\/\//.test(pathOrUrl) ? pathOrUrl : serverUrl + pathOrUrl;
   if (!isApp) return fetch(url, { credentials: "include", ...init });

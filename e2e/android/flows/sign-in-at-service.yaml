@@ -1,0 +1,16 @@
+# The fake sign-in service's page in the browser: the user ID (focused), then the
+# claims it sends. Used by the sign-in flows.
+appId: ro.skipperexam.app
+---
+- extendedWaitUntil:
+    visible: "Mock OAuth2 Server Sign-in"
+    timeout: 30000
+- takeScreenshot: 08-sign-in-service
+- inputText: ${EMAIL}
+- pressKey: Tab
+- inputText: ${CLAIMS}
+- hideKeyboard
+- scrollUntilVisible:
+    element: "Sign-in"
+    direction: DOWN
+- tapOn: "Sign-in"

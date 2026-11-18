@@ -9,7 +9,9 @@
 - There is no guest mode: you need an account to use the app.
 - Some accounts have the **reviewer** role, which unlocks reviewing explanations (see [Explanations](explanations.md)). Roles are assigned by an administrator, not chosen by the user: `make grant-reviewer EMAIL=...` in a stack, or the server's `grant-role` command in production.
 - At sign-up you choose your [exam type](exam-types.md).
-- Users are in the EU, so you can export your data and delete your account along with all your progress.
+- Users are in the EU, so you can export your data and delete your account along with all your progress. Both are on the **Contul meu** page, linked from the top bar:
+  - **Export** downloads one JSON file with everything the app keeps about you: your account (ID and email), your profile (exam type), your roles, every recorded event (exam and practice answers) and, for reviewers, your review decisions. On Android the export opens that page on the website, since the app's web view can't save files.
+  - **Delete** asks you to type your email to confirm, since it can't be undone. It removes your progress, profile and roles, then the account itself, so you can no longer sign in. Review decisions stay, because the explanations everyone sees depend on them, but they no longer point to the account. Then you're signed out with the message "Contul tău a fost șters.", and the device forgets the account and its progress. Signing up again with the same email starts from nothing.
 - **On Android** the app signs in the way Kratos recommends for native apps: it keeps a session token on the device and sends it with every request, since it can't share the website's cookies. Email and password work in the app. Google opens in the phone's browser and returns to the app when done (through the `ro.skipperexam.app://auth` link). A forgotten password is reset on the website, opened in the browser; then you sign in to the app with the new password. Signing out ends the session on the server too.
 - For working offline, see [Offline and sync](offline-and-sync.md).
 
@@ -28,5 +30,6 @@ Less common paths:
 - Signing in with Google using the email of an existing password account asks for that account's password once, then links Google to it. Afterwards Google alone opens the same account.
 - Opening the app while signed out leads to sign-in; no practice is possible without an account.
 - One user never sees another user's progress.
-- Deleting an account removes all its progress, and the account can no longer sign in.
-- A data export contains all the user's progress.
+- Deleting an account removes all its progress, and the account can no longer sign in. Signing up again with the same email starts with no progress.
+- Deleting stays disabled until the typed email matches the account's.
+- A data export contains the account, the profile and all the user's progress.

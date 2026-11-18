@@ -1,0 +1,104 @@
+# Production: the app at APP_URL behind your HTTPS reverse proxy (see docs/DEPLOYMENT.md).
+#
+#   cp env.example .env   # fill it in
+#   docker compose up -d
+#
+# The proxy forwards every path of APP_URL's host to APP_BIND (default 127.0.0.1:8080),
+# including /.ory/, which the app forwards to Kratos. Nothing else is exposed.
+name: skipper-exam
+
+services:
+  db:
+    image: postgres:17.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: skipper_exam
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?set in .env}"
+      POSTGRES_DB: skipper_exam
+    volumes:
+      - db:/var/lib/postgresql/data
+    configs:
+      - source: postgres-init
+        target: /docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "skipper_exam"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  kratos-migrate:
+    image: "${IMAGE_PREFIX:-ghcr.io/popescustefanradu/skipper-exam}-kratos:${IMAGE_TAG:-latest}"
+    command: migrate
+    environment: &kratos-env
+      DSN: "postgres://skipper_exam:${POSTGRES_PASSWORD}@db:5432/kratos?sslmode=disable"
+      APP_URL: "${APP_URL:?set in .env}"
+      COOKIE_SECRET: "${COOKIE_SECRET:?set in .env}"
+      CIPHER_SECRET: "${CIPHER_SECRET:?set in .env}"
+      COURIER_SMTP_CONNECTION_URI: "${SMTP_URI:?set in .env}"
+      MAIL_FROM: "${MAIL_FROM:?set in .env}"
+      OIDC_ISSUER_URL: https://accounts.google.com
+      OIDC_CLIENT_ID: "${GOOGLE_CLIENT_ID:?set in .env}"
+      OIDC_CLIENT_SECRET: "${GOOGLE_CLIENT_SECRET:?set in .env}"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  kratos:
+    image: "${IMAGE_PREFIX:-ghcr.io/popescustefanradu/skipper-exam}-kratos:${IMAGE_TAG:-latest}"
+    command: serve
+    restart: unless-stopped
+    environment: *kratos-env
+    depends_on:
+      kratos-migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:4434/admin/health/ready"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  app:
+    image: "${IMAGE_PREFIX:-ghcr.io/popescustefanradu/skipper-exam}-app:${IMAGE_TAG:-latest}"
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: "postgres://skipper_exam:${POSTGRES_PASSWORD}@db:5432/skipper_exam"
+      KRATOS_PUBLIC_URL: http://kratos:4433
+      KRATOS_ADMIN_URL: http://kratos:4434
+    ports:
+      - "${APP_BIND:-127.0.0.1:8080}:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+      kratos:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "/server", "healthcheck"]
+      interval: 10s
+      timeout: 3s
+      retries: 30
+
+  # Backs up both databases every night into BACKUP_DIR (docker/backup/backup.sh).
+  backup:
+    image: "${IMAGE_PREFIX:-ghcr.io/popescustefanradu/skipper-exam}-backup:${IMAGE_TAG:-latest}"
+    restart: unless-stopped
+    environment:
+      PGHOST: db
+      PGUSER: skipper_exam
+      PGPASSWORD: "${POSTGRES_PASSWORD}"
+      BACKUP_KEEP_DAYS: "${BACKUP_KEEP_DAYS:-14}"
+      BACKUP_HOUR: "${BACKUP_HOUR:-3}"
+      TZ: "${TZ:-Europe/Bucharest}"
+    volumes:
+      - "${BACKUP_DIR:-./backups}:/backups"
+    depends_on:
+      db:
+        condition: service_healthy
+
+configs:
+  postgres-init:
+    # Kratos keeps its data in its own database on the same server.
+    content: |
+      CREATE DATABASE kratos;
+
+volumes:
+  db:

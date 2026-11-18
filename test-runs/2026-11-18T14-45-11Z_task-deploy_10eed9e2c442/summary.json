@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-18T14-45-11Z",
+  "branch": "task/deploy",
+  "commit": "10eed9e2c4420f34511a05a2ff25cd26afe81ddf",
+  "ci": false,
+  "suites_requested": [
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 10618
+    }
+  ],
+  "result": "passed"
+}

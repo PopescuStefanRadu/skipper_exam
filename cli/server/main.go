@@ -17,6 +17,7 @@ import (
 
 	"github.com/jackc/pgx/v5/pgxpool"
 
+	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/account"
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/content"
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/db"
 	"github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/events"
@@ -92,6 +93,14 @@ func run() error {
 	if err != nil || os.Getenv("KRATOS_PUBLIC_URL") == "" {
 		return errors.New("KRATOS_PUBLIC_URL is required")
 	}
+	adminURL := os.Getenv("KRATOS_ADMIN_URL")
+	if adminURL == "" {
+		return errors.New("KRATOS_ADMIN_URL is required")
+	}
+	admin, err := server.NewKratosAdmin(adminURL)
+	if err != nil {
+		return fmt.Errorf("KRATOS_ADMIN_URL: %w", err)
+	}
 	cfg := server.Config{
 		DB:            pool,
 		Sessions:      kratos,
@@ -102,6 +111,8 @@ func run() error {
 		Content:       pkg,
 		Library:       lib,
 		Reviews:       reviews,
+		Accounts:      &account.Store{Pool: pool},
+		Identities:    admin,
 	}
 	if dir := os.Getenv("WEB_DIR"); dir != "" {
 		cfg.Web = os.DirFS(dir)

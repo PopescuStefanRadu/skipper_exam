@@ -211,3 +211,19 @@ test("dark mode", async ({ page }) => {
   await expect(page.getByTestId("feedback")).toBeVisible();
   await screenshot(page, "32-dark-learning-wrong");
 });
+
+test("account page", async ({ page }) => {
+  const email = await createAccount();
+  await signIn(page, email);
+  await expect(page).toHaveURL("/tip-examen");
+  await setExamType(page, "C");
+  await page.goto("/cont");
+  await expect(page.getByRole("button", { name: "Șterge contul" })).toBeVisible();
+  await screenshot(page, "33-account");
+  await page.getByRole("button", { name: "Șterge contul" }).click();
+  await page.getByLabel("Scrie emailul contului pentru confirmare").fill(email);
+  await screenshot(page, "34-account-delete-confirm");
+  await page.getByRole("button", { name: "Șterge definitiv" }).click();
+  await expect(page.getByText("Contul tău a fost șters.")).toBeVisible();
+  await screenshot(page, "35-account-deleted");
+});

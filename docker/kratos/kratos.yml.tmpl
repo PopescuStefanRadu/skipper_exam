@@ -1,9 +1,8 @@
-# Kratos configuration template for the local and test stack. scripts/stack.sh
-# replaces __APP_URL__ and __MOCK_OIDC_URL__ with the stack's addresses and writes
-# the result to .stack/kratos.yml.
+# Kratos configuration template, the same for the test stack and production.
+# entrypoint.sh fills in the __NAME__ placeholders from environment variables when
+# the container starts (see docs/DEPLOYMENT.md). The database address (DSN) and the
+# SMTP server (COURIER_SMTP_CONNECTION_URI) are read by Kratos from its environment.
 version: v1.3.1
-
-dsn: postgres://skipper_exam:skipper_exam@db:5432/kratos?sslmode=disable
 
 serve:
   public:
@@ -22,20 +21,20 @@ selfservice:
     password:
       enabled: true
       config:
-        # Tests and home servers must not depend on an external service.
+        # Signing up must not depend on an external service.
         haveibeenpwned_enabled: false
     oidc:
       enabled: true
       config:
         providers:
-          # "Google" is the stack's mock OpenID Connect server. It shares Kratos's
-          # network, so Kratos and the browser both reach it at the same address.
+          # Google, through OpenID Connect discovery at the issuer: in production
+          # https://accounts.google.com; in the test stack a mock server.
           - id: google
             provider: generic
             label: Google
-            client_id: skipper-exam
-            client_secret: skipper-exam-secret
-            issuer_url: __MOCK_OIDC_URL__/default
+            client_id: __OIDC_CLIENT_ID__
+            client_secret: __OIDC_CLIENT_SECRET__
+            issuer_url: __OIDC_ISSUER_URL__
             mapper_url: file:///etc/config/kratos/oidc.google.jsonnet
             scope:
               - openid
@@ -75,9 +74,10 @@ identity:
       url: file:///etc/config/kratos/identity.schema.json
 
 courier:
+  # Romanian emails (courier-templates/).
+  template_override_path: /etc/config/kratos/courier-templates/
   smtp:
-    connection_uri: smtp://mailpit:1025/?disable_starttls=true
-    from_address: no-reply@skipper-exam.local
+    from_address: __MAIL_FROM__
     from_name: Examen CAA
 
 secrets:

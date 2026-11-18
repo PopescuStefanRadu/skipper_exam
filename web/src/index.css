@@ -162,6 +162,16 @@ a:hover {
   overflow-wrap: normal;
   opacity: 0.9;
 }
+a.account-email {
+  color: var(--on-topbar);
+  text-decoration: underline;
+  text-decoration-color: rgb(255 255 255 / 45%);
+  text-underline-offset: 3px;
+}
+a.account-email:hover {
+  opacity: 1;
+  text-decoration-color: currentColor;
+}
 .account-label {
   position: absolute;
   width: 1px;
@@ -304,7 +314,7 @@ form label > textarea {
   background: var(--surface);
   font-weight: 400;
 }
-form button[type="submit"] {
+form:not(.modal) button[type="submit"] {
   margin-top: 0.5rem;
 }
 fieldset {

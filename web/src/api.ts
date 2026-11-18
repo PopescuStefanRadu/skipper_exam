@@ -160,3 +160,16 @@ export async function postReview(review: {
   if (!res.ok) throw new ReviewError(res.status);
   return res.json();
 }
+
+// Everything the app keeps about the account, as a JSON file.
+export async function exportAccount(): Promise<Blob> {
+  const res = await apiFetch("/api/account/export");
+  if (!res.ok) throw new Error(`/api/account/export: ${res.status}`);
+  return res.blob();
+}
+
+// Deletes the account and all its data. It can't be undone.
+export async function deleteAccount(): Promise<void> {
+  const res = await apiFetch("/api/account", { method: "DELETE" });
+  if (!res.ok) throw new Error(`/api/account: ${res.status}`);
+}

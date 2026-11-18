@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import { createAccount, expectSignedInAs, password, signIn, uniqueEmail } from "./helpers";
-import { recoveryCode } from "./mail";
+import { latestEmailText, recoveryCode } from "./mail";
 
 const newPassword = "o-parola-noua-456";
 
@@ -16,6 +16,8 @@ async function requestReset(page: Page, email: string) {
 test("reset a forgotten password and sign in with the new one", async ({ page }) => {
   const email = await createAccount();
   await requestReset(page, email);
+  // The email is in Romanian.
+  expect(await latestEmailText(email)).toContain("Codul pentru recuperarea parolei tale la Examen CAA este:");
 
   await page.getByLabel("Cod").fill(await recoveryCode(email));
   await page.getByRole("button", { name: "Confirmă codul" }).click();

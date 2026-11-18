@@ -1,0 +1,179 @@
+ Image skipper-deploy-78375f5b-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 584B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 ...
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.4s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.5s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 42.77kB done
+#7 DONE 0.0s
+
+#8 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#8 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#8 DONE 0.0s
+
+#9 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#9 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#9 DONE 0.0s
+
+#10 [web 3/7] WORKDIR /web
+#10 CACHED
+
+#11 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#11 CACHED
+
+#12 [web 2/7] RUN corepack enable
+#12 CACHED
+
+#13 [web 5/7] RUN pnpm install --frozen-lockfile
+#13 CACHED
+
+#14 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#14 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#14 DONE 0.0s
+
+#15 [web 6/7] COPY web/ ./
+#15 DONE 0.0s
+
+#16 [web 7/7] RUN pnpm build
+#16 0.160 $ tsc -b && vite build
+#16 1.333 vite v6.0.7 building for production...
+#16 1.369 transforming...
+#16 1.756 ✓ 59 modules transformed.
+#16 1.792 rendering chunks...
+#16 1.831 computing gzip size...
+#16 1.837 dist/index.html                   0.40 kB │ gzip:  0.27 kB
+#16 1.837 dist/assets/index-D1akFPzb.css   10.69 kB │ gzip:  2.97 kB
+#16 1.837 dist/assets/web-CRPU6yVC.js       0.38 kB │ gzip:  0.25 kB
+#16 1.837 dist/assets/web-1toWruNb.js       0.84 kB │ gzip:  0.40 kB
+#16 1.837 dist/assets/index-Bd9ar2M8.js   222.69 kB │ gzip: 71.51 kB
+#16 1.837 ✓ built in 488ms
+#16 DONE 1.9s
+
+#17 [backend 4/7] RUN go mod download
+#17 CACHED
+
+#18 [backend 2/7] WORKDIR /src
+#18 CACHED
+
+#19 [backend 6/7] COPY pkg pkg
+#19 CACHED
+
+#20 [backend 5/7] COPY cli cli
+#20 CACHED
+
+#21 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#21 CACHED
+
+#22 [backend 3/7] COPY go.mod go.sum ./
+#22 CACHED
+
+#23 [stage-2 2/4] COPY --from=backend /server /server
+#23 CACHED
+
+#24 [stage-2 3/4] COPY --from=web /web/dist /web
+#24 DONE 0.0s
+
+#25 [stage-2 4/4] COPY content /content
+#25 DONE 0.1s
+
+#26 exporting to image
+#26 exporting layers
+#26 exporting layers 0.7s done
+#26 exporting manifest sha256:17a741e1400f4b1f714b50bcf358f2be2238523ad33cb7ee42a85bd06f51e5ef done
+#26 exporting config sha256:e279c585587b44ef034975707688df369eb6b4b815d161f1ccb92a0b7b873a3d done
+#26 exporting attestation manifest sha256:c17383343a8a7f7865854c3d075406d2a445ff0f45d92c1d9d67876fcc483cd9 done
+#26 exporting manifest list sha256:976d205f9397d473fe3e8928966224802cc6d1dc4ed18a91c9845ca9556cbd7c done
+#26 naming to docker.io/library/skipper-deploy-78375f5b-app:latest done
+#26 unpacking to docker.io/library/skipper-deploy-78375f5b-app:latest 0.1s done
+#26 DONE 0.9s
+
+#27 resolving provenance for metadata file
+#27 DONE 0.0s
+ Image skipper-deploy-78375f5b-app Built 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Running 
+ Container skipper-deploy-78375f5b-mailpit-1 Running 
+ Container skipper-deploy-78375f5b-db-1 Running 
+ Container skipper-deploy-78375f5b-kratos-1 Running 
+ Container skipper-deploy-78375f5b-app-1 Recreate 
+ Container skipper-deploy-78375f5b-app-1 Recreated 
+ Container skipper-deploy-78375f5b-db-1 Waiting 
+ Container skipper-deploy-78375f5b-db-1 Healthy 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Starting 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Started 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Waiting 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Exited 
+ Container skipper-deploy-78375f5b-db-1 Waiting 
+ Container skipper-deploy-78375f5b-kratos-1 Waiting 
+ Container skipper-deploy-78375f5b-db-1 Healthy 
+ Container skipper-deploy-78375f5b-kratos-1 Healthy 
+ Container skipper-deploy-78375f5b-app-1 Starting 
+ Container skipper-deploy-78375f5b-app-1 Started 
+ Container skipper-deploy-78375f5b-app-1 Waiting 
+ Container skipper-deploy-78375f5b-db-1 Waiting 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Waiting 
+ Container skipper-deploy-78375f5b-kratos-1 Waiting 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Waiting 
+ Container skipper-deploy-78375f5b-mailpit-1 Waiting 
+ Container skipper-deploy-78375f5b-kratos-1 Healthy 
+ Container skipper-deploy-78375f5b-mailpit-1 Healthy 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Exited 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Healthy 
+ Container skipper-deploy-78375f5b-db-1 Healthy 
+ Container skipper-deploy-78375f5b-app-1 Healthy 
+STACK_PROJECT=skipper-deploy-78375f5b
+APP_URL=http://127.0.0.1:59751
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32769/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32770
+MAILPIT_URL=http://127.0.0.1:32768
+MOCK_OIDC_URL=http://127.0.0.1:37771
+
+Running 24 tests using 12 workers
+
+  ✓  5 [web] › screens.spec.ts:59:1 › server unavailable (502ms)
+
+  ✓  10 [web] › screens.spec.ts:26:1 › signed-out screens (1.2s)
+  ✓  11 [web] › screens.spec.ts:66:1 › exam type and home (1.3s)
+  ✓  6 [web] › screens.spec.ts:132:1 › explanations (1.5s)
+  ✓  4 [web] › screens.spec.ts:113:1 › time ran out (1.6s)
+  ✓  3 [web] › screens.spec.ts:148:1 › reviewer view (1.6s)
+  ✓  9 [web] › screens.spec.ts:215:1 › account page (1.6s)
+  ✓  1 [web] › screens.spec.ts:45:1 › password recovery screens (1.7s)
+  ✓  8 [web] › screens.spec.ts:197:1 › dark mode (1.9s)
+  ✓  13 [android] › screens.spec.ts:26:1 › signed-out screens (1.4s)
+  ✓  15 [android] › screens.spec.ts:59:1 › server unavailable (467ms)
+  ✓  12 [web] › screens.spec.ts:76:1 › exam screens and a failed result (2.5s)
+
+  ✓  7 [web] › screens.spec.ts:160:1 › learning (2.9s)
+  ✓  16 [android] › screens.spec.ts:66:1 › exam type and home (1.2s)
+  ✓  2 [web] › screens.spec.ts:99:1 › a passed result (3.2s)
+  ✓  19 [android] › screens.spec.ts:132:1 › explanations (1.3s)
+  ✓  14 [android] › screens.spec.ts:45:1 › password recovery screens (1.9s)
+  ✓  23 [android] › screens.spec.ts:148:1 › reviewer view (1.3s)
+  ✓  22 [android] › screens.spec.ts:197:1 › dark mode (1.6s)
+  ✓  18 [android] › screens.spec.ts:113:1 › time ran out (1.9s)
+  ✓  24 [android] › screens.spec.ts:215:1 › account page (1.4s)
+  ✓  17 [android] › screens.spec.ts:76:1 › exam screens and a failed result (2.6s)
+  ✓  21 [android] › screens.spec.ts:160:1 › learning (2.5s)
+  ✓  20 [android] › screens.spec.ts:99:1 › a passed result (2.6s)
+
+  24 passed (5.3s)

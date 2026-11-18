@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Test Suite" device="test" tests="1" failures="0" time="4.449" timestamp="2026-11-18T15:05:36">
+    <testcase id="back-online" name="back-online" classname="back-online" file="flows/back-online.yaml" time="4.443" timestamp="2026-11-18T15:05:36" status="SUCCESS"/>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,253 @@
+ Image skipper-deploy-78375f5b-app Building 
+ Image skipper-deploy-78375f5b-kratos-migrate Building 
+ Image skipper-deploy-78375f5b-kratos Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.69kB done
+#1 DONE 0.0s
+
+#2 [app internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [kratos internal] load build definition from Dockerfile
+#3 transferring dockerfile: 449B done
+#3 DONE 0.0s
+
+#4 [app internal] load metadata for docker.io/library/node:24-alpine
+#4 DONE 0.0s
+
+#5 [kratos-migrate internal] load metadata for docker.io/oryd/kratos:v1.3.1
+#5 DONE 0.0s
+
+#6 [kratos-migrate internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [kratos-migrate internal] load build context
+#7 transferring context: 833B done
+#7 DONE 0.0s
+
+#8 [kratos 1/3] FROM docker.io/oryd/kratos:v1.3.1@sha256:fe2428f103a6240c064b6ea77d3088610865c55fcebccb30355857eccdc25b4b
+#8 resolve docker.io/oryd/kratos:v1.3.1@sha256:fe2428f103a6240c064b6ea77d3088610865c55fcebccb30355857eccdc25b4b 0.0s done
+#8 DONE 0.0s
+
+#9 [kratos-migrate 2/3] COPY --chown=ory kratos.yml.tmpl identity.schema.json oidc.google.jsonnet entrypoint.sh /etc/config/kratos/
+#9 CACHED
+
+#10 [kratos-migrate 3/3] COPY --chown=ory courier-templates /etc/config/kratos/courier-templates
+#10 CACHED
+
+#11 [kratos] exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:984534e82a8ffe4ffa6550836b0ae103b6a756da7deba6393d41972d389ae4d2 done
+#11 exporting config sha256:9899fa483cdcf0b3db415d9103daef1e3786c5ca9291e8a1fb58d33dbd63841f done
+#11 exporting attestation manifest sha256:cb7141abe8a08f8f1907f103b81c69f0c9df0c438e6f4b269b51dd041d0330ad done
+#11 exporting manifest list sha256:945b6b3f305e3e049fee1f68578a7fa1dff8e0fca61798686fde507035bbf4fd done
+#11 naming to docker.io/library/skipper-deploy-78375f5b-kratos:latest
+#11 naming to docker.io/library/skipper-deploy-78375f5b-kratos:latest done
+#11 unpacking to docker.io/library/skipper-deploy-78375f5b-kratos:latest done
+#11 DONE 0.1s
+
+#12 [kratos-migrate] exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:f38ae46ac1d72f72e94ed88cf3ed35ae952f964d65cdaa92fcf2fbf9225e3932 done
+#12 exporting config sha256:fbbeb227e03f676b1f81cf986622131f3357c577feb93b058a9a64221450f8d5 done
+#12 exporting attestation manifest sha256:8e96331da9eeaac4660b738034fe07cd2fd16871ddaffcc713c3e90f59336e8a done
+#12 exporting manifest list sha256:0aa0e92b052744eb672709c980ac1b33693a78f4a5480648ee951cb5ba5b5ee2 done
+#12 naming to docker.io/library/skipper-deploy-78375f5b-kratos-migrate:latest done
+#12 unpacking to docker.io/library/skipper-deploy-78375f5b-kratos-migrate:latest done
+#12 DONE 0.1s
+
+#13 [kratos] resolving provenance for metadata file
+#13 DONE 0.0s
+
+#14 [kratos-migrate] resolving provenance for metadata file
+#14 DONE 0.0s
+
+#15 [app internal] load metadata for docker.io/library/golang:1.24-alpine
+#15 ...
+
+#16 [app internal] load metadata for gcr.io/distroless/static-debian12:latest
+#16 DONE 0.4s
+
+#15 [app internal] load metadata for docker.io/library/golang:1.24-alpine
+#15 DONE 0.5s
+
+#17 [app internal] load .dockerignore
+#17 transferring context: 148B done
+#17 DONE 0.0s
+
+#18 [app stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#18 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#18 DONE 0.0s
+
+#19 [app backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#19 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#19 DONE 0.0s
+
+#20 [app web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#20 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#20 DONE 0.0s
+
+#21 [app internal] load build context
+#21 transferring context: 153.15kB 0.1s done
+#21 DONE 0.1s
+
+#22 [app backend 6/7] COPY pkg pkg
+#22 CACHED
+
+#23 [app backend 4/7] RUN go mod download
+#23 CACHED
+
+#24 [app web 7/7] RUN pnpm build
+#24 CACHED
+
+#25 [app backend 5/7] COPY cli cli
+#25 CACHED
+
+#26 [app backend 3/7] COPY go.mod go.sum ./
+#26 CACHED
+
+#27 [app web 6/7] COPY web/ ./
+#27 CACHED
+
+#28 [app web 5/7] RUN pnpm install --frozen-lockfile
+#28 CACHED
+
+#29 [app backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#29 CACHED
+
+#30 [app web 2/7] RUN corepack enable
+#30 CACHED
+
+#31 [app web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#31 CACHED
+
+#32 [app stage-2 3/4] COPY --from=web /web/dist /web
+#32 CACHED
+
+#33 [app stage-2 2/4] COPY --from=backend /server /server
+#33 CACHED
+
+#34 [app backend 2/7] WORKDIR /src
+#34 CACHED
+
+#35 [app web 3/7] WORKDIR /web
+#35 CACHED
+
+#36 [app stage-2 4/4] COPY content /content
+#36 CACHED
+
+#37 [app] exporting to image
+#37 exporting layers done
+#37 exporting manifest sha256:de603397a1f7374e82bd7bb9e8aceeab96ce01f2341d71d51ab503f1fbcb1476 done
+#37 exporting config sha256:f7023420e0752e7b5bc534b69d59855908db234d0f814245bb0d1210c219a471 done
+#37 exporting attestation manifest sha256:fea3fa10179e973012092b0ac9a73a807b377d0edbf3dadbfa813b46f5853823 0.0s done
+#37 exporting manifest list sha256:9ddda14a2be9aef588ec23fed6f4fbb0b578252d80fc80bef4cdacb9d5d0947c
+#37 exporting manifest list sha256:9ddda14a2be9aef588ec23fed6f4fbb0b578252d80fc80bef4cdacb9d5d0947c 0.0s done
+#37 naming to docker.io/library/skipper-deploy-78375f5b-app:latest done
+#37 unpacking to docker.io/library/skipper-deploy-78375f5b-app:latest done
+#37 DONE 0.1s
+
+#38 [app] resolving provenance for metadata file
+#38 DONE 0.0s
+ Image skipper-deploy-78375f5b-kratos-migrate Built 
+ Image skipper-deploy-78375f5b-kratos Built 
+ Image skipper-deploy-78375f5b-app Built 
+ Container skipper-deploy-78375f5b-mailpit-1 Running 
+ Container skipper-deploy-78375f5b-db-1 Running 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Recreate 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Recreated 
+ Container skipper-deploy-78375f5b-kratos-1 Recreate 
+ Container skipper-deploy-78375f5b-kratos-1 Recreated 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Recreate 
+ Container skipper-deploy-78375f5b-app-1 Recreate 
+ Container skipper-deploy-78375f5b-app-1 Recreated 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Recreated 
+ Container skipper-deploy-78375f5b-db-1 Waiting 
+ Container skipper-deploy-78375f5b-db-1 Healthy 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Starting 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Started 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Waiting 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Exited 
+ Container skipper-deploy-78375f5b-kratos-1 Starting 
+ Container skipper-deploy-78375f5b-kratos-1 Started 
+ Container skipper-deploy-78375f5b-db-1 Waiting 
+ Container skipper-deploy-78375f5b-kratos-1 Waiting 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Starting 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Started 
+ Container skipper-deploy-78375f5b-db-1 Healthy 
+ Container skipper-deploy-78375f5b-kratos-1 Healthy 
+ Container skipper-deploy-78375f5b-app-1 Starting 
+ Container skipper-deploy-78375f5b-app-1 Started 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Waiting 
+ Container skipper-deploy-78375f5b-mailpit-1 Waiting 
+ Container skipper-deploy-78375f5b-app-1 Waiting 
+ Container skipper-deploy-78375f5b-db-1 Waiting 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Waiting 
+ Container skipper-deploy-78375f5b-kratos-1 Waiting 
+ Container skipper-deploy-78375f5b-db-1 Healthy 
+ Container skipper-deploy-78375f5b-mailpit-1 Healthy 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Healthy 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Exited 
+ Container skipper-deploy-78375f5b-kratos-1 Healthy 
+ Container skipper-deploy-78375f5b-app-1 Healthy 
+STACK_PROJECT=skipper-deploy-78375f5b
+APP_URL=http://127.0.0.1:33417
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32772/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32778
+MAILPIT_URL=http://127.0.0.1:32771
+MOCK_OIDC_URL=http://127.0.0.1:38599
+building the app for http://127.0.0.1:33417
+vite v6.0.7 building for production...
+transforming...
+✓ 59 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.40 kB │ gzip:  0.27 kB
+dist/assets/index-Bap77b54.css   10.70 kB │ gzip:  2.98 kB
+dist/assets/web-HjV78f9K.js       0.38 kB │ gzip:  0.25 kB
+dist/assets/web-slAXXPWJ.js       0.84 kB │ gzip:  0.40 kB
+dist/assets/index-CiBTTezj.js   222.72 kB │ gzip: 71.54 kB
+✓ built in 450ms
+built web/android/app/build/outputs/apk/debug/app-debug.apk
+starting the emulator
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+== flow sign-in
+
+Waiting for flows to complete...
+[Passed] sign-in (26s)
+
+1/1 Flow Passed in 27s
+
+== flow offline-exam
+
+Waiting for flows to complete...
+[Passed] offline-exam (13s)
+
+1/1 Flow Passed in 13s
+
+== flow back-online
+
+Waiting for flows to complete...
+[Passed] back-online (4s)
+
+1/1 Flow Passed in 4s
+
+== checking the server received the offline exam
+server has 1 submitted exam(s)
+== flow sign-out
+
+Waiting for flows to complete...
+[Passed] sign-out (3s)
+
+1/1 Flow Passed in 3s
+
+== flow google-sign-in
+
+Waiting for flows to complete...
+[Passed] google-sign-in (25s)
+
+1/1 Flow Passed in 25s
+

@@ -1,0 +1,41 @@
+{
+  "started": "2026-11-18T16-29-49Z",
+  "branch": "task/authentik",
+  "commit": "ab72ccceac2bb6dfc3d57194771c69dd241ccfdc",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e",
+    "deploy",
+    "android"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "failed",
+      "ms": 13
+    },
+    {
+      "name": "go",
+      "status": "skipped",
+      "ms": 0
+    },
+    {
+      "name": "e2e",
+      "status": "skipped",
+      "ms": 0
+    },
+    {
+      "name": "deploy",
+      "status": "skipped",
+      "ms": 0
+    },
+    {
+      "name": "android",
+      "status": "skipped",
+      "ms": 0
+    }
+  ],
+  "result": "failed"
+}

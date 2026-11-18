@@ -32,11 +32,12 @@ type Config struct {
 	// Library and Reviews serve explanations, reviews and source documents.
 	Library *Library
 	Reviews Reviews
-	// Accounts and Identities export and delete accounts.
+	// Auth signs users in (/auth/*). Without it, Sessions alone resolves sessions.
+	Auth *Auth
+	// Accounts exports and deletes accounts; Identities, if set, also deletes
+	// app-only users from the sign-in service.
 	Accounts   Accounts
 	Identities Identities
-	// AccountsProxy serves the account service's public API under /.ory.
-	AccountsProxy http.Handler
 	// Web holds the built web app. If nil, only the API is served.
 	Web fs.FS
 	// AppOrigins are the origins of installed apps (the Android app's web view),
@@ -48,7 +49,7 @@ type Config struct {
 func New(cfg Config) http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /api/health", health(cfg.DB))
-	mux.HandleFunc("GET /api/me", me(cfg.Sessions, cfg.Reviews))
+	mux.HandleFunc("GET /api/me", me(cfg.Sessions, cfg.Reviews, cfg.Auth))
 	mux.HandleFunc("GET /api/exam-types", examTypes(cfg.ExamTypes))
 	mux.HandleFunc("GET /api/profile", withIdentity(cfg.Sessions, getProfile(cfg.Profiles)))
 	mux.HandleFunc("PUT /api/profile", withIdentity(cfg.Sessions, putProfile(cfg.Profiles, cfg.ExamTypes)))
@@ -64,12 +65,15 @@ func New(cfg Config) http.Handler {
 		mux.HandleFunc("POST /api/reviews", withIdentity(cfg.Sessions, postReview(cfg.Library, cfg.Reviews)))
 		mux.HandleFunc("GET /api/sources/{id}", sourceDocument(cfg.Library))
 	}
-	if cfg.Accounts != nil && cfg.Identities != nil {
+	if cfg.Accounts != nil {
 		mux.HandleFunc("GET /api/account/export", withIdentity(cfg.Sessions, exportAccount(cfg.Accounts)))
 		mux.HandleFunc("DELETE /api/account", withIdentity(cfg.Sessions, deleteAccount(cfg.Accounts, cfg.Identities)))
 	}
-	if cfg.AccountsProxy != nil {
-		mux.Handle(kratosPrefix+"/", cfg.AccountsProxy)
+	if cfg.Auth != nil {
+		mux.HandleFunc("GET /auth/login", cfg.Auth.login)
+		mux.HandleFunc("GET /auth/callback", cfg.Auth.callback)
+		mux.HandleFunc("POST /auth/app-token", cfg.Auth.appToken)
+		mux.HandleFunc("POST /auth/logout", cfg.Auth.logout)
 	}
 	mux.HandleFunc("/api/", func(w http.ResponseWriter, r *http.Request) {
 		writeJSON(w, http.StatusNotFound, map[string]string{"error": "not found"})
@@ -80,9 +84,8 @@ func New(cfg Config) http.Handler {
 	return cors(cfg.AppOrigins, mux)
 }
 
-// cors lets the installed apps call the API and the account service. They
-// authenticate with a session token header, never with cookies, so credentials
-// are not allowed across origins.
+// cors lets the installed apps call the API. They authenticate with a session
+// token header, never with cookies, so credentials are not allowed across origins.
 func cors(origins []string, next http.Handler) http.Handler {
 	allowed := map[string]bool{}
 	for _, o := range origins {
@@ -105,10 +108,6 @@ func cors(origins []string, next http.Handler) http.Handler {
 			w.WriteHeader(http.StatusNoContent)
 			return
 		}
-		// The app's web view adds Origin like a browser page would, but the app uses
-		// Kratos's flows for native apps, which refuse requests that look like a
-		// browser's. Past this check the request is the app's, so Origin goes.
-		r.Header.Del("Origin")
 		next.ServeHTTP(w, r)
 	})
 }

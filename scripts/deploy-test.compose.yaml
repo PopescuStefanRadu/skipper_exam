@@ -1,0 +1,17 @@
+# Added to deploy/compose.yaml by scripts/deploy-test.sh: a fake sign-in service
+# standing in for Authentik, in the app's network on MOCK_OIDC_PORT, so the app and
+# the test reach it at the same address.
+services:
+  app:
+    ports:
+      - "127.0.0.1:${MOCK_OIDC_PORT}:${MOCK_OIDC_PORT}"
+  mock-oidc:
+    build:
+      context: ..
+      dockerfile: docker/mock-oidc/Dockerfile
+    network_mode: service:app
+    environment:
+      SERVER_PORT: "${MOCK_OIDC_PORT}"
+    depends_on:
+      app:
+        condition: service_started

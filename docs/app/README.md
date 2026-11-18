@@ -33,7 +33,7 @@ Each feature has its own document. It describes the expected behaviour and the e
 | [Exam simulation](features/exam-simulation.md) | A timed, random set of questions in the real exam format, with pass or fail |
 | [Explanations](features/explanations.md) | Why an answer is correct: the quoted source passage and a precise reference |
 | [Learning and review](features/learning-and-review.md) | Learning mode, "practice my mistakes", coverage and weak topics |
-| [Accounts](features/accounts.md) | Sign-up and sign-in, password reset, data export and account deletion |
+| [Accounts](features/accounts.md) | Sign-in with Google through esrp.ro's sign-in service, data export and account deletion |
 | [Offline and sync](features/offline-and-sync.md) | Android works without a connection and syncs later |
 | [Content](features/content.md) | Question banks, bibliography, question → source links, and how to update them |
 
@@ -41,7 +41,7 @@ Each feature has its own document. It describes the expected behaviour and the e
 
 - **Backend:** Go and PostgreSQL. The backend distributes content and syncs progress.
 - **Web and Android from one codebase (decided):** a web front end that is also packaged as an Android app, rather than a separate native Android app. This keeps one implementation of every feature, and most e2e tests can run in a browser. If a native capability is ever needed, it's added as a native piece inside the packaged app. Because Android must work offline, the app logic (choosing questions, scoring, explanations) runs on the device against local content.
-- **Accounts:** standard, well-tested authentication, with nothing home-made for password handling. The account service is served on the app's own address, so the web app and its sign-in share one origin.
+- **Accounts:** one way to sign in, shared with esrp.ro's other apps: Google, through esrp.ro's sign-in service (Authentik), with OpenID Connect. The app never handles passwords. After sign-in it keeps its own long-lived session (a cookie on the website, a token in the Android app), so the app works offline and the sign-in service only needs to be up when someone signs in.
 - **Hosting:** the backend runs on a home server at https://skipperexam.esrp.ro, deployed by the esrp.ro hosting project, which also provides HTTPS. This repository publishes the images and the production setup (`deploy/`), with nightly database backups; see [Deployment](../DEPLOYMENT.md). It's packaged so it runs the same way anywhere, and can move to a hosted server later. Because Android works offline, short outages at home only delay syncing.
 - **Android distribution:** development builds installed directly on the device at first (`make android-build SERVER_URL=https://...`, then install the APK), then Google Play. The app is built for one server address. It allows plain HTTP only to the device itself (the test setup); everything else must be HTTPS.
 - **E2E tooling:** browser automation for web scenarios and a mobile UI testing tool for the Android emulator.
@@ -54,13 +54,12 @@ Each feature has its own document. It describes the expected behaviour and the e
 | Backend | Go, PostgreSQL |
 | App (web and Android) | TypeScript and React, installable in the browser and usable offline |
 | Android packaging | Capacitor, with on-device storage for offline content and progress |
-| Accounts | Ory Kratos (self-hosted): passwords, Google sign-in, password reset, account deletion |
+| Accounts | Authentik at auth.esrp.ro (OpenID Connect, Google only); the app's own sessions in PostgreSQL |
 | Web e2e tests | Playwright |
 | Android e2e tests | Maestro, on an emulator |
-| Fake email in tests | Mailpit: captures the emails the app sends, so tests can read them |
-| Fake Google sign-in in tests | A mock sign-in server |
+| Fake sign-in in tests | A mock OpenID Connect server standing in for Authentik and Google |
 | Content tools | Command-line importer for the RNA PDFs; Tesseract OCR (Romanian) for scanned documents |
-| Full stack, locally and in CI | Docker Compose, started through `make`; CI on GitHub Actions |
+| Full stack and all tests | Docker Compose, started through `make`, on the development machine (no CI for now) |
 
 ## Open points
 

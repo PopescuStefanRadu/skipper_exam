@@ -1,0 +1,176 @@
+ Image skipper-authentik-40703dbd-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 596B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 ...
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.5s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.5s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 12.51kB 0.0s done
+#7 DONE 0.0s
+
+#8 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#8 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#8 DONE 0.0s
+
+#9 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#9 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#9 DONE 0.0s
+
+#10 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#10 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#10 DONE 0.0s
+
+#11 [web 7/7] RUN pnpm build
+#11 CACHED
+
+#12 [backend 2/7] WORKDIR /src
+#12 CACHED
+
+#13 [web 6/7] COPY web/ ./
+#13 CACHED
+
+#14 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#14 CACHED
+
+#15 [backend 5/7] COPY cli cli
+#15 CACHED
+
+#16 [backend 3/7] COPY go.mod go.sum ./
+#16 CACHED
+
+#17 [backend 6/7] COPY pkg pkg
+#17 CACHED
+
+#18 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#18 CACHED
+
+#19 [web 3/7] WORKDIR /web
+#19 CACHED
+
+#20 [web 5/7] RUN pnpm install --frozen-lockfile
+#20 CACHED
+
+#21 [backend 4/7] RUN go mod download
+#21 CACHED
+
+#22 [stage-2 2/4] COPY --from=backend /server /server
+#22 CACHED
+
+#23 [web 2/7] RUN corepack enable
+#23 CACHED
+
+#24 [stage-2 3/4] COPY --from=web /web/dist /web
+#24 CACHED
+
+#25 [stage-2 4/4] COPY content /content
+#25 CACHED
+
+#26 exporting to image
+#26 exporting layers done
+#26 exporting manifest sha256:b98b430a16ea0c803e865ba2ec82c4813ebd16f195cd45bf61c711af1738fd09 done
+#26 exporting config sha256:7919db43b8765239993d4c1f66bad8725e830a08d24d587a0321f064943b7069 done
+#26 exporting attestation manifest sha256:b7959008cc314ac7496209d4a7feeb3ea984db64e6a7f35d1bbada6521978b0b done
+#26 exporting manifest list sha256:92a597406af0706aad7303e0ca19155d69f970879568bfeed0256e20313d0a1f done
+#26 naming to docker.io/library/skipper-authentik-40703dbd-app:latest
+#26 naming to docker.io/library/skipper-authentik-40703dbd-app:latest done
+#26 unpacking to docker.io/library/skipper-authentik-40703dbd-app:latest done
+#26 DONE 0.1s
+
+#27 resolving provenance for metadata file
+#27 DONE 0.0s
+ Image skipper-authentik-40703dbd-app Built 
+ Container skipper-authentik-40703dbd-db-1 Running 
+ Container skipper-authentik-40703dbd-app-1 Recreate 
+ Container skipper-authentik-40703dbd-app-1 Recreated 
+ Container skipper-authentik-40703dbd-mock-oidc-1 Recreate 
+ Container skipper-authentik-40703dbd-mock-oidc-1 Recreated 
+ Container skipper-authentik-40703dbd-db-1 Waiting 
+ Container skipper-authentik-40703dbd-db-1 Healthy 
+ Container skipper-authentik-40703dbd-app-1 Starting 
+ Container skipper-authentik-40703dbd-app-1 Started 
+ Container skipper-authentik-40703dbd-mock-oidc-1 Starting 
+ Container skipper-authentik-40703dbd-mock-oidc-1 Started 
+ Container skipper-authentik-40703dbd-mock-oidc-1 Waiting 
+ Container skipper-authentik-40703dbd-db-1 Waiting 
+ Container skipper-authentik-40703dbd-app-1 Waiting 
+ Container skipper-authentik-40703dbd-mock-oidc-1 Healthy 
+ Container skipper-authentik-40703dbd-db-1 Healthy 
+ Container skipper-authentik-40703dbd-app-1 Healthy 
+STACK_PROJECT=skipper-authentik-40703dbd
+APP_URL=http://127.0.0.1:58801
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32779/skipper_exam
+MOCK_OIDC_URL=http://127.0.0.1:37621
+building the app for http://127.0.0.1:58801
+vite v6.0.7 building for production...
+transforming...
+✓ 57 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.40 kB │ gzip:  0.27 kB
+dist/assets/index-CRQQLuBP.css   10.70 kB │ gzip:  2.98 kB
+dist/assets/web-DOAq34uP.js       0.38 kB │ gzip:  0.25 kB
+dist/assets/web-DLNxlIhk.js       0.84 kB │ gzip:  0.40 kB
+dist/assets/index-BNczHkLW.js   213.01 kB │ gzip: 68.95 kB
+✓ built in 432ms
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+built web/android/app/build/outputs/apk/debug/app-debug.apk
+starting the emulator
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+== flow sign-in
+
+Waiting for flows to complete...
+[Passed] sign-in (33s)
+
+1/1 Flow Passed in 33s
+
+== flow offline-exam
+
+Waiting for flows to complete...
+[Passed] offline-exam (14s)
+
+1/1 Flow Passed in 14s
+
+== flow back-online
+
+Waiting for flows to complete...
+[Passed] back-online (4s)
+
+1/1 Flow Passed in 4s
+
+== checking the server received the offline exam
+server has 1 submitted exam(s)
+== flow sign-out
+
+Waiting for flows to complete...
+[Passed] sign-out (4s)
+
+1/1 Flow Passed in 4s
+
+== flow sign-in-again
+
+Waiting for flows to complete...
+[Passed] sign-in-again (22s)
+
+1/1 Flow Passed in 22s
+

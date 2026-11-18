@@ -59,7 +59,7 @@ e2e() {
   set -a; . ./.stack.env; set +a
   scripts/lock.sh android docker run --rm --device /dev/kvm --network host \
     -v "$root:$root" -w "$root" \
-    -e APP_URL -e MOCK_OIDC_URL -e KRATOS_ADMIN_URL -e MAILPIT_URL -e OUT="$out" -e APK="$root/$apk" \
+    -e APP_URL -e MOCK_OIDC_URL -e OUT="$out" -e APK="$root/$apk" \
     -e HOST_UID="$(id -u)" -e HOST_GID="$(id -g)" \
     "$image" bash e2e/android/run.sh
 }

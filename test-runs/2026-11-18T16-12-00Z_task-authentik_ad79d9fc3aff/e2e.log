@@ -1,0 +1,247 @@
+ Image skipper-authentik-40703dbd-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 596B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile:
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-alpine
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 ...
+
+#5 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.4s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#4 DONE 0.5s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 148B done
+#6 DONE 0.0s
+
+#7 [backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#7 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#7 DONE 0.0s
+
+#8 [stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#8 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#8 DONE 0.0s
+
+#9 [web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#9 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#9 DONE 0.0s
+
+#10 [internal] load build context
+#10 transferring context: 153.86kB 0.0s done
+#10 DONE 0.1s
+
+#11 [backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#11 CACHED
+
+#12 [web 5/7] RUN pnpm install --frozen-lockfile
+#12 CACHED
+
+#13 [web 3/7] WORKDIR /web
+#13 CACHED
+
+#14 [stage-2 3/4] COPY --from=web /web/dist /web
+#14 CACHED
+
+#15 [backend 6/7] COPY pkg pkg
+#15 CACHED
+
+#16 [backend 3/7] COPY go.mod go.sum ./
+#16 CACHED
+
+#17 [backend 5/7] COPY cli cli
+#17 CACHED
+
+#18 [stage-2 2/4] COPY --from=backend /server /server
+#18 CACHED
+
+#19 [web 2/7] RUN corepack enable
+#19 CACHED
+
+#20 [web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#20 CACHED
+
+#21 [backend 4/7] RUN go mod download
+#21 CACHED
+
+#22 [web 6/7] COPY web/ ./
+#22 CACHED
+
+#23 [web 7/7] RUN pnpm build
+#23 CACHED
+
+#24 [backend 2/7] WORKDIR /src
+#24 CACHED
+
+#25 [stage-2 4/4] COPY content /content
+#25 CACHED
+
+#26 exporting to image
+#26 exporting layers done
+#26 exporting manifest sha256:b98b430a16ea0c803e865ba2ec82c4813ebd16f195cd45bf61c711af1738fd09 done
+#26 exporting config sha256:7919db43b8765239993d4c1f66bad8725e830a08d24d587a0321f064943b7069 done
+#26 exporting attestation manifest sha256:591a390a83a9a9d476f664a31f3b672aae8d24c7853efad8fd651842e059d330 done
+#26 exporting manifest list sha256:7289500fbfdd14540627438f8e3565bbe40175ab8b32f171a979264d93240230 done
+#26 naming to docker.io/library/skipper-authentik-40703dbd-app:latest done
+#26 unpacking to docker.io/library/skipper-authentik-40703dbd-app:latest done
+#26 DONE 0.1s
+
+#27 resolving provenance for metadata file
+#27 DONE 0.0s
+ Image skipper-authentik-40703dbd-app Built 
+ Container skipper-authentik-40703dbd-db-1 Running 
+ Container skipper-authentik-40703dbd-app-1 Recreate 
+ Container skipper-authentik-40703dbd-app-1 Recreated 
+ Container skipper-authentik-40703dbd-mock-oidc-1 Recreate 
+ Container skipper-authentik-40703dbd-mock-oidc-1 Recreated 
+ Container skipper-authentik-40703dbd-db-1 Waiting 
+ Container skipper-authentik-40703dbd-db-1 Healthy 
+ Container skipper-authentik-40703dbd-app-1 Starting 
+ Container skipper-authentik-40703dbd-app-1 Started 
+ Container skipper-authentik-40703dbd-mock-oidc-1 Starting 
+ Container skipper-authentik-40703dbd-mock-oidc-1 Started 
+ Container skipper-authentik-40703dbd-app-1 Waiting 
+ Container skipper-authentik-40703dbd-mock-oidc-1 Waiting 
+ Container skipper-authentik-40703dbd-db-1 Waiting 
+ Container skipper-authentik-40703dbd-db-1 Healthy 
+ Container skipper-authentik-40703dbd-mock-oidc-1 Healthy 
+ Container skipper-authentik-40703dbd-app-1 Healthy 
+STACK_PROJECT=skipper-authentik-40703dbd
+APP_URL=http://127.0.0.1:58801
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32779/skipper_exam
+MOCK_OIDC_URL=http://127.0.0.1:37621
+
+Running 114 tests using 12 workers
+
+  ✓  2 [web] › accounts.spec.ts:79:1 › a stale or forged sign-in answer is refused (308ms)
+  ✓  9 [web] › accounts.spec.ts:52:1 › the sign-in page offers only the sign-in service (450ms)
+  ✓  13 [web] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (263ms)
+  ✓  11 [web] › accounts.spec.ts:86:1 › opening the app while signed out leads to sign-in (507ms)
+  ✓  8 [web] › accounts.spec.ts:92:1 › the old sign-up, password reset and settings addresses lead to sign-in (675ms)
+  ✓  14 [web] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (221ms)
+  ✓  15 [web] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (243ms)
+  ✓  6 [web] › accounts.spec.ts:59:1 › a cancelled or failed sign-in returns to the sign-in page with a message (1.1s)
+  ✓  4 [web] › accounts.spec.ts:99:1 › a signed-out session no longer works, as a cookie or as an app token (1.2s)
+  ✓  3 [web] › account-data.spec.ts:35:1 › the export contains the account, the profile and all progress (1.4s)
+  ✓  10 [web] › accounts.spec.ts:6:1 › the first sign-in creates the account; it stays signed in after a reload, then signs out (1.3s)
+  ✓  12 [web] › account-data.spec.ts:78:1 › cancelling the deletion keeps the account (1.3s)
+  ✓  18 [web] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (781ms)
+  ✓  19 [web] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (728ms)
+  ✓  7 [web] › accounts.spec.ts:38:1 › two users never see each other's progress (1.4s)
+  ✓  5 [web] › accounts.spec.ts:20:1 › signing in on a second device opens the same account (1.5s)
+  ✓  17 [web] › exam-type.spec.ts:24:1 › changing the exam type later (1.0s)
+  ✓  20 [web] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (580ms)
+  ✓  1 [web] › account-data.spec.ts:52:1 › deleting the account removes it and all its progress (1.9s)
+  ✓  16 [web] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (1.3s)
+  ✓  31 [web] › explanations.spec.ts:39:1 › a suggested explanation is labelled unverified (759ms)
+  ✓  25 [web] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (1.2s)
+  ✓  26 [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.2s)
+  ✓  32 [web] › explanations.spec.ts:49:1 › a question without an explanation says so (627ms)
+  ✓  27 [web] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (1.1s)
+  ✓  28 [web] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (1.1s)
+  ✓  24 [web] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (1.3s)
+  ✓  30 [web] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page (1.3s)
+
+  ✓  29 [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.3s)
+
+  ✓  38 [web] › explanations.spec.ts:146:1 › a normal user can't review, also through the API (674ms)
+  ✓  23 [web] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (2.1s)
+  ✓  40 [web] › learning.spec.ts:94:1 › with no mistakes, practice my mistakes has nothing to review (702ms)
+  ✓  39 [web] › learning.spec.ts:79:1 › a learning session continues from the first question not seen yet (1.1s)
+  ✓  37 [web] › learning.spec.ts:50:1 › learning mode gives immediate feedback and the explanation (1.1s)
+  ✓  35 [web] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused (1.2s)
+  ✓  33 [web] › explanations.spec.ts:66:3 › reviewing › a reviewer confirms an explanation, and it's verified for everyone (1.3s)
+  ✓  34 [web] › explanations.spec.ts:84:3 › reviewing › a reviewer rejects an explanation, then undoes it (1.4s)
+  ✓  36 [web] › explanations.spec.ts:128:3 › reviewing › a reviewer flags a question, and everyone sees it's being checked (1.5s)
+  ✓  45 [web] › screens.spec.ts:23:1 › signed-out screens (419ms)
+  ✓  47 [web] › screens.spec.ts:33:1 › server unavailable (278ms)
+  ✓  43 [web] › learning.spec.ts:176:1 › the learning page lists every subject of the exam type (831ms)
+  ✓  44 [web] › learning.spec.ts:186:1 › an unfinished exam's answers don't count yet (821ms)
+  ✓  46 [web] › screens.spec.ts:40:1 › exam type and home (904ms)
+
+  ✓  42 [web] › learning.spec.ts:158:1 › the learning page shows coverage and marks weak subjects (1.5s)
+  ✓  51 [web] › screens.spec.ts:106:1 › explanations (860ms)
+  ✓  52 [web] › screens.spec.ts:122:1 › reviewer view (1.1s)
+  ✓  41 [web] › learning.spec.ts:103:1 › practice my mistakes has exactly the questions answered wrong, in exams and in learning (2.3s)
+  ✓  50 [web] › screens.spec.ts:87:1 › time ran out (1.3s)
+  ✓  55 [web] › screens.spec.ts:189:1 › account page (854ms)
+  ✓  56 [web] › sync.spec.ts:6:1 › answers made while the server is unreachable wait on the device, then sync (738ms)
+  ✓  57 [web] › sync.spec.ts:28:1 › a signed-in user's app opens while the server is unreachable (644ms)
+  ✓  54 [web] › screens.spec.ts:171:1 › dark mode (1.3s)
+  ✓  48 [web] › screens.spec.ts:50:1 › exam screens and a failed result (2.1s)
+  ✓  64 [android] › accounts.spec.ts:52:1 › the sign-in page offers only the sign-in service (354ms)
+  ✓  53 [web] › screens.spec.ts:134:1 › learning (2.4s)
+  ✓  58 [android] › account-data.spec.ts:35:1 › the export contains the account, the profile and all progress (807ms)
+  ✓  66 [android] › accounts.spec.ts:79:1 › a stale or forged sign-in answer is refused (156ms)
+  ✓  21 [web] › exam.spec.ts:23:1 › answering everything correctly passes the exam (5.8s)
+  ✓  60 [android] › account-data.spec.ts:78:1 › cancelling the deletion keeps the account (780ms)
+  ✓  49 [web] › screens.spec.ts:73:1 › a passed result (2.8s)
+  ✓  61 [android] › accounts.spec.ts:6:1 › the first sign-in creates the account; it stays signed in after a reload, then signs out (763ms)
+  ✓  67 [android] › accounts.spec.ts:92:1 › the old sign-up, password reset and settings addresses lead to sign-in (272ms)
+  ✓  69 [android] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (182ms)
+  ✓  59 [android] › account-data.spec.ts:52:1 › deleting the account removes it and all its progress (1.1s)
+  ✓  22 [web] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (5.8s)
+  ✓  68 [android] › accounts.spec.ts:99:1 › a signed-out session no longer works, as a cookie or as an app token (442ms)
+  ✓  62 [android] › accounts.spec.ts:20:1 › signing in on a second device opens the same account (995ms)
+  ✓  65 [android] › accounts.spec.ts:59:1 › a cancelled or failed sign-in returns to the sign-in page with a message (718ms)
+  ✓  63 [android] › accounts.spec.ts:38:1 › two users never see each other's progress (1.1s)
+  ✓  73 [android] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (507ms)
+  ✓  72 [android] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (516ms)
+  ✓  74 [android] › accounts.spec.ts:86:1 › opening the app while signed out leads to sign-in (288ms)
+  ✓  71 [android] › exam-type.spec.ts:24:1 › changing the exam type later (717ms)
+  ✓  78 [android] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (369ms)
+  ✓  79 [android] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (406ms)
+  ✓  70 [android] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (1.2s)
+  ✓  84 [android] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (589ms)
+  ✓  81 [android] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (890ms)
+  ✓  80 [android] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (1.1s)
+  ✓  82 [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (976ms)
+  ✓  83 [android] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (968ms)
+  ✓  85 [android] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (868ms)
+  ✓  88 [android] › explanations.spec.ts:39:1 › a suggested explanation is labelled unverified (504ms)
+  ✓  89 [android] › explanations.spec.ts:49:1 › a question without an explanation says so (550ms)
+
+  ✓  86 [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.1s)
+
+  ✓  77 [android] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (1.7s)
+  ✓  87 [android] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page (1.1s)
+
+  ✓  94 [android] › explanations.spec.ts:146:1 › a normal user can't review, also through the API (554ms)
+  ✓  93 [android] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused (1.0s)
+  ✓  97 [android] › learning.spec.ts:94:1 › with no mistakes, practice my mistakes has nothing to review (583ms)
+  ✓  96 [android] › learning.spec.ts:79:1 › a learning session continues from the first question not seen yet (842ms)
+  ✓  90 [android] › explanations.spec.ts:66:3 › reviewing › a reviewer confirms an explanation, and it's verified for everyone (1.2s)
+  ✓  95 [android] › learning.spec.ts:50:1 › learning mode gives immediate feedback and the explanation (1.0s)
+  ✓  91 [android] › explanations.spec.ts:84:3 › reviewing › a reviewer rejects an explanation, then undoes it (1.2s)
+  ✓  92 [android] › explanations.spec.ts:128:3 › reviewing › a reviewer flags a question, and everyone sees it's being checked (1.2s)
+  ✓  100 [android] › learning.spec.ts:176:1 › the learning page lists every subject of the exam type (672ms)
+  ✓  103 [android] › screens.spec.ts:33:1 › server unavailable (279ms)
+  ✓  102 [android] › screens.spec.ts:23:1 › signed-out screens (444ms)
+  ✓  101 [android] › learning.spec.ts:186:1 › an unfinished exam's answers don't count yet (706ms)
+  ✓  99 [android] › learning.spec.ts:158:1 › the learning page shows coverage and marks weak subjects (1.3s)
+
+  ✓  104 [android] › screens.spec.ts:40:1 › exam type and home (845ms)
+  ✓  108 [android] › screens.spec.ts:106:1 › explanations (841ms)
+  ✓  98 [android] › learning.spec.ts:103:1 › practice my mistakes has exactly the questions answered wrong, in exams and in learning (1.8s)
+  ✓  109 [android] › screens.spec.ts:122:1 › reviewer view (1.1s)
+  ✓  113 [android] › sync.spec.ts:6:1 › answers made while the server is unreachable wait on the device, then sync (544ms)
+  ✓  114 [android] › sync.spec.ts:28:1 › a signed-in user's app opens while the server is unreachable (531ms)
+  ✓  107 [android] › screens.spec.ts:87:1 › time ran out (1.6s)
+  ✓  112 [android] › screens.spec.ts:189:1 › account page (1.1s)
+  ✓  111 [android] › screens.spec.ts:171:1 › dark mode (1.2s)
+  ✓  75 [android] › exam.spec.ts:23:1 › answering everything correctly passes the exam (4.4s)
+  ✓  76 [android] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (4.5s)
+  ✓  105 [android] › screens.spec.ts:50:1 › exam screens and a failed result (2.3s)
+  ✓  106 [android] › screens.spec.ts:73:1 › a passed result (2.3s)
+  ✓  110 [android] › screens.spec.ts:134:1 › learning (2.2s)
+
+  114 passed (13.1s)

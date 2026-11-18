@@ -7,7 +7,7 @@ import { expect, type Page } from "@playwright/test";
 import { execFileSync } from "node:child_process";
 import pg from "pg";
 import { stackEnv } from "../stack";
-import { createAccount, uniqueEmail } from "./helpers";
+import { signIn } from "./helpers";
 
 export interface Explanation {
   questionId: string;
@@ -26,10 +26,11 @@ export async function explanations(page: Page): Promise<Explanation[]> {
   return res.json();
 }
 
-// Creates an account and gives it the reviewer role through the server's own
+// Signs in a new account and gives it the reviewer role through the server's own
 // grant-role command, in this stack's app container.
-export async function createReviewer(): Promise<string> {
-  const email = await createAccount(uniqueEmail());
+export async function createReviewer(page: Page): Promise<string> {
+  const email = await signIn(page);
+  await expect(page).toHaveURL("/tip-examen");
   execFileSync("docker", ["exec", `${stackEnv().STACK_PROJECT}-app-1`, "/server", "grant-role", "-email", email, "-role", "reviewer"]);
   return email;
 }

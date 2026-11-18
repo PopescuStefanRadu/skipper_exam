@@ -29,7 +29,7 @@ func (f *fakeAccounts) Delete(ctx context.Context, id string, deleteIdentity fun
 
 type fakeIdentities struct{ err error }
 
-func (f fakeIdentities) DeleteIdentity(context.Context, string) error { return f.err }
+func (f fakeIdentities) DeleteIfAppOnly(context.Context, string) error { return f.err }
 
 func TestAccountExportAndDelete(t *testing.T) {
 	t.Parallel()
@@ -43,7 +43,7 @@ func TestAccountExportAndDelete(t *testing.T) {
 		return rec
 	}
 	accounts := &fakeAccounts{}
-	h := New(Config{DB: fakeDB{}, Sessions: fakeKratos(t), Accounts: accounts, Identities: fakeIdentities{}})
+	h := New(Config{DB: fakeDB{}, Sessions: fakeSessions{}, Accounts: accounts, Identities: fakeIdentities{}})
 
 	rec := do(h, http.MethodGet, "/api/account/export", true)
 	var got account.Export
@@ -59,7 +59,7 @@ func TestAccountExportAndDelete(t *testing.T) {
 	}
 
 	failing := &fakeAccounts{}
-	h = New(Config{DB: fakeDB{}, Sessions: fakeKratos(t), Accounts: failing, Identities: fakeIdentities{err: errors.New("down")}})
+	h = New(Config{DB: fakeDB{}, Sessions: fakeSessions{}, Accounts: failing, Identities: fakeIdentities{err: errors.New("down")}})
 	if rec := do(h, http.MethodDelete, "/api/account", true); rec.Code != http.StatusInternalServerError || len(failing.deleted) != 0 {
 		t.Errorf("delete with account service down: %d, deleted %v", rec.Code, failing.deleted)
 	}

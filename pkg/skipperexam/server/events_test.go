@@ -32,7 +32,7 @@ func (f *fakeEvents) List(_ context.Context, id string) ([]events.Event, error) 
 func TestPostEvents(t *testing.T) {
 	t.Parallel()
 	store := &fakeEvents{m: map[string][]events.Event{}}
-	h := New(Config{DB: fakeDB{}, Sessions: fakeKratos(t), Events: store})
+	h := New(Config{DB: fakeDB{}, Sessions: fakeSessions{}, Events: store})
 	post := func(body string, signedIn bool) int {
 		req := httptest.NewRequest(http.MethodPost, "/api/events", strings.NewReader(body))
 		if signedIn {

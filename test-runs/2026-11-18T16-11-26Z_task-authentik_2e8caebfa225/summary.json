@@ -1,0 +1,23 @@
+{
+  "started": "2026-11-18T16-11-26Z",
+  "branch": "task/authentik",
+  "commit": "2e8caebfa2258b9377e3d8a2ac0221c703f62178",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1804
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 1203
+    }
+  ],
+  "result": "passed"
+}

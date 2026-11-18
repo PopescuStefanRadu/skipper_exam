@@ -3,7 +3,6 @@ import { expect, test, type Page } from "@playwright/test";
 import {
   answer,
   contentPackage,
-  createAccount,
   currentQuestion,
   setExamType,
   signIn,
@@ -13,7 +12,7 @@ import {
 
 // Signs in a new account with the given exam type.
 async function signInWith(page: Page, examType: string) {
-  await signIn(page, await createAccount());
+  await signIn(page);
   await expect(page).toHaveURL("/tip-examen");
   await setExamType(page, examType);
 }

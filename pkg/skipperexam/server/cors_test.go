@@ -7,9 +7,7 @@ import (
 )
 
 func TestCORSAllowsOnlyAppOrigins(t *testing.T) {
-	var forwardedOrigin string
 	h := cors([]string{"https://localhost"}, http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		forwardedOrigin = r.Header.Get("Origin")
 		w.WriteHeader(http.StatusOK)
 	}))
 
@@ -23,13 +21,6 @@ func TestCORSAllowsOnlyAppOrigins(t *testing.T) {
 	}
 	if res.Header().Get("Access-Control-Allow-Credentials") != "" {
 		t.Fatal("credentials must not be allowed across origins")
-	}
-
-	app := httptest.NewRequest(http.MethodPost, "/.ory/self-service/login", nil)
-	app.Header.Set("Origin", "https://localhost")
-	h.ServeHTTP(httptest.NewRecorder(), app)
-	if forwardedOrigin != "" {
-		t.Fatal("the app's Origin reached the handler; Kratos's native flows refuse it")
 	}
 
 	other := httptest.NewRequest(http.MethodGet, "/api/me", nil)

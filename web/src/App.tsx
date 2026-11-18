@@ -1,7 +1,6 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { AccountPage } from "./AccountPage";
-import { AuthForm } from "./AuthForm";
 import { ContentProvider, useContent } from "./content";
 import { activeExam, examEvents, newExam } from "./exam";
 import { ExamPage } from "./ExamPage";
@@ -13,9 +12,8 @@ import { histories, mistakes, progress } from "./learning";
 import { LearningPage, PracticePage } from "./LearningPage";
 import { App as NativeApp } from "@capacitor/app";
 import { Browser } from "@capacitor/browser";
-import { finishProviderSignIn, signOut } from "./kratos";
-import { appReturnUrl, isApp, openExternal } from "./platform";
-import { NewPassword, Recovery } from "./Recovery";
+import { finishAppSignIn, signOut, startSignIn } from "./signin";
+import { appReturnUrl, isApp } from "./platform";
 import { ResultPage } from "./ResultPage";
 import { ServerStatus } from "./ServerStatus";
 import { uuid } from "./storage";
@@ -41,23 +39,10 @@ export function App() {
         <main className="page">
           <Routes>
             <Route path="/autentificare" element={<SignIn />} />
-            <Route path="/inregistrare" element={<SignUp />} />
-            <Route
-              path="/recuperare"
-              element={
-                <AuthPage>
-                  <Recovery />
-                </AuthPage>
-              }
-            />
-            <Route
-              path="/setari"
-              element={
-                <AuthPage>
-                  <NewPassword />
-                </AuthPage>
-              }
-            />
+            {/* Addresses from before sign-in moved to the sign-in service. */}
+            {["/inregistrare", "/recuperare", "/setari"].map((path) => (
+              <Route key={path} path={path} element={<Navigate to="/autentificare" replace />} />
+            ))}
             <Route
               path="/cont"
               element={
@@ -150,8 +135,8 @@ export function App() {
   );
 }
 
-// Android: the app is opened through appReturnUrl at the end of a Google sign-in
-// in the browser.
+// Android: the app is opened through appReturnUrl at the end of a sign-in in the
+// browser.
 function AppLinks() {
   const { refresh } = useSession();
   const navigate = useNavigate();
@@ -159,9 +144,11 @@ function AppLinks() {
     const listener = NativeApp.addListener("appUrlOpen", async ({ url }) => {
       if (!url.startsWith(appReturnUrl)) return;
       await Browser.close().catch(() => undefined);
-      if (await finishProviderSignIn(url)) {
+      if (await finishAppSignIn(url)) {
         await refresh();
         navigate("/", { replace: true });
+      } else {
+        navigate("/autentificare?eroare=1", { replace: true });
       }
     });
     return () => {
@@ -240,62 +227,31 @@ function AccountBar() {
 }
 
 function SignIn() {
-  const { me, refresh } = useSession();
-  const navigate = useNavigate();
-  const notice = (useLocation().state as { notice?: string } | null)?.notice;
+  const { me } = useSession();
+  const location = useLocation();
+  const notice = (location.state as { notice?: string } | null)?.notice;
+  const failed = new URLSearchParams(location.search).has("eroare");
+  const [busy, setBusy] = useState(false);
   if (me) return <Navigate to="/" replace />;
   return (
     <AuthPage>
       {notice && <p className="notice">{notice}</p>}
-      <AuthForm
-        kind="login"
-        title={strings.signIn.title}
-        submitLabel={strings.signIn.submit}
-        onSuccess={async () => {
-          await refresh();
-          navigate("/", { replace: true });
+      <h2>{strings.signIn.title}</h2>
+      {failed && <p role="alert">{strings.signIn.failed}</p>}
+      <p>{strings.signIn.intro}</p>
+      <button
+        type="button"
+        className="primary wide"
+        disabled={busy}
+        onClick={async () => {
+          setBusy(true);
+          await startSignIn();
+          // The app stays on this page while the browser is open.
+          if (isApp) setBusy(false);
         }}
-      />
-      <div className="auth-links">
-        <p>
-          {isApp ? (
-            // Password reset happens on the website; then sign in here with the new password.
-            <a href="#" onClick={(e) => (e.preventDefault(), openExternal("/recuperare"))}>
-              {strings.signIn.forgotPassword}
-            </a>
-          ) : (
-            <Link to="/recuperare">{strings.signIn.forgotPassword}</Link>
-          )}
-        </p>
-        <p>
-          {strings.signIn.noAccount} <Link to="/inregistrare">{strings.signIn.toSignUp}</Link>
-        </p>
-      </div>
-    </AuthPage>
-  );
-}
-
-function SignUp() {
-  const { me, refresh } = useSession();
-  const navigate = useNavigate();
-  if (me) return <Navigate to="/" replace />;
-  return (
-    <AuthPage>
-      <AuthForm
-        kind="registration"
-        title={strings.signUp.title}
-        submitLabel={strings.signUp.submit}
-        passwordHint={strings.signUp.passwordHint}
-        onSuccess={async () => {
-          await refresh();
-          navigate("/", { replace: true });
-        }}
-      />
-      <div className="auth-links">
-        <p>
-          {strings.signUp.haveAccount} <Link to="/autentificare">{strings.signUp.toSignIn}</Link>
-        </p>
-      </div>
+      >
+        {strings.signIn.google}
+      </button>
     </AuthPage>
   );
 }

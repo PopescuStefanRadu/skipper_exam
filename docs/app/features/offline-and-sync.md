@@ -17,11 +17,10 @@
 The Android scenarios run on an emulator (`make android-e2e`, see [Development](../../DEVELOPMENT.md)). "Offline" there means the app can't reach the server at all.
 
 Android (emulator):
-- Sign in with email and password, choose the exam type, reach the home screen.
+- Sign in with "Continuă cu Google": the app opens the sign-in page in the browser and is signed in when the browser returns to it. Choose the exam type, reach the home screen.
 - With the server unreachable, restart the app: it opens signed in, an exam can be started and answered, and the screen shows the changes waiting. The exam is submitted and its result shown.
 - Back online, restart the app: the waiting changes reach the server (checked through the API), and the exam counts on the learning page.
 - Sign out.
-- Sign in with Google: the app opens the sign-in page in the browser and is signed in when the browser returns to it.
 
 Web:
 - Answers made while the server is unreachable wait on the device ("2 modificări așteaptă conexiunea cu serverul."), then reach the server once it's back, without any new activity.

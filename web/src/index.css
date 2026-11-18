@@ -333,6 +333,9 @@ legend {
 .auth form button {
   width: 100%;
 }
+.wide {
+  width: 100%;
+}
 .divider {
   display: flex;
   align-items: center;

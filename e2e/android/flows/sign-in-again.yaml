@@ -1,0 +1,14 @@
+# After signing out, signing in again opens the same account: its exam type is
+# already chosen, so the app goes straight to the home screen.
+appId: ro.skipperexam.app
+---
+- extendedWaitUntil:
+    visible: "Autentificare"
+    timeout: 20000
+- tapOn: "Continuă cu Google"
+- runFlow: sign-in-at-service.yaml
+- extendedWaitUntil:
+    visible: "Examen simulat"
+    timeout: 30000
+- assertVisible: ${EMAIL}
+- takeScreenshot: 09-signed-in-again

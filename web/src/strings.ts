@@ -8,34 +8,11 @@ export const strings = {
   serverOk: "Conectat",
   serverUnavailable: "Serverul nu este disponibil",
 
-  email: "Email",
-  password: "Parolă",
   signIn: {
     title: "Autentificare",
-    submit: "Intră în cont",
-    noAccount: "Nu ai cont?",
-    toSignUp: "Creează un cont",
-    forgotPassword: "Ai uitat parola?",
+    intro: "Intră cu contul Google. Prima autentificare îți creează contul.",
     google: "Continuă cu Google",
-    or: "sau",
-    linkGoogle: "Există deja un cont cu acest email. Intră cu parola contului pentru a-l lega de Google.",
-  },
-  recovery: {
-    title: "Recuperare parolă",
-    sendCode: "Trimite codul",
-    codeSent: "Dacă există un cont cu acest email, ți-am trimis un cod.",
-    code: "Cod",
-    confirmCode: "Confirmă codul",
-    newPasswordTitle: "Parolă nouă",
-    newPassword: "Parolă nouă",
-    save: "Salvează parola",
-  },
-  signUp: {
-    title: "Creare cont",
-    submit: "Creează contul",
-    haveAccount: "Ai deja cont?",
-    toSignIn: "Autentifică-te",
-    passwordHint: "Cel puțin 8 caractere.",
+    failed: "Autentificarea nu a reușit. Încearcă din nou.",
   },
   home: {
     signedInAs: "Conectat ca",
@@ -170,14 +147,6 @@ export const strings = {
   loading: "Se încarcă…",
 
   errors: {
-    invalidCredentials: "Emailul sau parola nu sunt corecte.",
-    emailTaken: "Există deja un cont cu acest email.",
-    passwordTooShort: "Parola trebuie să aibă cel puțin 8 caractere.",
-    passwordTooSimilar: "Parola seamănă prea mult cu emailul.",
-    invalidEmail: "Adresa de email nu este validă.",
-    required: "Completează toate câmpurile.",
-    expired: "Formularul a expirat. Încearcă din nou.",
-    invalidCode: "Codul nu este corect sau a expirat.",
     generic: "A apărut o eroare. Încearcă din nou.",
   },
 } as const;

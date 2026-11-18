@@ -13,23 +13,23 @@ The loop for any change:
 4. Run the whole e2e suite, then the lower-level tests. A change is done only when everything is green.
 
 Rules:
-- **One command** starts the whole system and runs the tests, both locally and in CI.
+- **One command** starts the whole system and runs the tests. There is no CI for now: everything runs on the development machine, and integration refuses to merge anything it hasn't tested there.
 - **Lower-level tests** are added where they give faster or more precise feedback (parsing, scoring, sync rules). They support the e2e tests, they don't replace them.
 - **Cover main paths and the relevant less common ones.** Edge cases that a user can actually hit belong in e2e tests. Pure internal edge cases belong in lower-level tests.
 - **Both platforms:** web scenarios run in a browser, Android scenarios on an emulator. Shared behaviour is tested mostly on the web, and Android tests focus on what's specific to the device (offline use, sync, installation).
 
 ## Test data
 
-- E2E tests use the **real content**, read through the same API as the app (`contentPackage()` in `e2e/tests/helpers.ts`), so a test knows the correct answer to whatever question is on the screen. Tests don't depend on which random questions are chosen. Timers are controlled with Playwright's clock (`page.clock`), email goes to a fake inbox, and Google sign-in goes to a fake provider.
+- E2E tests use the **real content**, read through the same API as the app (`contentPackage()` in `e2e/tests/helpers.ts`), so a test knows the correct answer to whatever question is on the screen. Tests don't depend on which random questions are chosen. Timers are controlled with Playwright's clock (`page.clock`), and sign-in goes to a fake sign-in service where the test chooses who signs in.
 - A separate **content validation** checks the real question banks, the bibliography and the links. It runs on every content update.
 
 ## Platforms and screenshots
 
 - **Every e2e test runs on both platforms:** `web` (a desktop browser) and `android` (a phone screen with touch, in Chromium, the engine of the Android WebView the app is packaged in). A scenario only passes when it works on both.
-- **The production setup is tested too:** `make deploy-test` runs `deploy/compose.yaml` with the images built from the current commit and Kratos in production mode. It signs up through the API, records progress, backs up, wipes the data, restores, and checks that everything is back (see [Deployment](DEPLOYMENT.md)).
+- **The production setup is tested too:** `make deploy-test` runs `deploy/compose.yaml` with the images built from the current commit and a fake sign-in service. It signs in as the Android app does, records progress, backs up, wipes the data, restores, and checks that everything is back (see [Deployment](DEPLOYMENT.md)).
 - **The Android app is tested on an emulator** too, with Maestro flows (`e2e/android/flows/`). `make android-e2e` builds the app for this worktree's stack, starts an emulator, installs the app and runs the flows; between flows the runner cuts and restores the app's connection to the stack. Everything Android-specific (SDK, Gradle, emulator, Maestro) is in the `skipper-exam-android` Docker image (`docker/android`, built on first use, about 6 GB), so nothing needs installing; the emulator needs `/dev/kvm`. One emulator runs at a time on a machine (the `android` lock). The flows save real-device screenshots under `android/screenshots/` in the test run's folder; look at them after changing the interface, like the tour's. Maestro finds elements by their text, as the user sees them; when that's ambiguous, a flow picks by position (see the comments in the flows).
 - **A screenshot tour** (`e2e/tests/screens.spec.ts`) goes through every screen and state on both platforms and saves full-page screenshots in the test run's folder, under `screenshots/<platform>/`. `make screenshots` runs only the tour. Look through the screenshots after changing the interface, to catch layout problems no assertion checks: overflow, overlapping or cut-off text, unreadable contrast, controls too small to tap. A new screen or state gets a step in the tour.
-- Screenshots aren't committed, to keep the repository small. CI keeps them in its `test-runs` artifact.
+- Screenshots aren't committed, to keep the repository small.
 
 ## Parallel work: one worktree per task
 
@@ -41,17 +41,15 @@ Several tasks can be developed at the same time, by people or by parallel agents
    1. Squash all of the branch's commits, including its test records, into one commit. Its message lists every original commit (sha and subject), so test records named after those commits can still be traced.
    2. Rebase onto the latest `main` and run **all** tests locally, including e2e. The record of this run is committed separately, in a commit that may only add test records.
    3. Push the branch and open (or update) its pull request.
-   4. Wait for CI to pass on that exact commit.
-   5. Merge, but only if `main` hasn't moved and the pull request still points at the tested commit.
-   6. If `main` moved at any point, start again from step 1: squash, rebase, test, fix, push.
+   4. Merge, but only if `main` hasn't moved and the pull request still points at the tested commit.
+   5. If `main` moved at any point, start again from step 1: squash, rebase, test, fix, push.
+   6. Publish the production images built from the merged files (`make publish`, see [Deployment](DEPLOYMENT.md)).
 4. **Clean up:** after the merge, stop the worktree's environment, remove its data, then remove the worktree and the branch.
 
 Integration runs under a lock shared by all worktrees on the machine, so local branches don't race each other.
 
-`main` is protected on GitHub, so nothing untested can reach it:
-- changes arrive only through pull requests;
-- CI must pass;
-- the branch must be up to date with `main`;
+`main` is protected on GitHub:
+- changes arrive only through pull requests, which `make integrate` merges only after testing them on top of the current `main`;
 - history stays linear (rebase merges only);
 - the rules apply to administrators too.
 
@@ -59,11 +57,11 @@ Tasks run in parallel only when they're independent, for example separate featur
 
 ## Isolated environments
 
-Every worktree runs its own complete stack (database, backend, accounts, fake mail, fake Google sign-in, web app), so parallel branches never share state.
+Every worktree runs its own complete stack (database, backend, fake sign-in service, web app), so parallel branches never share state.
 
 - **Separate names:** each stack's containers, networks and volumes are named after its worktree, so stacks can't collide.
 - **No fixed ports:** services take free ports assigned by the system at start-up, and the actual ports are written to the worktree's environment file for the tests to read. Nothing assumes a well-known port.
-- **Locks only where needed:** when a tool needs its port, or another scarce resource, known before it starts, the allocation goes through a lock shared by all worktrees. The app's port is one such case: the account service must know the app's address in advance. Android emulators are limited to a fixed number of slots, because they're too heavy to run without a limit.
+- **Locks only where needed:** when a tool needs its port, or another scarce resource, known before it starts, the allocation goes through a lock shared by all worktrees. The app's port is one such case: the app must know its own address and the fake sign-in service's in advance. Android emulators are limited to a fixed number of slots, because they're too heavy to run without a limit.
 - **Reuse within a worktree:** the stack starts once and stays up between test runs. The test command starts it if it isn't running.
 
 ## Parallel tests within a branch
@@ -74,7 +72,7 @@ The suite is built to run with many workers at once:
 - **Read-only shared content:** the content is loaded once per stack and never modified by tests. A test that needs different content uses its own copy.
 - **Shared state is claimed:** a few actions change what every user sees, such as reviewing an explanation. A test that does this first claims an item no other running test uses (`claimExplanation()` in `e2e/tests/review.ts`, through a claims table in the stack's database) and undoes its changes afterwards. Tests that only read such items use a part of the content the claiming tests never touch.
 - **Per-test control of time and randomness:** timers and random seeds are controlled inside each test, never globally.
-- **Isolated helpers:** each test reads only its own messages from the fake inbox (filtered by its unique email address) and uses its own fake Google identity.
+- **Isolated identities:** each test signs in as its own user at the fake sign-in service.
 - **Lower-level tests** run in parallel too. Database tests each get their own fresh database, cloned quickly from a prepared template.
 - A test that can't follow these rules is fixed, not serialised. Slow or flaky tests are treated as bugs.
 
@@ -82,7 +80,7 @@ The suite is built to run with many workers at once:
 
 Every test run is recorded, to keep track of test performance and behaviour over time.
 
-- **Every run is recorded:** each run writes its logs, machine-readable results and timings to `test-runs/<UTC date>_<branch>_<commit sha>/`. These records are committed to the repository. CI uploads its records as a build artifact instead.
+- **Every run is recorded:** each run writes its logs, machine-readable results and timings to `test-runs/<UTC date>_<branch>_<commit sha>/`. These records are committed to the repository.
 - **Tests only run on committed code:** a run refuses to start if there are uncommitted changes, so every record belongs to a real commit. Work-in-progress commits are fine, because the branch is squashed before it's merged.
 - **Records stay traceable after squashing:** the squashed commit's message lists the original commits, so a record still points to the change it came from.
 

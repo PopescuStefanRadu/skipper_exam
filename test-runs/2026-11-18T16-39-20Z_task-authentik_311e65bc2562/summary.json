@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-18T16-39-20Z",
+  "branch": "task/authentik",
+  "commit": "311e65bc2562f6c9a108e9a8682fe57487ba3c15",
+  "ci": false,
+  "suites_requested": [
+    "android"
+  ],
+  "suites": [
+    {
+      "name": "android",
+      "status": "passed",
+      "ms": 167927
+    }
+  ],
+  "result": "passed"
+}

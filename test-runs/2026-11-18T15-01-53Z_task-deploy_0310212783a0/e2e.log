@@ -1,0 +1,347 @@
+ Image skipper-deploy-78375f5b-kratos-migrate Building 
+ Image skipper-deploy-78375f5b-kratos Building 
+ Image skipper-deploy-78375f5b-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.69kB done
+#1 DONE 0.0s
+
+#2 [app internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [kratos internal] load build definition from Dockerfile
+#3 transferring dockerfile: 449B done
+#3 DONE 0.0s
+
+#4 [app internal] load metadata for docker.io/library/node:24-alpine
+#4 DONE 0.0s
+
+#5 [kratos-migrate internal] load metadata for docker.io/oryd/kratos:v1.3.1
+#5 DONE 0.0s
+
+#6 [kratos internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [kratos-migrate internal] load build context
+#7 transferring context: 833B done
+#7 DONE 0.0s
+
+#8 [kratos-migrate 1/3] FROM docker.io/oryd/kratos:v1.3.1@sha256:fe2428f103a6240c064b6ea77d3088610865c55fcebccb30355857eccdc25b4b
+#8 resolve docker.io/oryd/kratos:v1.3.1@sha256:fe2428f103a6240c064b6ea77d3088610865c55fcebccb30355857eccdc25b4b 0.0s done
+#8 DONE 0.0s
+
+#9 [kratos 2/3] COPY --chown=ory kratos.yml.tmpl identity.schema.json oidc.google.jsonnet entrypoint.sh /etc/config/kratos/
+#9 CACHED
+
+#10 [kratos 3/3] COPY --chown=ory courier-templates /etc/config/kratos/courier-templates
+#10 CACHED
+
+#11 [kratos-migrate] exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:f38ae46ac1d72f72e94ed88cf3ed35ae952f964d65cdaa92fcf2fbf9225e3932 done
+#11 exporting config sha256:fbbeb227e03f676b1f81cf986622131f3357c577feb93b058a9a64221450f8d5 done
+#11 exporting attestation manifest sha256:0f1ddcc0f36f7e50888e1a9639a5fc82113240fe74c34782a7f419a55a1bb9c0 done
+#11 exporting manifest list sha256:e50e5c3b48fbea073476c00132b79550c3cda83930cc918c1b06aab3468df6cf
+#11 exporting manifest list sha256:e50e5c3b48fbea073476c00132b79550c3cda83930cc918c1b06aab3468df6cf done
+#11 naming to docker.io/library/skipper-deploy-78375f5b-kratos-migrate:latest done
+#11 unpacking to docker.io/library/skipper-deploy-78375f5b-kratos-migrate:latest done
+#11 DONE 0.1s
+
+#12 [kratos] exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:984534e82a8ffe4ffa6550836b0ae103b6a756da7deba6393d41972d389ae4d2 done
+#12 exporting config sha256:9899fa483cdcf0b3db415d9103daef1e3786c5ca9291e8a1fb58d33dbd63841f done
+#12 exporting attestation manifest sha256:38fce371844be279649309ae2741ce46003c896e388393505f3e5e2ff5e65182 done
+#12 exporting manifest list sha256:d6fc5aabb66a1198bd8416c32fdeb8be42f10d50b713a7c5b205b93b71db12e0 done
+#12 naming to docker.io/library/skipper-deploy-78375f5b-kratos:latest done
+#12 unpacking to docker.io/library/skipper-deploy-78375f5b-kratos:latest done
+#12 DONE 0.1s
+
+#13 [kratos] resolving provenance for metadata file
+#13 DONE 0.0s
+
+#14 [kratos-migrate] resolving provenance for metadata file
+#14 DONE 0.0s
+
+#15 [app internal] load metadata for docker.io/library/golang:1.24-alpine
+#15 ...
+
+#16 [app internal] load metadata for gcr.io/distroless/static-debian12:latest
+#16 DONE 0.5s
+
+#15 [app internal] load metadata for docker.io/library/golang:1.24-alpine
+#15 DONE 0.7s
+
+#17 [app internal] load .dockerignore
+#17 transferring context: 148B done
+#17 DONE 0.0s
+
+#18 [app stage-2 1/4] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#18 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#18 DONE 0.0s
+
+#19 [app web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#19 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#19 DONE 0.0s
+
+#20 [app backend 1/7] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#20 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#20 DONE 0.0s
+
+#21 [app internal] load build context
+#21 transferring context: 21.40MB 0.1s done
+#21 DONE 0.1s
+
+#22 [app web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#22 CACHED
+
+#23 [app web 2/7] RUN corepack enable
+#23 CACHED
+
+#24 [app web 3/7] WORKDIR /web
+#24 CACHED
+
+#25 [app web 5/7] RUN pnpm install --frozen-lockfile
+#25 CACHED
+
+#26 [app web 6/7] COPY web/ ./
+#26 DONE 0.1s
+
+#27 [app web 7/7] RUN pnpm build
+#27 0.183 $ tsc -b && vite build
+#27 1.382 vite v6.0.7 building for production...
+#27 1.421 transforming...
+#27 1.822 ✓ 59 modules transformed.
+#27 1.858 rendering chunks...
+#27 1.893 computing gzip size...
+#27 1.898 dist/index.html                   0.40 kB │ gzip:  0.27 kB
+#27 1.898 dist/assets/index-Bap77b54.css   10.70 kB │ gzip:  2.98 kB
+#27 1.898 dist/assets/web-BJXrTtyE.js       0.38 kB │ gzip:  0.25 kB
+#27 1.898 dist/assets/web-CiVMVhwW.js       0.84 kB │ gzip:  0.40 kB
+#27 1.898 dist/assets/index-DQxMu5Yb.js   222.69 kB │ gzip: 71.51 kB
+#27 1.898 ✓ built in 498ms
+#27 DONE 1.9s
+
+#28 [app stage-2 2/4] COPY --from=backend /server /server
+#28 CACHED
+
+#29 [app stage-2 3/4] COPY --from=web /web/dist /web
+#29 CACHED
+
+#30 [app backend 4/7] RUN go mod download
+#30 CACHED
+
+#31 [app backend 2/7] WORKDIR /src
+#31 CACHED
+
+#32 [app backend 3/7] COPY go.mod go.sum ./
+#32 CACHED
+
+#33 [app backend 5/7] COPY cli cli
+#33 CACHED
+
+#34 [app backend 6/7] COPY pkg pkg
+#34 CACHED
+
+#35 [app backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#35 CACHED
+
+#36 [app stage-2 4/4] COPY content /content
+#36 CACHED
+
+#37 [app] exporting to image
+#37 exporting layers done
+#37 exporting manifest sha256:de603397a1f7374e82bd7bb9e8aceeab96ce01f2341d71d51ab503f1fbcb1476 done
+#37 exporting config sha256:f7023420e0752e7b5bc534b69d59855908db234d0f814245bb0d1210c219a471 done
+#37 exporting attestation manifest sha256:de9e978d1e13040bbad4575f61690285bf999259b7a0a0cf400f0ff2e21d2c86 done
+#37 exporting manifest list sha256:62d106a1ec4cc34c6b859ed7db3ef69dcce6d97aab8242d550d6331222e25167 done
+#37 naming to docker.io/library/skipper-deploy-78375f5b-app:latest done
+#37 unpacking to docker.io/library/skipper-deploy-78375f5b-app:latest done
+#37 DONE 0.0s
+
+#38 [app] resolving provenance for metadata file
+#38 DONE 0.0s
+ Image skipper-deploy-78375f5b-kratos-migrate Built 
+ Image skipper-deploy-78375f5b-kratos Built 
+ Image skipper-deploy-78375f5b-app Built 
+ Container skipper-deploy-78375f5b-db-1 Running 
+ Container skipper-deploy-78375f5b-mailpit-1 Running 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Recreate 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Recreated 
+ Container skipper-deploy-78375f5b-kratos-1 Recreate 
+ Container skipper-deploy-78375f5b-kratos-1 Recreated 
+ Container skipper-deploy-78375f5b-app-1 Recreate 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Recreate 
+ Container skipper-deploy-78375f5b-app-1 Recreated 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Recreated 
+ Container skipper-deploy-78375f5b-db-1 Waiting 
+ Container skipper-deploy-78375f5b-db-1 Healthy 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Starting 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Started 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Waiting 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Exited 
+ Container skipper-deploy-78375f5b-kratos-1 Starting 
+ Container skipper-deploy-78375f5b-kratos-1 Started 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Starting 
+ Container skipper-deploy-78375f5b-kratos-1 Waiting 
+ Container skipper-deploy-78375f5b-db-1 Waiting 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Started 
+ Container skipper-deploy-78375f5b-db-1 Healthy 
+ Container skipper-deploy-78375f5b-kratos-1 Healthy 
+ Container skipper-deploy-78375f5b-app-1 Starting 
+ Container skipper-deploy-78375f5b-app-1 Started 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Waiting 
+ Container skipper-deploy-78375f5b-mailpit-1 Waiting 
+ Container skipper-deploy-78375f5b-app-1 Waiting 
+ Container skipper-deploy-78375f5b-db-1 Waiting 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Waiting 
+ Container skipper-deploy-78375f5b-kratos-1 Waiting 
+ Container skipper-deploy-78375f5b-kratos-1 Healthy 
+ Container skipper-deploy-78375f5b-mock-oidc-1 Healthy 
+ Container skipper-deploy-78375f5b-kratos-migrate-1 Exited 
+ Container skipper-deploy-78375f5b-db-1 Healthy 
+ Container skipper-deploy-78375f5b-mailpit-1 Healthy 
+ Container skipper-deploy-78375f5b-app-1 Healthy 
+STACK_PROJECT=skipper-deploy-78375f5b
+APP_URL=http://127.0.0.1:33417
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32772/skipper_exam
+KRATOS_ADMIN_URL=http://127.0.0.1:32777
+MAILPIT_URL=http://127.0.0.1:32771
+MOCK_OIDC_URL=http://127.0.0.1:38599
+
+Running 124 tests using 12 workers
+
+  ✓  6 [web] › accounts.spec.ts:34:1 › opening the app while signed out leads to sign-in (381ms)
+  ✓  4 [web] › accounts.spec.ts:47:1 › an unknown email gets the same message as a wrong password (398ms)
+  ✓  11 [web] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (474ms)
+  ✓  13 [web] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (197ms)
+  ✓  8 [web] › accounts.spec.ts:59:1 › a password shorter than 8 characters is refused (519ms)
+  ✓  14 [web] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (230ms)
+  ✓  1 [web] › accounts.spec.ts:52:1 › signing up with an email that is already used is refused (974ms)
+  ✓  7 [web] › accounts.spec.ts:40:1 › a wrong password is refused without revealing account details (1.0s)
+  ✓  16 [web] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (620ms)
+  ✓  3 [web] › account-data.spec.ts:36:1 › the export contains the account, the profile and all progress (1.3s)
+  ✓  12 [web] › accounts.spec.ts:4:1 › sign up, stay signed in after a reload, then sign out (1.1s)
+  ✓  10 [web] › account-data.spec.ts:82:1 › cancelling the deletion keeps the account (1.3s)
+  ✓  2 [web] › accounts.spec.ts:64:1 › after a refused attempt, the form works again (1.4s)
+  ✓  17 [web] › exam-type.spec.ts:24:1 › changing the exam type later (826ms)
+  ✓  18 [web] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (809ms)
+  ✓  9 [web] › accounts.spec.ts:18:1 › signing in on a second device opens the same account (1.5s)
+  ✓  19 [web] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (764ms)
+  ✓  15 [web] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (1.3s)
+  ✓  23 [web] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (1.4s)
+  ✓  25 [web] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.2s)
+  ✓  27 [web] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (1.2s)
+  ✓  24 [web] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (1.3s)
+  ✓  26 [web] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (1.3s)
+  ✓  30 [web] › explanations.spec.ts:39:1 › a suggested explanation is labelled unverified (898ms)
+  ✓  29 [web] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page (1.2s)
+
+  ✓  5 [web] › account-data.spec.ts:53:1 › deleting the account removes it and all its progress (3.0s)
+
+  ✓  28 [web] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.6s)
+  ✓  22 [web] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (2.0s)
+  ✓  31 [web] › explanations.spec.ts:49:1 › a question without an explanation says so (873ms)
+  ✓  36 [web] › explanations.spec.ts:146:1 › a normal user can't review, also through the API (933ms)
+  ✓  34 [web] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused (1.3s)
+  ✓  37 [web] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (1.3s)
+  ✓  40 [web] › learning.spec.ts:80:1 › a learning session continues from the first question not seen yet (1.1s)
+  ✓  39 [web] › learning.spec.ts:51:1 › learning mode gives immediate feedback and the explanation (1.2s)
+  ✓  41 [web] › learning.spec.ts:95:1 › with no mistakes, practice my mistakes has nothing to review (921ms)
+  ✓  32 [web] › explanations.spec.ts:66:3 › reviewing › a reviewer confirms an explanation, and it's verified for everyone (1.8s)
+  ✓  33 [web] › explanations.spec.ts:84:3 › reviewing › a reviewer rejects an explanation, then undoes it (1.9s)
+  ✓  38 [web] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (1.7s)
+  ✓  35 [web] › explanations.spec.ts:128:3 › reviewing › a reviewer flags a question, and everyone sees it's being checked (2.0s)
+  ✓  48 [web] › password-reset.spec.ts:48:1 › an unknown email gets the same confirmation, without revealing that no account exists (304ms)
+  ✓  51 [web] › screens.spec.ts:59:1 › server unavailable (214ms)
+  ✓  44 [web] › learning.spec.ts:177:1 › the learning page lists every subject of the exam type (994ms)
+  ✓  47 [web] › password-reset.spec.ts:39:1 › a wrong recovery code is refused (972ms)
+  ✓  45 [web] › learning.spec.ts:187:1 › an unfinished exam's answers don't count yet (1.1s)
+  ✓  43 [web] › learning.spec.ts:159:1 › the learning page shows coverage and marks weak subjects (1.5s)
+  ✓  49 [web] › screens.spec.ts:26:1 › signed-out screens (1.0s)
+
+  ✓  52 [web] › screens.spec.ts:66:1 › exam type and home (902ms)
+  ✓  42 [web] › learning.spec.ts:104:1 › practice my mistakes has exactly the questions answered wrong, in exams and in learning (2.1s)
+  ✓  20 [web] › exam.spec.ts:23:1 › answering everything correctly passes the exam (4.9s)
+  ✓  21 [web] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (5.0s)
+  ✓  56 [web] › screens.spec.ts:132:1 › explanations (997ms)
+  ✓  50 [web] › screens.spec.ts:45:1 › password recovery screens (1.8s)
+  ✓  57 [web] › screens.spec.ts:148:1 › reviewer view (1.1s)
+  ✓  55 [web] › screens.spec.ts:113:1 › time ran out (1.4s)
+  ✓  46 [web] › password-reset.spec.ts:16:1 › reset a forgotten password and sign in with the new one (2.5s)
+  ✓  53 [web] › screens.spec.ts:76:1 › exam screens and a failed result (1.9s)
+  ✓  61 [web] › sync.spec.ts:6:1 › answers made while the server is unreachable wait on the device, then sync (1.1s)
+  ✓  60 [web] › screens.spec.ts:215:1 › account page (1.2s)
+  ✓  59 [web] › screens.spec.ts:197:1 › dark mode (1.4s)
+  ✓  62 [web] › sync.spec.ts:28:1 › a signed-in user's app opens while the server is unreachable (1.1s)
+  ✓  68 [android] › accounts.spec.ts:34:1 › opening the app while signed out leads to sign-in (310ms)
+  ✓  70 [android] › accounts.spec.ts:47:1 › an unknown email gets the same message as a wrong password (347ms)
+  ✓  72 [android] › accounts.spec.ts:59:1 › a password shorter than 8 characters is refused (412ms)
+  ✓  74 [android] › app-shell.spec.ts:3:1 › the app opens and is connected to the server (181ms)
+  ✓  63 [android] › account-data.spec.ts:36:1 › the export contains the account, the profile and all progress (1.1s)
+  ✓  54 [web] › screens.spec.ts:99:1 › a passed result (2.8s)
+  ✓  58 [web] › screens.spec.ts:160:1 › learning (2.6s)
+  ✓  75 [android] › app-shell.spec.ts:11:1 › a deep link opens the app instead of a not-found page (126ms)
+  ✓  76 [android] › app-shell.spec.ts:17:1 › the backend being unavailable shows a clear message (138ms)
+  ✓  66 [android] › accounts.spec.ts:4:1 › sign up, stay signed in after a reload, then sign out (992ms)
+  ✓  64 [android] › account-data.spec.ts:82:1 › cancelling the deletion keeps the account (1.2s)
+  ✓  69 [android] › accounts.spec.ts:40:1 › a wrong password is refused without revealing account details (922ms)
+  ✓  71 [android] › accounts.spec.ts:52:1 › signing up with an email that is already used is refused (936ms)
+  ✓  67 [android] › accounts.spec.ts:18:1 › signing in on a second device opens the same account (1.3s)
+  ✓  65 [android] › account-data.spec.ts:53:1 › deleting the account removes it and all its progress (1.8s)
+  ✓  73 [android] › accounts.spec.ts:64:1 › after a refused attempt, the form works again (1.2s)
+  ✓  78 [android] › exam-type.spec.ts:44:1 › a signed-in user without an exam type is asked to choose one first (740ms)
+  ✓  79 [android] › exam-type.spec.ts:52:1 › the server refuses an exam type that isn't available (743ms)
+  ✓  83 [android] › exam-type.spec.ts:36:1 › class A and B are listed as not available yet and can't be chosen (673ms)
+  ✓  77 [android] › exam-type.spec.ts:4:1 › a new user chooses the exam type right after signing up, and it follows the account (1.2s)
+  ✓  84 [android] › exam-type.spec.ts:24:1 › changing the exam type later (889ms)
+  ✓  85 [android] › exam.spec.ts:93:1 › when the time runs out the exam is submitted, unanswered questions counting as wrong (1.1s)
+  ✓  86 [android] › exam.spec.ts:111:1 › submitting with unanswered questions asks for confirmation (1.1s)
+  ✓  88 [android] › exam.spec.ts:141:1 › an exam left halfway can be abandoned (1.1s)
+
+  ✓  89 [android] › exam.spec.ts:154:1 › coming back after the exam's time ran out shows its result (1.1s)
+  ✓  87 [android] › exam.spec.ts:126:1 › an exam left halfway can be resumed with its answers (1.2s)
+  ✓  82 [android] › exam.spec.ts:71:1 › an exam has only the exam type's questions, without repeats or equivalent pairs (1.8s)
+
+  ✓  92 [android] › explanations.spec.ts:39:1 › a suggested explanation is labelled unverified (808ms)
+
+  ✓  93 [android] › explanations.spec.ts:49:1 › a question without an explanation says so (894ms)
+  ✓  90 [android] › exam.spec.ts:169:1 › an exam started on one device can be resumed on another (1.4s)
+  ✓  91 [android] › explanations.spec.ts:7:1 › the explanation of a wrong answer quotes the source and opens it at the page (1.1s)
+  ✓  98 [android] › explanations.spec.ts:146:1 › a normal user can't review, also through the API (802ms)
+  ✓  96 [android] › explanations.spec.ts:105:3 › reviewing › a reviewer corrects an explanation; a quote that isn't on the page is refused (1.1s)
+  ✓  99 [android] › google-sign-in.spec.ts:4:1 › sign up with Google, then sign in with Google on another device (1.0s)
+  ✓  103 [android] › learning.spec.ts:95:1 › with no mistakes, practice my mistakes has nothing to review (853ms)
+  ✓  102 [android] › learning.spec.ts:80:1 › a learning session continues from the first question not seen yet (1.0s)
+  ✓  101 [android] › learning.spec.ts:51:1 › learning mode gives immediate feedback and the explanation (1.1s)
+  ✓  94 [android] › explanations.spec.ts:66:3 › reviewing › a reviewer confirms an explanation, and it's verified for everyone (1.7s)
+  ✓  110 [android] › password-reset.spec.ts:48:1 › an unknown email gets the same confirmation, without revealing that no account exists (216ms)
+  ✓  95 [android] › explanations.spec.ts:84:3 › reviewing › a reviewer rejects an explanation, then undoes it (1.8s)
+  ✓  100 [android] › google-sign-in.spec.ts:17:1 › Google sign-in with the email of a password account links Google to that account (1.6s)
+  ✓  97 [android] › explanations.spec.ts:128:3 › reviewing › a reviewer flags a question, and everyone sees it's being checked (1.9s)
+  ✓  113 [android] › screens.spec.ts:59:1 › server unavailable (280ms)
+  ✓  106 [android] › learning.spec.ts:177:1 › the learning page lists every subject of the exam type (988ms)
+  ✓  107 [android] › learning.spec.ts:187:1 › an unfinished exam's answers don't count yet (959ms)
+  ✓  109 [android] › password-reset.spec.ts:39:1 › a wrong recovery code is refused (803ms)
+  ✓  111 [android] › screens.spec.ts:26:1 › signed-out screens (726ms)
+  ✓  105 [android] › learning.spec.ts:159:1 › the learning page shows coverage and marks weak subjects (1.5s)
+  ✓  80 [android] › exam.spec.ts:23:1 › answering everything correctly passes the exam (4.5s)
+
+  ✓  81 [android] › exam.spec.ts:44:1 › wrong answers fail the exam and are listed with the correct answer (4.5s)
+  ✓  104 [android] › learning.spec.ts:104:1 › practice my mistakes has exactly the questions answered wrong, in exams and in learning (2.0s)
+  ✓  114 [android] › screens.spec.ts:66:1 › exam type and home (995ms)
+  ✓  118 [android] › screens.spec.ts:132:1 › explanations (1.1s)
+  ✓  112 [android] › screens.spec.ts:45:1 › password recovery screens (1.7s)
+  ✓  119 [android] › screens.spec.ts:148:1 › reviewer view (1.2s)
+  ✓  108 [android] › password-reset.spec.ts:16:1 › reset a forgotten password and sign in with the new one (2.3s)
+  ✓  124 [android] › sync.spec.ts:28:1 › a signed-in user's app opens while the server is unreachable (844ms)
+  ✓  123 [android] › sync.spec.ts:6:1 › answers made while the server is unreachable wait on the device, then sync (983ms)
+  ✓  116 [android] › screens.spec.ts:113:1 › time ran out (1.6s)
+  ✓  122 [android] › screens.spec.ts:215:1 › account page (1.3s)
+  ✓  121 [android] › screens.spec.ts:197:1 › dark mode (1.5s)
+  ✓  115 [android] › screens.spec.ts:76:1 › exam screens and a failed result (2.3s)
+  ✓  117 [android] › screens.spec.ts:99:1 › a passed result (2.5s)
+  ✓  120 [android] › screens.spec.ts:160:1 › learning (2.3s)
+
+  124 passed (15.6s)

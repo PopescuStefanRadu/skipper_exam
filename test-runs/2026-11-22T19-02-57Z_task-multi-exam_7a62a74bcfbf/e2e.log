@@ -1,0 +1,188 @@
+ Image skipper-multi-exam-5602a10d-app Building 
+ Image skipper-multi-exam-5602a10d-mock-oidc Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [app internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [mock-oidc internal] load build definition from Dockerfile
+#3 transferring dockerfile: 412B done
+#3 DONE 0.0s
+
+#4 [app internal] load metadata for docker.io/library/node:24-alpine
+#4 DONE 0.0s
+
+#5 [mock-oidc internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 ...
+
+#6 [mock-oidc internal] load metadata for docker.io/library/golang:1.24-alpine
+#6 DONE 0.2s
+
+#5 [app internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.3s
+
+#7 [mock-oidc internal] load .dockerignore
+#7 transferring context: 148B done
+#7 DONE 0.0s
+
+#8 [app internal] load build context
+#8 transferring context: 12.71kB 0.0s done
+#8 DONE 0.0s
+
+#9 [mock-oidc stage-1 1/2] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#9 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#9 DONE 0.0s
+
+#10 [mock-oidc build 1/6] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#10 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#10 DONE 0.0s
+
+#11 [app web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#11 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#11 DONE 0.0s
+
+#12 [app web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#12 CACHED
+
+#13 [app web 7/7] RUN pnpm build
+#13 CACHED
+
+#14 [app backend 4/7] RUN go mod download
+#14 CACHED
+
+#15 [app backend 3/7] COPY go.mod go.sum ./
+#15 CACHED
+
+#16 [app backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#16 CACHED
+
+#17 [app backend 6/7] COPY pkg pkg
+#17 CACHED
+
+#18 [app web 5/7] RUN pnpm install --frozen-lockfile
+#18 CACHED
+
+#19 [app web 2/7] RUN corepack enable
+#19 CACHED
+
+#20 [app stage-2 2/4] COPY --from=backend /server /server
+#20 CACHED
+
+#21 [app web 6/7] COPY web/ ./
+#21 CACHED
+
+#22 [app web 3/7] WORKDIR /web
+#22 CACHED
+
+#23 [app stage-2 3/4] COPY --from=web /web/dist /web
+#23 CACHED
+
+#24 [app backend 5/7] COPY cli cli
+#24 CACHED
+
+#25 [app stage-2 4/4] COPY content /content
+#25 CACHED
+
+#26 [mock-oidc internal] load build context
+#26 transferring context: 151B done
+#26 DONE 0.0s
+
+#27 [mock-oidc build 2/6] WORKDIR /src
+#27 CACHED
+
+#28 [mock-oidc build 3/6] COPY go.mod go.sum ./
+#28 CACHED
+
+#29 [mock-oidc build 6/6] RUN CGO_ENABLED=0 go build -o /mock-oidc ./cli/mock-oidc
+#29 CACHED
+
+#30 [mock-oidc build 4/6] RUN go mod download
+#30 CACHED
+
+#31 [mock-oidc build 5/6] COPY cli/mock-oidc cli/mock-oidc
+#31 CACHED
+
+#32 [mock-oidc stage-1 2/2] COPY --from=build /mock-oidc /mock-oidc
+#32 CACHED
+
+#33 [mock-oidc] exporting to image
+#33 exporting layers done
+#33 exporting manifest sha256:c3d2dca005cc3cd6e09efe866c9462168c83b4362a383f603b28a764a9ee79ff done
+#33 exporting config sha256:b9bfb11cea7203b9af293b5abd6b0dc91f946a8ecc1f50203780b0660ffa5fc2 done
+#33 exporting attestation manifest sha256:c31fd5be7dc814872c8eab7041e75fbbf5bbf700bb21b8b3a3a2d61982734dcb 0.0s done
+#33 exporting manifest list sha256:a627fec5f9af8cf35a43569b767345b40cbcdc7a32e684abeca4e875e395d837 done
+#33 naming to docker.io/library/skipper-multi-exam-5602a10d-mock-oidc:latest done
+#33 unpacking to docker.io/library/skipper-multi-exam-5602a10d-mock-oidc:latest
+#33 unpacking to docker.io/library/skipper-multi-exam-5602a10d-mock-oidc:latest done
+#33 DONE 0.1s
+
+#34 [app] exporting to image
+#34 exporting layers done
+#34 exporting manifest sha256:1e4b54d1de524a48c3cec894b696696da9f55ee6aea739a5c897a6e3fee2147e done
+#34 exporting config sha256:42109f3db13f71bce9f8b9ed85e3dd7652c752496ca11be7ec0c803059adcaff done
+#34 exporting attestation manifest sha256:e125bf0fcdc0d2c75073d2c4ae0d26018812d6f59e1d198b5610b43814de058a 0.0s done
+#34 exporting manifest list sha256:04a7a374690be29c2c5c062d9c45e56a1e12f150eea0d103b607c3fc217737ae done
+#34 naming to docker.io/library/skipper-multi-exam-5602a10d-app:latest done
+#34 unpacking to docker.io/library/skipper-multi-exam-5602a10d-app:latest 0.0s done
+#34 DONE 0.1s
+
+#35 [mock-oidc] resolving provenance for metadata file
+#35 DONE 0.0s
+
+#36 [app] resolving provenance for metadata file
+#36 DONE 0.0s
+ Image skipper-multi-exam-5602a10d-app Built 
+ Image skipper-multi-exam-5602a10d-mock-oidc Built 
+ Container skipper-multi-exam-5602a10d-db-1 Running 
+ Container skipper-multi-exam-5602a10d-app-1 Recreate 
+ Container skipper-multi-exam-5602a10d-app-1 Recreated 
+ Container skipper-multi-exam-5602a10d-mock-oidc-1 Recreate 
+ Container skipper-multi-exam-5602a10d-mock-oidc-1 Recreated 
+ Container skipper-multi-exam-5602a10d-db-1 Waiting 
+ Container skipper-multi-exam-5602a10d-db-1 Healthy 
+ Container skipper-multi-exam-5602a10d-app-1 Starting 
+ Container skipper-multi-exam-5602a10d-app-1 Started 
+ Container skipper-multi-exam-5602a10d-mock-oidc-1 Starting 
+ Container skipper-multi-exam-5602a10d-mock-oidc-1 Started 
+ Container skipper-multi-exam-5602a10d-app-1 Waiting 
+ Container skipper-multi-exam-5602a10d-mock-oidc-1 Waiting 
+ Container skipper-multi-exam-5602a10d-db-1 Waiting 
+ Container skipper-multi-exam-5602a10d-mock-oidc-1 Healthy 
+ Container skipper-multi-exam-5602a10d-db-1 Healthy 
+ Container skipper-multi-exam-5602a10d-app-1 Healthy 
+STACK_PROJECT=skipper-multi-exam-5602a10d
+APP_URL=http://127.0.0.1:57899
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32769/skipper_exam
+MOCK_OIDC_URL=http://127.0.0.1:46945
+
+Running 22 tests using 12 workers
+
+
+  ✓  11 [web] › screens.spec.ts:33:1 › server unavailable (609ms)
+  ✓  6 [android] › screens.spec.ts:23:1 › signed-out screens (788ms)
+  ✓  8 [web] › screens.spec.ts:23:1 › signed-out screens (786ms)
+  ✓  1 [web] › screens.spec.ts:113:1 › explanations (1.0s)
+  ✓  2 [web] › screens.spec.ts:129:1 › reviewer view (1.2s)
+  ✓  10 [web] › screens.spec.ts:196:1 › account page (1.2s)
+  ✓  7 [web] › screens.spec.ts:94:1 › time ran out (1.5s)
+  ✓  5 [web] › screens.spec.ts:40:1 › exam type and home (1.6s)
+  ✓  12 [web] › screens.spec.ts:178:1 › dark mode (1.7s)
+  ✓  14 [android] › screens.spec.ts:33:1 › server unavailable (402ms)
+  ✓  4 [web] › screens.spec.ts:57:1 › exam screens and a failed result (2.2s)
+  ✓  13 [android] › screens.spec.ts:40:1 › exam type and home (1.5s)
+  ✓  3 [web] › screens.spec.ts:141:1 › learning (2.7s)
+
+  ✓  18 [android] › screens.spec.ts:196:1 › account page (999ms)
+  ✓  19 [android] › screens.spec.ts:113:1 › explanations (909ms)
+  ✓  9 [web] › screens.spec.ts:80:1 › a passed result (3.1s)
+  ✓  20 [android] › screens.spec.ts:129:1 › reviewer view (1.0s)
+  ✓  17 [android] › screens.spec.ts:94:1 › time ran out (1.6s)
+  ✓  22 [android] › screens.spec.ts:178:1 › dark mode (1.2s)
+  ✓  15 [android] › screens.spec.ts:57:1 › exam screens and a failed result (2.4s)
+  ✓  16 [android] › screens.spec.ts:80:1 › a passed result (2.5s)
+  ✓  21 [android] › screens.spec.ts:141:1 › learning (2.2s)
+
+  22 passed (5.0s)

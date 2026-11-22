@@ -63,6 +63,11 @@ function ExamScreen({ exam }: { exam: Exam }) {
 
   return (
     <section className="exam">
+      {type && (
+        <p className="eyebrow" data-testid="exam-name">
+          {type.name}
+        </p>
+      )}
       {type?.format && !type.format.confirmed && <p className="hint">{s.formatNotConfirmed}</p>}
       <div className="card">
         <div className="exam-bar">

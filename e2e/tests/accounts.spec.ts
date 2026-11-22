@@ -24,7 +24,7 @@ test("signing in on a second device opens the same account", async ({ browser })
 
   await signIn(pageA, email);
   await expect(pageA).toHaveURL("/tip-examen");
-  await pageA.request.put("/api/profile", { data: { examType: "C" } });
+  await pageA.request.put("/api/profile", { data: { examTypes: ["C"] } });
   const a = await (await pageA.request.get("/api/me")).json();
 
   await signIn(pageB, email);

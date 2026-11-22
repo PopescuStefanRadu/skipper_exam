@@ -1,0 +1,77 @@
+== building images
+== starting at http://127.0.0.1:46055
+ Network skipper-exam-deploytest-5602a10d_default Creating 
+ Network skipper-exam-deploytest-5602a10d_default Created 
+ Volume skipper-exam-deploytest-5602a10d_db Creating 
+ Volume skipper-exam-deploytest-5602a10d_db Created 
+ Container skipper-exam-deploytest-5602a10d-db-1 Creating 
+ Container skipper-exam-deploytest-5602a10d-db-1 Created 
+ Container skipper-exam-deploytest-5602a10d-app-1 Creating 
+ Container skipper-exam-deploytest-5602a10d-backup-1 Creating 
+ Container skipper-exam-deploytest-5602a10d-backup-1 Created 
+ Container skipper-exam-deploytest-5602a10d-app-1 Created 
+ Container skipper-exam-deploytest-5602a10d-mock-oidc-1 Creating 
+ Container skipper-exam-deploytest-5602a10d-mock-oidc-1 Created 
+ Container skipper-exam-deploytest-5602a10d-db-1 Starting 
+ Container skipper-exam-deploytest-5602a10d-db-1 Started 
+ Container skipper-exam-deploytest-5602a10d-db-1 Waiting 
+ Container skipper-exam-deploytest-5602a10d-db-1 Waiting 
+ Container skipper-exam-deploytest-5602a10d-db-1 Healthy 
+ Container skipper-exam-deploytest-5602a10d-backup-1 Starting 
+ Container skipper-exam-deploytest-5602a10d-db-1 Healthy 
+ Container skipper-exam-deploytest-5602a10d-app-1 Starting 
+ Container skipper-exam-deploytest-5602a10d-backup-1 Started 
+ Container skipper-exam-deploytest-5602a10d-app-1 Started 
+ Container skipper-exam-deploytest-5602a10d-mock-oidc-1 Starting 
+ Container skipper-exam-deploytest-5602a10d-mock-oidc-1 Started 
+ Container skipper-exam-deploytest-5602a10d-backup-1 Waiting 
+ Container skipper-exam-deploytest-5602a10d-mock-oidc-1 Waiting 
+ Container skipper-exam-deploytest-5602a10d-db-1 Waiting 
+ Container skipper-exam-deploytest-5602a10d-app-1 Waiting 
+ Container skipper-exam-deploytest-5602a10d-backup-1 Healthy 
+ Container skipper-exam-deploytest-5602a10d-mock-oidc-1 Healthy 
+ Container skipper-exam-deploytest-5602a10d-db-1 Healthy 
+ Container skipper-exam-deploytest-5602a10d-app-1 Healthy 
+== sign in and record progress (session token, as the Android app does)
+== backup
+backup: /backups/2026-11-22
+== wipe the data, then restore 2026-11-22
+ Volume skipper-exam-deploytest-5602a10d_db Creating 
+ Volume skipper-exam-deploytest-5602a10d_db Created 
+ Container skipper-exam-deploytest-5602a10d-db-1 Creating 
+ Container skipper-exam-deploytest-5602a10d-db-1 Created 
+ Container skipper-exam-deploytest-5602a10d-db-1 Starting 
+ Container skipper-exam-deploytest-5602a10d-db-1 Started 
+ Container skipper-exam-deploytest-5602a10d-db-1 Waiting 
+ Container skipper-exam-deploytest-5602a10d-db-1 Healthy 
+ Container skipper-exam-deploytest-5602a10d-backup-run-699a54eade6f Creating 
+ Container skipper-exam-deploytest-5602a10d-backup-run-699a54eade6f Created 
+restored /backups/2026-11-22
+ Container skipper-exam-deploytest-5602a10d-db-1 Running 
+ Container skipper-exam-deploytest-5602a10d-app-1 Creating 
+ Container skipper-exam-deploytest-5602a10d-backup-1 Creating 
+ Container skipper-exam-deploytest-5602a10d-app-1 Created 
+ Container skipper-exam-deploytest-5602a10d-mock-oidc-1 Creating 
+ Container skipper-exam-deploytest-5602a10d-backup-1 Created 
+ Container skipper-exam-deploytest-5602a10d-mock-oidc-1 Created 
+ Container skipper-exam-deploytest-5602a10d-db-1 Waiting 
+ Container skipper-exam-deploytest-5602a10d-db-1 Waiting 
+ Container skipper-exam-deploytest-5602a10d-db-1 Healthy 
+ Container skipper-exam-deploytest-5602a10d-db-1 Healthy 
+ Container skipper-exam-deploytest-5602a10d-app-1 Starting 
+ Container skipper-exam-deploytest-5602a10d-backup-1 Starting 
+ Container skipper-exam-deploytest-5602a10d-backup-1 Started 
+ Container skipper-exam-deploytest-5602a10d-app-1 Started 
+ Container skipper-exam-deploytest-5602a10d-mock-oidc-1 Starting 
+ Container skipper-exam-deploytest-5602a10d-mock-oidc-1 Started 
+ Container skipper-exam-deploytest-5602a10d-db-1 Waiting 
+ Container skipper-exam-deploytest-5602a10d-mock-oidc-1 Waiting 
+ Container skipper-exam-deploytest-5602a10d-app-1 Waiting 
+ Container skipper-exam-deploytest-5602a10d-backup-1 Waiting 
+ Container skipper-exam-deploytest-5602a10d-mock-oidc-1 Healthy 
+ Container skipper-exam-deploytest-5602a10d-db-1 Healthy 
+ Container skipper-exam-deploytest-5602a10d-backup-1 Healthy 
+ Container skipper-exam-deploytest-5602a10d-app-1 Healthy 
+== the account and its progress are back
+== account deletion
+deploy test passed

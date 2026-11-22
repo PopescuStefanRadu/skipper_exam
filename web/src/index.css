@@ -751,6 +751,11 @@ table.progress thead th.num {
 .big {
   font-size: 1.25rem;
 }
+.exam-types {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 /* A section heading after other content gets room above it. */
 * + h3 {
   margin-top: 1.25rem;

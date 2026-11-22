@@ -59,8 +59,8 @@ export interface AppEvent {
 }
 
 export interface Profile {
-  // Empty until the user has chosen one.
-  examType: string;
+  // The exam types the user prepares for, in the content's order; empty until chosen.
+  examTypes: string[];
 }
 
 async function json<T>(res: Response, what: string): Promise<T> {
@@ -87,11 +87,11 @@ export async function getProfile(): Promise<Profile> {
   return json(await apiFetch("/api/profile", { signal: AbortSignal.timeout(sessionTimeoutMs) }), "/api/profile");
 }
 
-export async function setExamType(examType: string): Promise<Profile> {
+export async function setExamTypes(examTypes: string[]): Promise<Profile> {
   const res = await apiFetch("/api/profile", {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ examType }),
+    body: JSON.stringify({ examTypes }),
   });
   return json(res, "/api/profile");
 }

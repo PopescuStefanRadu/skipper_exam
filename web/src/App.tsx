@@ -193,11 +193,11 @@ function SyncStatus() {
   );
 }
 
-// Practice depends on the exam type, so it's chosen before anything else.
+// Practice depends on the exam types, so they're chosen before anything else.
 function RequireExamType({ children }: { children: ReactNode }) {
   const { profile } = useSession();
   const location = useLocation();
-  if (!profile?.examType) return <Navigate to="/tip-examen" replace state={{ from: location.pathname }} />;
+  if (!profile?.examTypes?.length) return <Navigate to="/tip-examen" replace state={{ from: location.pathname }} />;
   return children;
 }
 
@@ -263,8 +263,11 @@ function Home() {
   const navigate = useNavigate();
   const [expired, setExpired] = useState<string>();
   const active = activeExam(events);
-  const examType = content?.examTypes.find((t) => t.id === profile?.examType);
-  const format = examType?.format;
+  const chosen = profile?.examTypes ?? [];
+  const types = content?.examTypes.filter((t) => chosen.includes(t.id)) ?? [];
+  // An unfinished exam stays reachable even if its type is no longer chosen.
+  const activeType = content?.examTypes.find((t) => t.id === active?.examType);
+  const examTypes = activeType && !types.includes(activeType) ? [...types, activeType] : types;
 
   // An exam whose time ran out while the user was away is submitted as it was.
   const activeExpired = active !== undefined && active.deadline <= Date.now();
@@ -275,69 +278,80 @@ function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active?.id, activeExpired]);
 
-  function start() {
-    if (!content || !examType) return;
+  function start(examTypeId: string) {
+    if (!content) return;
     const id = uuid();
-    record(examEvents.started, newExam(content, examType.id, id));
+    record(examEvents.started, newExam(content, examTypeId, id));
     navigate("/examen");
   }
 
   const h = content ? histories(events, content) : undefined;
-  const coverage = content && h && examType ? progress(content, examType.id, h) : [];
+  const coverage = content && h && chosen.length ? progress(content, chosen, h) : [];
   const seen = coverage.reduce((n, r) => n + r.seen, 0);
   const total = coverage.reduce((n, r) => n + r.total, 0);
-  const toReview = content && h && examType ? mistakes(content, examType.id, h).length : 0;
+  const toReview = content && h && chosen.length ? mistakes(content, chosen, h).length : 0;
+  const running = active && !activeExpired;
 
   return (
     <section className="stack">
       <div className="card">
         <p className="eyebrow">{strings.home.preparingFor}</p>
         <div className="actions split">
-          <strong data-testid="exam-type" className="big">
-            {examType?.name ?? profile?.examType}
-          </strong>
+          <div className="exam-types">
+            {(content ? types.map((t) => t.name) : chosen).map((name) => (
+              <strong key={name} data-testid="exam-type" className="big">
+                {name}
+              </strong>
+            ))}
+          </div>
           <Link to="/tip-examen">{strings.home.changeExamType}</Link>
         </div>
       </div>
       {content === null && <p role="alert">{strings.exam.contentUnavailable}</p>}
+      {expired && (
+        <p className="notice">
+          {strings.exam.expiredWhileAway} <Link to={`/examen/${expired}/rezultat`}>{strings.exam.seeResult}</Link>
+        </p>
+      )}
 
-      <div className="card">
-        <h2>{strings.home.examTitle}</h2>
-        {format && (
-          <>
-            <p>{strings.exam.format(format.questions, format.minutes, format.passPercent)}</p>
-            {!format.confirmed && <p className="hint">{strings.exam.formatNotConfirmed}</p>}
-          </>
-        )}
-        {expired && (
-          <p className="notice">
-            {strings.exam.expiredWhileAway} <Link to={`/examen/${expired}/rezultat`}>{strings.exam.seeResult}</Link>
-          </p>
-        )}
-        {active && !activeExpired ? (
-          <>
-            <p className="info">{strings.exam.unfinished}</p>
-            <div className="actions">
-              <button type="button" className="primary" onClick={() => navigate("/examen")}>
-                {strings.exam.resume}
+      {examTypes.map((t) => {
+        const format = t.format;
+        const title = strings.home.examTitleFor(t.name);
+        return (
+          <section key={t.id} className="card" aria-label={title}>
+            <h2>{examTypes.length > 1 ? title : strings.home.examTitle}</h2>
+            {format && (
+              <>
+                <p>{strings.exam.format(format.questions, format.minutes, format.passPercent)}</p>
+                {!format.confirmed && <p className="hint">{strings.exam.formatNotConfirmed}</p>}
+              </>
+            )}
+            {running && active.examType === t.id && (
+              <>
+                <p className="info">{strings.exam.unfinished}</p>
+                <div className="actions">
+                  <button type="button" className="primary" onClick={() => navigate("/examen")}>
+                    {strings.exam.resume}
+                  </button>
+                  <button
+                    type="button"
+                    className="danger"
+                    onClick={() => record(examEvents.abandoned, { examId: active.id })}
+                  >
+                    {strings.exam.abandon}
+                  </button>
+                </div>
+              </>
+            )}
+            {running && active.examType !== t.id && <p className="hint">{strings.exam.finishOtherFirst}</p>}
+            {!running && format && (
+              <button type="button" className="primary" onClick={() => start(t.id)}>
+                {strings.exam.start}
               </button>
-              <button
-                type="button"
-                className="danger"
-                onClick={() => record(examEvents.abandoned, { examId: active.id })}
-              >
-                {strings.exam.abandon}
-              </button>
-            </div>
-          </>
-        ) : (
-          format && (
-            <button type="button" className="primary" onClick={start}>
-              {strings.exam.start}
-            </button>
-          )
-        )}
-      </div>
+            )}
+          </section>
+        );
+      })}
 
       <div className="card">
         <h2>{strings.home.learningTitle}</h2>

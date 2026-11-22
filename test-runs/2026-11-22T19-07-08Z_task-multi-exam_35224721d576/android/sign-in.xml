@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Test Suite" device="test" tests="1" failures="1" time="42.156" timestamp="2026-11-22T19:09:42">
+    <testcase id="sign-in" name="sign-in" classname="sign-in" file="flows/sign-in.yaml" time="42.149" timestamp="2026-11-22T19:09:42" status="ERROR">
+      <failure>Assertion is false: "android-1795374576071836719@example.test" is visible</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -8,6 +8,7 @@ import {
   histories,
   learningStart,
   mistakes,
+  passPercentOf,
   practiceEvents,
   progress,
   questionsOf,
@@ -19,23 +20,23 @@ import { strings } from "./strings";
 
 const s = strings.learning;
 
-// Loads what every learning screen needs: the content and the chosen exam type.
-function useLearning(): { content?: ContentPackage | null; examType: string } {
+// Loads what every learning screen needs: the content and the chosen exam types.
+function useLearning(): { content?: ContentPackage | null; examTypes: string[] } {
   const content = useContent();
   const { profile } = useSession();
-  return { content, examType: profile?.examType ?? "" };
+  return { content, examTypes: profile?.examTypes ?? [] };
 }
 
 // Coverage per subject, with the ways into learning mode and the mistakes.
 export function LearningPage() {
-  const { content, examType } = useLearning();
+  const { content, examTypes } = useLearning();
   const { events } = useEvents();
   if (content === undefined) return <p>{strings.loading}</p>;
   if (content === null) return <p role="alert">{strings.exam.contentUnavailable}</p>;
   const h = histories(events, content);
-  const rows = progress(content, examType, h);
-  const passPercent = content.examTypes.find((t) => t.id === examType)?.format?.passPercent ?? 0;
-  const toReview = mistakes(content, examType, h).length;
+  const rows = progress(content, examTypes, h);
+  const passPercent = passPercentOf(content, examTypes);
+  const toReview = mistakes(content, examTypes, h).length;
 
   return (
     <section className="stack">
@@ -114,17 +115,17 @@ export function LearningPage() {
 // A learning session for one subject, every subject, or the mistakes.
 export function PracticePage({ mode }: { mode: PracticeMode }) {
   const { subject } = useParams();
-  const { content, examType } = useLearning();
+  const { content, examTypes } = useLearning();
   const { events } = useEvents();
   if (content === undefined) return <p>{strings.loading}</p>;
   if (content === null) return <p role="alert">{strings.exam.contentUnavailable}</p>;
   const h = histories(events, content);
 
-  if (mode === "mistakes") return <Mistakes content={content} examType={examType} />;
+  if (mode === "mistakes") return <Mistakes content={content} examTypes={examTypes} />;
 
   const all = subject === "toate";
   const info = content.subjects.find((x) => x.id === subject);
-  const qs = questionsOf(content, examType, all ? undefined : subject);
+  const qs = questionsOf(content, examTypes, all ? undefined : subject);
   if ((!all && !info) || qs.length === 0) return <p role="alert">{s.unknownSubject}</p>;
   return (
     <section>
@@ -137,9 +138,9 @@ export function PracticePage({ mode }: { mode: PracticeMode }) {
 
 // The mistakes as they were when the session started, so the session keeps going
 // (and ends with its score) even when every mistake gets answered right.
-function Mistakes({ content, examType }: { content: ContentPackage; examType: string }) {
+function Mistakes({ content, examTypes }: { content: ContentPackage; examTypes: string[] }) {
   const { events } = useEvents();
-  const [qs] = useState(() => mistakes(content, examType, histories(events, content)));
+  const [qs] = useState(() => mistakes(content, examTypes, histories(events, content)));
   return (
     <section>
       <h2>{s.practiseMistakes}</h2>

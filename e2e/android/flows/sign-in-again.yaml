@@ -10,5 +10,8 @@ appId: ro.skipperexam.app
 - extendedWaitUntil:
     visible: "Examen simulat"
     timeout: 30000
-- assertVisible: ${EMAIL}
+# The web view can expose the top bar a moment after the page.
+- extendedWaitUntil:
+    visible: ${EMAIL}
+    timeout: 15000
 - takeScreenshot: 09-signed-in-again

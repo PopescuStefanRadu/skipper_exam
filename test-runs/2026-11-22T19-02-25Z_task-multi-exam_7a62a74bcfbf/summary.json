@@ -1,0 +1,23 @@
+{
+  "started": "2026-11-22T19-02-25Z",
+  "branch": "task/multi-exam",
+  "commit": "7a62a74bcfbf9ce21fca98020c49f958a75a1b5d",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1733
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 1216
+    }
+  ],
+  "result": "passed"
+}

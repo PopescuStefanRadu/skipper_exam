@@ -4,6 +4,7 @@ import (
 	"context"
 	"net/http"
 	"net/http/httptest"
+	"slices"
 	"strings"
 	"sync"
 	"testing"
@@ -14,16 +15,16 @@ import (
 
 type fakeProfiles struct {
 	mu sync.Mutex
-	m  map[string]string
+	m  map[string][]string
 }
 
 func (f *fakeProfiles) Get(_ context.Context, id string) (profile.Profile, error) {
 	f.mu.Lock()
 	defer f.mu.Unlock()
-	return profile.Profile{ExamType: f.m[id]}, nil
+	return profile.Profile{ExamTypes: f.m[id]}, nil
 }
 
-func (f *fakeProfiles) SetExamType(_ context.Context, id, t string) error {
+func (f *fakeProfiles) SetExamTypes(_ context.Context, id string, t []string) error {
 	f.mu.Lock()
 	defer f.mu.Unlock()
 	f.m[id] = t
@@ -33,8 +34,9 @@ func (f *fakeProfiles) SetExamType(_ context.Context, id, t string) error {
 func TestPutProfile(t *testing.T) {
 	t.Parallel()
 	k := fakeSessions{}
-	profiles := &fakeProfiles{m: map[string]string{}}
+	profiles := &fakeProfiles{m: map[string][]string{}}
 	h := New(Config{DB: fakeDB{}, Sessions: k, Profiles: profiles, ExamTypes: []content.ExamType{
+		{ID: "C", Available: true},
 		{ID: "D", Available: true},
 		{ID: "A", Available: false},
 	}})
@@ -47,15 +49,18 @@ func TestPutProfile(t *testing.T) {
 		h.ServeHTTP(rec, req)
 		return rec.Code
 	}
-	if code := put(`{"examType":"D"}`, true); code != http.StatusOK || profiles.m["id-1"] != "D" {
+	if code := put(`{"examTypes":["D"]}`, true); code != http.StatusOK || !slices.Equal(profiles.m["id-1"], []string{"D"}) {
 		t.Fatalf("available type: status %d, stored %q", code, profiles.m["id-1"])
 	}
-	for _, body := range []string{`{"examType":"A"}`, `{"examType":"Z"}`, `not json`} {
+	if code := put(`{"examTypes":["D","C","D"]}`, true); code != http.StatusOK || !slices.Equal(profiles.m["id-1"], []string{"C", "D"}) {
+		t.Fatalf("several types: status %d, stored %q", code, profiles.m["id-1"])
+	}
+	for _, body := range []string{`{"examTypes":["A"]}`, `{"examTypes":["D","A"]}`, `{"examTypes":["Z"]}`, `{"examTypes":[]}`, `{}`, `not json`} {
 		if code := put(body, true); code != http.StatusBadRequest {
 			t.Errorf("%s: status %d, want 400", body, code)
 		}
 	}
-	if code := put(`{"examType":"D"}`, false); code != http.StatusUnauthorized {
+	if code := put(`{"examTypes":["D"]}`, false); code != http.StatusUnauthorized {
 		t.Errorf("signed out: status %d, want 401", code)
 	}
 }

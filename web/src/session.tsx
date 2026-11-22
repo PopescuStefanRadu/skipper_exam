@@ -18,6 +18,14 @@ const SessionContext = createContext<Session>({ me: undefined, profile: null, re
 const meKey = "session-me";
 const profileKey = "session-profile";
 
+// Profiles stored by earlier versions had a single exam type.
+function storedProfile(): Profile | null {
+  const p = load<Profile & { examType?: string }>(profileKey);
+  if (!p) return null;
+  if (Array.isArray(p.examTypes)) return p;
+  return { examTypes: p.examType ? [p.examType] : [] };
+}
+
 export function forgetSession() {
   remove(meKey);
   remove(profileKey);
@@ -33,7 +41,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     } catch {
       // Offline or the server is unavailable: keep what the device knows.
       const known = load<Me>(meKey) ?? null;
-      setProfile(known ? (load<Profile>(profileKey) ?? null) : null);
+      setProfile(known ? storedProfile() : null);
       setMe(known);
       return;
     }
@@ -48,7 +56,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       p = await getProfile();
       save(profileKey, p);
     } catch {
-      p = load<Profile>(profileKey) ?? null;
+      p = storedProfile();
     }
     save(meKey, signedIn);
     setProfile(p);

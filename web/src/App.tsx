@@ -15,6 +15,7 @@ import { Browser } from "@capacitor/browser";
 import { endServiceSession, finishAppSignIn, signOut, startSignIn } from "./signin";
 import { appReturnUrl, isApp } from "./platform";
 import { ResultPage } from "./ResultPage";
+import { LegalLinks, LegalPage } from "./LegalPage";
 import { ServerStatus } from "./ServerStatus";
 import { uuid } from "./storage";
 import { forgetSession, SessionProvider, useSession } from "./session";
@@ -39,6 +40,8 @@ export function App() {
         <main className="page">
           <Routes>
             <Route path="/autentificare" element={<SignIn />} />
+            <Route path="/confidentialitate" element={<LegalPage page="privacy" />} />
+            <Route path="/termeni" element={<LegalPage page="terms" />} />
             {/* Addresses from before sign-in moved to the sign-in service. */}
             {["/inregistrare", "/recuperare", "/setari"].map((path) => (
               <Route key={path} path={path} element={<Navigate to="/autentificare" replace />} />
@@ -129,6 +132,7 @@ export function App() {
         </main>
         <footer className="footer">
           <ServerStatus />
+          <LegalLinks />
         </footer>
       </ContentProvider>
     </SessionProvider>

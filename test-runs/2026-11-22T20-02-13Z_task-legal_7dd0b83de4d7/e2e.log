@@ -1,0 +1,189 @@
+ Image skipper-legal-ed858371-mock-oidc Building 
+ Image skipper-legal-ed858371-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.11kB done
+#1 DONE 0.0s
+
+#2 [mock-oidc internal] load build definition from Dockerfile
+#2 transferring dockerfile: 412B done
+#2 DONE 0.0s
+
+#3 [app internal] load build definition from Dockerfile
+#3 transferring dockerfile: 618B done
+#3 DONE 0.0s
+
+#4 [app internal] load metadata for docker.io/library/node:24-alpine
+#4 DONE 0.0s
+
+#5 [app internal] load metadata for gcr.io/distroless/static-debian12:latest
+#5 DONE 0.3s
+
+#6 [app internal] load metadata for docker.io/library/golang:1.24-alpine
+#6 DONE 0.2s
+
+#7 [app internal] load .dockerignore
+#7 transferring context: 148B done
+#7 DONE 0.0s
+
+#8 [mock-oidc internal] load build context
+#8 DONE 0.0s
+
+#9 [app internal] load build context
+#9 transferring context: 12.80kB 0.0s done
+#9 DONE 0.0s
+
+#10 [app stage-1 1/2] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#10 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#10 DONE 0.0s
+
+#11 [app build 1/6] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#11 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#11 DONE 0.0s
+
+#12 [app web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#12 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#12 DONE 0.0s
+
+#13 [app backend 6/7] COPY pkg pkg
+#13 CACHED
+
+#14 [app backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#14 CACHED
+
+#15 [app stage-2 2/4] COPY --from=backend /server /server
+#15 CACHED
+
+#16 [app web 2/7] RUN corepack enable
+#16 CACHED
+
+#17 [app backend 3/7] COPY go.mod go.sum ./
+#17 CACHED
+
+#18 [app web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#18 CACHED
+
+#19 [app web 5/7] RUN pnpm install --frozen-lockfile
+#19 CACHED
+
+#20 [app web 3/7] WORKDIR /web
+#20 CACHED
+
+#21 [app web 6/7] COPY web/ ./
+#21 CACHED
+
+#22 [app backend 4/7] RUN go mod download
+#22 CACHED
+
+#23 [app backend 5/7] COPY cli cli
+#23 CACHED
+
+#24 [app stage-2 3/4] COPY --from=web /web/dist /web
+#24 CACHED
+
+#25 [app web 7/7] RUN pnpm build
+#25 CACHED
+
+#26 [app stage-2 4/4] COPY content /content
+#26 CACHED
+
+#8 [mock-oidc internal] load build context
+#8 transferring context: 151B done
+#8 DONE 0.0s
+
+#27 [mock-oidc build 6/6] RUN CGO_ENABLED=0 go build -o /mock-oidc ./cli/mock-oidc
+#27 CACHED
+
+#28 [mock-oidc build 4/6] RUN go mod download
+#28 CACHED
+
+#29 [mock-oidc build 2/6] WORKDIR /src
+#29 CACHED
+
+#30 [mock-oidc build 3/6] COPY go.mod go.sum ./
+#30 CACHED
+
+#31 [mock-oidc build 5/6] COPY cli/mock-oidc cli/mock-oidc
+#31 CACHED
+
+#32 [mock-oidc stage-1 2/2] COPY --from=build /mock-oidc /mock-oidc
+#32 CACHED
+
+#33 [app] exporting to image
+#33 exporting layers done
+#33 exporting manifest sha256:d4ac3549adb4b7b3043048162cd4a82c497501f92d1f41e94330378e5f086688 done
+#33 exporting config sha256:8359a5a9eee95e1b7db92200e332ab6d8a65dd23bb69de5967bd531a4672f8d7 done
+#33 exporting attestation manifest sha256:738bc36aeebff05cf2bb166a9473cba84f474bd86da8038f00e990efae2df79b 0.0s done
+#33 exporting manifest list sha256:151b38f8c70ed8b3d56a3f4bfb36179294a0e446415b45fe10c8b98cd7e17c15 done
+#33 naming to docker.io/library/skipper-legal-ed858371-app:latest done
+#33 unpacking to docker.io/library/skipper-legal-ed858371-app:latest done
+#33 DONE 0.1s
+
+#34 [mock-oidc] exporting to image
+#34 exporting layers done
+#34 exporting manifest sha256:e8bb24a8052aa8888c728f5a144e775c5a50a14466bff57e39d8d61b7a1214a0 done
+#34 exporting config sha256:59c66f265793679d00beb07987c0a4a5d02afa71782a934539df97f1cf1d2b85 done
+#34 exporting attestation manifest sha256:dfc760448e1861622c146e0e06dbffdbf0cee9f86391c5e80931ea212184586c 0.0s done
+#34 exporting manifest list sha256:96d53b9decdfa64ad46a89aa1aa95bd970a64bb1c66db089c6b967ff759fdbd8 done
+#34 naming to docker.io/library/skipper-legal-ed858371-mock-oidc:latest done
+#34 unpacking to docker.io/library/skipper-legal-ed858371-mock-oidc:latest done
+#34 DONE 0.1s
+
+#35 [mock-oidc] resolving provenance for metadata file
+#35 DONE 0.0s
+
+#36 [app] resolving provenance for metadata file
+#36 DONE 0.0s
+ Image skipper-legal-ed858371-app Built 
+ Image skipper-legal-ed858371-mock-oidc Built 
+ Container skipper-legal-ed858371-db-1 Running 
+ Container skipper-legal-ed858371-app-1 Recreate 
+ Container skipper-legal-ed858371-app-1 Recreated 
+ Container skipper-legal-ed858371-mock-oidc-1 Recreate 
+ Container skipper-legal-ed858371-mock-oidc-1 Recreated 
+ Container skipper-legal-ed858371-db-1 Waiting 
+ Container skipper-legal-ed858371-db-1 Healthy 
+ Container skipper-legal-ed858371-app-1 Starting 
+ Container skipper-legal-ed858371-app-1 Started 
+ Container skipper-legal-ed858371-mock-oidc-1 Starting 
+ Container skipper-legal-ed858371-mock-oidc-1 Started 
+ Container skipper-legal-ed858371-mock-oidc-1 Waiting 
+ Container skipper-legal-ed858371-db-1 Waiting 
+ Container skipper-legal-ed858371-app-1 Waiting 
+ Container skipper-legal-ed858371-db-1 Healthy 
+ Container skipper-legal-ed858371-mock-oidc-1 Healthy 
+ Container skipper-legal-ed858371-app-1 Healthy 
+STACK_PROJECT=skipper-legal-ed858371
+APP_URL=http://127.0.0.1:39517
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32771/skipper_exam
+MOCK_OIDC_URL=http://127.0.0.1:59247
+
+Running 24 tests using 12 workers
+
+  ✓  6 [web] › screens.spec.ts:42:1 › server unavailable (493ms)
+  ✓  1 [web] › screens.spec.ts:23:1 › signed-out screens (578ms)
+
+  ✓  5 [web] › screens.spec.ts:33:1 › privacy policy and terms (916ms)
+  ✓  3 [web] › screens.spec.ts:205:1 › account page (1.1s)
+  ✓  4 [web] › screens.spec.ts:138:1 › reviewer view (1.2s)
+  ✓  8 [web] › screens.spec.ts:122:1 › explanations (1.2s)
+  ✓  2 [web] › screens.spec.ts:187:1 › dark mode (1.4s)
+  ✓  12 [web] › screens.spec.ts:49:1 › exam type and home (1.5s)
+  ✓  10 [web] › screens.spec.ts:103:1 › time ran out (1.6s)
+  ✓  14 [android] › screens.spec.ts:23:1 › signed-out screens (636ms)
+  ✓  15 [android] › screens.spec.ts:42:1 › server unavailable (443ms)
+  ✓  13 [android] › screens.spec.ts:33:1 › privacy policy and terms (1.1s)
+  ✓  11 [web] › screens.spec.ts:66:1 › exam screens and a failed result (2.3s)
+  ✓  7 [web] › screens.spec.ts:150:1 › learning (2.7s)
+
+  ✓  22 [android] › screens.spec.ts:122:1 › explanations (917ms)
+  ✓  9 [web] › screens.spec.ts:89:1 › a passed result (3.0s)
+  ✓  16 [android] › screens.spec.ts:49:1 › exam type and home (1.4s)
+  ✓  24 [android] › screens.spec.ts:205:1 › account page (935ms)
+  ✓  23 [android] › screens.spec.ts:138:1 › reviewer view (1.1s)
+  ✓  21 [android] › screens.spec.ts:187:1 › dark mode (1.4s)
+  ✓  19 [android] › screens.spec.ts:103:1 › time ran out (1.7s)
+  ✓  20 [android] › screens.spec.ts:150:1 › learning (2.2s)
+  ✓  17 [android] › screens.spec.ts:66:1 › exam screens and a failed result (2.5s)
+  ✓  18 [android] › screens.spec.ts:89:1 › a passed result (2.4s)
+
+  24 passed (4.7s)

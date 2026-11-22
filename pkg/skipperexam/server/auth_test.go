@@ -131,6 +131,10 @@ func (f *fakeService) AuthURL(_ context.Context, state, nonce, verifier string) 
 	return "https://auth.example/authorize?state=" + url.QueryEscape(state), nil
 }
 
+func (f *fakeService) EndSessionURL(context.Context) (string, error) {
+	return "https://auth.example/end-session/", nil
+}
+
 func (f *fakeService) Exchange(_ context.Context, code, verifier, nonce string) (auth.Claims, error) {
 	f.mu.Lock()
 	defer f.mu.Unlock()
@@ -211,8 +215,14 @@ func TestWebSignIn(t *testing.T) {
 	req.AddCookie(c)
 	out := httptest.NewRecorder()
 	h.ServeHTTP(out, req)
-	if out.Code != http.StatusNoContent || sessionCookie(out) == nil || sessionCookie(out).MaxAge >= 0 {
+	if out.Code != http.StatusOK || sessionCookie(out) == nil || sessionCookie(out).MaxAge >= 0 {
 		t.Fatalf("logout: %d %v", out.Code, sessionCookie(out))
+	}
+	var bye struct {
+		EndSessionURL string `json:"endSessionUrl"`
+	}
+	if err := json.NewDecoder(out.Body).Decode(&bye); err != nil || bye.EndSessionURL != "https://auth.example/end-session/" {
+		t.Errorf("logout answer: %+v %v", bye, err)
 	}
 	if rec := get(h, "/api/me", c); rec.Code != http.StatusUnauthorized {
 		t.Errorf("after logout: %d", rec.Code)

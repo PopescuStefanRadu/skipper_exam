@@ -12,7 +12,7 @@ import { histories, mistakes, progress } from "./learning";
 import { LearningPage, PracticePage } from "./LearningPage";
 import { App as NativeApp } from "@capacitor/app";
 import { Browser } from "@capacitor/browser";
-import { finishAppSignIn, signOut, startSignIn } from "./signin";
+import { endServiceSession, finishAppSignIn, signOut, startSignIn } from "./signin";
 import { appReturnUrl, isApp } from "./platform";
 import { ResultPage } from "./ResultPage";
 import { ServerStatus } from "./ServerStatus";
@@ -214,10 +214,14 @@ function AccountBar() {
       <button
         type="button"
         onClick={async () => {
-          await signOut();
+          const endSession = await signOut();
           forgetSession();
+          // The website leaves for the sign-in service's sign-out page; the app
+          // shows its sign-in page and ends that session in the browser.
+          if (endSession && !isApp) return endServiceSession(endSession);
           await refresh();
           navigate("/autentificare", { replace: true });
+          if (endSession) await endServiceSession(endSession);
         }}
       >
         {strings.home.signOut}

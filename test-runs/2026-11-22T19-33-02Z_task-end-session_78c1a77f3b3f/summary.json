@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-22T19-33-02Z",
+  "branch": "task/end-session",
+  "commit": "78c1a77f3b3f5d521e210b898243069c3a5e92d9",
+  "ci": false,
+  "suites_requested": [
+    "android"
+  ],
+  "suites": [
+    {
+      "name": "android",
+      "status": "passed",
+      "ms": 288783
+    }
+  ],
+  "result": "passed"
+}

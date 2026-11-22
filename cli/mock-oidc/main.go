@@ -81,6 +81,7 @@ func main() {
 	})
 	mux.HandleFunc("POST /default/authorize", p.authorize)
 	mux.HandleFunc("POST /default/token", p.token)
+	mux.HandleFunc("GET /default/end-session", endSession)
 	log.Printf("mock OpenID Connect provider at %s", p.issuer)
 	log.Fatal(http.ListenAndServe(":"+port, mux))
 }
@@ -97,6 +98,7 @@ func (p *provider) discovery(w http.ResponseWriter, _ *http.Request) {
 		"authorization_endpoint":                p.issuer + "/authorize",
 		"token_endpoint":                        p.issuer + "/token",
 		"jwks_uri":                              p.issuer + "/jwks",
+		"end_session_endpoint":                  p.issuer + "/end-session",
 		"response_types_supported":              []string{"code"},
 		"subject_types_supported":               []string{"public"},
 		"id_token_signing_alg_values_supported": []string{"RS256"},
@@ -204,4 +206,12 @@ func (p *provider) token(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, http.StatusOK, map[string]any{
 		"access_token": random(), "token_type": "Bearer", "expires_in": 3600, "id_token": idToken,
 	})
+}
+
+// endSession is the sign-out page (RP-initiated logout). The mock keeps no
+// sessions of its own, so it only says it signed the user out, like Authentik
+// does before showing esrp.ro.
+func endSession(w http.ResponseWriter, _ *http.Request) {
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	_, _ = w.Write([]byte(`<!doctype html><title>Mock OAuth2 Server Signed out</title><h1>Signed out</h1>`))
 }

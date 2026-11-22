@@ -1,0 +1,41 @@
+{
+  "started": "2026-11-22T19-38-05Z",
+  "branch": "task/end-session",
+  "commit": "f9947e82900b5edacc88231cf00ec242fc37b2d8",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e",
+    "deploy",
+    "android"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1715
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 139
+    },
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 20917
+    },
+    {
+      "name": "deploy",
+      "status": "passed",
+      "ms": 58165
+    },
+    {
+      "name": "android",
+      "status": "passed",
+      "ms": 163117
+    }
+  ],
+  "result": "passed"
+}

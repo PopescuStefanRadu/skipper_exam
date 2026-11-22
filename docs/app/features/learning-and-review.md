@@ -2,12 +2,12 @@
 
 ## Behaviour
 
-- The **learning page** (`/invatare`, linked from the home page) covers the chosen [exam type](exam-types.md)'s questions, subject by subject. For each subject it shows:
+- The **learning page** (`/invatare`, linked from the home page) covers the questions of the chosen [exam types](exam-types.md), subject by subject. With several exam types (for example Class C and Class D), it covers all their questions together, each one once. For each subject it shows:
   - **seen**: how many of the subject's questions you've answered at least once;
   - **mastered**: how many you answered correctly the last time;
   - **mistakes**: how many you answered wrong the last time.
   Equivalent questions (see [content](content.md)) count as one question and share their history.
-- A subject is marked **weak** once you've answered at least 5 of its questions and fewer of them are mastered than the exam's pass mark (for example, under 80%).
+- A subject is marked **weak** once you've answered at least 5 of its questions and fewer of them are mastered than the exam's pass mark (for example, under 80%); with several exam types, the highest pass mark among them.
 - **Learning mode** (`/invatare/<subject>`, or every subject in order): one question at a time, with the answers in shuffled order. After an answer you see at once whether it was right, the correct answer and the [explanation](explanations.md), then **Next** moves on. A session goes through the subject's questions in order, starting with the first one you haven't seen yet; once you've seen them all, it starts again from the beginning.
 - **Practice my mistakes** (`/invatare/greseli`): a session of the questions whose last answer was wrong. Questions answered wrong more often come first, and among those the most recent mistakes come first. The list is fixed when the session starts. A question answered correctly leaves the list for the next session. At the end the session shows how many you got right this time.
 - With no mistakes, "practice my mistakes" says there's nothing to review instead of starting an empty session.

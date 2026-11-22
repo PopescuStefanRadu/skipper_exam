@@ -39,12 +39,19 @@ test("server unavailable", async ({ page }) => {
 
 test("exam type and home", async ({ page }) => {
   await signIn(page, uniqueEmail());
-  await expect(page.getByRole("heading", { name: "Pentru ce examen te pregătești?" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Pentru ce examene te pregătești?" })).toBeVisible();
   await screenshot(page, "08-exam-type");
   await page.getByLabel("Clasa D", { exact: true }).check();
   await page.getByRole("button", { name: "Salvează" }).click();
   await expect(page.getByRole("button", { name: "Începe examenul" })).toBeVisible();
   await screenshot(page, "09-home");
+
+  await page.getByRole("link", { name: "Schimbă examenele" }).click();
+  await page.getByLabel("Clasa C", { exact: true }).check();
+  await screenshot(page, "09a-exam-types-several");
+  await page.getByRole("button", { name: "Salvează" }).click();
+  await expect(page.getByRole("button", { name: "Începe examenul" })).toHaveCount(2);
+  await screenshot(page, "09b-home-several");
 });
 
 test("exam screens and a failed result", async ({ page }) => {

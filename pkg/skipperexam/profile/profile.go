@@ -1,4 +1,4 @@
-// Package profile stores the app's data about each account, such as the exam the
+// Package profile stores the app's data about each account, such as the exams the
 // user is preparing for.
 package profile
 
@@ -12,8 +12,9 @@ import (
 
 // Profile is the app's data about one account.
 type Profile struct {
-	// ExamType is empty until the user has chosen one.
-	ExamType string `json:"examType"`
+	// ExamTypes are the exam types the user prepares for, in the content's order;
+	// empty until the user has chosen.
+	ExamTypes []string `json:"examTypes"`
 }
 
 // Store keeps profiles in Postgres.
@@ -23,19 +24,19 @@ type Store struct {
 
 // Get returns the profile of an account; a new account has an empty profile.
 func (s *Store) Get(ctx context.Context, identityID string) (Profile, error) {
-	var p Profile
-	err := s.Pool.QueryRow(ctx, `SELECT exam_type FROM profiles WHERE identity_id = $1`, identityID).Scan(&p.ExamType)
+	p := Profile{ExamTypes: []string{}}
+	err := s.Pool.QueryRow(ctx, `SELECT exam_types FROM profiles WHERE identity_id = $1`, identityID).Scan(&p.ExamTypes)
 	if errors.Is(err, pgx.ErrNoRows) {
-		return Profile{}, nil
+		return Profile{ExamTypes: []string{}}, nil
 	}
 	return p, err
 }
 
-// SetExamType records the exam the user is preparing for.
-func (s *Store) SetExamType(ctx context.Context, identityID, examType string) error {
+// SetExamTypes records the exam types the user is preparing for.
+func (s *Store) SetExamTypes(ctx context.Context, identityID string, examTypes []string) error {
 	_, err := s.Pool.Exec(ctx, `
-		INSERT INTO profiles (identity_id, exam_type) VALUES ($1, $2)
-		ON CONFLICT (identity_id) DO UPDATE SET exam_type = excluded.exam_type, updated_at = now()`,
-		identityID, examType)
+		INSERT INTO profiles (identity_id, exam_types) VALUES ($1, $2)
+		ON CONFLICT (identity_id) DO UPDATE SET exam_types = excluded.exam_types, updated_at = now()`,
+		identityID, examTypes)
 	return err
 }

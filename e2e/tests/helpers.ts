@@ -27,10 +27,10 @@ export async function expectSignedInAs(page: Page, email: string) {
   await expect(page.getByTestId("signed-in-email")).toHaveText(email);
 }
 
-// Sets the signed-in user's exam type through the API, for tests that don't
-// exercise choosing it.
-export async function setExamType(page: Page, examType: string) {
-  const res = await page.request.put("/api/profile", { data: { examType } });
+// Sets the signed-in user's exam types through the API, for tests that don't
+// exercise choosing them.
+export async function setExamType(page: Page, ...examTypes: string[]) {
+  const res = await page.request.put("/api/profile", { data: { examTypes } });
   expect(res.ok()).toBeTruthy();
 }
 

@@ -26,10 +26,11 @@ export interface History {
 
 const groupOf = (q: Question) => q.group ?? q.id;
 
-// The exam type's questions, one per group of equivalent questions, in the content's
-// order, optionally only the ones of a subject.
-export function questionsOf(content: ContentPackage, examTypeId: string, subject?: string): Question[] {
-  const ids = content.examTypes.find((t) => t.id === examTypeId)?.questionIds ?? [];
+// The questions of the exam types, one per group of equivalent questions, in the
+// content's order (a question shared by several exam types counts once), optionally
+// only the ones of a subject.
+export function questionsOf(content: ContentPackage, examTypeIds: string[], subject?: string): Question[] {
+  const ids = content.examTypes.filter((t) => examTypeIds.includes(t.id)).flatMap((t) => t.questionIds ?? []);
   const byId = new Map(content.questions.map((q) => [q.id, q]));
   const groups = new Set<string>();
   const out: Question[] = [];
@@ -91,11 +92,16 @@ export interface SubjectProgress {
 // A subject is weak once enough of it has been answered and too little is mastered.
 export const weakAfter = 5;
 
-export function progress(content: ContentPackage, examTypeId: string, h: Map<string, History>): SubjectProgress[] {
-  const passPercent = content.examTypes.find((t) => t.id === examTypeId)?.format?.passPercent ?? 0;
+// The pass mark that counts for the exam types: the highest of them.
+export function passPercentOf(content: ContentPackage, examTypeIds: string[]): number {
+  return Math.max(0, ...content.examTypes.filter((t) => examTypeIds.includes(t.id)).map((t) => t.format?.passPercent ?? 0));
+}
+
+export function progress(content: ContentPackage, examTypeIds: string[], h: Map<string, History>): SubjectProgress[] {
+  const passPercent = passPercentOf(content, examTypeIds);
   const out: SubjectProgress[] = [];
   for (const subject of content.subjects) {
-    const qs = questionsOf(content, examTypeId, subject.id);
+    const qs = questionsOf(content, examTypeIds, subject.id);
     if (qs.length === 0) continue;
     let seen = 0;
     let mastered = 0;
@@ -119,8 +125,8 @@ export function progress(content: ContentPackage, examTypeId: string, h: Map<str
 
 // The questions whose last answer was wrong: the most often wrong first, then the
 // most recent mistakes.
-export function mistakes(content: ContentPackage, examTypeId: string, h: Map<string, History>): Question[] {
-  return questionsOf(content, examTypeId)
+export function mistakes(content: ContentPackage, examTypeIds: string[], h: Map<string, History>): Question[] {
+  return questionsOf(content, examTypeIds)
     .filter((q) => historyOf(h, q)?.lastCorrect === false)
     .sort((a, b) => {
       const x = historyOf(h, a)!;

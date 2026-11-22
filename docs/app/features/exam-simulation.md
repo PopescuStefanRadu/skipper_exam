@@ -2,7 +2,7 @@
 
 ## Behaviour
 
-- The home page shows the chosen [exam type](exam-types.md)'s format (number of questions, time limit, pass mark) and starts an exam. While the format isn't confirmed by an official source, a "format not confirmed" note is shown next to it and on the exam screen.
+- The home page shows each chosen [exam type](exam-types.md)'s format (number of questions, time limit, pass mark) and starts an exam of that type. With several exam types there is one simulated exam per type, and the exam screen names its type. Only one exam runs at a time: while one is unfinished, the home page offers to resume or abandon it instead of starting another. While the format isn't confirmed by an official source, a "format not confirmed" note is shown next to it and on the exam screen.
 - An exam is a random set of questions from the exam type's questions, as many as the format says. Two equivalent questions (the same apart from diacritics, punctuation or case) never appear in the same exam, and questions whose source has no single correct answer are left out.
 - The order of the answers is shuffled for every exam, so you learn the content, not the position.
 - The exam screen shows one question at a time with "Întrebarea 3 din 40", the time left, and the navigation buttons **Previous**, **Next** and **Submit** (in English, see the language rule in the [app overview](../README.md)). An answer can be changed until the exam is submitted.

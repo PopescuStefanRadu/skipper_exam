@@ -13,7 +13,7 @@ import (
 // Profiles stores the app's data about each account.
 type Profiles interface {
 	Get(ctx context.Context, identityID string) (profile.Profile, error)
-	SetExamType(ctx context.Context, identityID, examType string) error
+	SetExamTypes(ctx context.Context, identityID string, examTypes []string) error
 }
 
 func examTypes(types []content.ExamType) http.HandlerFunc {
@@ -49,20 +49,41 @@ func getProfile(profiles Profiles) func(http.ResponseWriter, *http.Request, Iden
 }
 
 func putProfile(profiles Profiles, types []content.ExamType) func(http.ResponseWriter, *http.Request, Identity) {
-	available := map[string]bool{}
-	for _, t := range types {
-		available[t.ID] = t.Available
-	}
 	return func(w http.ResponseWriter, r *http.Request, id Identity) {
 		var body profile.Profile
-		if err := json.NewDecoder(r.Body).Decode(&body); err != nil || !available[body.ExamType] {
-			writeJSON(w, http.StatusBadRequest, map[string]string{"error": "unknown or unavailable exam type"})
+		chosen, ok := []string(nil), false
+		if err := json.NewDecoder(r.Body).Decode(&body); err == nil {
+			chosen, ok = chosenTypes(types, body.ExamTypes)
+		}
+		if !ok {
+			writeJSON(w, http.StatusBadRequest, map[string]string{"error": "choose at least one available exam type"})
 			return
 		}
-		if err := profiles.SetExamType(r.Context(), id.ID, body.ExamType); err != nil {
+		body.ExamTypes = chosen
+		if err := profiles.SetExamTypes(r.Context(), id.ID, chosen); err != nil {
 			writeJSON(w, http.StatusInternalServerError, map[string]string{"error": "could not save profile"})
 			return
 		}
 		writeJSON(w, http.StatusOK, body)
 	}
+}
+
+// chosenTypes checks a choice of exam types: at least one, each available. It
+// returns them once each, in the content's order.
+func chosenTypes(types []content.ExamType, ids []string) ([]string, bool) {
+	want := map[string]bool{}
+	for _, id := range ids {
+		want[id] = true
+	}
+	out := []string{}
+	for _, t := range types {
+		if want[t.ID] {
+			if !t.Available {
+				return nil, false
+			}
+			out = append(out, t.ID)
+			delete(want, t.ID)
+		}
+	}
+	return out, len(want) == 0 && len(out) > 0
 }

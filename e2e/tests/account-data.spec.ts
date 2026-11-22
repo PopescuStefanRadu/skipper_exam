@@ -44,7 +44,7 @@ test("the export contains the account, the profile and all progress", async ({ p
   expect(file.suggestedFilename()).toBe("examen-caa-date.json");
   const data = JSON.parse(await readFile(await file.path(), "utf8"));
   expect(data.account.email).toBe(email);
-  expect(data.profile.examType).toBe("C");
+  expect(data.profile.examTypes).toEqual(["C"]);
   expect(data.roles).toEqual([]);
   expect(data.events.map((e: { id: string }) => e.id)).toEqual([eventId]);
 });
@@ -72,7 +72,7 @@ test("deleting the account removes it and all its progress", async ({ page }) =>
   await expect(page).toHaveURL("/tip-examen");
   expect((await (await page.request.get("/api/me")).json()).id).not.toBe(deletedId);
   expect(await (await page.request.get("/api/events")).json()).toEqual([]);
-  expect((await (await page.request.get("/api/profile")).json()).examType).toBe("");
+  expect((await (await page.request.get("/api/profile")).json()).examTypes).toEqual([]);
 });
 
 test("cancelling the deletion keeps the account", async ({ page }) => {

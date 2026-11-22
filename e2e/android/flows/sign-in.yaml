@@ -12,9 +12,12 @@ appId: ro.skipperexam.app
 - tapOn: "Continuă cu Google"
 - runFlow: sign-in-at-service.yaml
 - extendedWaitUntil:
-    visible: "Pentru ce examen te pregătești?"
+    visible: "Pentru ce examene te pregătești?"
     timeout: 30000
-- assertVisible: ${EMAIL}
+# The web view can expose the top bar a moment after the page.
+- extendedWaitUntil:
+    visible: ${EMAIL}
+    timeout: 15000
 - tapOn: "Clasa C"
 - scrollUntilVisible:
     element: "Salvează"

@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-22T19-10-51Z",
+  "branch": "task/multi-exam",
+  "commit": "f340b9aed265cc7a98f8be4de62a07c7133b0ce6",
+  "ci": false,
+  "suites_requested": [
+    "android"
+  ],
+  "suites": [
+    {
+      "name": "android",
+      "status": "passed",
+      "ms": 166328
+    }
+  ],
+  "result": "passed"
+}

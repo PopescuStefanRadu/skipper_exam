@@ -21,7 +21,8 @@ Not exam types:
 
 ## Behaviour
 
-- Right after signing up, or after the first sign-in of an account that has none yet, the user picks the exam type they're preparing for. Nothing else in the app is reachable until it's chosen. It can be changed at any time later. The app remembers it per account, so it follows the user across devices.
+- Right after signing up, or after the first sign-in of an account that has none yet, the user picks the exam types they're preparing for: one or several, for example Class C and Class D at the same time. Nothing else in the app is reachable until at least one is chosen. The choice can be changed at any time later. The app remembers it per account, so it follows the user across devices.
+- With several exam types, each keeps its own simulated exam (the real exams are separate), while learning covers all their questions together: a question shared between them, or two equivalent ones, counts once (see [learning and review](learning-and-review.md)).
 - An exam type is defined by:
   - which questions it draws from: question banks, filtered by subject for the difference exams;
   - the exam format: number of questions, time limit and pass mark.
@@ -29,7 +30,7 @@ Not exam types:
 - Class A and B are shown as "not available yet" until official question material exists.
 - Progress is kept per question. Questions shared between exam types (for example a COLREG question used by both Class C and the C difference exam) count toward both.
 - The exam types and their formats are content, in `content/exam-types.json`, not code. Each format records whether it's confirmed by an official source or still an assumption, and the user sees when the format is unconfirmed. Until official values are found, full exams assume 40 questions in 45 minutes and difference exams 20 questions in 30 minutes, both with an 80% pass mark. Validation checks that every available exam type has enough questions for one exam.
-- The server accepts only available exam types.
+- The server accepts only available exam types, and at least one.
 
 ## Unknowns
 
@@ -41,10 +42,12 @@ Not exam types:
 Main paths:
 - A new user picks "Class D" right after signing up. The choice is kept after a reload and on another device.
 - A user changes from "Class D" to "Class C, difference exam".
+- A user preparing for Class C and Class D at the same time chooses both. The home page offers one simulated exam per class, each with only that class's questions, and the learning page covers the subjects of both lists.
 - Once practice exists: exams and learning mode use only the chosen exam type's questions, and changing the exam type keeps the user's history.
 
 Less common paths:
 - Class A and B are listed as not available and can't be selected. The server refuses them too.
+- Saving needs at least one exam type; the server refuses an empty choice.
 - A signed-in user without an exam type is sent to choose one before anything else.
 - An exam type whose format is unconfirmed shows a visible "format not confirmed" note on the exam screen.
-- The exam type chosen on the web is the one used on Android, including offline after the next sync.
+- The exam types chosen on the web are the ones used on Android, including offline after the next sync.

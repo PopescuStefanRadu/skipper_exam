@@ -1,0 +1,41 @@
+{
+  "started": "2026-11-22T19-03-25Z",
+  "branch": "task/multi-exam",
+  "commit": "dcaaa592afd57e072a5c7aa0479b46ec2944ec70",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e",
+    "deploy",
+    "android"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1626
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 217
+    },
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 17565
+    },
+    {
+      "name": "deploy",
+      "status": "passed",
+      "ms": 58118
+    },
+    {
+      "name": "android",
+      "status": "failed",
+      "ms": 134503
+    }
+  ],
+  "result": "failed"
+}

@@ -1,0 +1,192 @@
+ Image skipper-multi-exam-5602a10d-app Building 
+ Image skipper-multi-exam-5602a10d-mock-oidc Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.15kB done
+#1 DONE 0.0s
+
+#2 [app internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [mock-oidc internal] load build definition from Dockerfile
+#3 transferring dockerfile: 412B done
+#3 DONE 0.0s
+
+#4 [app internal] load metadata for docker.io/library/node:24-alpine
+#4 DONE 0.0s
+
+#5 [mock-oidc internal] load metadata for docker.io/library/golang:1.24-alpine
+#5 DONE 0.5s
+
+#6 [app internal] load metadata for gcr.io/distroless/static-debian12:latest
+#6 DONE 0.4s
+
+#7 [mock-oidc internal] load .dockerignore
+#7 transferring context: 148B done
+#7 DONE 0.0s
+
+#8 [mock-oidc build 1/6] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#8 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#8 DONE 0.0s
+
+#9 [app stage-1 1/2] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#9 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#9 DONE 0.0s
+
+#10 [app web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#10 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#10 DONE 0.0s
+
+#11 [mock-oidc internal] load build context
+#11 transferring context: 151B done
+#11 DONE 0.0s
+
+#12 [mock-oidc build 4/6] RUN go mod download
+#12 CACHED
+
+#13 [mock-oidc build 6/6] RUN CGO_ENABLED=0 go build -o /mock-oidc ./cli/mock-oidc
+#13 CACHED
+
+#14 [mock-oidc build 2/6] WORKDIR /src
+#14 CACHED
+
+#15 [mock-oidc build 5/6] COPY cli/mock-oidc cli/mock-oidc
+#15 CACHED
+
+#16 [mock-oidc build 3/6] COPY go.mod go.sum ./
+#16 CACHED
+
+#17 [mock-oidc stage-1 2/2] COPY --from=build /mock-oidc /mock-oidc
+#17 CACHED
+
+#18 [mock-oidc] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:c3d2dca005cc3cd6e09efe866c9462168c83b4362a383f603b28a764a9ee79ff done
+#18 exporting config sha256:b9bfb11cea7203b9af293b5abd6b0dc91f946a8ecc1f50203780b0660ffa5fc2 done
+#18 exporting attestation manifest sha256:5e53c0ff99e5fe8769dca0dc0c20f86e45bea60c70cf615447a10a2eb22a47a4 done
+#18 exporting manifest list sha256:67c306a581fa06a94afa42a334876f2abc935064af6901ad2fad6c09e57005a7 done
+#18 naming to docker.io/library/skipper-multi-exam-5602a10d-mock-oidc:latest done
+#18 unpacking to docker.io/library/skipper-multi-exam-5602a10d-mock-oidc:latest done
+#18 DONE 0.1s
+
+#19 [app internal] load build context
+#19 transferring context: 26.81MB 0.1s done
+#19 DONE 0.1s
+
+#20 [mock-oidc] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [app web 7/7] RUN pnpm build
+#21 CACHED
+
+#22 [app web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#22 CACHED
+
+#23 [app stage-2 3/4] COPY --from=web /web/dist /web
+#23 CACHED
+
+#24 [app backend 6/7] COPY pkg pkg
+#24 CACHED
+
+#25 [app backend 5/7] COPY cli cli
+#25 CACHED
+
+#26 [app web 2/7] RUN corepack enable
+#26 CACHED
+
+#27 [app backend 3/7] COPY go.mod go.sum ./
+#27 CACHED
+
+#14 [app build 2/6] WORKDIR /src
+#14 CACHED
+
+#28 [app web 5/7] RUN pnpm install --frozen-lockfile
+#28 CACHED
+
+#29 [app backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#29 CACHED
+
+#30 [app stage-2 2/4] COPY --from=backend /server /server
+#30 CACHED
+
+#31 [app web 6/7] COPY web/ ./
+#31 CACHED
+
+#32 [app backend 4/7] RUN go mod download
+#32 CACHED
+
+#33 [app web 3/7] WORKDIR /web
+#33 CACHED
+
+#34 [app stage-2 4/4] COPY content /content
+#34 CACHED
+
+#35 [app] exporting to image
+#35 exporting layers done
+#35 exporting manifest sha256:1e4b54d1de524a48c3cec894b696696da9f55ee6aea739a5c897a6e3fee2147e done
+#35 exporting config sha256:42109f3db13f71bce9f8b9ed85e3dd7652c752496ca11be7ec0c803059adcaff done
+#35 exporting attestation manifest sha256:04ce444bb1d7554ca933bc0e6932670a853140bf4323ee6c1283709ca1679006 done
+#35 exporting manifest list sha256:0a6b93defacaf24dd945272db3b3abaf9ad6cd26c9d41cd4be450cbc24c048d5 done
+#35 naming to docker.io/library/skipper-multi-exam-5602a10d-app:latest done
+#35 unpacking to docker.io/library/skipper-multi-exam-5602a10d-app:latest done
+#35 DONE 0.1s
+
+#36 [app] resolving provenance for metadata file
+#36 DONE 0.0s
+ Image skipper-multi-exam-5602a10d-app Built 
+ Image skipper-multi-exam-5602a10d-mock-oidc Built 
+ Container skipper-multi-exam-5602a10d-db-1 Running 
+ Container skipper-multi-exam-5602a10d-app-1 Recreate 
+ Container skipper-multi-exam-5602a10d-app-1 Recreated 
+ Container skipper-multi-exam-5602a10d-mock-oidc-1 Recreate 
+ Container skipper-multi-exam-5602a10d-mock-oidc-1 Recreated 
+ Container skipper-multi-exam-5602a10d-db-1 Waiting 
+ Container skipper-multi-exam-5602a10d-db-1 Healthy 
+ Container skipper-multi-exam-5602a10d-app-1 Starting 
+ Container skipper-multi-exam-5602a10d-app-1 Started 
+ Container skipper-multi-exam-5602a10d-mock-oidc-1 Starting 
+ Container skipper-multi-exam-5602a10d-mock-oidc-1 Started 
+ Container skipper-multi-exam-5602a10d-db-1 Waiting 
+ Container skipper-multi-exam-5602a10d-app-1 Waiting 
+ Container skipper-multi-exam-5602a10d-mock-oidc-1 Waiting 
+ Container skipper-multi-exam-5602a10d-mock-oidc-1 Healthy 
+ Container skipper-multi-exam-5602a10d-db-1 Healthy 
+ Container skipper-multi-exam-5602a10d-app-1 Healthy 
+STACK_PROJECT=skipper-multi-exam-5602a10d
+APP_URL=http://127.0.0.1:57899
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32769/skipper_exam
+MOCK_OIDC_URL=http://127.0.0.1:46945
+building the app for http://127.0.0.1:57899
+vite v6.0.7 building for production...
+transforming...
+✓ 57 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.40 kB │ gzip:  0.27 kB
+dist/assets/index-M5OWSLfO.css   10.76 kB │ gzip:  3.00 kB
+dist/assets/web-BwFiKdCS.js       0.38 kB │ gzip:  0.25 kB
+dist/assets/web-Cj4pRgcd.js       0.84 kB │ gzip:  0.40 kB
+dist/assets/index-DTZaUntA.js   213.87 kB │ gzip: 69.29 kB
+✓ built in 429ms
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+built web/android/app/build/outputs/apk/debug/app-debug.apk
+starting the emulator
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+== flow sign-in
+
+Waiting for flows to complete...
+[Failed] sign-in (56s) (Assertion is false: "Pentru ce examen te pregătești?" is visible)
+
+1/1 Flow Failed
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                │
+│   Debug tests faster by easy access to test recordings, maestro logs, screenshots, and more.   │
+│                                                                                                │
+│   Run your flows on Maestro Cloud:                                                             │
+│   maestro cloud app_file flows_folder/                                                         │
+│                                                                                                │
+╰────────────────────────────────────────────────────────────────────────────────────────────────╯
+

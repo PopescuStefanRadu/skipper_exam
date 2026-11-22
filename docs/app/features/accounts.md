@@ -7,7 +7,7 @@
 - Accounts are identified by the sign-in service's user ID, not by email. If someone's Google email changes, the app shows the new one at the next sign-in and keeps the progress.
 - After the sign-in service confirms who you are, the app keeps its own session for you. It lasts a year from the last time you used the app, so the Android app stays signed in and opens offline for months. The sign-in service only needs to be reachable when you sign in.
 - If the sign-in is cancelled or fails, you're back on the sign-in page with "Autentificarea nu a reușit. Încearcă din nou."
-- **Sign out** ends the session on the server, on the website and in the app.
+- **Sign out** ("Ieșire din cont") ends the session on the server, on the website and in the app, and then the esrp.ro session at the sign-in service too, so the next "Continuă cu Google" asks again who you are instead of signing you straight back in. The browser goes to the sign-in service's sign-out address, taken from its discovery document (Authentik then shows esrp.ro, signed out). On Android the app goes back to its sign-in page and opens that address in the phone's browser, where the esrp.ro session lives. Without a sign-out address from the sign-in service, the website goes back to its sign-in page.
 - **Roles:** everyone starts as a regular user. Some accounts have the **reviewer** role, which unlocks reviewing explanations (see [Explanations](explanations.md)). Roles are assigned by an administrator, not chosen by the user: `make grant-reviewer EMAIL=...` in a stack, or the server's `grant-role` command in production. More benefits for subscribers will come later, as further roles.
 - At sign-up you choose your [exam types](exam-types.md).
 - Users are in the EU, so you can export your data and delete your account along with all your progress. Both are on the **Contul meu** page, linked from your email in the top bar:
@@ -21,7 +21,7 @@
 The e2e environment uses a fake sign-in service in place of Authentik and Google: a mock OpenID Connect server where a test chooses who signs in.
 
 Main paths:
-- The first sign-in creates the account. The user stays signed in after a reload, then signs out.
+- The first sign-in creates the account. The user stays signed in after a reload, then signs out, which also takes the browser to the sign-in service's sign-out page.
 - Signing in on another device opens the same account.
 - Deleting an account removes all its progress, and the next sign-in with the same identity starts with no progress.
 - A data export contains the account, the profile and all the user's progress.
@@ -33,3 +33,4 @@ Less common paths:
 - One user never sees another user's progress.
 - Deleting stays disabled until the typed email matches the account's; going back keeps the account.
 - A session that was signed out no longer works, for the website's cookie and for the app's token.
+- When the sign-in service has no sign-out address, signing out goes back to the app's sign-in page.

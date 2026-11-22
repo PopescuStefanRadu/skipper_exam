@@ -31,7 +31,18 @@ export async function finishAppSignIn(returnedUrl: string): Promise<boolean> {
 }
 
 // Ends the session on the server too; offline, the device forgets it anyway.
-export async function signOut(): Promise<void> {
-  await apiFetch("/auth/logout", { method: "POST" }).catch(() => undefined);
+// Returns the sign-in service's sign-out page, where the esrp.ro session ends,
+// or "" when there is none (or the server couldn't be reached).
+export async function signOut(): Promise<string> {
+  const res = await apiFetch("/auth/logout", { method: "POST" }).catch(() => null);
   setSessionToken(undefined);
+  const body = res?.ok ? ((await res.json().catch(() => ({}))) as { endSessionUrl?: string }) : {};
+  return body.endSessionUrl ?? "";
+}
+
+// Ends the esrp.ro session at the sign-in service: the website goes to its
+// sign-out page; the app opens it in the browser, where that session lives.
+export async function endServiceSession(url: string): Promise<void> {
+  if (isApp) await Browser.open({ url });
+  else window.location.assign(url);
 }

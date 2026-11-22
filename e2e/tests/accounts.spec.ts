@@ -11,6 +11,21 @@ test("the first sign-in creates the account; it stays signed in after a reload, 
   await page.reload();
   await expectSignedInAs(page, email);
 
+  // Signing out ends the sign-in service's session too, at its sign-out page.
+  await page.getByRole("button", { name: "Ieșire din cont" }).click();
+  await expect(page).toHaveURL(/\/default\/end-session$/);
+  await expect(page.getByRole("heading", { name: "Signed out" })).toBeVisible();
+  await page.goto("/");
+  await expect(page).toHaveURL("/autentificare");
+});
+
+test("without a sign-out address from the sign-in service, signing out returns to the sign-in page", async ({ page }) => {
+  await signIn(page);
+  await expect(page).toHaveURL("/tip-examen");
+  await page.route("**/auth/logout", async (route) => {
+    const res = await route.fetch();
+    await route.fulfill({ response: res, json: { endSessionUrl: "" } });
+  });
   await page.getByRole("button", { name: "Ieșire din cont" }).click();
   await expect(page).toHaveURL("/autentificare");
   await page.goto("/");
@@ -103,11 +118,12 @@ test("a signed-out session no longer works, as a cookie or as an app token", asy
   const session = cookies.find((c) => c.name === "skipper_session")!;
   expect(session.httpOnly).toBe(true);
 
+  const app = new URL(page.url()).origin;
   await page.getByRole("button", { name: "Ieșire din cont" }).click();
-  await expect(page).toHaveURL("/autentificare");
+  await expect(page.getByRole("heading", { name: "Signed out" })).toBeVisible();
 
   // The old cookie value, replayed, and the same value sent as an app token.
-  const replay = await playwright.request.newContext({ baseURL: page.url() });
+  const replay = await playwright.request.newContext({ baseURL: app });
   expect((await replay.get("/api/me", { headers: { Cookie: `skipper_session=${session.value}` } })).status()).toBe(401);
   expect((await replay.get("/api/me", { headers: { "X-Session-Token": session.value } })).status()).toBe(401);
   await replay.dispose();

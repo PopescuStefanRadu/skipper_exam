@@ -56,6 +56,8 @@ type AuthStore interface {
 type SignInService interface {
 	AuthURL(ctx context.Context, state, nonce, verifier string) (string, error)
 	Exchange(ctx context.Context, code, verifier, nonce string) (auth.Claims, error)
+	// EndSessionURL is where the browser ends its session at the service, or "".
+	EndSessionURL(ctx context.Context) (string, error)
 }
 
 // Auth signs users in and resolves their sessions.
@@ -220,7 +222,9 @@ func (a *Auth) appToken(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, http.StatusOK, map[string]string{"sessionToken": token})
 }
 
-// logout ends the request's session: POST /auth/logout.
+// logout ends the request's session: POST /auth/logout. It answers with the sign-in
+// service's sign-out page, where the device goes next to end the esrp.ro session
+// too; it's empty when the service has none or can't be reached.
 func (a *Auth) logout(w http.ResponseWriter, r *http.Request) {
 	if token := sessionToken(r); token != "" {
 		if err := a.Store.DeleteSession(r.Context(), token); err != nil {
@@ -230,7 +234,11 @@ func (a *Auth) logout(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	a.clearCookie(w)
-	w.WriteHeader(http.StatusNoContent)
+	endSession, err := a.Service.EndSessionURL(r.Context())
+	if err != nil {
+		slog.Warn("sign out: no sign-out page from the sign-in service", "err", err)
+	}
+	writeJSON(w, http.StatusOK, map[string]string{"endSessionUrl": endSession})
 }
 
 func me(sessions Sessions, reviews Reviews, a *Auth) http.HandlerFunc {

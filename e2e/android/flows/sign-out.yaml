@@ -1,9 +1,16 @@
+# Signing out ends the app's session, then opens the sign-in service's sign-out
+# page in the browser, where the esrp.ro session ends too.
 appId: ro.skipperexam.app
 ---
 - scrollUntilVisible:
     element: "Ieșire din cont"
     direction: UP
 - tapOn: "Ieșire din cont"
+- extendedWaitUntil:
+    visible: "Signed out"
+    timeout: 20000
+- takeScreenshot: 07-signed-out-of-service
+- back
 - extendedWaitUntil:
     visible: "Autentificare"
     timeout: 20000

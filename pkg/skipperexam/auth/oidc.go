@@ -20,9 +20,10 @@ type Provider struct {
 	// RedirectURL is the app's /auth/callback.
 	RedirectURL string
 
-	mu       sync.Mutex
-	config   *oauth2.Config
-	verifier *oidc.IDTokenVerifier
+	mu         sync.Mutex
+	config     *oauth2.Config
+	verifier   *oidc.IDTokenVerifier
+	endSession string
 }
 
 // Claims is who the sign-in service says signed in.
@@ -47,6 +48,13 @@ func (p *Provider) load(ctx context.Context) (*oauth2.Config, *oidc.IDTokenVerif
 			Scopes:       []string{oidc.ScopeOpenID, "email", "profile"},
 		}
 		p.verifier = provider.Verifier(&oidc.Config{ClientID: p.ClientID})
+		var extra struct {
+			EndSession string `json:"end_session_endpoint"`
+		}
+		if err := provider.Claims(&extra); err != nil {
+			return nil, nil, fmt.Errorf("sign-in service discovery: %w", err)
+		}
+		p.endSession = extra.EndSession
 	}
 	return p.config, p.verifier, nil
 }
@@ -58,6 +66,15 @@ func (p *Provider) AuthURL(ctx context.Context, state, nonce, verifier string) (
 		return "", err
 	}
 	return config.AuthCodeURL(state, oidc.Nonce(nonce), oauth2.S256ChallengeOption(verifier)), nil
+}
+
+// EndSessionURL is the sign-in service's sign-out page (RP-initiated logout), or
+// "" when its discovery document names none.
+func (p *Provider) EndSessionURL(ctx context.Context) (string, error) {
+	if _, _, err := p.load(ctx); err != nil {
+		return "", err
+	}
+	return p.endSession, nil
 }
 
 // Exchange trades the code the sign-in service returned for the user's identity,

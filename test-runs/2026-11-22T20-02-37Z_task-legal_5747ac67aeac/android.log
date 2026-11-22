@@ -1,0 +1,214 @@
+ Image skipper-legal-ed858371-mock-oidc Building 
+ Image skipper-legal-ed858371-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.11kB done
+#1 DONE 0.0s
+
+#2 [app internal] load build definition from Dockerfile
+#2 transferring dockerfile: 618B done
+#2 DONE 0.0s
+
+#3 [mock-oidc internal] load build definition from Dockerfile
+#3 transferring dockerfile: 412B done
+#3 DONE 0.0s
+
+#4 [app internal] load metadata for docker.io/library/node:24-alpine
+#4 DONE 0.0s
+
+#5 [mock-oidc internal] load metadata for docker.io/library/golang:1.24-alpine
+#5 DONE 0.5s
+
+#6 [mock-oidc internal] load metadata for gcr.io/distroless/static-debian12:latest
+#6 DONE 0.5s
+
+#7 [mock-oidc internal] load .dockerignore
+#7 transferring context: 148B done
+#7 DONE 0.0s
+
+#8 [app stage-1 1/2] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#8 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#8 DONE 0.0s
+
+#9 [app web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#9 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#9 DONE 0.0s
+
+#10 [app build 1/6] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#10 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#10 DONE 0.0s
+
+#11 [mock-oidc internal] load build context
+#11 transferring context: 151B done
+#11 DONE 0.0s
+
+#12 [mock-oidc build 2/6] WORKDIR /src
+#12 CACHED
+
+#13 [mock-oidc build 4/6] RUN go mod download
+#13 CACHED
+
+#14 [mock-oidc build 5/6] COPY cli/mock-oidc cli/mock-oidc
+#14 CACHED
+
+#15 [mock-oidc build 3/6] COPY go.mod go.sum ./
+#15 CACHED
+
+#16 [mock-oidc build 6/6] RUN CGO_ENABLED=0 go build -o /mock-oidc ./cli/mock-oidc
+#16 CACHED
+
+#17 [mock-oidc stage-1 2/2] COPY --from=build /mock-oidc /mock-oidc
+#17 CACHED
+
+#18 [mock-oidc] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:e8bb24a8052aa8888c728f5a144e775c5a50a14466bff57e39d8d61b7a1214a0 done
+#18 exporting config sha256:59c66f265793679d00beb07987c0a4a5d02afa71782a934539df97f1cf1d2b85 done
+#18 exporting attestation manifest sha256:fa327f3c9921dcc8aef833da6725e83e8cb14fc98809379cdeaa88db2082609b done
+#18 exporting manifest list sha256:ad2210c6db75586549bacf5ef9045ae8e8b10a32ee73a0a18e410a075c84ea95 done
+#18 naming to docker.io/library/skipper-legal-ed858371-mock-oidc:latest
+#18 naming to docker.io/library/skipper-legal-ed858371-mock-oidc:latest done
+#18 unpacking to docker.io/library/skipper-legal-ed858371-mock-oidc:latest done
+#18 DONE 0.1s
+
+#19 [app internal] load build context
+#19 transferring context: 26.83MB 0.1s done
+#19 DONE 0.1s
+
+#20 [app web 5/7] RUN pnpm install --frozen-lockfile
+#20 CACHED
+
+#21 [app stage-2 3/4] COPY --from=web /web/dist /web
+#21 CACHED
+
+#22 [app backend 6/7] COPY pkg pkg
+#22 CACHED
+
+#23 [app stage-2 2/4] COPY --from=backend /server /server
+#23 CACHED
+
+#24 [app web 7/7] RUN pnpm build
+#24 CACHED
+
+#12 [app build 2/6] WORKDIR /src
+#12 CACHED
+
+#25 [app backend 4/7] RUN go mod download
+#25 CACHED
+
+#26 [app backend 5/7] COPY cli cli
+#26 CACHED
+
+#27 [app web 6/7] COPY web/ ./
+#27 CACHED
+
+#28 [app web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#28 CACHED
+
+#29 [app web 2/7] RUN corepack enable
+#29 CACHED
+
+#30 [app web 3/7] WORKDIR /web
+#30 CACHED
+
+#31 [app backend 3/7] COPY go.mod go.sum ./
+#31 CACHED
+
+#32 [app backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#32 CACHED
+
+#33 [app stage-2 4/4] COPY content /content
+#33 CACHED
+
+#34 [mock-oidc] resolving provenance for metadata file
+#34 DONE 0.0s
+
+#35 [app] exporting to image
+#35 exporting layers done
+#35 exporting manifest sha256:d4ac3549adb4b7b3043048162cd4a82c497501f92d1f41e94330378e5f086688 done
+#35 exporting config sha256:8359a5a9eee95e1b7db92200e332ab6d8a65dd23bb69de5967bd531a4672f8d7 done
+#35 exporting attestation manifest sha256:9297d870e73c95991bb88ff502e2803b47a51cadef7d71db7eee671db203d7bf done
+#35 exporting manifest list sha256:c3a560c36503b2889dca2fd9410bbf906bd5726479693ccc9ddf78cfc02d9124 done
+#35 naming to docker.io/library/skipper-legal-ed858371-app:latest done
+#35 unpacking to docker.io/library/skipper-legal-ed858371-app:latest done
+#35 DONE 0.1s
+
+#36 [app] resolving provenance for metadata file
+#36 DONE 0.0s
+ Image skipper-legal-ed858371-app Built 
+ Image skipper-legal-ed858371-mock-oidc Built 
+ Container skipper-legal-ed858371-db-1 Running 
+ Container skipper-legal-ed858371-app-1 Recreate 
+ Container skipper-legal-ed858371-app-1 Recreated 
+ Container skipper-legal-ed858371-mock-oidc-1 Recreate 
+ Container skipper-legal-ed858371-mock-oidc-1 Recreated 
+ Container skipper-legal-ed858371-db-1 Waiting 
+ Container skipper-legal-ed858371-db-1 Healthy 
+ Container skipper-legal-ed858371-app-1 Starting 
+ Container skipper-legal-ed858371-app-1 Started 
+ Container skipper-legal-ed858371-mock-oidc-1 Starting 
+ Container skipper-legal-ed858371-mock-oidc-1 Started 
+ Container skipper-legal-ed858371-db-1 Waiting 
+ Container skipper-legal-ed858371-app-1 Waiting 
+ Container skipper-legal-ed858371-mock-oidc-1 Waiting 
+ Container skipper-legal-ed858371-mock-oidc-1 Healthy 
+ Container skipper-legal-ed858371-db-1 Healthy 
+ Container skipper-legal-ed858371-app-1 Healthy 
+STACK_PROJECT=skipper-legal-ed858371
+APP_URL=http://127.0.0.1:39517
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32771/skipper_exam
+MOCK_OIDC_URL=http://127.0.0.1:59247
+building the app for http://127.0.0.1:39517
+vite v6.0.7 building for production...
+transforming...
+✓ 58 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.40 kB │ gzip:  0.27 kB
+dist/assets/index-CQUF-DL3.css   10.96 kB │ gzip:  3.06 kB
+dist/assets/web-teXpGAdV.js       0.38 kB │ gzip:  0.25 kB
+dist/assets/web-BKgozh-D.js       0.84 kB │ gzip:  0.40 kB
+dist/assets/index-BtOf9cl0.js   220.99 kB │ gzip: 72.29 kB
+✓ built in 440ms
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+built web/android/app/build/outputs/apk/debug/app-debug.apk
+starting the emulator
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+== flow sign-in
+
+Waiting for flows to complete...
+[Passed] sign-in (31s)
+
+1/1 Flow Passed in 31s
+
+== flow offline-exam
+
+Waiting for flows to complete...
+[Passed] offline-exam (13s)
+
+1/1 Flow Passed in 13s
+
+== flow back-online
+
+Waiting for flows to complete...
+[Passed] back-online (4s)
+
+1/1 Flow Passed in 4s
+
+== checking the server received the offline exam
+server has 1 submitted exam(s)
+== flow sign-out
+
+Waiting for flows to complete...
+[Passed] sign-out (5s)
+
+1/1 Flow Passed in 5s
+
+== flow sign-in-again
+
+Waiting for flows to complete...
+[Passed] sign-in-again (21s)
+
+1/1 Flow Passed in 21s
+

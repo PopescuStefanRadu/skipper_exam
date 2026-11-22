@@ -1,0 +1,23 @@
+{
+  "started": "2026-11-22T20-38-22Z",
+  "branch": "task/privacy-retention",
+  "commit": "52f65e70ada53efce61277d791d106b82c4a48bf",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1949
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 1055
+    }
+  ],
+  "result": "passed"
+}

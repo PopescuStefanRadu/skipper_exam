@@ -215,7 +215,8 @@ export const strings = {
               "Sesiunea: un cod aleator care te ține conectat, păstrat pe server doar ca amprentă (hash), într-un cookie strict necesar (skipper_session). Nu folosim cookie-uri de analiză sau de publicitate și nu te urmărim pe alte site-uri.",
               "Pe dispozitivul tău: contul, întrebările și progresul care încă nu a ajuns pe server, în memoria browserului sau a aplicației, ca aplicația să meargă și fără internet.",
             ],
-            "Serverul care găzduiește aplicația poate păstra jurnale tehnice (de exemplu adresa IP și ora unei cereri) pentru securitate și funcționare, pentru o perioadă limitată.",
+            "Serviciul de autentificare esrp.ro păstrează evidența autentificărilor: când ai intrat, adresa IP și localitatea aproximativă.",
+            "Serverele care găzduiesc aplicația și serviciul de autentificare păstrează jurnale tehnice, care pot conține adresa IP, pentru securitate și funcționare. Aplicația însăși nu înregistrează adrese IP.",
           ],
         },
         {
@@ -232,13 +233,20 @@ export const strings = {
           title: "Unde sunt și cine le vede",
           body: [
             "Datele sunt păstrate pe servere aflate în România. Nu le transmitem altor firme.",
+            "Autentificarea se face prin serviciul esrp.ro (auth.esrp.ro), descris în politica de confidențialitate esrp.ro: https://esrp.ro/privacy.",
             "Când intri cu Google, Google îți confirmă identitatea ca operator separat, după propria politică de confidențialitate (policies.google.com/privacy).",
           ],
         },
         {
           title: "Cât timp le păstrăm",
           body: [
-            "Cât timp ai cont. Dacă îți ștergi contul, datele se șterg imediat; din copiile de siguranță zilnice dispar în cel mult 14 zile. Deciziile recenzenților despre explicații rămân, pentru că de ele depind explicațiile pe care le văd toți, dar nu mai sunt legate de cont.",
+            [
+              "Contul și progresul: cât timp ai cont. Dacă îți ștergi contul, se șterg imediat.",
+              "Evidența autentificărilor la serviciul esrp.ro: 90 de zile.",
+              "Jurnalele tehnice ale serverelor: cel mult 7 zile.",
+              "Copiile de siguranță: se fac în fiecare noapte și se păstrează 14 zile, așa că datele șterse dispar și din ele în cel mult 14 zile.",
+            ],
+            "Deciziile recenzenților despre explicații rămân și după ștergerea contului, pentru că de ele depind explicațiile pe care le văd toți, dar nu mai sunt legate de cont.",
           ],
         },
         {

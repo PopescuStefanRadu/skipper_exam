@@ -15,6 +15,9 @@ test("signed out, the sign-in page links to the privacy policy and the terms", a
   await expect(page.getByRole("heading", { name: "Politica de confidențialitate" })).toBeVisible();
   await expectOperator(page);
   await expect(page.getByText("ANSPDCP").first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "esrp.ro/privacy" })).toHaveAttribute("href", "https://esrp.ro/privacy");
+  await expect(page.getByText("Evidența autentificărilor la serviciul esrp.ro: 90 de zile.")).toBeVisible();
+  await expect(page.getByText("Jurnalele tehnice ale serverelor: cel mult 7 zile.")).toBeVisible();
 
   await page.getByRole("link", { name: "Termeni", exact: true }).click();
   await expect(page).toHaveURL("/termeni");

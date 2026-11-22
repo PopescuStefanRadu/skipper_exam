@@ -9,14 +9,14 @@
   - what the user does: the chosen exam types, answers in learning mode and in exams (with their time), and, for reviewers, their review decisions;
   - the session: a random token, kept only as a hash on the server, in a cookie that is strictly necessary (`skipper_session`); no analytics or advertising cookies, no trackers;
   - on the device: the account, the content and the progress waiting to sync, in the browser's or the app's local storage.
-  It also gives the purposes and legal bases (providing the service, contract; security, legitimate interest), where the data is stored (servers in Romania), who receives it (nobody else; Google signs you in as a controller of its own), how long it's kept (until the account is deleted; nightly backups disappear within 14 days after that), and the user's rights, with the export and deletion on the "Contul meu" page and the right to complain to ANSPDCP.
+  It also covers what the esrp.ro sign-in service keeps (a record of sign-ins with IP address and approximate city) and the servers' technical logs (which can contain IP addresses; the app itself logs none), linking to esrp.ro's own policy (https://esrp.ro/privacy), which links back. It gives the purposes and legal bases (providing the service, contract; security, legitimate interest), where the data is stored (servers in Romania), who receives it (nobody else; Google signs you in as a controller of its own), how long it's kept (the account and progress until deleted; sign-in records 90 days; technical logs at most 7 days; nightly backups kept 14 days, so deleted data leaves them within 14 days; these periods are set on the esrp.ro servers and must be updated here if they change), and the user's rights, with the export and deletion on the "Contul meu" page and the right to complain to ANSPDCP.
 - The terms say the app is a free study aid, not affiliated with ANR or RNA; the questions come from the lists RNA publishes, which are only part of the exam questions; explanations can contain mistakes, and passing the simulated exams doesn't guarantee passing the real one. They cover the account (one per person, through Google), acceptable use, liability, changes to the terms, Romanian law, and the contact address.
 - Each page shows the date it was last updated.
 
 ## E2E scenarios
 
 Main paths:
-- Signed out, the sign-in page links to the privacy policy and the terms; both open without an account and name SRP HYPERPLAY S.R.L. with its CUI and the contact address.
+- Signed out, the sign-in page links to the privacy policy and the terms; both open without an account and name SRP HYPERPLAY S.R.L. with its CUI and the contact address. The privacy policy gives the retention periods and links to esrp.ro's policy for the sign-in service.
 - Signed in, the footer links to both pages too, and the user can go back to the app from them.
 
 Less common paths:

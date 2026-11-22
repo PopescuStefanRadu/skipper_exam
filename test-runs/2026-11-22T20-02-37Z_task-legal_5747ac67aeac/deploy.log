@@ -1,0 +1,139 @@
+== building images
+== starting at http://127.0.0.1:33605
+ Image skipper-exam-deploytest-ed858371-mock-oidc Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 641B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 412B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24-alpine
+#3 DONE 0.2s
+
+#4 [internal] load metadata for gcr.io/distroless/static-debian12:latest
+#4 DONE 0.3s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 148B done
+#5 DONE 0.0s
+
+#6 [build 1/6] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#6 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#6 DONE 0.0s
+
+#7 [stage-1 1/2] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#7 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#7 DONE 0.0s
+
+#8 [internal] load build context
+#8 transferring context: 151B done
+#8 DONE 0.0s
+
+#9 [build 4/6] RUN go mod download
+#9 CACHED
+
+#10 [build 5/6] COPY cli/mock-oidc cli/mock-oidc
+#10 CACHED
+
+#11 [build 6/6] RUN CGO_ENABLED=0 go build -o /mock-oidc ./cli/mock-oidc
+#11 CACHED
+
+#12 [build 2/6] WORKDIR /src
+#12 CACHED
+
+#13 [build 3/6] COPY go.mod go.sum ./
+#13 CACHED
+
+#14 [stage-1 2/2] COPY --from=build /mock-oidc /mock-oidc
+#14 CACHED
+
+#15 exporting to image
+#15 exporting layers done
+#15 exporting manifest sha256:6ea7ba62a727ccf0cb5c7a4b1a872b387478acba4e7ed223f3b3ad6207b033ce done
+#15 exporting config sha256:b2ae9f9b2b0cd3ed1d71ffa610961303d080b4a4ca5bd2f331e382c7e7c7aee2 done
+#15 exporting attestation manifest sha256:87d2dffb8817d0d161527c83dcd82e54ee85c785ee6b3cf4fb6ab3c46d8175ec 0.0s done
+#15 exporting manifest list sha256:96cfd3e8a6479d91172c4d58d0a7d8cef13acbad14e81e579b2e6f9f1ed9a0a5 done
+#15 naming to docker.io/library/skipper-exam-deploytest-ed858371-mock-oidc:latest done
+#15 unpacking to docker.io/library/skipper-exam-deploytest-ed858371-mock-oidc:latest done
+#15 DONE 0.1s
+
+#16 resolving provenance for metadata file
+#16 DONE 0.0s
+ Image skipper-exam-deploytest-ed858371-mock-oidc Built 
+ Network skipper-exam-deploytest-ed858371_default Creating 
+ Network skipper-exam-deploytest-ed858371_default Created 
+ Volume skipper-exam-deploytest-ed858371_db Creating 
+ Volume skipper-exam-deploytest-ed858371_db Created 
+ Container skipper-exam-deploytest-ed858371-db-1 Creating 
+ Container skipper-exam-deploytest-ed858371-db-1 Created 
+ Container skipper-exam-deploytest-ed858371-app-1 Creating 
+ Container skipper-exam-deploytest-ed858371-backup-1 Creating 
+ Container skipper-exam-deploytest-ed858371-backup-1 Created 
+ Container skipper-exam-deploytest-ed858371-app-1 Created 
+ Container skipper-exam-deploytest-ed858371-mock-oidc-1 Creating 
+ Container skipper-exam-deploytest-ed858371-mock-oidc-1 Created 
+ Container skipper-exam-deploytest-ed858371-db-1 Starting 
+ Container skipper-exam-deploytest-ed858371-db-1 Started 
+ Container skipper-exam-deploytest-ed858371-db-1 Waiting 
+ Container skipper-exam-deploytest-ed858371-db-1 Waiting 
+ Container skipper-exam-deploytest-ed858371-db-1 Healthy 
+ Container skipper-exam-deploytest-ed858371-backup-1 Starting 
+ Container skipper-exam-deploytest-ed858371-db-1 Healthy 
+ Container skipper-exam-deploytest-ed858371-app-1 Starting 
+ Container skipper-exam-deploytest-ed858371-backup-1 Started 
+ Container skipper-exam-deploytest-ed858371-app-1 Started 
+ Container skipper-exam-deploytest-ed858371-mock-oidc-1 Starting 
+ Container skipper-exam-deploytest-ed858371-mock-oidc-1 Started 
+ Container skipper-exam-deploytest-ed858371-app-1 Waiting 
+ Container skipper-exam-deploytest-ed858371-backup-1 Waiting 
+ Container skipper-exam-deploytest-ed858371-mock-oidc-1 Waiting 
+ Container skipper-exam-deploytest-ed858371-db-1 Waiting 
+ Container skipper-exam-deploytest-ed858371-backup-1 Healthy 
+ Container skipper-exam-deploytest-ed858371-mock-oidc-1 Healthy 
+ Container skipper-exam-deploytest-ed858371-db-1 Healthy 
+ Container skipper-exam-deploytest-ed858371-app-1 Healthy 
+== sign in and record progress (session token, as the Android app does)
+== backup
+backup: /backups/2026-11-22
+== wipe the data, then restore 2026-11-22
+ Volume skipper-exam-deploytest-ed858371_db Creating 
+ Volume skipper-exam-deploytest-ed858371_db Created 
+ Container skipper-exam-deploytest-ed858371-db-1 Creating 
+ Container skipper-exam-deploytest-ed858371-db-1 Created 
+ Container skipper-exam-deploytest-ed858371-db-1 Starting 
+ Container skipper-exam-deploytest-ed858371-db-1 Started 
+ Container skipper-exam-deploytest-ed858371-db-1 Waiting 
+ Container skipper-exam-deploytest-ed858371-db-1 Healthy 
+ Container skipper-exam-deploytest-ed858371-backup-run-e10a01c37cdc Creating 
+ Container skipper-exam-deploytest-ed858371-backup-run-e10a01c37cdc Created 
+restored /backups/2026-11-22
+ Container skipper-exam-deploytest-ed858371-db-1 Running 
+ Container skipper-exam-deploytest-ed858371-app-1 Creating 
+ Container skipper-exam-deploytest-ed858371-backup-1 Creating 
+ Container skipper-exam-deploytest-ed858371-app-1 Created 
+ Container skipper-exam-deploytest-ed858371-mock-oidc-1 Creating 
+ Container skipper-exam-deploytest-ed858371-backup-1 Created 
+ Container skipper-exam-deploytest-ed858371-mock-oidc-1 Created 
+ Container skipper-exam-deploytest-ed858371-db-1 Waiting 
+ Container skipper-exam-deploytest-ed858371-db-1 Waiting 
+ Container skipper-exam-deploytest-ed858371-db-1 Healthy 
+ Container skipper-exam-deploytest-ed858371-db-1 Healthy 
+ Container skipper-exam-deploytest-ed858371-backup-1 Starting 
+ Container skipper-exam-deploytest-ed858371-app-1 Starting 
+ Container skipper-exam-deploytest-ed858371-backup-1 Started 
+ Container skipper-exam-deploytest-ed858371-app-1 Started 
+ Container skipper-exam-deploytest-ed858371-mock-oidc-1 Starting 
+ Container skipper-exam-deploytest-ed858371-mock-oidc-1 Started 
+ Container skipper-exam-deploytest-ed858371-db-1 Waiting 
+ Container skipper-exam-deploytest-ed858371-app-1 Waiting 
+ Container skipper-exam-deploytest-ed858371-backup-1 Waiting 
+ Container skipper-exam-deploytest-ed858371-mock-oidc-1 Waiting 
+ Container skipper-exam-deploytest-ed858371-backup-1 Healthy 
+ Container skipper-exam-deploytest-ed858371-mock-oidc-1 Healthy 
+ Container skipper-exam-deploytest-ed858371-db-1 Healthy 
+ Container skipper-exam-deploytest-ed858371-app-1 Healthy 
+== the account and its progress are back
+== account deletion
+deploy test passed

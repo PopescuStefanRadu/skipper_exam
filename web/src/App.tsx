@@ -16,6 +16,7 @@ import { endServiceSession, finishAppSignIn, signOut, startSignIn } from "./sign
 import { appReturnUrl, isApp } from "./platform";
 import { ResultPage } from "./ResultPage";
 import { LegalLinks, LegalPage } from "./LegalPage";
+import { ProgressPage } from "./ProgressPage";
 import { ServerStatus } from "./ServerStatus";
 import { uuid } from "./storage";
 import { forgetSession, SessionProvider, useSession } from "./session";
@@ -77,6 +78,16 @@ export function App() {
               element={
                 <RequireSession>
                   <ResultPage />
+                </RequireSession>
+              }
+            />
+            <Route
+              path="/progres"
+              element={
+                <RequireSession>
+                  <RequireExamType>
+                    <ProgressPage />
+                  </RequireExamType>
                 </RequireSession>
               }
             />
@@ -375,9 +386,14 @@ function Home() {
             </div>
           </div>
         )}
-        <Link to="/invatare" className="button primary">
-          {strings.home.openLearning}
-        </Link>
+        <div className="actions">
+          <Link to="/invatare" className="button primary">
+            {strings.home.openLearning}
+          </Link>
+          <Link to="/progres" className="button">
+            {strings.home.openProgress}
+          </Link>
+        </div>
       </div>
     </section>
   );

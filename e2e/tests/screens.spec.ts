@@ -5,6 +5,7 @@ import { expect, test, type Page } from "@playwright/test";
 import {
   answer,
   contentPackage,
+  recordExam,
   setExamType,
   signIn,
   startExam,
@@ -182,6 +183,26 @@ test("learning", async ({ page }) => {
   }
   await expect(page.getByTestId("session-score")).toBeVisible();
   await screenshot(page, "28-mistakes-done");
+});
+
+test("history and statistics", async ({ page }) => {
+  const pkg = await contentPackage(page);
+  await signIn(page);
+  await expect(page).toHaveURL("/tip-examen");
+  await setExamType(page, "C", "D");
+  const scores = [22, 27, 30, 29, 33, 31, 35, 37];
+  for (const [i, correct] of scores.entries()) {
+    const start = new Date(Date.now() - (scores.length - i) * 86_400_000);
+    await recordExam(page, pkg, { examType: i % 2 ? "C" : "D", correct, start, minutes: 18 + i });
+  }
+  await page.goto("/invatare/colreg");
+  for (let i = 0; i < 4; i++) {
+    await answer(page, pkg, i !== 1);
+    await page.getByRole("button", { name: "Next" }).click();
+  }
+  await page.goto("/progres");
+  await expect(page.getByTestId("attempt")).toHaveCount(scores.length);
+  await screenshot(page, "36-progress");
 });
 
 test("dark mode", async ({ page }) => {

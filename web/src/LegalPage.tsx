@@ -7,11 +7,16 @@ const s = strings.legal;
 // A paragraph's text, with the contact address and the privacy policy's name as links.
 function rich(text: string): ReactNode {
   const escape = (t: string) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const parts = text.split(new RegExp(`(${escape(s.company.email)}|${escape(s.privacy.title)})`));
+  const esrp = "https://esrp.ro/privacy";
+  const parts = text.split(new RegExp(`(${escape(s.company.email)}|${escape(s.privacy.title)}|${escape(esrp)})`));
   return parts.map((part, i) =>
     part === s.company.email ? (
       <a key={i} href={`mailto:${part}`}>
         {part}
+      </a>
+    ) : part === esrp ? (
+      <a key={i} href={part}>
+        {part.replace("https://", "")}
       </a>
     ) : part === s.privacy.title ? (
       <Link key={i} to="/confidentialitate">

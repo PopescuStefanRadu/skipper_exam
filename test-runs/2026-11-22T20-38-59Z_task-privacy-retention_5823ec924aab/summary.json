@@ -1,0 +1,17 @@
+{
+  "started": "2026-11-22T20-38-59Z",
+  "branch": "task/privacy-retention",
+  "commit": "5823ec924aab864bc6aea12ca15bd84f7e63edb0",
+  "ci": false,
+  "suites_requested": [
+    "e2e"
+  ],
+  "suites": [
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 8973
+    }
+  ],
+  "result": "passed"
+}

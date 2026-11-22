@@ -1,0 +1,22 @@
+?   	github.com/PopescuStefanRadu/skipper_exam/cli/content	[no test files]
+?   	github.com/PopescuStefanRadu/skipper_exam/cli/mock-oidc	[no test files]
+?   	github.com/PopescuStefanRadu/skipper_exam/cli/server	[no test files]
+?   	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/account	[no test files]
+?   	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/db	[no test files]
+?   	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/events	[no test files]
+?   	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/profile	[no test files]
+PASS
+ok  	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/review	0.002s
+2026/11/22 22:38:24 INFO account deleted; its esrp.ro account is shared and stays subject=shared
+2026/11/22 22:38:24 INFO account deleted; its esrp.ro account is shared and stays subject=admin
+2026/11/22 22:38:24 INFO account deleted; its esrp.ro account is shared and stays subject=no-group
+PASS
+ok  	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/auth	0.003s
+2026/11/22 22:38:24 ERROR delete account err=down
+2026/11/22 22:38:24 WARN sign-in refused err="bad code"
+PASS
+ok  	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/server	0.004s
+PASS
+ok  	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/content	0.350s
+PASS
+ok  	github.com/PopescuStefanRadu/skipper_exam/pkg/skipperexam/content/rnapdf	0.681s

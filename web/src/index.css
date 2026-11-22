@@ -786,3 +786,122 @@ table.progress thead th.num {
   gap: 0.5rem;
   margin-top: 0.75rem;
 }
+
+/* History and statistics. */
+.badge.pass {
+  background: var(--ok-soft);
+  color: var(--ok);
+  border-color: var(--ok-border);
+}
+.badge.fail {
+  background: var(--bad-soft);
+  color: var(--bad);
+  border-color: var(--bad-border);
+}
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+.filter select {
+  font: inherit;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+}
+/* Bar charts: one series, thin bars with 2px gaps, rounded data ends on a baseline. */
+.chart {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 8rem;
+  margin-top: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.chart.activity {
+  height: 5rem;
+}
+.bar-slot {
+  flex: 1 1 0;
+  max-width: 2rem;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.bar {
+  width: 100%;
+  background: var(--primary);
+  border-radius: 4px 4px 0 0;
+}
+.bar-slot:hover .bar {
+  background: var(--primary-hover);
+}
+.bar.empty {
+  height: 2px;
+  background: var(--border);
+  border-radius: 0;
+}
+.pass-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 2px dashed var(--muted);
+  pointer-events: none;
+}
+.pass-line span {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  padding: 0 0.25rem;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.chart-axis {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin: 0.25rem 0 0.75rem;
+}
+.attempts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.attempts li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border);
+}
+.attempts li:first-child {
+  border-top: 0;
+}
+.attempt-main {
+  display: flex;
+  flex-direction: column;
+}
+.attempt-when {
+  font-weight: 600;
+}
+.attempt-type {
+  color: var(--muted);
+  font-size: 0.925rem;
+}
+.attempt-score {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+}
+/* Daily activity spans the whole width, so its last bar sits above "azi". */
+.chart.activity .bar-slot {
+  max-width: none;
+}

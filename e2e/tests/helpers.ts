@@ -83,3 +83,63 @@ export async function answer(page: Page, pkg: ContentPackage, correctly: boolean
 export async function expectQuestionNumber(page: Page, n: number, total: number) {
   await expect(page.getByText(`Întrebarea ${n} din ${total}`)).toBeVisible();
 }
+
+// Records a whole exam through the API, as the app would after a sync: started at
+// `start`, the first `correct` questions answered right and the rest wrong, then
+// submitted after `minutes` (or abandoned).
+export async function recordExam(
+  page: Page,
+  pkg: ContentPackage,
+  opts: { examType: string; correct: number; start: Date; minutes?: number; abandon?: boolean },
+): Promise<string> {
+  const type = pkg.examTypes.find((t) => t.id === opts.examType)!;
+  const byId = new Map(pkg.questions.map((q) => [q.id, q]));
+  const groups = new Set<string>();
+  const questions: { id: string; order: number[] }[] = [];
+  for (const id of type.questionIds!) {
+    const q = byId.get(id)!;
+    const g = q.group ?? q.id;
+    if (groups.has(g) || q.answers.filter((a) => a.correct).length !== 1) continue;
+    groups.add(g);
+    questions.push({ id, order: q.answers.map((_, i) => i) });
+    if (questions.length === type.format!.questions) break;
+  }
+  const examId = randomUUID();
+  const t = opts.start.getTime();
+  const at = (ms: number) => new Date(t + ms).toISOString();
+  const events: object[] = [
+    {
+      id: randomUUID(),
+      type: "exam.started",
+      at: at(0),
+      data: {
+        examId,
+        examType: type.id,
+        contentVersion: pkg.version,
+        minutes: type.format!.minutes,
+        passPercent: type.format!.passPercent,
+        questions,
+      },
+    },
+  ];
+  questions.forEach(({ id }, i) => {
+    const q = byId.get(id)!;
+    const right = q.answers.findIndex((a) => a.correct);
+    events.push({
+      id: randomUUID(),
+      type: "exam.answered",
+      at: at(1000 * (i + 1)),
+      data: { examId, questionId: id, answer: i < opts.correct ? right : (right + 1) % q.answers.length },
+    });
+  });
+  events.push({
+    id: randomUUID(),
+    type: opts.abandon ? "exam.abandoned" : "exam.submitted",
+    at: at((opts.minutes ?? 20) * 60_000),
+    data: opts.abandon ? { examId } : { examId, reason: "submit" },
+  });
+  const res = await page.request.post("/api/events", { data: { events } });
+  expect(res.ok()).toBeTruthy();
+  return examId;
+}
+

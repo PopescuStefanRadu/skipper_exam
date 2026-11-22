@@ -1,0 +1,23 @@
+{
+  "started": "2026-11-22T20-01-45Z",
+  "branch": "task/legal",
+  "commit": "99efa46b70698301b44f0938725a8f82481b6423",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1992
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 1207
+    }
+  ],
+  "result": "passed"
+}

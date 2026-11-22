@@ -35,6 +35,7 @@ Each feature has its own document. It describes the expected behaviour and the e
 | [Learning and review](features/learning-and-review.md) | Learning mode, "practice my mistakes", coverage and weak topics |
 | [Accounts](features/accounts.md) | Sign-in with Google through esrp.ro's sign-in service, data export and account deletion |
 | [Offline and sync](features/offline-and-sync.md) | Android works without a connection and syncs later |
+| [Privacy policy and terms](features/legal.md) | The operator, what data is kept and why, the user's rights, and the terms of use |
 | [Content](features/content.md) | Question banks, bibliography, question → source links, and how to update them |
 
 ## Technical direction

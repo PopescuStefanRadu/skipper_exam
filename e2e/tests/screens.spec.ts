@@ -30,6 +30,15 @@ test("signed-out screens", async ({ page }) => {
   await screenshot(page, "02-sign-in-failed");
 });
 
+test("privacy policy and terms", async ({ page }) => {
+  await page.goto("/confidentialitate");
+  await expect(page.getByRole("heading", { name: "Politica de confidențialitate" })).toBeVisible();
+  await screenshot(page, "03-privacy");
+  await page.goto("/termeni");
+  await expect(page.getByRole("heading", { name: "Termeni și condiții" })).toBeVisible();
+  await screenshot(page, "04-terms");
+});
+
 test("server unavailable", async ({ page }) => {
   await page.route("**/api/health", (route) => route.abort("connectionrefused"));
   await page.goto("/autentificare");

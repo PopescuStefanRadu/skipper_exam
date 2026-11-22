@@ -1,0 +1,41 @@
+{
+  "started": "2026-11-22T20-39-19Z",
+  "branch": "task/privacy-retention",
+  "commit": "791af00675448f7a50a8b7a00f1de4f5db704454",
+  "ci": false,
+  "suites_requested": [
+    "lint",
+    "go",
+    "e2e",
+    "deploy",
+    "android"
+  ],
+  "suites": [
+    {
+      "name": "lint",
+      "status": "passed",
+      "ms": 1725
+    },
+    {
+      "name": "go",
+      "status": "passed",
+      "ms": 109
+    },
+    {
+      "name": "e2e",
+      "status": "passed",
+      "ms": 19323
+    },
+    {
+      "name": "deploy",
+      "status": "passed",
+      "ms": 58247
+    },
+    {
+      "name": "android",
+      "status": "passed",
+      "ms": 167506
+    }
+  ],
+  "result": "passed"
+}

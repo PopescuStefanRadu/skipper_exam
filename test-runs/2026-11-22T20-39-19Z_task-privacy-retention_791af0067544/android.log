@@ -1,0 +1,217 @@
+ Image skipper-privacy-retention-60adbec1-app Building 
+ Image skipper-privacy-retention-60adbec1-mock-oidc Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.21kB done
+#1 DONE 0.0s
+
+#2 [mock-oidc internal] load build definition from Dockerfile
+#2 transferring dockerfile: 412B done
+#2 DONE 0.0s
+
+#3 [app internal] load build definition from Dockerfile
+#3 transferring dockerfile: 618B done
+#3 DONE 0.0s
+
+#4 [app internal] load metadata for docker.io/library/node:24-alpine
+#4 DONE 0.0s
+
+#5 [app internal] load metadata for docker.io/library/golang:1.24-alpine
+#5 ...
+
+#6 [mock-oidc internal] load metadata for gcr.io/distroless/static-debian12:latest
+#6 DONE 0.4s
+
+#5 [mock-oidc internal] load metadata for docker.io/library/golang:1.24-alpine
+#5 DONE 0.5s
+
+#7 [app internal] load .dockerignore
+#7 transferring context: 148B done
+#7 DONE 0.0s
+
+#8 [app stage-1 1/2] FROM gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2
+#8 resolve gcr.io/distroless/static-debian12:latest@sha256:d75cdd72874d4790092fcb1b058493ecf6bb5bf2b2b897045b00ff01d91843f2 0.0s done
+#8 DONE 0.0s
+
+#9 [app web 1/7] FROM docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
+#9 resolve docker.io/library/node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5 0.0s done
+#9 DONE 0.0s
+
+#10 [app build 1/6] FROM docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191
+#10 resolve docker.io/library/golang:1.24-alpine@sha256:8bee1901f1e530bfb4a7850aa7a479d17ae3a18beb6e09064ed54cfd245b7191 0.0s done
+#10 DONE 0.0s
+
+#11 [mock-oidc internal] load build context
+#11 transferring context: 151B done
+#11 DONE 0.0s
+
+#12 [mock-oidc build 3/6] COPY go.mod go.sum ./
+#12 CACHED
+
+#13 [mock-oidc build 4/6] RUN go mod download
+#13 CACHED
+
+#14 [mock-oidc build 5/6] COPY cli/mock-oidc cli/mock-oidc
+#14 CACHED
+
+#15 [mock-oidc build 2/6] WORKDIR /src
+#15 CACHED
+
+#16 [mock-oidc build 6/6] RUN CGO_ENABLED=0 go build -o /mock-oidc ./cli/mock-oidc
+#16 CACHED
+
+#17 [mock-oidc stage-1 2/2] COPY --from=build /mock-oidc /mock-oidc
+#17 CACHED
+
+#18 [mock-oidc] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:251dab0ef3e0700126d4e7ce43c044831cefb17bf5fb81c899b5a69e7d239413 done
+#18 exporting config sha256:dddba38ecbeba904a868809a2d35a31495d8ab7de226d11114d85a7188553e3b done
+#18 exporting attestation manifest sha256:cc5f57c7a1edb9205bbe6b826ad1980ac39a9b4789a1f9ae39f3aeef6345821a done
+#18 exporting manifest list sha256:6c73519ba9d2ffd50fde10a084bb509ed38f41f4e7095acfd626d4cbb924d98b done
+#18 naming to docker.io/library/skipper-privacy-retention-60adbec1-mock-oidc:latest
+#18 naming to docker.io/library/skipper-privacy-retention-60adbec1-mock-oidc:latest done
+#18 unpacking to docker.io/library/skipper-privacy-retention-60adbec1-mock-oidc:latest done
+#18 DONE 0.1s
+
+#19 [app internal] load build context
+#19 transferring context: 26.84MB 0.2s done
+#19 DONE 0.2s
+
+#20 [app web 6/7] COPY web/ ./
+#20 CACHED
+
+#21 [app web 2/7] RUN corepack enable
+#21 CACHED
+
+#22 [app backend 4/7] RUN go mod download
+#22 CACHED
+
+#23 [app stage-2 2/4] COPY --from=backend /server /server
+#23 CACHED
+
+#24 [app backend 7/7] RUN CGO_ENABLED=0 go build -o /server ./cli/server
+#24 CACHED
+
+#25 [app backend 3/7] COPY go.mod go.sum ./
+#25 CACHED
+
+#15 [app build 2/6] WORKDIR /src
+#15 CACHED
+
+#26 [app backend 5/7] COPY cli cli
+#26 CACHED
+
+#27 [app web 4/7] COPY web/package.json web/pnpm-lock.yaml web/pnpm-workspace.yaml ./
+#27 CACHED
+
+#28 [app web 3/7] WORKDIR /web
+#28 CACHED
+
+#29 [app web 5/7] RUN pnpm install --frozen-lockfile
+#29 CACHED
+
+#30 [app stage-2 3/4] COPY --from=web /web/dist /web
+#30 CACHED
+
+#31 [app backend 6/7] COPY pkg pkg
+#31 CACHED
+
+#32 [app web 7/7] RUN pnpm build
+#32 CACHED
+
+#33 [app stage-2 4/4] COPY content /content
+#33 CACHED
+
+#34 [mock-oidc] resolving provenance for metadata file
+#34 DONE 0.0s
+
+#35 [app] exporting to image
+#35 exporting layers done
+#35 exporting manifest sha256:8c3e20826791cbadb6acb023cc66170d88358a985d95545ed4a6fffb15aec1eb done
+#35 exporting config sha256:0ccf157516687b271fda3d4a7cb8b1c8d225df25f827fe516403b486ff5aa6be done
+#35 exporting attestation manifest sha256:92b6f904edc9c7afdf306001eba1aac19e5048ee73d037192ad31074c08b5d85 done
+#35 exporting manifest list sha256:31c1d69cbd552a0c69e969df9ba23f30ebc3f30d4ab7161a57a4ede80cd7201f done
+#35 naming to docker.io/library/skipper-privacy-retention-60adbec1-app:latest done
+#35 unpacking to docker.io/library/skipper-privacy-retention-60adbec1-app:latest done
+#35 DONE 0.1s
+
+#36 [app] resolving provenance for metadata file
+#36 DONE 0.0s
+ Image skipper-privacy-retention-60adbec1-app Built 
+ Image skipper-privacy-retention-60adbec1-mock-oidc Built 
+ Container skipper-privacy-retention-60adbec1-db-1 Running 
+ Container skipper-privacy-retention-60adbec1-app-1 Recreate 
+ Container skipper-privacy-retention-60adbec1-app-1 Recreated 
+ Container skipper-privacy-retention-60adbec1-mock-oidc-1 Recreate 
+ Container skipper-privacy-retention-60adbec1-mock-oidc-1 Recreated 
+ Container skipper-privacy-retention-60adbec1-db-1 Waiting 
+ Container skipper-privacy-retention-60adbec1-db-1 Healthy 
+ Container skipper-privacy-retention-60adbec1-app-1 Starting 
+ Container skipper-privacy-retention-60adbec1-app-1 Started 
+ Container skipper-privacy-retention-60adbec1-mock-oidc-1 Starting 
+ Container skipper-privacy-retention-60adbec1-mock-oidc-1 Started 
+ Container skipper-privacy-retention-60adbec1-app-1 Waiting 
+ Container skipper-privacy-retention-60adbec1-mock-oidc-1 Waiting 
+ Container skipper-privacy-retention-60adbec1-db-1 Waiting 
+ Container skipper-privacy-retention-60adbec1-mock-oidc-1 Healthy 
+ Container skipper-privacy-retention-60adbec1-db-1 Healthy 
+ Container skipper-privacy-retention-60adbec1-app-1 Healthy 
+STACK_PROJECT=skipper-privacy-retention-60adbec1
+APP_URL=http://127.0.0.1:46435
+DATABASE_URL=postgres://skipper_exam:skipper_exam@127.0.0.1:32773/skipper_exam
+MOCK_OIDC_URL=http://127.0.0.1:45467
+building the app for http://127.0.0.1:46435
+vite v6.0.7 building for production...
+transforming...
+✓ 60 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.40 kB │ gzip:  0.27 kB
+dist/assets/index-DQwweGPg.css   12.60 kB │ gzip:  3.36 kB
+dist/assets/web-BaHJxli8.js       0.38 kB │ gzip:  0.25 kB
+dist/assets/web-BwiDjbI6.js       0.84 kB │ gzip:  0.40 kB
+dist/assets/index-DP6YkgPn.js   228.66 kB │ gzip: 74.46 kB
+✓ built in 427ms
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+built web/android/app/build/outputs/apk/debug/app-debug.apk
+starting the emulator
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+== flow sign-in
+
+Waiting for flows to complete...
+[Passed] sign-in (33s)
+
+1/1 Flow Passed in 33s
+
+== flow offline-exam
+
+Waiting for flows to complete...
+[Passed] offline-exam (13s)
+
+1/1 Flow Passed in 13s
+
+== flow back-online
+
+Waiting for flows to complete...
+[Passed] back-online (5s)
+
+1/1 Flow Passed in 5s
+
+== checking the server received the offline exam
+server has 1 submitted exam(s)
+== flow sign-out
+
+Waiting for flows to complete...
+[Passed] sign-out (5s)
+
+1/1 Flow Passed in 5s
+
+== flow sign-in-again
+
+Waiting for flows to complete...
+[Passed] sign-in-again (21s)
+
+1/1 Flow Passed in 21s
+
